@@ -2,6 +2,40 @@
  "formato": "organizer-novidades",
  "versoes": [
   {
+   "versao": "1.6.0",
+   "data": "2026-10-18",
+   "itens": [
+    {
+     "tipo": "adicionado",
+     "texto": "Avisos: aniversários do calendário no dia (e um dia antes, se quiser), no horário escolhido."
+    },
+    {
+     "tipo": "adicionado",
+     "texto": "Lembrete nas notas: botão ⏰ Lembrete no editor, com dia e hora; o cartão mostra quando vai avisar."
+    },
+    {
+     "tipo": "adicionado",
+     "texto": "Aviso de versão nova e, depois de atualizar, aviso com as novidades."
+    },
+    {
+     "tipo": "adicionado",
+     "texto": "Sininho com a lista de avisos e os próximos (PC: ao lado da versão; celular: Mais → Avisos)."
+    },
+    {
+     "tipo": "adicionado",
+     "texto": "PC: notificação no canto da tela enquanto o Organizer estiver aberto, mesmo minimizado."
+    },
+    {
+     "tipo": "adicionado",
+     "texto": "App Android 1.6.0: avisa no horário mesmo com o app fechado e depois de reiniciar o celular."
+    },
+    {
+     "tipo": "adicionado",
+     "texto": "Configurações → Avisos: ligar ou desligar cada tipo, horário e Testar aviso."
+    }
+   ]
+  },
+  {
    "versao": "1.5.3",
    "data": "2026-10-18",
    "itens": [

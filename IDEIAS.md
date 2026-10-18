@@ -5,7 +5,7 @@
 - O histórico já está pronto em `novidades.json` (e legível em `NOVIDADES.md`).
 - Lugar sugerido: Sincronizar → Atualizações → "Novidades", ou uma função própria no menu.
 
-## 2. Notificações
+## 2. Notificações — ✅ feito na 1.6.0 (aniversários, notas com lembrete e versões). Faltam, se quiser: marcações do calendário, feriados e avisar com o programa do PC fechado.
 **Onde**
 - **Dentro do app (PC e celular):** sininho 🔔 com lista de avisos + avisos rápidos no topo. Só atualização automática.
 - **Windows:** notificação no canto da tela, mesmo minimizado. Para avisar com o programa fechado, ele fica perto do relógio do Windows (opcional: abrir junto com o computador). Precisa baixar o programa completo uma vez.

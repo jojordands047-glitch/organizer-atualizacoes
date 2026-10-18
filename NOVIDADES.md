@@ -2,6 +2,15 @@
 
 ➕ adicionado · 🔧 corrigido · 🔄 mudado · ➖ removido
 
+## 1.6.0 — 18/10/2026
+- ➕ Avisos: aniversários do calendário no dia (e um dia antes, se quiser), no horário escolhido.
+- ➕ Lembrete nas notas: botão ⏰ Lembrete no editor, com dia e hora; o cartão mostra quando vai avisar.
+- ➕ Aviso de versão nova e, depois de atualizar, aviso com as novidades.
+- ➕ Sininho com a lista de avisos e os próximos (PC: ao lado da versão; celular: Mais → Avisos).
+- ➕ PC: notificação no canto da tela enquanto o Organizer estiver aberto, mesmo minimizado.
+- ➕ App Android 1.6.0: avisa no horário mesmo com o app fechado e depois de reiniciar o celular.
+- ➕ Configurações → Avisos: ligar ou desligar cada tipo, horário e Testar aviso.
+
 ## 1.5.3 — 18/10/2026
 - ➕ Novidades: clique no número da versão (canto inferior direito) para ver a lista de todas as versões e o que mudou em cada uma.
 - ➕ Filtros na lista de novidades: Adicionado, Corrigido, Mudado e Removido.
