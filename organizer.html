@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <style>body{margin:0;font:14px system-ui,-apple-system,"Segoe UI",sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Organizer</title>
-<meta name="organizer-versao" content="1.3.9">
+<meta name="organizer-versao" content="1.4.0">
 <link rel="icon" id="favicon" href="data:,">
 <meta name="claude:viewport-fit-sides" content="cover">
 <style>
@@ -1145,6 +1145,18 @@ button.gear[aria-expanded="true"] { color: var(--accent); border-color: var(--ac
 .w-esc-op button small { font-size: .74rem; color: var(--muted); font-weight: 400; }
 .w-esc-op button:hover, .w-esc-op button:focus-visible { transform: translateY(-2px); border-color: var(--accent); box-shadow: 0 8px 24px -10px color-mix(in srgb, var(--accent) 60%, transparent); }
 .w-card.funcoes .w-text, .w-card.funcoes .w-form, .w-card.funcoes #wPadrao { display: none !important; }
+.fx-rodape { display: flex; gap: 18px; justify-content: center; }
+.fx-dica { margin: 0; text-align: center; }
+.w-esc-op.organizando { touch-action: none; }
+.w-esc-op.organizando > button { position: relative; cursor: grab; animation: fxTreme .35s ease-in-out infinite alternate; border-style: dashed; user-select: none; -webkit-user-select: none; }
+.w-esc-op.organizando > button:nth-child(2n) { animation-delay: -.17s; }
+.w-esc-op > button.arrastando { animation: none; cursor: grabbing; opacity: .55; transform: scale(.96); box-shadow: 0 0 0 2px var(--accent); }
+@keyframes fxTreme { from { transform: rotate(-.8deg); } to { transform: rotate(.8deg); } }
+@media (prefers-reduced-motion: reduce) { .w-esc-op.organizando > button { animation: none; } }
+.fx-mover { position: absolute; top: 6px; width: 24px; height: 24px; min-height: 0; padding: 0; border-radius: 50%; display: none; place-items: center; font-size: 1rem; line-height: 1; opacity: .9;
+  background: var(--accent); color: var(--surface); border: 0; z-index: 2; }
+.fx-mover.esq { left: 6px; } .fx-mover.dir { right: 6px; }
+.w-esc-op.organizando .fx-mover { display: grid; }
 .w-esc-sair { background: none; border: 0; color: var(--muted); font-size: .8rem; min-height: 0; padding: 4px 10px; text-decoration: underline; }
 /* calendário como área própria (fora das planilhas) */
 body.cal-pagina .wrap, body.calc-pagina .wrap, body.sync-pagina .wrap { display: none; }
@@ -1727,7 +1739,8 @@ html.troca-festa body, html.troca-festa .grid-box, html.troca-festa .calc, html.
         <button id="wIrTemas" type="button"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 0 18c1.2 0 1.8-.8 1.8-1.7 0-.5-.2-.9-.5-1.2-.3-.3-.5-.7-.5-1.2 0-1 .8-1.7 1.8-1.7H17a4 4 0 0 0 4-4C21 6.6 17 3 12 3z"/><circle cx="7.5" cy="11" r="1.2" fill="currentColor"/><circle cx="10" cy="7" r="1.2" fill="currentColor"/><circle cx="14.5" cy="7" r="1.2" fill="currentColor"/><circle cx="17" cy="11" r="1.2" fill="currentColor"/></svg><b>Temas</b><small>Cores, editor e extras</small></button>
         <button id="wIrCfg" type="button"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><b>Configurações</b><small>Senha, segurança e mais</small></button>
       </div>
-      <button id="wSairEsc" class="w-esc-sair" type="button">Sair</button>
+      <p id="fxDica" class="set-note fx-dica" hidden>Arraste os cartões (ou use ‹ ›) para mudar a ordem.</p>
+      <div class="fx-rodape"><button id="fxOrganizar" class="w-esc-sair" type="button">Organizar</button><button id="wSairEsc" class="w-esc-sair" type="button">Sair</button></div>
     </div>
     <div class="w-foot">
       <div class="w-data"><span id="wDate"></span><div class="relogios rl-linha rl-foot" data-relogio aria-label="Horários de Brasília e Manaus"></div></div>
@@ -2916,7 +2929,7 @@ W.form.addEventListener("submit", e => {
   abreEscolha();
 });
 const wEscolha = document.getElementById("wEscolha");
-const fechaEscolha = () => { document.body.classList.remove("em-funcoes"); emFuncoes = false; document.querySelector("#welcome .w-card").classList.remove("funcoes"); wEscolha.hidden = true; mostraBloqueio(); };
+const fechaEscolha = () => { if (window.funcoesSairOrganizar) window.funcoesSairOrganizar(); document.body.classList.remove("em-funcoes"); emFuncoes = false; document.querySelector("#welcome .w-card").classList.remove("funcoes"); wEscolha.hidden = true; mostraBloqueio(); };
 document.getElementById("wIrPlan").onclick = () => { fechaEscolha(); enter(); };
 document.getElementById("wIrCal").onclick = () => { fechaEscolha(); enter(); window.calPagina && window.calPagina(); };
 document.getElementById("wIrNotas").onclick = () => { fechaEscolha(); enter(); window.notasPagina(true); };
@@ -2985,6 +2998,48 @@ window.syncPagina = on => {
   document.body.classList.toggle("sync-pagina", on !== false); document.getElementById("sincronizar").hidden = on === false;
   if (on !== false) { toggleSettings(false); window.scrollTo(0, 0); document.getElementById("syncVersao").textContent = "v" + ((document.querySelector('meta[name="organizer-versao"]') || {}).content || ""); }
 };
+// ordem do menu Funções: o usuário arrasta os cartões e a ordem fica salva
+(() => {
+  const grade = document.querySelector("#wEscolha .w-esc-op"), btOrg = document.getElementById("fxOrganizar");
+  const cartoes = () => [...grade.children].filter(b => b.id && b.id.startsWith("wIr"));
+  let org = false, arrastando = null;
+  window.funcoesOrdem = () => {
+    const ordem = store.funcoesOrdem || [];
+    [...ordem].reverse().forEach(id => { const b = document.getElementById(id); if (b && b.parentNode === grade) grade.prepend(b); });
+  };
+  const salvar = () => { store.funcoesOrdem = cartoes().map(b => b.id); save(); };
+  cartoes().forEach(b => b.insertAdjacentHTML("beforeend", '<span class="fx-mover esq" data-mover="-1" aria-label="Mover para trás">‹</span><span class="fx-mover dir" data-mover="1" aria-label="Mover para frente">›</span>'));
+  const alterna = on => {
+    org = on; grade.classList.toggle("organizando", on); btOrg.textContent = on ? "Concluir" : "Organizar";
+    document.getElementById("fxDica").hidden = !on; if (!on) salvar();
+  };
+  btOrg.onclick = () => alterna(!org);
+  // enquanto organiza, tocar num cartão não abre a função
+  grade.addEventListener("click", e => {
+    if (!org) return; e.stopPropagation(); e.preventDefault();
+    const m = e.target.closest("[data-mover]"); if (!m) return;
+    const b = m.closest("button"), lista = cartoes().filter(x => !x.hidden), i = lista.indexOf(b), j = i + Number(m.dataset.mover);
+    if (j < 0 || j >= lista.length) return;
+    if (j > i) lista[j].after(b); else lista[j].before(b);
+    salvar();
+  }, true);
+  grade.addEventListener("pointerdown", e => {
+    if (!org || e.target.closest("[data-mover]")) return;
+    const b = e.target.closest("button"); if (!b || b.parentNode !== grade) return;
+    arrastando = b; b.classList.add("arrastando"); try { b.setPointerCapture(e.pointerId); } catch {}
+    e.preventDefault();
+  });
+  grade.addEventListener("pointermove", e => {
+    if (!arrastando) return;
+    const alvo = document.elementsFromPoint(e.clientX, e.clientY).map(x => x.closest && x.closest("button")).find(x => x && x !== arrastando && x.parentNode === grade);
+    if (!alvo) return;
+    const lista = cartoes(); if (lista.indexOf(arrastando) < lista.indexOf(alvo)) alvo.after(arrastando); else alvo.before(arrastando);
+  });
+  const solta = () => { if (!arrastando) return; arrastando.classList.remove("arrastando"); arrastando = null; salvar(); };
+  grade.addEventListener("pointerup", solta); grade.addEventListener("pointercancel", solta);
+  window.funcoesSairOrganizar = () => { if (org) alterna(false); };
+  window.funcoesOrdem();
+})();
 document.getElementById("wIrSync").onclick = () => { fechaEscolha(); enter(); window.syncPagina(true); };
 document.getElementById("abrirSync").onclick = () => { if (document.body.classList.contains("cfg-pagina")) window.cfgPagina(false); if (inMenu()) { enter(); } window.syncPagina(true); };
 document.getElementById("syncFuncoes").onclick = () => irFuncoes();
@@ -4092,7 +4147,7 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
     store = Object.assign(novo, { musicaTocando: store.musicaTocando, active: Math.min(store.active || 0, (novo.tabs || [1]).length - 1) });
     try { localStorage.setItem(KEY, JSON.stringify(store)); } catch {}
     const y = scrollY;
-    try { applyTheme(); renderWelcomeSettings(); renderAvatar(); if (window.atualizaMeuAniver) window.atualizaMeuAniver(); if (window.notasRedesenhar) window.notasRedesenhar(); if (unlocked) { mountTab(); renderTabs(); } else if (inMenu()) welcomeTitle(); } catch (e) { console.warn(e); }
+    try { applyTheme(); renderWelcomeSettings(); renderAvatar(); if (window.atualizaMeuAniver) window.atualizaMeuAniver(); if (window.notasRedesenhar) window.notasRedesenhar(); if (window.funcoesOrdem) window.funcoesOrdem(); if (unlocked) { mountTab(); renderTabs(); } else if (inMenu()) welcomeTitle(); } catch (e) { console.warn(e); }
     scrollTo(0, y);
     if (!el("calendario").hidden) el("calHoje").click();
   }

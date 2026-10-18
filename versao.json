@@ -1,7 +1,7 @@
 {
   "conteudo": {
-    "versao": "1.3.9",
-    "novidades": "Nova função Notas no menu Funções (estilo Google Keep): notas, listas de tarefas, cores, fixar e busca.",
+    "versao": "1.4.0",
+    "novidades": "Menu Funções organizável: toque em Organizar e arraste os cartões para a ordem que quiser.",
     "arquivo": "organizer.html",
     "assinatura": "organizer.html.sig",
     "minimoPrograma": "1.3.0",
