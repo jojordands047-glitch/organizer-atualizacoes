@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <style>body{margin:0;font:14px system-ui,-apple-system,"Segoe UI",sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Organizer</title>
-<meta name="organizer-versao" content="1.3.7">
+<meta name="organizer-versao" content="1.3.8">
 <link rel="icon" id="favicon" href="data:,">
 <meta name="claude:viewport-fit-sides" content="cover">
 <style>
@@ -1152,6 +1152,14 @@ body.cal-pagina .wrap, body.calc-pagina .wrap, body.sync-pagina .wrap { display:
 .sync-area[hidden], body:not(.sync-pagina) .sync-area:not(.cfg-area):not(.tem-area):not(.per-area), body:not(.cfg-pagina) .cfg-area, body:not(.temas-pagina) .tem-area, body:not(.perfil-pagina) .per-area { display: none; }
 body.perfil-pagina .wrap { display: none; }
 .sync-area.per-area:not([hidden]) { display: grid; }
+.chave-linha { display: flex; justify-content: space-between; gap: 12px; font-size: .88rem; border-bottom: 1px solid var(--line); padding: 4px 0; }
+.chave-linha span { color: var(--muted); } .chave-linha b { text-align: right; }
+.chave-ok { color: var(--accent); }
+.chave-mono { font: 600 .78rem var(--mono); letter-spacing: .02em; overflow-wrap: anywhere; }
+.chave-tempo { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; text-align: center; }
+.chave-tempo div { background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 6px 2px; }
+.chave-tempo b { display: block; font: 700 1.2rem var(--mono); color: var(--accent); font-variant-numeric: tabular-nums; }
+.chave-tempo small { font-size: .66rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
 .per-topo { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 6px 0 2px; }
 .per-foto { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent); box-shadow: 0 0 22px color-mix(in srgb, var(--accent) 35%, transparent); }
 .per-vazia { display: grid; place-items: center; font-size: 2.6rem; background: var(--bg); box-sizing: border-box; }
@@ -1737,6 +1745,7 @@ html.troca-festa body, html.troca-festa .grid-box, html.troca-festa .calc, html.
     <div class="set-head"><strong>Configurações</strong><button id="closeSet">Fechar</button></div>
     <span class="set-lbl">Planilhas</span>
     <label class="set-field" for="rowColorsOn"><input id="rowColorsOn" type="checkbox"> Mostrar a opção de cor das linhas</label>
+    <div id="senhaRemovida" hidden>
     <p class="set-note so-menu">Entre com a senha para alterá-la ou excluir abas.</p>
     <div class="set-field so-dentro">
       <label class="set-field" for="wPassOn"><input id="wPassOn" type="checkbox"> Pedir bloqueio ao entrar</label>
@@ -1747,6 +1756,7 @@ html.troca-festa body, html.troca-festa .grid-box, html.troca-festa .calc, html.
         <button id="padraoDefinir" class="small" type="button">Definir padrão</button>
         <div id="padraoNovo" class="padrao" hidden><p class="padrao-dica" id="padraoNovoDica"></p><div id="padraoNovoPad" class="padrao-pad"></div><button id="padraoCancelar" class="small" type="button">Cancelar</button></div>
       </div>
+    </div>
     </div>
     <button id="abrirPerfil" class="small so-dentro">👤 Perfil: foto, apelido e aniversário →</button>
     <button id="abrirTemas" class="small so-dentro">🎨 Temas: cores, editor, temas extras e aniversário →</button>
@@ -1809,6 +1819,19 @@ html.troca-festa body, html.troca-festa .grid-box, html.troca-festa .calc, html.
       <span class="set-lbl">✏️ Apelido</span>
     <label class="set-field" for="wNick">Apelido <input id="wNick" type="text" class="nick" maxlength="30" autocomplete="off" placeholder="Seu apelido"></label>
       <p class="set-note">Aparece na tela de boas-vindas. Nos títulos dos temas, use {apelido} para incluir.</p>
+    </section>
+    <section class="org-area sync-card chave-card">
+      <span class="set-lbl">🔑 Chave de assinatura</span>
+      <p class="set-note">É a chave que garante que as atualizações vieram de verdade do Claude. O Organizer só instala atualizações assinadas por ela.</p>
+      <div class="chave-linha"><span>Situação</span><b class="chave-ok">✓ Ativa</b></div>
+      <div class="chave-linha"><span>Impressão digital</span><b class="chave-mono">31B8 3E03 CE70 5759 293E EEFA A54F 7B94</b></div>
+      <div class="chave-linha"><span>Criada em</span><b>18/10/2026</b></div>
+      <div class="chave-linha"><span>Validade da chave</span><b>Não vence</b></div>
+      <p class="set-note">Ela só precisa ser trocada se for perdida ou se alguém tiver acesso a ela. Por isso guarde-a nas configurações do Claude (variável <b>ORGANIZER_CHAVE_ASSINATURA</b>).</p>
+      <span class="set-lbl">📱 Certificado do app Android</span>
+      <div class="chave-linha"><span>Válido até</span><b>05/03/2054</b></div>
+      <div class="chave-tempo" id="chaveTempo" aria-live="off"></div>
+      <p class="set-note">Depois dessa data, o app precisaria ser instalado de novo com um certificado novo. Os dados continuam.</p>
     </section>
     <section class="org-area sync-card">
       <span class="set-lbl">🎂 Aniversário</span>
@@ -2607,6 +2630,7 @@ document.getElementById("restoreThemes").onclick = () => { store.hiddenThemes = 
 store.welcome ||= { text: "Suas contas, do seu jeito." };
 if (!store.welcome.theme) store.welcome.theme = tab().theme || "verde"; // o menu começa com o tema que já estava aparecendo
 store.pass ||= { on: false, code: "" };
+store.pass.on = false; // a senha e o padrão de entrada foram removidos
 store.themeMenu ||= { roxo: { title: "Bem-vindo ao GoldExpirence" } };
 store.themeMenu.sangue ||= {};
 { const m = store.themeMenu.sangue;
@@ -2837,7 +2861,26 @@ window.perfilPagina = on => {
   document.body.classList.toggle("perfil-pagina", on !== false); document.getElementById("perfilPag").hidden = on === false;
   if (on !== false) { window.scrollTo(0, 0); perfilTopo(); }
 };
+// contagem até o fim do certificado do app (05/03/2054 09:21 UTC)
+(() => {
+  const FIM = Date.UTC(2054, 2, 5, 9, 21, 14), el = document.getElementById("chaveTempo");
+  function conta() {
+    if (!document.body.classList.contains("perfil-pagina")) return;
+    const agora = new Date(); let ms = FIM - agora.getTime();
+    if (ms <= 0) { el.innerHTML = "<div style='grid-column:1/-1'><b>Vencido</b></div>"; return; }
+    // anos e dias de calendário, depois horas e minutos
+    const fim = new Date(FIM); let anos = fim.getUTCFullYear() - agora.getUTCFullYear();
+    const marco = d => new Date(Date.UTC(d.getUTCFullYear() + anos, d.getUTCMonth(), d.getUTCDate(), d.getUTCHours(), d.getUTCMinutes(), d.getUTCSeconds()));
+    if (marco(agora) > fim) anos--;
+    let resto = (FIM - marco(agora).getTime()) / 1000;
+    const dias = Math.floor(resto / 86400); resto -= dias * 86400;
+    const h = Math.floor(resto / 3600), m = Math.floor(resto % 3600 / 60), s = Math.floor(resto % 60);
+    el.innerHTML = [[anos, "anos"], [dias, "dias"], [String(h).padStart(2, "0") + ":" + String(m).padStart(2, "0"), "horas"], [String(s).padStart(2, "0"), "seg"]].map(([v, t]) => `<div><b>${v}</b><small>${t}</small></div>`).join("");
+  }
+  setInterval(conta, 1000); window.chaveConta = conta;
+})();
 function perfilTopo() {
+  if (window.chaveConta) window.chaveConta();
   const f = document.getElementById("perFoto"), av = store.welcome && store.welcome.photo;
   f.hidden = !av; if (av) f.src = av; document.getElementById("perSemFoto").hidden = !!av;
   const nick = (store.welcome && store.welcome.nick || "").trim();
