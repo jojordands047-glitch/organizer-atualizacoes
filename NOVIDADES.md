@@ -2,6 +2,15 @@
 
 ➕ adicionado · 🔧 corrigido · 🔄 mudado · ➖ removido
 
+## 1.8.0 — 18/10/2026
+- ➕ Temas sazonais que entram sozinhos nas datas, com efeitos animados (Temas → Temas sazonais: ligar/desligar e Testar cada um).
+- ➕ 🎄 Natal (1 a 26/12): neve, pisca-pisca, gorro na logo, contagem de dias e trenó no dia 25.
+- ➕ 🎆 Ano Novo (27/12 a 1/1): brilhos dourados e contagem dupla — fogos à meia-noite de Brasília e de novo à meia-noite de Manaus.
+- ➕ 🎭 Carnaval (sexta até a Quarta de Cinzas, calculado todo ano): confete, serpentina e bordas no ritmo do samba.
+- ➕ 🎃 Halloween (25 a 31/10): morcegos, teias com aranha, neblina, abóbora que pisca e um fantasma no dia 31.
+- ➕ 🃏 1º de abril: pegadinhas inofensivas (botão que foge, atualização falsa, saldo milionário, calculadora que erra, cobrança falsa, Comic Sans e relógio pra trás).
+- ➕ 🌽 Arraial (junho): bandeirinhas balançando, fogueira com faíscas e balões.
+
 ## 1.7.1 — 18/10/2026
 - ➖ Função de teste retirada do menu Funções, junto com os dados dela.
 

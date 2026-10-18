@@ -1,9 +1,9 @@
 {
   "conteudo": {
-    "versao": "1.7.1",
-    "novidades": "Função de teste retirada do menu.",
-    "arquivo": "organizer-1.7.1.html",
-    "assinatura": "organizer-1.7.1.html.sig",
+    "versao": "1.8.0",
+    "novidades": "Temas sazonais: Natal, Ano Novo, Carnaval, Halloween, 1º de abril e Arraial.",
+    "arquivo": "organizer-1.8.0.html",
+    "assinatura": "organizer-1.8.0.html.sig",
     "minimoPrograma": "1.3.0",
     "minimoApp": "1.3.0"
   },
