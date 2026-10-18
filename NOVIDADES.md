@@ -2,15 +2,8 @@
 
 ➕ adicionado · 🔧 corrigido · 🔄 mudado · ➖ removido
 
-## 1.7.0 — 18/10/2026
-- ➕ RPG (menu Funções): ficha de Tormenta20 editável, sem internet, com várias fichas, foto e sincronização pelo Wi-Fi.
-- ➕ Atributos com rolagem; opção de anotar só o modificador ou valor + modificador.
-- ➕ As 29 perícias com bônus calculado (metade do nível + atributo + treino + outros − penalidade de armadura) e rolagem com um toque.
-- ➕ PV, PM e Defesa calculada, com botões −/+ para usar na mesa.
-- ➕ Ataques: teste de Luta/Pontaria, dano com atributo, crítico com margem e multiplicador já aplicado.
-- ➕ Magias: círculo, custo em PM, CD calculada, aprimoramentos e botão Lançar (desconta PM e rola o dano).
-- ➕ Poderes, inventário com carga, Tibares, anotações, rolagem livre (ex.: 2d6+3) e histórico de rolagens.
-- ➕ Exportar e importar ficha em arquivo.
+## 1.7.1 — 18/10/2026
+- ➖ Função de teste retirada do menu Funções, junto com os dados dela.
 
 ## 1.6.3 — 18/10/2026
 - 🔄 Procura atualizações a cada 30 minutos e quando você volta para a janela (antes era só ao abrir e a cada 6 horas).

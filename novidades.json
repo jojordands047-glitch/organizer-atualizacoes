@@ -2,40 +2,12 @@
  "formato": "organizer-novidades",
  "versoes": [
   {
-   "versao": "1.7.0",
+   "versao": "1.7.1",
    "data": "2026-10-18",
    "itens": [
     {
-     "tipo": "adicionado",
-     "texto": "RPG (menu Funções): ficha de Tormenta20 editável, sem internet, com várias fichas, foto e sincronização pelo Wi-Fi."
-    },
-    {
-     "tipo": "adicionado",
-     "texto": "Atributos com rolagem; opção de anotar só o modificador ou valor + modificador."
-    },
-    {
-     "tipo": "adicionado",
-     "texto": "As 29 perícias com bônus calculado (metade do nível + atributo + treino + outros − penalidade de armadura) e rolagem com um toque."
-    },
-    {
-     "tipo": "adicionado",
-     "texto": "PV, PM e Defesa calculada, com botões −/+ para usar na mesa."
-    },
-    {
-     "tipo": "adicionado",
-     "texto": "Ataques: teste de Luta/Pontaria, dano com atributo, crítico com margem e multiplicador já aplicado."
-    },
-    {
-     "tipo": "adicionado",
-     "texto": "Magias: círculo, custo em PM, CD calculada, aprimoramentos e botão Lançar (desconta PM e rola o dano)."
-    },
-    {
-     "tipo": "adicionado",
-     "texto": "Poderes, inventário com carga, Tibares, anotações, rolagem livre (ex.: 2d6+3) e histórico de rolagens."
-    },
-    {
-     "tipo": "adicionado",
-     "texto": "Exportar e importar ficha em arquivo."
+     "tipo": "removido",
+     "texto": "Função de teste retirada do menu Funções, junto com os dados dela."
     }
    ]
   },

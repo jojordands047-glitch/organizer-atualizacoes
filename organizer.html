@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <style>body{margin:0;font:14px system-ui,-apple-system,"Segoe UI",sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Organizer</title>
-<meta name="organizer-versao" content="1.7.0">
+<meta name="organizer-versao" content="1.7.1">
 <link rel="icon" id="favicon" href="data:,">
 <meta name="claude:viewport-fit-sides" content="cover">
 <style>
@@ -1161,7 +1161,7 @@ button.gear[aria-expanded="true"] { color: var(--accent); border-color: var(--ac
 /* calendário como área própria (fora das planilhas) */
 body.cal-pagina .wrap, body.calc-pagina .wrap, body.sync-pagina .wrap { display: none; }
 .sync-area { position: relative; z-index: 5; display: grid; place-items: start center; min-height: 100vh; box-sizing: border-box; padding: 16px max(16px, env(safe-area-inset-right, 0px)) 16px max(16px, env(safe-area-inset-left, 0px)); }
-.sync-area[hidden], body:not(.sync-pagina) .sync-area:not(.cfg-area):not(.tem-area):not(.per-area):not(.not-area):not(.rpg-area), body:not(.notas-pagina) .not-area, body:not(.cfg-pagina) .cfg-area, body:not(.temas-pagina) .tem-area, body:not(.perfil-pagina) .per-area { display: none; }
+.sync-area[hidden], body:not(.sync-pagina) .sync-area:not(.cfg-area):not(.tem-area):not(.per-area):not(.not-area), body:not(.notas-pagina) .not-area, body:not(.cfg-pagina) .cfg-area, body:not(.temas-pagina) .tem-area, body:not(.perfil-pagina) .per-area { display: none; }
 body.perfil-pagina .wrap, body.notas-pagina .wrap { display: none; }
 /* Notas: a área de escrita é neutra (escura com texto branco ou branca com texto escuro, conforme o tema) */
 .notas-box { width: min(60rem, 100%); }
@@ -1966,121 +1966,6 @@ body.layout-cel .aviso-toast { bottom: calc(76px + env(safe-area-inset-bottom, 0
 #notaEditor.notas-claro .nota-lembrete input { color-scheme: light; }
 .nota-chip { display: inline-flex; align-items: center; gap: 4px; margin-top: 8px; padding: 3px 8px; border-radius: 99px; font-size: .72rem; border: 1px solid var(--nota-borda); color: var(--nota-sub); }
 .nota-chip.passou { text-decoration: line-through; opacity: .7; }
-/* RPG · ficha de Tormenta20 */
-body:not(.rpg-pagina) .rpg-area { display: none; }
-body.rpg-pagina .wrap { display: none; }
-.sync-box.sync-larga.rpg-box { display: flex !important; flex-direction: column; gap: 12px; }
-#rpgPag .cal-pag-top > #rpgDadosBtn { visibility: visible !important; }
-#rpgPag { min-width: 0; max-width: 100vw; box-sizing: border-box; }
-#rpgPag .rpg-box { min-width: 0; max-width: 100%; box-sizing: border-box; }
-#rpgPag .rpg-box > *, .rpg-corpo > *, .rpg-col > * { min-width: 0; max-width: 100%; }
-body.layout-cel .rpg-grade { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
-body.layout-cel .rpg-topo { grid-template-columns: 1fr; } body.layout-cel .rpg-topo > .rpg-grade { width: 100%; }
-.rpg-barra { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
-.rpg-barra select { flex: 1; min-width: 160px; }
-.rpg-mais { display: flex; flex-direction: column; gap: 10px; padding: 12px; border: 1px solid var(--line); border-radius: 10px; }
-.rpg-mais[hidden] { display: none; }
-.rpg-mais-bts { display: flex; gap: 8px; flex-wrap: wrap; }
-.rpg-modo { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; font-size: .85rem; color: var(--muted); }
-.rpg-abas { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; border-bottom: 1px solid var(--line); }
-.rpg-abas::-webkit-scrollbar { display: none; }
-.rpg-abas button { flex-shrink: 0; padding: 8px 12px; border-radius: 10px 10px 0 0; border: 1px solid transparent; border-bottom: 0; background: transparent; color: var(--muted); font: 600 .85rem var(--sans); cursor: pointer; }
-.rpg-abas button.on { color: var(--fg); background: color-mix(in srgb, var(--accent) 14%, transparent); border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
-.rpg-corpo { display: flex; flex-direction: column; gap: 12px; }
-.rpg-card { border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; background: color-mix(in srgb, var(--bg) 35%, transparent); display: flex; flex-direction: column; gap: 10px; }
-.rpg-card > h4 { margin: 0; font: 700 .7rem var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; gap: 8px; }
-.rpg-card > h4 .rpg-dica { margin-left: auto; text-transform: none; letter-spacing: 0; font-weight: 500; }
-.rpg-dica { font-size: .75rem; color: var(--muted); }
-.rpg-grade { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px 10px; }
-.rpg-campo { display: flex; flex-direction: column; gap: 3px; font-size: .72rem; color: var(--muted); min-width: 0; }
-.rpg-campo input, .rpg-campo select, .rpg-campo textarea, .rpg-inp { width: 100%; box-sizing: border-box; padding: 7px 9px; border-radius: 8px; border: 1px solid var(--line); background: color-mix(in srgb, var(--bg) 55%, transparent); color: var(--fg); font: 500 .9rem var(--sans); min-width: 0; }
-.rpg-campo textarea { min-height: 70px; resize: vertical; line-height: 1.4; }
-.rpg-num { font-family: var(--mono) !important; text-align: center; }
-.rpg-duas { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 12px; align-items: start; }
-.rpg-col { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
-.rpg-topo { display: grid; grid-template-columns: 92px 1fr; gap: 12px; align-items: start; }
-.rpg-foto { width: 92px; height: 92px; border-radius: 14px; border: 1px dashed color-mix(in srgb, var(--accent) 45%, var(--line)); background: color-mix(in srgb, var(--accent) 8%, transparent) center/cover no-repeat; display: grid; place-items: center; font-size: 2rem; cursor: pointer; padding: 0; color: var(--muted); }
-.rpg-atrs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
-.rpg-atr { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 10px 6px 8px; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--line)); background: color-mix(in srgb, var(--accent) 6%, transparent); }
-.rpg-atr > span { font: 700 .68rem var(--sans); letter-spacing: .1em; color: var(--muted); }
-.rpg-atr input { width: 64px; text-align: center; font: 700 1.25rem var(--mono); padding: 4px; border-radius: 8px; border: 1px solid var(--line); background: transparent; color: var(--fg); }
-.rpg-atr .rpg-mod { font: 700 .85rem var(--mono); color: var(--accent); min-height: 1em; }
-.rpg-rolar { display: inline-flex; align-items: center; justify-content: center; gap: 4px; padding: 4px 10px; border-radius: 99px; border: 1px solid color-mix(in srgb, var(--accent) 50%, var(--line)); background: color-mix(in srgb, var(--accent) 12%, transparent); color: var(--fg); font: 700 .78rem var(--mono); cursor: pointer; white-space: nowrap; }
-.rpg-rolar:hover { background: color-mix(in srgb, var(--accent) 28%, transparent); }
-.rpg-recursos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
-.rpg-rec { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 10px 8px; border-radius: 12px; border: 1px solid var(--line); }
-.rpg-rec > span { font: 700 .68rem var(--sans); letter-spacing: .1em; color: var(--muted); }
-.rpg-rec .rpg-barra-vida { width: 100%; height: 6px; border-radius: 99px; background: color-mix(in srgb, var(--line) 70%, transparent); overflow: hidden; }
-.rpg-rec .rpg-barra-vida i { display: block; height: 100%; background: var(--c, var(--accent)); transition: width .2s; }
-.rpg-rec-num { display: flex; align-items: center; gap: 4px; font: 700 1rem var(--mono); }
-.rpg-rec-num input { width: 48px; text-align: center; font: 700 1.05rem var(--mono); padding: 3px; border-radius: 6px; border: 1px solid var(--line); background: transparent; color: var(--fg); }
-.rpg-rec-bts { display: flex; gap: 4px; }
-.rpg-rec-bts button { width: 30px; height: 26px; padding: 0; border-radius: 8px; border: 1px solid var(--line); background: transparent; color: var(--fg); font: 700 .95rem var(--mono); cursor: pointer; }
-.rpg-def-num { font: 800 1.9rem var(--mono); color: var(--accent); line-height: 1; }
-.rpg-pers { display: flex; flex-direction: column; }
-.rpg-per { display: grid; grid-template-columns: 22px minmax(0, 1fr) 54px 46px 64px; gap: 6px; align-items: center; padding: 4px 2px; border-bottom: 1px solid color-mix(in srgb, var(--line) 55%, transparent); font-size: .86rem; }
-.rpg-per:last-child { border-bottom: 0; }
-.rpg-per input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--accent); margin: 0; }
-.rpg-per .rpg-per-nome { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.rpg-per .rpg-per-nome small { color: var(--muted); font-size: .68rem; margin-left: 4px; }
-.rpg-per select, .rpg-per input[type="number"] { padding: 3px 2px; font-size: .78rem; border-radius: 6px; border: 1px solid var(--line); background: transparent; color: var(--fg); width: 100%; box-sizing: border-box; text-align: center; }
-.rpg-per.treinado .rpg-per-nome { color: var(--fg); font-weight: 600; }
-.rpg-per:not(.treinado) .rpg-per-nome { color: color-mix(in srgb, var(--fg) 75%, var(--muted)); }
-.rpg-per-cab { font: 700 .62rem var(--sans) !important; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--line) !important; }
-.rpg-lista { display: flex; flex-direction: column; gap: 10px; }
-.rpg-item { border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; display: flex; flex-direction: column; gap: 8px; background: color-mix(in srgb, var(--surface) 70%, transparent); }
-.rpg-item-cab { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.rpg-item-cab .rpg-inp { flex: 1; min-width: 140px; font-weight: 700; }
-.rpg-x { width: 30px; height: 30px; padding: 0; border-radius: 8px; border: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer; flex-shrink: 0; }
-.rpg-x:hover { color: var(--danger); border-color: var(--danger); }
-.rpg-add { align-self: flex-start; }
-.rpg-tag { font: 700 .7rem var(--mono); padding: 3px 8px; border-radius: 99px; background: color-mix(in srgb, var(--accent) 16%, transparent); color: var(--accent); white-space: nowrap; }
-.rpg-aprims { display: flex; flex-direction: column; gap: 6px; padding: 8px; border-radius: 10px; border: 1px dashed var(--line); }
-.rpg-aprim { display: grid; grid-template-columns: 20px minmax(0, 1fr) 70px 100px 30px; gap: 6px; align-items: center; }
-.rpg-aprim input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--accent); margin: 0; }
-.rpg-lancar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-.rpg-inv { display: grid; grid-template-columns: minmax(0, 1fr) 60px 70px 30px; gap: 6px; align-items: center; }
-.rpg-carga { display: flex; align-items: center; gap: 10px; font-size: .85rem; }
-.rpg-carga .rpg-barra-vida { flex: 1; height: 8px; border-radius: 99px; background: color-mix(in srgb, var(--line) 70%, transparent); overflow: hidden; }
-.rpg-carga .rpg-barra-vida i { display: block; height: 100%; background: var(--accent); }
-.rpg-carga.pesado .rpg-barra-vida i { background: var(--danger); }
-.rpg-vazio { color: var(--muted); font-size: .85rem; text-align: center; padding: 14px 0; }
-/* resultado da rolagem */
-.rpg-rolagem { position: fixed; z-index: 78; left: 50%; bottom: calc(var(--dock-h, 66px) + 44px); transform: translate(-50%, 16px) scale(.96); opacity: 0; transition: transform .22s, opacity .22s; width: min(380px, calc(100vw - 32px)); box-sizing: border-box;
-  padding: 14px 16px; border-radius: 16px; background: var(--surface); color: var(--fg); border: 1px solid color-mix(in srgb, var(--accent) 60%, var(--line)); box-shadow: 0 0 34px color-mix(in srgb, var(--accent) 30%, transparent), 0 16px 44px rgba(0,0,0,.5); display: flex; gap: 14px; align-items: center; cursor: pointer; }
-.rpg-rolagem.aberto { transform: translate(-50%, 0) scale(1); opacity: 1; }
-.rpg-rolagem[hidden] { display: none; }
-.rpg-rolagem .rpg-total { min-width: 64px; height: 64px; border-radius: 14px; display: grid; place-items: center; font: 800 1.9rem var(--mono); color: var(--bg); background: var(--accent); flex-shrink: 0; padding: 0 6px; box-sizing: border-box; }
-.rpg-rolagem.nat20 .rpg-total { background: linear-gradient(135deg, #ffd34d, #ff9f1c); box-shadow: 0 0 24px rgba(255,200,60,.7); }
-.rpg-rolagem.nat1 .rpg-total { background: var(--danger); color: #fff; }
-.rpg-rolagem b { display: block; font-size: .95rem; }
-.rpg-rolagem small { display: block; color: var(--muted); font: 500 .78rem var(--mono); margin-top: 3px; line-height: 1.45; word-break: break-word; }
-.rpg-rolagem em { display: inline-block; margin-top: 4px; font: 800 .7rem var(--sans); letter-spacing: .08em; text-transform: uppercase; font-style: normal; }
-.rpg-rolagem.nat20 em { color: #ffc83d; } .rpg-rolagem.nat1 em { color: var(--danger); }
-.rpg-rolagem.gira .rpg-total { animation: rpgGira .45s cubic-bezier(.2,1.4,.4,1); }
-@keyframes rpgGira { from { transform: rotate(-200deg) scale(.4); } to { transform: none; } }
-/* histórico e rolagem livre */
-.rpg-log { position: fixed; z-index: 77; right: 16px; top: 70px; width: min(360px, calc(100vw - 32px)); max-height: calc(100vh - 160px); box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; padding: 14px;
-  border-radius: 16px; background: var(--surface); color: var(--fg); border: 1px solid color-mix(in srgb, var(--accent) 50%, var(--line)); box-shadow: 0 16px 44px rgba(0,0,0,.5); }
-.rpg-log[hidden] { display: none; }
-.rpg-log-cab { display: flex; align-items: center; gap: 8px; }
-.rpg-log-cab b { flex: 1; }
-.rpg-livre { display: flex; gap: 6px; }
-.rpg-livre input { flex: 1; min-width: 0; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--line); background: transparent; color: var(--fg); font: 600 .9rem var(--mono); }
-.rpg-rapidos { display: flex; flex-wrap: wrap; gap: 6px; }
-.rpg-rapidos button { padding: 4px 9px; border-radius: 8px; border: 1px solid var(--line); background: transparent; color: var(--fg); font: 700 .75rem var(--mono); cursor: pointer; }
-.rpg-rapidos button:hover { border-color: var(--accent); color: var(--accent); }
-.rpg-log-lista { overflow-y: auto; display: flex; flex-direction: column; gap: 6px; min-height: 40px; }
-.rpg-log-item { display: flex; gap: 10px; align-items: center; padding: 8px 10px; border-radius: 10px; border: 1px solid var(--line); }
-.rpg-log-item .n { min-width: 40px; text-align: center; font: 800 1.05rem var(--mono); color: var(--accent); }
-.rpg-log-item.nat20 .n { color: #ffc83d; } .rpg-log-item.nat1 .n { color: var(--danger); }
-.rpg-log-item b { display: block; font-size: .84rem; }
-.rpg-log-item small { display: block; color: var(--muted); font: 500 .72rem var(--mono); word-break: break-word; }
-body.layout-cel .rpg-duas { grid-template-columns: 1fr; }
-body.layout-cel .rpg-rolagem { bottom: calc(80px + env(safe-area-inset-bottom, 0px)); }
-body.layout-cel .rpg-log { left: 12px; right: 12px; width: auto; top: auto; bottom: calc(76px + env(safe-area-inset-bottom, 0px)); max-height: 70vh; }
-@media (max-width: 560px) { .rpg-per { grid-template-columns: 20px minmax(0, 1fr) 48px 40px 58px; } .rpg-aprim { grid-template-columns: 20px minmax(0, 1fr) 60px; } .rpg-aprim > :nth-child(4) { grid-column: 2 / 4; } .rpg-aprim > .rpg-x { display: none; } }
-@media (prefers-reduced-motion: reduce) { .rpg-rolagem, .rpg-rolagem.gira .rpg-total { transition: none; animation: none; } }
 </style>
 <style id="temasExtrasCss"></style>
 
@@ -2105,7 +1990,6 @@ body.layout-cel .rpg-log { left: 12px; right: 12px; width: auto; top: auto; bott
         <button id="wIrCalc" type="button"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2.5" width="14" height="19" rx="2.5"/><rect x="8" y="5.5" width="8" height="4" rx="1"/><path d="M8.5 13h.01M12 13h.01M15.5 13h.01M8.5 16.5h.01M12 16.5h.01M15.5 16.5h.01"/></svg><b>Calculadora</b><small>Contas rápidas</small></button>
         <button id="wIrSync" type="button"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8.8a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16.1a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1" fill="currentColor"/></svg><b>Sincronizar</b><small>Celular ⇄ computador</small></button>
         <button id="wIrNotas" type="button"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg><b>Notas</b><small>Lembretes e listas</small></button>
-        <button id="wIrRpg" type="button"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5l8.5 4.9v9.2L12 21.5l-8.5-4.9V7.4z"/><path d="M12 2.5L7.5 9.8h9zM7.5 9.8L3.5 16.6M16.5 9.8l4 6.8M7.5 9.8L12 21.5l4.5-11.7M3.6 7.4l3.9 2.4M20.4 7.4l-3.9 2.4"/></svg><b>RPG</b><small>Ficha de Tormenta20</small></button>
         <button id="wIrPerfil" type="button"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><b>Perfil</b><small>Foto, apelido e aniversário</small></button>
         <button id="wIrTemas" type="button"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 0 18c1.2 0 1.8-.8 1.8-1.7 0-.5-.2-.9-.5-1.2-.3-.3-.5-.7-.5-1.2 0-1 .8-1.7 1.8-1.7H17a4 4 0 0 0 4-4C21 6.6 17 3 12 3z"/><circle cx="7.5" cy="11" r="1.2" fill="currentColor"/><circle cx="10" cy="7" r="1.2" fill="currentColor"/><circle cx="14.5" cy="7" r="1.2" fill="currentColor"/><circle cx="17" cy="11" r="1.2" fill="currentColor"/></svg><b>Temas</b><small>Cores, editor e extras</small></button>
         <button id="wIrCfg" type="button"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><b>Configurações</b><small>Senha, segurança e mais</small></button>
@@ -2271,32 +2155,6 @@ body.layout-cel .rpg-log { left: 12px; right: 12px; width: auto; top: auto; bott
   </div>
   <div id="notaAviso" class="nota-aviso" hidden><span>Nota apagada.</span><button id="notaDesfazer" type="button" class="small">Desfazer</button></div>
 </section>
-<section id="rpgPag" class="sync-area rpg-area" aria-label="RPG" hidden>
-  <div class="calc-box sync-box sync-larga rpg-box"><i class="beam" aria-hidden="true"></i>
-    <div class="cal-pag-top"><button id="rpgFuncoes" class="small" aria-label="Voltar ao menu de funções"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg> Funções</button><strong>RPG · Tormenta20</strong><button id="rpgDadosBtn" class="small">🎲 Rolagens</button></div>
-    <div class="rpg-barra">
-      <select id="rpgFicha" aria-label="Personagem"></select>
-      <button id="rpgNova" class="small" type="button">+ Nova ficha</button>
-      <button id="rpgMaisBtn" class="small" type="button" aria-expanded="false">⋯ Opções</button>
-    </div>
-    <div id="rpgMais" class="rpg-mais" hidden>
-      <label class="rpg-modo">Atributos: <select id="rpgModo"><option value="mod">Só modificador (ex.: Força 2)</option><option value="valor">Valor + modificador (ex.: Força 14 → +2)</option></select></label>
-      <div class="rpg-mais-bts"><button id="rpgDuplicar" class="small" type="button">Duplicar</button><button id="rpgExportar" class="small" type="button">Exportar</button><button id="rpgImportarBtn" class="small" type="button">Importar</button><button id="rpgApagar" class="small danger" type="button">Apagar ficha</button></div>
-      <input id="rpgImportar" type="file" accept=".json,application/json" hidden>
-    </div>
-    <nav class="rpg-abas" id="rpgAbas" role="tablist">
-      <button type="button" data-aba="ficha" class="on">📜 Ficha</button><button type="button" data-aba="combate">⚔️ Combate</button><button type="button" data-aba="magias">✨ Magias</button><button type="button" data-aba="poderes">🌟 Poderes</button><button type="button" data-aba="inventario">🎒 Inventário</button><button type="button" data-aba="notas">📝 Notas</button>
-    </nav>
-    <div id="rpgCorpo" class="rpg-corpo"></div>
-  </div>
-</section>
-<div id="rpgRolagem" class="rpg-rolagem" role="status" aria-live="polite" hidden></div>
-<div id="rpgLog" class="rpg-log" role="dialog" aria-label="Rolagens" hidden>
-  <div class="rpg-log-cab"><b>🎲 Rolagens</b><button type="button" id="rpgLogLimpar" class="small">Limpar</button><button type="button" id="rpgLogFechar" class="small" aria-label="Fechar">✕</button></div>
-  <form id="rpgLivre" class="rpg-livre" autocomplete="off"><input id="rpgLivreExpr" type="text" placeholder="Ex.: 2d6+3, 1d20+5, 4d6" aria-label="Rolagem livre"><button type="submit" class="small primary">Rolar</button></form>
-  <div class="rpg-rapidos" id="rpgRapidos"></div>
-  <div id="rpgLogLista" class="rpg-log-lista"></div>
-</div>
 <section id="perfilPag" class="sync-area per-area" aria-label="Perfil" hidden>
   <div class="calc-box sync-box sync-larga"><i class="beam" aria-hidden="true"></i>
     <div class="cal-pag-top"><button id="perFuncoes" class="small" aria-label="Voltar ao menu de funções"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg> Funções</button><strong>Perfil</strong><button id="perParaPlan" class="small">Planilhas →</button></div>
@@ -2526,7 +2384,7 @@ body.layout-cel .rpg-log { left: 12px; right: 12px; width: auto; top: auto; bott
     <div class="nov-lista" id="novLista"></div>
   </div>
 </div>
-<script type="application/json" id="novidadesDados">{"formato":"organizer-novidades","versoes":[{"versao":"1.7.0","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"RPG (menu Funções): ficha de Tormenta20 editável, sem internet, com várias fichas, foto e sincronização pelo Wi-Fi."},{"tipo":"adicionado","texto":"Atributos com rolagem; opção de anotar só o modificador ou valor + modificador."},{"tipo":"adicionado","texto":"As 29 perícias com bônus calculado (metade do nível + atributo + treino + outros − penalidade de armadura) e rolagem com um toque."},{"tipo":"adicionado","texto":"PV, PM e Defesa calculada, com botões −/+ para usar na mesa."},{"tipo":"adicionado","texto":"Ataques: teste de Luta/Pontaria, dano com atributo, crítico com margem e multiplicador já aplicado."},{"tipo":"adicionado","texto":"Magias: círculo, custo em PM, CD calculada, aprimoramentos e botão Lançar (desconta PM e rola o dano)."},{"tipo":"adicionado","texto":"Poderes, inventário com carga, Tibares, anotações, rolagem livre (ex.: 2d6+3) e histórico de rolagens."},{"tipo":"adicionado","texto":"Exportar e importar ficha em arquivo."}]},{"versao":"1.6.3","data":"2026-10-18","itens":[{"tipo":"mudado","texto":"Procura atualizações a cada 30 minutos e quando você volta para a janela (antes era só ao abrir e a cada 6 horas)."}]},{"versao":"1.6.2","data":"2026-10-18","itens":[{"tipo":"corrigido","texto":"O sininho não abria a lista de notificações (as telas ficavam por cima dele)."},{"tipo":"mudado","texto":"Sininho aparece em todas as telas, inclusive boas-vindas e menu Funções."}]},{"versao":"1.6.1","data":"2026-10-18","itens":[{"tipo":"mudado","texto":"Sininho de notificações maior, no canto superior direito (não fica mais em cima da versão)."},{"tipo":"corrigido","texto":"Sininho deformado em alguns temas."},{"tipo":"mudado","texto":"Configurações → Notificações reorganizada: cada tipo numa linha com chave liga/desliga, explicação curta e opções do aniversário agrupadas."}]},{"versao":"1.6.0","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Avisos: aniversários do calendário no dia (e um dia antes, se quiser), no horário escolhido."},{"tipo":"adicionado","texto":"Lembrete nas notas: botão ⏰ Lembrete no editor, com dia e hora; o cartão mostra quando vai avisar."},{"tipo":"adicionado","texto":"Aviso de versão nova e, depois de atualizar, aviso com as novidades."},{"tipo":"adicionado","texto":"Sininho com a lista de avisos e os próximos (PC: ao lado da versão; celular: Mais → Avisos)."},{"tipo":"adicionado","texto":"PC: notificação no canto da tela enquanto o Organizer estiver aberto, mesmo minimizado."},{"tipo":"adicionado","texto":"App Android 1.6.0: avisa no horário mesmo com o app fechado e depois de reiniciar o celular."},{"tipo":"adicionado","texto":"Configurações → Avisos: ligar ou desligar cada tipo, horário e Testar aviso."}]},{"versao":"1.5.3","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Novidades: clique no número da versão (canto inferior direito) para ver a lista de todas as versões e o que mudou em cada uma."},{"tipo":"adicionado","texto":"Filtros na lista de novidades: Adicionado, Corrigido, Mudado e Removido."},{"tipo":"adicionado","texto":"Link \"ver novidades\" em Sincronizar, ao lado da versão em uso (funciona também no celular)."}]},{"versao":"1.5.2","data":"2026-10-18","itens":[{"tipo":"mudado","texto":"Barras de rolagem na cor do tema, finas e arredondadas."},{"tipo":"adicionado","texto":"Botão Boas-vindas na barra de baixo (PC) e na folha Mais (celular)."},{"tipo":"corrigido","texto":"Barra de rolagem saía da janela e passava por trás da barra de baixo."},{"tipo":"corrigido","texto":"Brilho animado das bordas desalinhado em mais algumas caixas."}]},{"versao":"1.5.1","data":"2026-10-18","itens":[{"tipo":"mudado","texto":"PC: todas as telas numa janela de tamanho fixo (mesma largura e altura); o conteúdo rola por dentro."},{"tipo":"mudado","texto":"PC: a barra de funções saiu da lateral e fica na parte de baixo da janela; só a logo e a versão ficam fora."},{"tipo":"mudado","texto":"Calculadora maior no PC: teclado grande à esquerda e histórico à direita."},{"tipo":"mudado","texto":"Número da versão mais destacado, na cor do tema."},{"tipo":"adicionado","texto":"F12 coloca em tela cheia; Esc sai."},{"tipo":"corrigido","texto":"Brilho animado das bordas desalinhado em algumas janelas e nas caixas das planilhas."},{"tipo":"corrigido","texto":"Relógios da calculadora apareciam sem a hora."},{"tipo":"corrigido","texto":"Alinhamento vertical de vários itens (linhas de opções, topos das telas e barras)."}]},{"versao":"1.5.0","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Layout do PC: barra lateral com todas as funções (na ordem que você escolheu)."},{"tipo":"adicionado","texto":"Layout do celular: barra de navegação embaixo (3 funções + \"Mais\") e folha \"Mais\" que sobe de baixo."},{"tipo":"adicionado","texto":"Fotos de perfil recentes (como no Discord): as últimas 6 ficam salvas para usar de novo; aceita GIF animado."},{"tipo":"adicionado","texto":"Celular: transições ao trocar de tela, deslizar da borda para voltar, deslizar no calendário para trocar de mês, vibração leve e volta para a última tela ao entrar."},{"tipo":"adicionado","texto":"App Android: o botão Voltar volta para a tela anterior em vez de fechar o app (precisa do APK 1.5.0)."},{"tipo":"mudado","texto":"Todas as telas alinhadas, com largura padrão; telas com pouca informação ficam num retângulo centralizado."},{"tipo":"mudado","texto":"Impressão digital da chave fica oculta até tocar em \"Mostrar\" (como a chave da Twitch)."},{"tipo":"mudado","texto":"Celular: animações de fundo pausam enquanto você rola a tela, para ficar mais leve."}]},{"versao":"1.4.1","data":"2026-10-18","itens":[{"tipo":"mudado","texto":"O tema agora vale para tudo (planilhas, menu e telas); saiu a escolha por lugar."},{"tipo":"mudado","texto":"Telas de Temas, Perfil e Sincronizar mais largas, com cartões lado a lado no computador."},{"tipo":"mudado","texto":"Botão \"Procurar atualizações\" maior e em destaque."},{"tipo":"adicionado","texto":"Seções do Perfil podem ser minimizadas (o aparelho lembra quais ficaram fechadas)."}]},{"versao":"1.4.0","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Menu Funções organizável: botão \"Organizar\", arrastar os cartões ou usar as setas ‹ ›."}]},{"versao":"1.3.9","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Notas (estilo Google Keep): notas, listas de tarefas, 11 cores, fixar, busca e desfazer ao apagar."}]},{"versao":"1.3.8","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Aba \"Chave de assinatura\" no Perfil, com cronômetro do certificado do app."},{"tipo":"mudado","texto":"Senha e padrão de entrada removidos."}]},{"versao":"1.3.7","data":"2026-10-18","itens":[{"tipo":"mudado","texto":"Simplificação: casinha leva ao menu Funções; botões de tema e ⚙ abrem as telas próprias; um só \"Restaurar\"; excluir aba só pelo X; temas com \"Esta aba / Tela inicial / Tudo\"; opções avançadas escondidas."},{"tipo":"removido","texto":"\"Novas funções em breve\", \"salvo neste aparelho\" e código antigo da nuvem."}]},{"versao":"1.3.6","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Tela Perfil: foto, apelido e aniversário."},{"tipo":"mudado","texto":"Engrenagem saiu da tela de boas-vindas."}]},{"versao":"1.3.5","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Tela Temas, com todas as opções de tema."}]},{"versao":"1.3.4","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Tela Configurações."},{"tipo":"mudado","texto":"Engrenagem saiu do canto do menu Funções."}]},{"versao":"1.3.3","data":"2026-10-18","itens":[{"tipo":"corrigido","texto":"Número da versão no canto não acompanhava as atualizações."}]},{"versao":"1.3.2","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Tela Sincronizar: Wi-Fi, atualizações e cópia dos dados."}]},{"versao":"1.3.1","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Cronômetro de expiração do QR de pareamento."},{"tipo":"adicionado","texto":"Campo \"Meu aniversário\"."},{"tipo":"mudado","texto":"Data de nascimento saiu do código público."}]},{"versao":"1.3.0","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Atualização automática pelo GitHub, com assinatura digital e \"Voltar versão anterior\"."}]},{"versao":"1.2.2","data":"2026-10-18","itens":[{"tipo":"corrigido","texto":"\"QR expirou\" ao parear: a diferença de relógio entre PC e celular era recusada."},{"tipo":"mudado","texto":"Mensagens de erro do pareamento mais claras."}]},{"versao":"1.2.1","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Botão Sincronizar no menu Funções (a opção estava difícil de achar no app)."}]},{"versao":"1.2.0","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Sincronização pelo Wi-Fi com QR code e criptografia."},{"tipo":"mudado","texto":"Substituiu a sincronização pela nuvem."}]},{"versao":"1.1.1","data":"2026-10-18","itens":[{"tipo":"corrigido","texto":"A sincronização na nuvem baixava tudo a cada 20 segundos; passou a checar só quando há mudança."}]},{"versao":"1.1.0","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"App Android."},{"tipo":"adicionado","texto":"Sincronização pela nuvem (Supabase)."},{"tipo":"adicionado","texto":"Número da versão no canto."},{"tipo":"adicionado","texto":"Tema de aniversário com animação de parabéns e confetes no calendário."},{"tipo":"adicionado","texto":"Menu Funções."},{"tipo":"adicionado","texto":"Calculadora."},{"tipo":"adicionado","texto":"Relógios de Brasília e Manaus."}]},{"versao":"1.0.3","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Calendário: repetir marcações, aniversários 🎂, ícones nos dias e feriados de Brasil, Amazonas e Manaus."},{"tipo":"adicionado","texto":"Calendário em tela própria."},{"tipo":"adicionado","texto":"Escolha entre Planilhas e Calendário depois de entrar."},{"tipo":"adicionado","texto":"Desbloqueio por padrão."},{"tipo":"adicionado","texto":"Ícone do Organizer no canto e na aba do navegador."}]},{"versao":"1.0.2","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Tema Música já incluído no programa, com escolha de cor."},{"tipo":"mudado","texto":"Temas importados vão direto para a área de temas."}]},{"versao":"1.0.1","data":"2026-10-18","itens":[{"tipo":"mudado","texto":"Versão de teste do sistema de atualização por arquivo."}]},{"versao":"1.0.0","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Primeira versão do programa do Windows: importar tema, exportar/importar dados e atualização por arquivo."}]}]}</script>
+<script type="application/json" id="novidadesDados">{"formato":"organizer-novidades","versoes":[{"versao":"1.7.1","data":"2026-10-18","itens":[{"tipo":"removido","texto":"Função de teste retirada do menu Funções, junto com os dados dela."}]},{"versao":"1.6.3","data":"2026-10-18","itens":[{"tipo":"mudado","texto":"Procura atualizações a cada 30 minutos e quando você volta para a janela (antes era só ao abrir e a cada 6 horas)."}]},{"versao":"1.6.2","data":"2026-10-18","itens":[{"tipo":"corrigido","texto":"O sininho não abria a lista de notificações (as telas ficavam por cima dele)."},{"tipo":"mudado","texto":"Sininho aparece em todas as telas, inclusive boas-vindas e menu Funções."}]},{"versao":"1.6.1","data":"2026-10-18","itens":[{"tipo":"mudado","texto":"Sininho de notificações maior, no canto superior direito (não fica mais em cima da versão)."},{"tipo":"corrigido","texto":"Sininho deformado em alguns temas."},{"tipo":"mudado","texto":"Configurações → Notificações reorganizada: cada tipo numa linha com chave liga/desliga, explicação curta e opções do aniversário agrupadas."}]},{"versao":"1.6.0","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Avisos: aniversários do calendário no dia (e um dia antes, se quiser), no horário escolhido."},{"tipo":"adicionado","texto":"Lembrete nas notas: botão ⏰ Lembrete no editor, com dia e hora; o cartão mostra quando vai avisar."},{"tipo":"adicionado","texto":"Aviso de versão nova e, depois de atualizar, aviso com as novidades."},{"tipo":"adicionado","texto":"Sininho com a lista de avisos e os próximos (PC: ao lado da versão; celular: Mais → Avisos)."},{"tipo":"adicionado","texto":"PC: notificação no canto da tela enquanto o Organizer estiver aberto, mesmo minimizado."},{"tipo":"adicionado","texto":"App Android 1.6.0: avisa no horário mesmo com o app fechado e depois de reiniciar o celular."},{"tipo":"adicionado","texto":"Configurações → Avisos: ligar ou desligar cada tipo, horário e Testar aviso."}]},{"versao":"1.5.3","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Novidades: clique no número da versão (canto inferior direito) para ver a lista de todas as versões e o que mudou em cada uma."},{"tipo":"adicionado","texto":"Filtros na lista de novidades: Adicionado, Corrigido, Mudado e Removido."},{"tipo":"adicionado","texto":"Link \"ver novidades\" em Sincronizar, ao lado da versão em uso (funciona também no celular)."}]},{"versao":"1.5.2","data":"2026-10-18","itens":[{"tipo":"mudado","texto":"Barras de rolagem na cor do tema, finas e arredondadas."},{"tipo":"adicionado","texto":"Botão Boas-vindas na barra de baixo (PC) e na folha Mais (celular)."},{"tipo":"corrigido","texto":"Barra de rolagem saía da janela e passava por trás da barra de baixo."},{"tipo":"corrigido","texto":"Brilho animado das bordas desalinhado em mais algumas caixas."}]},{"versao":"1.5.1","data":"2026-10-18","itens":[{"tipo":"mudado","texto":"PC: todas as telas numa janela de tamanho fixo (mesma largura e altura); o conteúdo rola por dentro."},{"tipo":"mudado","texto":"PC: a barra de funções saiu da lateral e fica na parte de baixo da janela; só a logo e a versão ficam fora."},{"tipo":"mudado","texto":"Calculadora maior no PC: teclado grande à esquerda e histórico à direita."},{"tipo":"mudado","texto":"Número da versão mais destacado, na cor do tema."},{"tipo":"adicionado","texto":"F12 coloca em tela cheia; Esc sai."},{"tipo":"corrigido","texto":"Brilho animado das bordas desalinhado em algumas janelas e nas caixas das planilhas."},{"tipo":"corrigido","texto":"Relógios da calculadora apareciam sem a hora."},{"tipo":"corrigido","texto":"Alinhamento vertical de vários itens (linhas de opções, topos das telas e barras)."}]},{"versao":"1.5.0","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Layout do PC: barra lateral com todas as funções (na ordem que você escolheu)."},{"tipo":"adicionado","texto":"Layout do celular: barra de navegação embaixo (3 funções + \"Mais\") e folha \"Mais\" que sobe de baixo."},{"tipo":"adicionado","texto":"Fotos de perfil recentes (como no Discord): as últimas 6 ficam salvas para usar de novo; aceita GIF animado."},{"tipo":"adicionado","texto":"Celular: transições ao trocar de tela, deslizar da borda para voltar, deslizar no calendário para trocar de mês, vibração leve e volta para a última tela ao entrar."},{"tipo":"adicionado","texto":"App Android: o botão Voltar volta para a tela anterior em vez de fechar o app (precisa do APK 1.5.0)."},{"tipo":"mudado","texto":"Todas as telas alinhadas, com largura padrão; telas com pouca informação ficam num retângulo centralizado."},{"tipo":"mudado","texto":"Impressão digital da chave fica oculta até tocar em \"Mostrar\" (como a chave da Twitch)."},{"tipo":"mudado","texto":"Celular: animações de fundo pausam enquanto você rola a tela, para ficar mais leve."}]},{"versao":"1.4.1","data":"2026-10-18","itens":[{"tipo":"mudado","texto":"O tema agora vale para tudo (planilhas, menu e telas); saiu a escolha por lugar."},{"tipo":"mudado","texto":"Telas de Temas, Perfil e Sincronizar mais largas, com cartões lado a lado no computador."},{"tipo":"mudado","texto":"Botão \"Procurar atualizações\" maior e em destaque."},{"tipo":"adicionado","texto":"Seções do Perfil podem ser minimizadas (o aparelho lembra quais ficaram fechadas)."}]},{"versao":"1.4.0","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Menu Funções organizável: botão \"Organizar\", arrastar os cartões ou usar as setas ‹ ›."}]},{"versao":"1.3.9","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Notas (estilo Google Keep): notas, listas de tarefas, 11 cores, fixar, busca e desfazer ao apagar."}]},{"versao":"1.3.8","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Aba \"Chave de assinatura\" no Perfil, com cronômetro do certificado do app."},{"tipo":"mudado","texto":"Senha e padrão de entrada removidos."}]},{"versao":"1.3.7","data":"2026-10-18","itens":[{"tipo":"mudado","texto":"Simplificação: casinha leva ao menu Funções; botões de tema e ⚙ abrem as telas próprias; um só \"Restaurar\"; excluir aba só pelo X; temas com \"Esta aba / Tela inicial / Tudo\"; opções avançadas escondidas."},{"tipo":"removido","texto":"\"Novas funções em breve\", \"salvo neste aparelho\" e código antigo da nuvem."}]},{"versao":"1.3.6","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Tela Perfil: foto, apelido e aniversário."},{"tipo":"mudado","texto":"Engrenagem saiu da tela de boas-vindas."}]},{"versao":"1.3.5","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Tela Temas, com todas as opções de tema."}]},{"versao":"1.3.4","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Tela Configurações."},{"tipo":"mudado","texto":"Engrenagem saiu do canto do menu Funções."}]},{"versao":"1.3.3","data":"2026-10-18","itens":[{"tipo":"corrigido","texto":"Número da versão no canto não acompanhava as atualizações."}]},{"versao":"1.3.2","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Tela Sincronizar: Wi-Fi, atualizações e cópia dos dados."}]},{"versao":"1.3.1","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Cronômetro de expiração do QR de pareamento."},{"tipo":"adicionado","texto":"Campo \"Meu aniversário\"."},{"tipo":"mudado","texto":"Data de nascimento saiu do código público."}]},{"versao":"1.3.0","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Atualização automática pelo GitHub, com assinatura digital e \"Voltar versão anterior\"."}]},{"versao":"1.2.2","data":"2026-10-18","itens":[{"tipo":"corrigido","texto":"\"QR expirou\" ao parear: a diferença de relógio entre PC e celular era recusada."},{"tipo":"mudado","texto":"Mensagens de erro do pareamento mais claras."}]},{"versao":"1.2.1","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Botão Sincronizar no menu Funções (a opção estava difícil de achar no app)."}]},{"versao":"1.2.0","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Sincronização pelo Wi-Fi com QR code e criptografia."},{"tipo":"mudado","texto":"Substituiu a sincronização pela nuvem."}]},{"versao":"1.1.1","data":"2026-10-18","itens":[{"tipo":"corrigido","texto":"A sincronização na nuvem baixava tudo a cada 20 segundos; passou a checar só quando há mudança."}]},{"versao":"1.1.0","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"App Android."},{"tipo":"adicionado","texto":"Sincronização pela nuvem (Supabase)."},{"tipo":"adicionado","texto":"Número da versão no canto."},{"tipo":"adicionado","texto":"Tema de aniversário com animação de parabéns e confetes no calendário."},{"tipo":"adicionado","texto":"Menu Funções."},{"tipo":"adicionado","texto":"Calculadora."},{"tipo":"adicionado","texto":"Relógios de Brasília e Manaus."}]},{"versao":"1.0.3","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Calendário: repetir marcações, aniversários 🎂, ícones nos dias e feriados de Brasil, Amazonas e Manaus."},{"tipo":"adicionado","texto":"Calendário em tela própria."},{"tipo":"adicionado","texto":"Escolha entre Planilhas e Calendário depois de entrar."},{"tipo":"adicionado","texto":"Desbloqueio por padrão."},{"tipo":"adicionado","texto":"Ícone do Organizer no canto e na aba do navegador."}]},{"versao":"1.0.2","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Tema Música já incluído no programa, com escolha de cor."},{"tipo":"mudado","texto":"Temas importados vão direto para a área de temas."}]},{"versao":"1.0.1","data":"2026-10-18","itens":[{"tipo":"mudado","texto":"Versão de teste do sistema de atualização por arquivo."}]},{"versao":"1.0.0","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Primeira versão do programa do Windows: importar tema, exportar/importar dados e atualização por arquivo."}]}]}</script>
 <div class="versao-canto" aria-label="Versão do Organizer"><span id="nuvemIcone" class="nuvem-ic" data-estado="off"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8.8a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16.1a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1" fill="currentColor"/></svg></span><span class="versao-txt"></span></div>
 <div id="marcaLogo" class="marca-logo" aria-hidden="true"><svg viewBox="0 0 64 64"><rect class="r" x="1" y="1" width="62" height="62" rx="15"/><path class="f" d="M30.4 46.6L31.9 46.7 31.1 40.8 30.4 41.0z"/><path class="g" d="M30.4 46.6L31.9 46.7M30.4 41.0L31.1 40.8"/><path class="f" d="M29.0 46.4L30.4 46.6 30.4 41.0 29.8 41.2z"/><path class="g" d="M29.0 46.4L30.4 46.6M29.8 41.2L30.4 41.0"/><path class="f" d="M31.9 46.7L33.3 46.8 31.8 40.6 31.1 40.8z"/><path class="g" d="M31.9 46.7L33.3 46.8M31.1 40.8L31.8 40.6"/><path class="f" d="M27.7 46.1L29.0 46.4 29.8 41.2 29.1 41.3z"/><path class="g" d="M27.7 46.1L29.0 46.4M29.1 41.3L29.8 41.2"/><path class="f" d="M33.3 46.8L34.7 46.8 32.4 40.3 31.8 40.6z"/><path class="g" d="M33.3 46.8L34.7 46.8M31.8 40.6L32.4 40.3"/><path class="f" d="M26.3 45.7L27.7 46.1 29.1 41.3 28.4 41.4z"/><path class="g" d="M26.3 45.7L27.7 46.1M28.4 41.4L29.1 41.3"/><path class="f" d="M34.7 46.8L36.1 46.7 33.1 40.1 32.4 40.3z"/><path class="g" d="M34.7 46.8L36.1 46.7M32.4 40.3L33.1 40.1"/><path class="f" d="M25.0 45.3L26.3 45.7 28.4 41.4 27.7 41.4z"/><path class="g" d="M25.0 45.3L26.3 45.7M27.7 41.4L28.4 41.4"/><path class="f" d="M23.7 44.8L25.0 45.3 27.7 41.4 27.0 41.5z"/><path class="g" d="M23.7 44.8L25.0 45.3M27.0 41.5L27.7 41.4"/><path class="f" d="M36.1 46.7L37.5 46.5 33.7 39.8 33.1 40.1z"/><path class="g" d="M36.1 46.7L37.5 46.5M33.1 40.1L33.7 39.8"/><path class="f" d="M22.4 44.3L23.7 44.8 27.0 41.5 26.3 41.5z"/><path class="g" d="M22.4 44.3L23.7 44.8M26.3 41.5L27.0 41.5"/><path class="f" d="M37.5 46.5L38.8 46.3 34.3 39.4 33.7 39.8z"/><path class="g" d="M37.5 46.5L38.8 46.3M33.7 39.8L34.3 39.4"/><path class="f" d="M21.2 43.7L22.4 44.3 26.3 41.5 25.6 41.4z"/><path class="g" d="M21.2 43.7L22.4 44.3M25.6 41.4L26.3 41.5"/><path class="f" d="M38.8 46.3L40.1 46.0 34.9 39.1 34.3 39.4z"/><path class="g" d="M38.8 46.3L40.1 46.0M34.3 39.4L34.9 39.1"/><path class="f" d="M40.1 46.0L41.4 45.6 35.4 38.7 34.9 39.1z"/><path class="g" d="M40.1 46.0L41.4 45.6M34.9 39.1L35.4 38.7"/><path class="f" d="M20.1 43.0L21.2 43.7 25.6 41.4 24.9 41.3z"/><path class="g" d="M20.1 43.0L21.2 43.7M24.9 41.3L25.6 41.4"/><path class="f" d="M41.4 45.6L42.6 45.2 36.0 38.3 35.4 38.7z"/><path class="g" d="M41.4 45.6L42.6 45.2M35.4 38.7L36.0 38.3"/><path class="f" d="M19.0 42.3L20.1 43.0 24.9 41.3 24.2 41.2z"/><path class="g" d="M19.0 42.3L20.1 43.0M24.2 41.2L24.9 41.3"/><path class="f" d="M42.6 45.2L43.8 44.7 36.5 37.9 36.0 38.3z"/><path class="g" d="M42.6 45.2L43.8 44.7M36.0 38.3L36.5 37.9"/><path class="f" d="M18.0 41.5L19.0 42.3 24.2 41.2 23.5 41.1z"/><path class="g" d="M18.0 41.5L19.0 42.3M23.5 41.1L24.2 41.2"/><path class="f" d="M43.8 44.7L44.9 44.1 37.0 37.4 36.5 37.9z"/><path class="g" d="M43.8 44.7L44.9 44.1M36.5 37.9L37.0 37.4"/><path class="f" d="M17.0 40.7L18.0 41.5 23.5 41.1 22.9 40.9z"/><path class="g" d="M17.0 40.7L18.0 41.5M22.9 40.9L23.5 41.1"/><path class="f" d="M44.9 44.1L46.0 43.5 37.4 36.9 37.0 37.4z"/><path class="g" d="M44.9 44.1L46.0 43.5M37.0 37.4L37.4 36.9"/><path class="f" d="M16.2 39.8L17.0 40.7 22.9 40.9 22.2 40.7z"/><path class="g" d="M16.2 39.8L17.0 40.7M22.2 40.7L22.9 40.9"/><path class="f" d="M15.4 38.9L16.2 39.8 22.2 40.7 21.6 40.4z"/><path class="g" d="M15.4 38.9L16.2 39.8M21.6 40.4L22.2 40.7"/><path class="f" d="M37.4 36.9L37.9 36.5 47.0 42.8 46.0 43.5z"/><path class="g" d="M37.4 36.9L37.9 36.5M46.0 43.5L47.0 42.8"/><path class="f" d="M14.6 38.0L15.4 38.9 21.6 40.4 21.0 40.1z"/><path class="g" d="M14.6 38.0L15.4 38.9M21.0 40.1L21.6 40.4"/><path class="f" d="M37.9 36.5L38.3 36.0 47.9 42.1 47.0 42.8z"/><path class="g" d="M37.9 36.5L38.3 36.0M47.0 42.8L47.9 42.1"/><path class="f" d="M38.3 36.0L38.7 35.4 48.7 41.3 47.9 42.1z"/><path class="g" d="M38.3 36.0L38.7 35.4M47.9 42.1L48.7 41.3"/><path class="f" d="M14.0 37.0L14.6 38.0 21.0 40.1 20.4 39.7z"/><path class="g" d="M14.0 37.0L14.6 38.0M20.4 39.7L21.0 40.1"/><path class="f" d="M13.5 36.0L14.0 37.0 20.4 39.7 19.8 39.4z"/><path class="g" d="M13.5 36.0L14.0 37.0M19.8 39.4L20.4 39.7"/><path class="f" d="M38.7 35.4L39.0 34.9 49.4 40.5 48.7 41.3z"/><path class="g" d="M38.7 35.4L39.0 34.9M48.7 41.3L49.4 40.5"/><path class="f" d="M13.0 35.0L13.5 36.0 19.8 39.4 19.3 39.0z"/><path class="g" d="M13.0 35.0L13.5 36.0M19.3 39.0L19.8 39.4"/><path class="f" d="M39.0 34.9L39.4 34.3 50.1 39.6 49.4 40.5z"/><path class="g" d="M39.0 34.9L39.4 34.3M49.4 40.5L50.1 39.6"/><path class="f" d="M12.6 34.0L13.0 35.0 19.3 39.0 18.8 38.5z"/><path class="g" d="M12.6 34.0L13.0 35.0M18.8 38.5L19.3 39.0"/><path class="f" d="M39.4 34.3L39.7 33.8 50.7 38.8 50.1 39.6z"/><path class="g" d="M39.4 34.3L39.7 33.8M50.1 39.6L50.7 38.8"/><path class="f" d="M12.3 33.0L12.6 34.0 18.8 38.5 18.4 38.0z"/><path class="g" d="M12.3 33.0L12.6 34.0M18.4 38.0L18.8 38.5"/><path class="f" d="M39.7 33.8L40.0 33.2 51.1 37.9 50.7 38.8z"/><path class="g" d="M39.7 33.8L40.0 33.2M50.7 38.8L51.1 37.9"/><path class="f" d="M40.0 33.2L40.2 32.6 51.5 36.9 51.1 37.9z"/><path class="g" d="M40.0 33.2L40.2 32.6M51.1 37.9L51.5 36.9"/><path class="f" d="M12.1 32.0L12.3 33.0 18.4 38.0 18.0 37.5z"/><path class="g" d="M12.1 32.0L12.3 33.0M18.0 37.5L18.4 38.0"/><path class="f" d="M40.2 32.6L40.4 32.0 51.8 36.0 51.5 36.9z"/><path class="g" d="M40.2 32.6L40.4 32.0M51.5 36.9L51.8 36.0"/><path class="f" d="M12.0 31.0L12.1 32.0 18.0 37.5 17.6 37.0z"/><path class="g" d="M12.0 31.0L12.1 32.0M17.6 37.0L18.0 37.5"/><path class="f" d="M12.0 30.0L12.0 31.0 17.6 37.0 17.3 36.4z"/><path class="g" d="M12.0 30.0L12.0 31.0M17.3 36.4L17.6 37.0"/><path class="f" d="M40.4 32.0L40.6 31.4 51.9 35.0 51.8 36.0z"/><path class="g" d="M40.4 32.0L40.6 31.4M51.8 36.0L51.9 35.0"/><path class="f" d="M40.6 31.4L40.7 30.7 52.0 34.0 51.9 35.0z"/><path class="g" d="M40.6 31.4L40.7 30.7M51.9 35.0L52.0 34.0"/><path class="f" d="M12.1 29.0L12.0 30.0 17.3 36.4 17.0 35.8z"/><path class="g" d="M12.1 29.0L12.0 30.0M17.0 35.8L17.3 36.4"/><path class="f" d="M40.7 30.7L40.8 30.1 52.0 33.1 52.0 34.0z"/><path class="g" d="M40.7 30.7L40.8 30.1M52.0 34.0L52.0 33.1"/><path class="f" d="M12.2 28.0L12.1 29.0 17.0 35.8 16.8 35.2z"/><path class="g" d="M12.2 28.0L12.1 29.0M16.8 35.2L17.0 35.8"/><path class="f" d="M40.8 30.1L40.8 29.5 51.8 32.1 52.0 33.1z"/><path class="g" d="M40.8 30.1L40.8 29.5M52.0 33.1L51.8 32.1"/><path class="f" d="M12.4 27.0L12.2 28.0 16.8 35.2 16.7 34.5z"/><path class="g" d="M12.4 27.0L12.2 28.0M16.7 34.5L16.8 35.2"/><path class="f" d="M12.7 26.1L12.4 27.0 16.7 34.5 16.6 33.9z"/><path class="g" d="M12.7 26.1L12.4 27.0M16.6 33.9L16.7 34.5"/><path class="f" d="M40.8 29.5L40.9 28.8 51.6 31.2 51.8 32.1z"/><path class="g" d="M40.8 29.5L40.9 28.8M51.8 32.1L51.6 31.2"/><path class="f" d="M40.9 28.8L40.8 28.2 51.3 30.2 51.6 31.2z"/><path class="g" d="M40.9 28.8L40.8 28.2M51.6 31.2L51.3 30.2"/><path class="f" d="M13.1 25.2L12.7 26.1 16.6 33.9 16.5 33.2z"/><path class="g" d="M13.1 25.2L12.7 26.1M16.5 33.2L16.6 33.9"/><path class="f" d="M40.8 28.2L40.8 27.5 50.9 29.3 51.3 30.2z"/><path class="g" d="M40.8 28.2L40.8 27.5M51.3 30.2L50.9 29.3"/><path class="f" d="M13.5 24.4L13.1 25.2 16.5 33.2 16.6 32.5z"/><path class="g" d="M13.5 24.4L13.1 25.2M16.6 32.5L16.5 33.2"/><path class="f" d="M14.1 23.5L13.5 24.4 16.6 32.5 16.7 31.8z"/><path class="g" d="M14.1 23.5L13.5 24.4M16.7 31.8L16.6 32.5"/><path class="f" d="M40.8 27.5L40.7 26.9 50.4 28.5 50.9 29.3z"/><path class="g" d="M40.8 27.5L40.7 26.9M50.9 29.3L50.4 28.5"/><path class="f" d="M14.6 22.8L14.1 23.5 16.7 31.8 16.8 31.1z"/><path class="g" d="M14.6 22.8L14.1 23.5M16.8 31.1L16.7 31.8"/><path class="f" d="M40.7 26.9L40.5 26.2 49.8 27.6 50.4 28.5z"/><path class="g" d="M40.7 26.9L40.5 26.2M50.4 28.5L49.8 27.6"/><path class="f" d="M15.3 22.0L14.6 22.8 16.8 31.1 17.0 30.4z"/><path class="g" d="M15.3 22.0L14.6 22.8M17.0 30.4L16.8 31.1"/><path class="f" d="M40.5 26.2L40.3 25.6 49.2 26.8 49.8 27.6z"/><path class="g" d="M40.5 26.2L40.3 25.6M49.8 27.6L49.2 26.8"/><path class="f" d="M16.0 21.3L15.3 22.0 17.0 30.4 17.3 29.7z"/><path class="g" d="M16.0 21.3L15.3 22.0M17.3 29.7L17.0 30.4"/><path class="f" d="M40.3 25.6L40.1 25.0 48.4 26.0 49.2 26.8z"/><path class="g" d="M40.3 25.6L40.1 25.0M49.2 26.8L48.4 26.0"/><path class="f" d="M40.1 25.0L39.8 24.3 47.6 25.3 48.4 26.0z"/><path class="g" d="M40.1 25.0L39.8 24.3M48.4 26.0L47.6 25.3"/><path class="f" d="M16.7 20.7L16.0 21.3 17.3 29.7 17.7 28.9z"/><path class="g" d="M16.7 20.7L16.0 21.3M17.7 28.9L17.3 29.7"/><path class="f" d="M39.8 24.3L39.5 23.7 46.7 24.6 47.6 25.3z"/><path class="g" d="M39.8 24.3L39.5 23.7M47.6 25.3L46.7 24.6"/><path class="f" d="M17.5 20.1L16.7 20.7 17.7 28.9 18.1 28.2z"/><path class="g" d="M17.5 20.1L16.7 20.7M18.1 28.2L17.7 28.9"/><path class="f" d="M18.3 19.6L17.5 20.1 18.1 28.2 18.6 27.5z"/><path class="g" d="M18.3 19.6L17.5 20.1M18.6 27.5L18.1 28.2"/><path class="f" d="M39.5 23.7L39.1 23.1 45.7 24.0 46.7 24.6z"/><path class="g" d="M39.5 23.7L39.1 23.1M46.7 24.6L45.7 24.0"/><path class="f" d="M39.1 23.1L38.7 22.5 44.7 23.4 45.7 24.0z"/><path class="g" d="M39.1 23.1L38.7 22.5M45.7 24.0L44.7 23.4"/><path class="f" d="M19.2 19.1L18.3 19.6 18.6 27.5 19.2 26.9z"/><path class="g" d="M19.2 19.1L18.3 19.6M19.2 26.9L18.6 27.5"/><path class="f" d="M38.7 22.5L38.2 22.0 43.7 22.9 44.7 23.4z"/><path class="g" d="M38.7 22.5L38.2 22.0M44.7 23.4L43.7 22.9"/><path class="f" d="M20.1 18.6L19.2 19.1 19.2 26.9 19.8 26.2z"/><path class="g" d="M20.1 18.6L19.2 19.1M19.8 26.2L19.2 26.9"/><path class="f" d="M21.0 18.3L20.1 18.6 19.8 26.2 20.5 25.6z"/><path class="g" d="M21.0 18.3L20.1 18.6M20.5 25.6L19.8 26.2"/><path class="f" d="M38.2 22.0L37.7 21.4 42.6 22.4 43.7 22.9z"/><path class="g" d="M38.2 22.0L37.7 21.4M43.7 22.9L42.6 22.4"/><path class="f" d="M37.7 21.4L37.2 20.9 41.4 22.0 42.6 22.4z"/><path class="g" d="M37.7 21.4L37.2 20.9M42.6 22.4L41.4 22.0"/><path class="f" d="M21.9 18.0L21.0 18.3 20.5 25.6 21.3 24.9z"/><path class="g" d="M21.9 18.0L21.0 18.3M21.3 24.9L20.5 25.6"/><path class="f" d="M22.9 17.7L21.9 18.0 21.3 24.9 22.1 24.4z"/><path class="g" d="M22.9 17.7L21.9 18.0M22.1 24.4L21.3 24.9"/><path class="f" d="M37.2 20.9L36.6 20.4 40.3 21.7 41.4 22.0z"/><path class="g" d="M37.2 20.9L36.6 20.4M41.4 22.0L40.3 21.7"/><path class="f" d="M36.6 20.4L35.9 19.9 39.1 21.4 40.3 21.7z"/><path class="g" d="M36.6 20.4L35.9 19.9M40.3 21.7L39.1 21.4"/><path class="f" d="M23.8 17.5L22.9 17.7 22.1 24.4 23.0 23.8z"/><path class="g" d="M23.8 17.5L22.9 17.7M23.0 23.8L22.1 24.4"/><path class="f" d="M35.9 19.9L35.3 19.5 37.8 21.2 39.1 21.4z"/><path class="g" d="M35.9 19.9L35.3 19.5M39.1 21.4L37.8 21.2"/><path class="f" d="M24.8 17.3L23.8 17.5 23.0 23.8 23.9 23.3z"/><path class="g" d="M24.8 17.3L23.8 17.5M23.9 23.3L23.0 23.8"/><path class="f" d="M35.3 19.5L34.5 19.1 36.6 21.0 37.8 21.2z"/><path class="g" d="M35.3 19.5L34.5 19.1M37.8 21.2L36.6 21.0"/><path class="f" d="M25.8 17.2L24.8 17.3 23.9 23.3 24.9 22.8z"/><path class="g" d="M25.8 17.2L24.8 17.3M24.9 22.8L23.9 23.3"/><path class="f" d="M34.5 19.1L33.8 18.7 35.4 20.9 36.6 21.0z"/><path class="g" d="M34.5 19.1L33.8 18.7M36.6 21.0L35.4 20.9"/><path class="f" d="M26.7 17.2L25.8 17.2 24.9 22.8 25.9 22.4z"/><path class="g" d="M26.7 17.2L25.8 17.2M25.9 22.4L24.9 22.8"/><path class="f" d="M27.7 17.2L26.7 17.2 25.9 22.4 27.0 22.0z"/><path class="g" d="M27.7 17.2L26.7 17.2M27.0 22.0L25.9 22.4"/><path class="f" d="M33.8 18.7L33.0 18.3 34.1 20.9 35.4 20.9z"/><path class="g" d="M33.8 18.7L33.0 18.3M35.4 20.9L34.1 20.9"/><path class="f" d="M33.0 18.3L32.2 18.0 32.9 20.9 34.1 20.9z"/><path class="g" d="M33.0 18.3L32.2 18.0M34.1 20.9L32.9 20.9"/><path class="f" d="M28.6 17.3L27.7 17.2 27.0 22.0 28.1 21.7z"/><path class="g" d="M28.6 17.3L27.7 17.2M28.1 21.7L27.0 22.0"/><path class="f" d="M32.2 18.0L31.3 17.8 31.7 21.0 32.9 20.9z"/><path class="g" d="M32.2 18.0L31.3 17.8M32.9 20.9L31.7 21.0"/><path class="f" d="M29.5 17.4L28.6 17.3 28.1 21.7 29.3 21.4z"/><path class="g" d="M29.5 17.4L28.6 17.3M29.3 21.4L28.1 21.7"/><path class="f" d="M31.3 17.8L30.4 17.6 30.4 21.2 31.7 21.0z"/><path class="g" d="M31.3 17.8L30.4 17.6M31.7 21.0L30.4 21.2"/><path class="f" d="M30.4 17.6L29.5 17.4 29.3 21.4 30.4 21.2z"/><path class="g" d="M30.4 17.6L29.5 17.4M30.4 21.2L29.3 21.4"/></svg></div>
 <div id="eclipseArte" aria-hidden="true"><div class="estrelas"></div><div class="eclipse"><div class="corona"></div><div class="halo"></div><div class="disco"></div></div></div>
@@ -3301,7 +3159,6 @@ function welcomeTitle() {
   if (document.activeElement !== W.text) W.text.textContent = text.replace(/\{apelido\}/gi, nick);
 }
 function showWelcome() {
-  if (document.body.classList.contains("rpg-pagina") && window.rpgPagina) window.rpgPagina(false);
   unlocked = false;
   if (document.body.classList.contains("cfg-pagina") && window.cfgPagina) window.cfgPagina(false); window.temaAlvo = "aba"; const tp = document.getElementById("temasPag"); if (tp) tp.hidden = true; const pp = document.getElementById("perfilPag"); if (pp) pp.hidden = true; const np = document.getElementById("notasPag"); if (np && !np.hidden && window.notasPagina) window.notasPagina(false); document.body.classList.remove("cal-pagina", "calc-pagina", "sync-pagina", "cfg-pagina", "temas-pagina", "perfil-pagina", "notas-pagina", "em-funcoes"); const sp = document.getElementById("sincronizar"); if (sp) sp.hidden = true; const ca = document.getElementById("calculadora"); if (ca) ca.hidden = true; const cm = document.getElementById("calendario"); if (cm) cm.hidden = true;
   const we = document.getElementById("wEscolha"); if (we) { we.hidden = true; W.form.hidden = false; }
@@ -4756,264 +4613,13 @@ function soltaConfete(canvas, ms) {
     mais.addEventListener("click", e => { if (e.target.closest("[data-avisos]")) { const m = el("navMais"); m.classList.remove("aberto"); setTimeout(() => { m.hidden = true; }, 200); window.avisosAbrir(); } });
   }
 })();
-// RPG: ficha de Tormenta20 com cálculos, rolagens e magias (funciona sem internet e sincroniza junto com o resto)
+// limpeza: remove os dados da ficha de RPG (função de teste que foi retirada)
 (() => {
-  const el = id => document.getElementById(id);
-  const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-  const ATR = [["for", "FOR", "Força"], ["des", "DES", "Destreza"], ["con", "CON", "Constituição"], ["int", "INT", "Inteligência"], ["sab", "SAB", "Sabedoria"], ["car", "CAR", "Carisma"]];
-  const NOME_ATR = Object.fromEntries(ATR.map(a => [a[0], a[1]]));
-  // [chave, nome, atributo, só treinada, penalidade de armadura]
-  const PER = [["acrobacia","Acrobacia","des",0,1],["adestramento","Adestramento","car",1,0],["atletismo","Atletismo","for",0,0],["atuacao","Atuação","car",1,0],["cavalgar","Cavalgar","des",0,0],["conhecimento","Conhecimento","int",1,0],["cura","Cura","sab",0,0],["diplomacia","Diplomacia","car",0,0],["enganacao","Enganação","car",0,0],["fortitude","Fortitude","con",0,0],["furtividade","Furtividade","des",0,1],["guerra","Guerra","int",1,0],["iniciativa","Iniciativa","des",0,0],["intimidacao","Intimidação","car",0,0],["intuicao","Intuição","sab",0,0],["investigacao","Investigação","int",0,0],["jogatina","Jogatina","car",1,0],["ladinagem","Ladinagem","des",1,1],["luta","Luta","for",0,0],["misticismo","Misticismo","int",1,0],["nobreza","Nobreza","int",1,0],["oficio","Ofício","int",1,0],["percepcao","Percepção","sab",0,0],["pilotagem","Pilotagem","des",1,0],["pontaria","Pontaria","des",0,0],["reflexos","Reflexos","des",0,0],["religiao","Religião","sab",1,0],["sobrevivencia","Sobrevivência","sab",0,0],["vontade","Vontade","sab",0,0]];
-  const PM_CIRCULO = { 1: 1, 2: 3, 3: 6, 4: 10, 5: 15 };
-  const novaId = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
-  const novaFicha = nome => ({ id: novaId(), nome: nome || "Novo personagem", jogador: "", raca: "", origem: "", classe: "", nivel: 1, divindade: "", tamanho: "Médio", desloc: "9m", foto: "",
-    atrib: { for: 0, des: 0, con: 0, int: 0, sab: 0, car: 0 }, pv: { atual: 10, max: 10 }, pm: { atual: 4, max: 4 },
-    def: { armadura: 0, escudo: 0, outros: 0, usaDes: true }, penArm: 0, pericias: {}, ataques: [], magias: [], atrMagia: "int", cdOutros: 0,
-    poderes: [], inventario: [], tp: 0, notas: "", criada: Date.now() });
-  store.rpg ||= { fichas: [], ativa: null, modo: "mod" };
-  const R = store.rpg;
-  if (!R.fichas.length) { const f = novaFicha("Meu personagem"); R.fichas.push(f); R.ativa = f.id; }
-  const ficha = () => R.fichas.find(f => f.id === R.ativa) || R.fichas[0];
-  let aba = "ficha";
-  // ---------- contas ----------
-  const n = v => Number(v) || 0;
-  const mod = (f, a) => R.modo === "valor" ? Math.floor((n(f.atrib[a]) - 10) / 2) : n(f.atrib[a]);
-  const meioNivel = f => Math.floor(Math.max(1, n(f.nivel)) / 2);
-  const treino = f => { const l = Math.max(1, n(f.nivel)); return l >= 15 ? 6 : l >= 7 ? 4 : 2; };
-  const sinal = v => (v >= 0 ? "+" : "") + v;
-  const per = (f, k) => { f.pericias[k] ||= { treino: false, atr: "", outros: 0 }; return f.pericias[k]; };
-  function bonusPer(f, k) {
-    const d = PER.find(p => p[0] === k), p = per(f, k), a = p.atr || d[2];
-    return meioNivel(f) + mod(f, a) + (p.treino ? treino(f) : 0) + n(p.outros) - (d[4] ? Math.abs(n(f.penArm)) : 0);
-  }
-  const defesa = f => 10 + (f.def.usaDes !== false ? mod(f, "des") : 0) + n(f.def.armadura) + n(f.def.escudo) + n(f.def.outros);
-  const cdMagia = f => 10 + meioNivel(f) + mod(f, f.atrMagia || "int") + n(f.cdOutros);
-  const bonusAtk = (f, a) => bonusPer(f, a.pericia || "luta") + n(a.bonus);
-  const cargaMax = f => 10 + 2 * Math.max(0, mod(f, "for"));
-  const cargaAtual = f => f.inventario.reduce((s, i) => s + n(i.peso) * Math.max(0, n(i.qtd ?? 1)), 0);
-  const custoMagia = m => (m.pm === "" || m.pm == null) ? (PM_CIRCULO[m.circulo] || 1) : n(m.pm);
-  // ---------- dados ----------
-  function rolar(expr, multDados) {
-    const txt = String(expr || "").toLowerCase().replace(/\s+/g, "").replace(/−/g, "-");
-    if (!txt) return null;
-    const toks = txt.match(/[+-]?[^+-]+/g); if (!toks) return null;
-    let total = 0, partes = [], d20 = null, ok = true;
-    for (const t of toks) {
-      const s = t[0] === "-" ? -1 : 1, c = t.replace(/^[+-]/, "");
-      const m = /^(\d*)d(\d+)$/.exec(c);
-      if (m) {
-        let q = Math.min(100, m[1] === "" ? 1 : +m[1]), lados = Math.min(1000, +m[2]); if (!lados) { ok = false; break; }
-        if (multDados) q *= multDados;
-        const rs = Array.from({ length: q }, () => 1 + Math.floor(Math.random() * lados));
-        const soma = rs.reduce((a, b) => a + b, 0); total += s * soma;
-        if (lados === 20 && q === 1 && d20 === null) d20 = rs[0];
-        partes.push(`${s < 0 ? "−" : partes.length ? "+" : ""}${q}d${lados}[${rs.join(",")}]`);
-      } else if (/^\d+$/.test(c)) { total += s * +c; partes.push(`${s < 0 ? "−" : partes.length ? "+" : ""}${c}`); }
-      else { ok = false; break; }
-    }
-    return ok ? { total, detalhe: partes.join(" "), d20 } : null;
-  }
-  // ---------- mostrar rolagem ----------
-  const LOGK = KEY + "-rpg-rolagens";
-  const log = () => { try { return JSON.parse(localStorage.getItem(LOGK)) || []; } catch { return []; } };
-  let popT = null;
-  function mostra(titulo, r, extra) {
-    if (!r) { mostraErro(); return; }
-    const nat = r.d20 === 20 ? "nat20" : r.d20 === 1 ? "nat1" : "";
-    const box = el("rpgRolagem");
-    box.className = "rpg-rolagem " + nat;
-    box.innerHTML = `<div class="rpg-total">${r.total}</div><div><b>${esc(titulo)}</b><small>${esc(r.detalhe)}${extra ? "<br>" + extra : ""}</small>${nat === "nat20" ? "<em>20 natural!</em>" : nat === "nat1" ? "<em>1 natural…</em>" : ""}</div>`;
-    box.hidden = false; requestAnimationFrame(() => { box.classList.add("aberto", "gira"); });
-    clearTimeout(popT); popT = setTimeout(() => { box.classList.remove("aberto"); setTimeout(() => { box.hidden = true; }, 230); }, 5200);
-    const l = log(); l.unshift({ t: Date.now(), titulo, detalhe: r.detalhe + (extra ? " · " + extra.replace(/<[^>]+>/g, "") : ""), total: r.total, nat }); try { localStorage.setItem(LOGK, JSON.stringify(l.slice(0, 40))); } catch {}
-    if (!el("rpgLog").hidden) desenhaLog();
-    if (navigator.vibrate && document.body.classList.contains("layout-cel")) try { navigator.vibrate(nat ? [20, 40, 20] : 12); } catch {}
-  }
-  function mostraErro() { const box = el("rpgRolagem"); box.className = "rpg-rolagem"; box.innerHTML = '<div class="rpg-total">?</div><div><b>Não entendi a rolagem</b><small>Use algo como 2d6+3 ou 1d20+5.</small></div>'; box.hidden = false; requestAnimationFrame(() => box.classList.add("aberto")); clearTimeout(popT); popT = setTimeout(() => { box.classList.remove("aberto"); setTimeout(() => { box.hidden = true; }, 230); }, 3000); }
-  el("rpgRolagem").onclick = () => { el("rpgRolagem").classList.remove("aberto"); setTimeout(() => { el("rpgRolagem").hidden = true; }, 230); };
-  const teste = (titulo, bonus) => mostra(titulo, rolar("1d20" + (bonus >= 0 ? "+" : "") + bonus));
-  // ---------- desenhar ----------
-  const campo = (rot, k, v, tipo, extra) => `<label class="rpg-campo">${rot}<input ${tipo === "number" ? 'type="number" inputmode="numeric" class="rpg-num"' : 'type="text"'} data-f="${k}" value="${esc(v)}" ${extra || ""}></label>`;
-  const selAtr = (k, v, vazio) => `<select data-f="${k}">${vazio ? `<option value="">${vazio}</option>` : ""}${ATR.map(a => `<option value="${a[0]}"${v === a[0] ? " selected" : ""}>${a[1]}</option>`).join("")}</select>`;
-  function abaFicha(f) {
-    const atrs = ATR.map(([k, s, nome]) => `<div class="rpg-atr" title="${nome}"><span>${s}</span><input type="number" inputmode="numeric" data-f="atrib.${k}" value="${esc(f.atrib[k])}" aria-label="${nome}">${R.modo === "valor" ? `<b class="rpg-mod" data-c="mod.${k}"></b>` : ""}<button type="button" class="rpg-rolar" data-rolar="atr:${k}">🎲 <span data-c="modb.${k}"></span></button></div>`).join("");
-    const rec = (nome, k, cor) => `<div class="rpg-rec" style="--c:${cor}"><span>${nome}</span><div class="rpg-rec-num"><input type="number" inputmode="numeric" data-f="${k}.atual" value="${esc(f[k].atual)}" aria-label="${nome} atual">/<input type="number" inputmode="numeric" data-f="${k}.max" value="${esc(f[k].max)}" aria-label="${nome} máximo"></div><div class="rpg-barra-vida"><i data-c="barra.${k}"></i></div><div class="rpg-rec-bts"><button type="button" data-mais="${k}:-5">−5</button><button type="button" data-mais="${k}:-1">−1</button><button type="button" data-mais="${k}:1">+1</button><button type="button" data-mais="${k}:5">+5</button></div></div>`;
-    const pers = PER.map(([k, nome, a, so, pen]) => { const p = per(f, k); return `<div class="rpg-per${p.treino ? " treinado" : ""}" data-per="${k}"><input type="checkbox" data-f="pericias.${k}.treino" ${p.treino ? "checked" : ""} title="Treinado" aria-label="Treinado em ${nome}"><span class="rpg-per-nome">${nome}${so ? '<small title="Só treinado">★</small>' : ""}${pen ? '<small title="Sofre penalidade de armadura">⛨</small>' : ""}</span>${selAtr(`pericias.${k}.atr`, p.atr || a)}<input type="number" inputmode="numeric" data-f="pericias.${k}.outros" value="${esc(p.outros || "")}" placeholder="0" title="Outros bônus" aria-label="Outros bônus de ${nome}"><button type="button" class="rpg-rolar" data-rolar="per:${k}"><span data-c="per.${k}"></span></button></div>`; }).join("");
-    return `<div class="rpg-card"><div class="rpg-topo"><button type="button" class="rpg-foto" id="rpgFoto" title="Foto do personagem" style="${f.foto ? `background-image:url('${f.foto}')` : ""}">${f.foto ? "" : "🧙"}</button><div class="rpg-grade">
-        ${campo("Personagem", "nome", f.nome)}${campo("Jogador", "jogador", f.jogador)}${campo("Raça", "raca", f.raca)}${campo("Origem", "origem", f.origem)}${campo("Classe", "classe", f.classe)}${campo("Nível", "nivel", f.nivel, "number", 'min="1" max="20"')}${campo("Divindade", "divindade", f.divindade)}
-        <label class="rpg-campo">Tamanho<select data-f="tamanho">${["Minúsculo", "Pequeno", "Médio", "Grande", "Enorme", "Colossal"].map(t => `<option${f.tamanho === t ? " selected" : ""}>${t}</option>`).join("")}</select></label>${campo("Deslocamento", "desloc", f.desloc)}
-      </div></div><input type="file" id="rpgFotoArq" accept="image/*" hidden></div>
-      <div class="rpg-duas"><div class="rpg-col">
-        <div class="rpg-card"><h4>Atributos <span class="rpg-dica">toque no 🎲 para rolar</span></h4><div class="rpg-atrs">${atrs}</div></div>
-        <div class="rpg-card"><h4>Recursos</h4><div class="rpg-recursos">${rec("PV", "pv", "#ff5d6c")}${rec("PM", "pm", "#5aa9ff")}
-          <div class="rpg-rec"><span>DEFESA</span><div class="rpg-def-num" data-c="def"></div><span class="rpg-dica" data-c="defConta"></span></div></div>
-          <div class="rpg-grade">${campo("Armadura", "def.armadura", f.def.armadura, "number")}${campo("Escudo", "def.escudo", f.def.escudo, "number")}${campo("Outros (Defesa)", "def.outros", f.def.outros, "number")}${campo("Penalidade de armadura", "penArm", f.penArm, "number")}</div>
-          <label class="rpg-dica"><input type="checkbox" data-f="def.usaDes" ${f.def.usaDes !== false ? "checked" : ""}> Somar Destreza na Defesa</label>
-        </div>
-        <div class="rpg-card"><h4>Resumo</h4><div class="rpg-dica">Metade do nível: <b data-c="meio"></b> · Bônus de treino: <b data-c="treino"></b> · CD de magia: <b data-c="cd"></b></div></div>
-      </div><div class="rpg-col">
-        <div class="rpg-card"><h4>Perícias <span class="rpg-dica">☑ treinado · ★ só treinado · ⛨ penalidade de armadura</span></h4><div class="rpg-pers"><div class="rpg-per rpg-per-cab"><span></span><span>Perícia</span><span>Atrib.</span><span>Outros</span><span>Total</span></div>${pers}</div></div>
-      </div></div>`;
-  }
-  function abaCombate(f) {
-    const itens = f.ataques.map((a, i) => `<div class="rpg-item"><div class="rpg-item-cab"><input class="rpg-inp" data-f="ataques.${i}.nome" value="${esc(a.nome)}" placeholder="Arma ou ataque"><button type="button" class="rpg-rolar" data-rolar="atk:${i}">⚔️ Atacar <span data-c="atk.${i}"></span></button><button type="button" class="rpg-rolar" data-rolar="dano:${i}">💥 Dano</button><button type="button" class="rpg-x" data-del="ataques:${i}" aria-label="Remover ataque">✕</button></div>
-      <div class="rpg-grade">
-        <label class="rpg-campo">Teste<select data-f="ataques.${i}.pericia">${["luta", "pontaria"].map(p => `<option value="${p}"${(a.pericia || "luta") === p ? " selected" : ""}>${p === "luta" ? "Luta" : "Pontaria"}</option>`).join("")}</select></label>
-        ${campo("Bônus extra no teste", `ataques.${i}.bonus`, a.bonus, "number")}${campo("Dano (ex.: 1d8)", `ataques.${i}.dano`, a.dano)}
-        <label class="rpg-campo">Somar ao dano${selAtr(`ataques.${i}.atrDano`, a.atrDano ?? "for", "Nenhum")}</label>
-        ${campo("Margem de crítico", `ataques.${i}.margem`, a.margem ?? 20, "number", 'min="2" max="20"')}${campo("Multiplicador", `ataques.${i}.mult`, a.mult ?? 2, "number", 'min="2" max="10"')}${campo("Tipo de dano", `ataques.${i}.tipo`, a.tipo)}${campo("Alcance", `ataques.${i}.alcance`, a.alcance)}
-      </div></div>`).join("");
-    return `<div class="rpg-card"><h4>Ataques <span class="rpg-dica">Atacar rola o teste; se der crítico, o dano já vem multiplicado.</span></h4><div class="rpg-lista">${itens || '<p class="rpg-vazio">Nenhum ataque ainda.</p>'}</div><button type="button" class="small rpg-add" data-add="ataques">+ Ataque</button></div>
-      <div class="rpg-card"><h4>Testes rápidos</h4><div class="rpg-rapidos">${["iniciativa", "luta", "pontaria", "fortitude", "reflexos", "vontade", "percepcao"].map(k => `<button type="button" class="rpg-rolar" data-rolar="per:${k}">${PER.find(p => p[0] === k)[1]} <span data-c="per.${k}"></span></button>`).join("")}</div></div>`;
-  }
-  function abaMagias(f) {
-    const itens = f.magias.map((m, i) => `<div class="rpg-item"><div class="rpg-item-cab"><input class="rpg-inp" data-f="magias.${i}.nome" value="${esc(m.nome)}" placeholder="Nome da magia"><span class="rpg-tag">${m.circulo || 1}º círculo</span><button type="button" class="rpg-x" data-del="magias:${i}" aria-label="Remover magia">✕</button></div>
-      <div class="rpg-grade">
-        <label class="rpg-campo">Círculo<select data-f="magias.${i}.circulo">${[1, 2, 3, 4, 5].map(c => `<option value="${c}"${n(m.circulo || 1) === c ? " selected" : ""}>${c}º</option>`).join("")}</select></label>
-        ${campo("Custo (PM)", `magias.${i}.pm`, m.pm ?? "", "number", `placeholder="${PM_CIRCULO[m.circulo || 1]}"`)}${campo("Escola", `magias.${i}.escola`, m.escola)}${campo("Execução", `magias.${i}.execucao`, m.execucao)}${campo("Alcance", `magias.${i}.alcance`, m.alcance)}${campo("Alvo / Área", `magias.${i}.alvo`, m.alvo)}${campo("Duração", `magias.${i}.duracao`, m.duracao)}${campo("Resistência", `magias.${i}.resistencia`, m.resistencia)}${campo("Dano / cura (ex.: 2d6)", `magias.${i}.dano`, m.dano)}
-      </div>
-      <label class="rpg-campo">Descrição<textarea data-f="magias.${i}.desc" rows="2">${esc(m.desc)}</textarea></label>
-      <div class="rpg-aprims"><span class="rpg-dica">Aprimoramentos: marque os que vai usar antes de lançar</span>${(m.aprim || []).map((a, j) => `<div class="rpg-aprim"><input type="checkbox" data-uso="${i}:${j}" aria-label="Usar aprimoramento"><input class="rpg-inp" data-f="magias.${i}.aprim.${j}.desc" value="${esc(a.desc)}" placeholder="Efeito"><input class="rpg-inp rpg-num" type="number" data-f="magias.${i}.aprim.${j}.pm" value="${esc(a.pm)}" placeholder="+PM" title="PM extra"><input class="rpg-inp" data-f="magias.${i}.aprim.${j}.dano" value="${esc(a.dano)}" placeholder="+dano (1d6)" title="Dano extra"><button type="button" class="rpg-x" data-del="magias.${i}.aprim:${j}" aria-label="Remover aprimoramento">✕</button></div>`).join("")}<button type="button" class="small rpg-add" data-add="magias.${i}.aprim">+ Aprimoramento</button></div>
-      <div class="rpg-lancar"><button type="button" class="primary small" data-lancar="${i}">✨ Lançar · <span data-c="custo.${i}"></span> PM</button><span class="rpg-dica">CD <b data-c="cd"></b>${m.resistencia ? " · " + esc(m.resistencia) : ""}</span></div></div>`).join("");
-    return `<div class="rpg-card"><h4>Conjuração</h4><div class="rpg-grade"><label class="rpg-campo">Atributo-chave${selAtr("atrMagia", f.atrMagia || "int")}</label>${campo("Outros bônus na CD", "cdOutros", f.cdOutros, "number")}<div class="rpg-campo">CD das magias<span class="rpg-def-num" data-c="cd"></span></div><div class="rpg-campo">PM<span class="rpg-def-num" style="font-size:1.3rem" data-c="pmTxt"></span></div></div><span class="rpg-dica">CD = 10 + metade do nível + atributo-chave + outros. Lançar desconta o PM e rola o dano ou a cura.</span></div>
-      <div class="rpg-card"><h4>Magias</h4><div class="rpg-lista">${itens || '<p class="rpg-vazio">Nenhuma magia ainda.</p>'}</div><button type="button" class="small rpg-add" data-add="magias">+ Magia</button></div>`;
-  }
-  function abaPoderes(f) {
-    const itens = f.poderes.map((p, i) => `<div class="rpg-item"><div class="rpg-item-cab"><input class="rpg-inp" data-f="poderes.${i}.nome" value="${esc(p.nome)}" placeholder="Poder ou habilidade">${campo("", `poderes.${i}.pm`, p.pm, "number", 'placeholder="PM" style="width:70px" title="Custo em PM (opcional)"').replace('class="rpg-campo"', 'class="rpg-campo" style="width:80px"')}<button type="button" class="rpg-rolar" data-usar="${i}">Usar</button><button type="button" class="rpg-x" data-del="poderes:${i}" aria-label="Remover poder">✕</button></div><label class="rpg-campo"><textarea data-f="poderes.${i}.desc" rows="2" placeholder="O que faz">${esc(p.desc)}</textarea></label></div>`).join("");
-    return `<div class="rpg-card"><h4>Poderes e habilidades <span class="rpg-dica">"Usar" desconta o PM, se tiver custo.</span></h4><div class="rpg-lista">${itens || '<p class="rpg-vazio">Nenhum poder ainda.</p>'}</div><button type="button" class="small rpg-add" data-add="poderes">+ Poder</button></div>`;
-  }
-  function abaInventario(f) {
-    const itens = f.inventario.map((it, i) => `<div class="rpg-inv"><input class="rpg-inp" data-f="inventario.${i}.nome" value="${esc(it.nome)}" placeholder="Item"><input class="rpg-inp rpg-num" type="number" data-f="inventario.${i}.qtd" value="${esc(it.qtd ?? 1)}" title="Quantidade" aria-label="Quantidade"><input class="rpg-inp rpg-num" type="number" step="0.5" data-f="inventario.${i}.peso" value="${esc(it.peso ?? 1)}" title="Espaços (cada)" aria-label="Espaços"><button type="button" class="rpg-x" data-del="inventario:${i}" aria-label="Remover item">✕</button></div>`).join("");
-    return `<div class="rpg-card"><h4>Dinheiro</h4><div class="rpg-grade">${campo("Tibares (T$)", "tp", f.tp, "number")}</div></div>
-      <div class="rpg-card"><h4>Inventário <span class="rpg-dica">Item · quantidade · espaços cada</span></h4><div class="rpg-carga" data-c="cargaBox"><span>Carga</span><div class="rpg-barra-vida"><i data-c="carga"></i></div><b data-c="cargaTxt"></b></div><div class="rpg-lista">${itens || '<p class="rpg-vazio">Inventário vazio.</p>'}</div><button type="button" class="small rpg-add" data-add="inventario">+ Item</button><span class="rpg-dica">Limite = 10 + 2 × Força (em espaços).</span></div>`;
-  }
-  const abaNotas = f => `<div class="rpg-card"><h4>Anotações</h4><label class="rpg-campo"><textarea data-f="notas" rows="14" placeholder="História, aliados, missões, segredos…">${esc(f.notas)}</textarea></label></div>`;
-  function desenhar() {
-    const f = ficha();
-    el("rpgFicha").innerHTML = R.fichas.map(x => `<option value="${x.id}"${x.id === f.id ? " selected" : ""}>${esc(x.nome || "Sem nome")}${x.classe ? " · " + esc(x.classe) + " " + n(x.nivel) : ""}</option>`).join("");
-    el("rpgModo").value = R.modo;
-    el("rpgAbas").querySelectorAll("[data-aba]").forEach(b => b.classList.toggle("on", b.dataset.aba === aba));
-    el("rpgCorpo").innerHTML = ({ ficha: abaFicha, combate: abaCombate, magias: abaMagias, poderes: abaPoderes, inventario: abaInventario, notas: abaNotas }[aba])(f);
-    calc();
-  }
-  function calc() {
-    const f = ficha(), set = (k, v) => el("rpgCorpo").querySelectorAll(`[data-c="${k}"]`).forEach(e => e.textContent = v);
-    for (const [k] of ATR) { set("mod." + k, sinal(mod(f, k))); set("modb." + k, sinal(mod(f, k))); }
-    for (const [k] of PER) set("per." + k, sinal(bonusPer(f, k)));
-    el("rpgCorpo").querySelectorAll("[data-per]").forEach(r => r.classList.toggle("treinado", !!per(f, r.dataset.per).treino));
-    set("def", defesa(f)); set("defConta", `10${f.def.usaDes !== false ? " + DES" : ""} + equip.`);
-    set("meio", sinal(meioNivel(f))); set("treino", "+" + treino(f)); set("cd", cdMagia(f)); set("pmTxt", `${n(f.pm.atual)}/${n(f.pm.max)}`);
-    for (const k of ["pv", "pm"]) el("rpgCorpo").querySelectorAll(`[data-c="barra.${k}"]`).forEach(i => i.style.width = Math.max(0, Math.min(100, n(f[k].max) ? n(f[k].atual) / n(f[k].max) * 100 : 0)) + "%");
-    f.ataques.forEach((a, i) => set("atk." + i, sinal(bonusAtk(f, a))));
-    f.magias.forEach((m, i) => set("custo." + i, custoMagia(m)));
-    const cm = cargaMax(f), ca = cargaAtual(f);
-    set("cargaTxt", `${+ca.toFixed(1)} / ${cm}`);
-    el("rpgCorpo").querySelectorAll('[data-c="carga"]').forEach(i => i.style.width = Math.min(100, cm ? ca / cm * 100 : 0) + "%");
-    el("rpgCorpo").querySelectorAll('[data-c="cargaBox"]').forEach(b => b.classList.toggle("pesado", ca > cm));
-  }
-  // ---------- editar ----------
-  const caminho = (o, p) => { const ks = p.split("."); let x = o; for (let i = 0; i < ks.length - 1; i++) { const k = ks[i]; if (x[k] == null) x[k] = /^\d+$/.test(ks[i + 1]) ? [] : {}; x = x[k]; } return [x, ks[ks.length - 1]]; };
-  let salvaT = null;
-  const salvaJa = () => { clearTimeout(salvaT); salvaT = setTimeout(save, 250); };
-  el("rpgCorpo").addEventListener("input", e => {
-    const t = e.target, p = t.dataset.f; if (!p) return;
-    const f = ficha(), [o, k] = caminho(f, p);
-    o[k] = t.type === "checkbox" ? t.checked : t.type === "number" ? (t.value === "" ? "" : Number(t.value)) : t.value;
-    if (/^(nome|classe|nivel)$/.test(p)) { const op = el("rpgFicha").selectedOptions[0]; if (op) op.textContent = (f.nome || "Sem nome") + (f.classe ? " · " + f.classe + " " + n(f.nivel) : ""); }
-    calc(); salvaJa();
-    if (/^magias\.\d+\.circulo$/.test(p) && t.tagName === "SELECT") desenhar();
-  });
-  const NOVO = { ataques: () => ({ nome: "", pericia: "luta", bonus: 0, dano: "1d6", atrDano: "for", margem: 20, mult: 2, tipo: "", alcance: "" }), magias: () => ({ nome: "", circulo: 1, pm: "", escola: "", execucao: "Padrão", alcance: "", alvo: "", duracao: "", resistencia: "", dano: "", desc: "", aprim: [] }), poderes: () => ({ nome: "", desc: "", pm: "" }), inventario: () => ({ nome: "", qtd: 1, peso: 1 }), aprim: () => ({ desc: "", pm: 1, dano: "" }) };
-  el("rpgCorpo").addEventListener("click", e => {
-    const f = ficha(), b = e.target.closest("button, [data-rolar]"); if (!b) return;
-    if (b.id === "rpgFoto") { el("rpgFotoArq").click(); return; }
-    if (b.dataset.add) { const [o, k] = caminho(f, b.dataset.add); o[k] ||= []; o[k].push(NOVO[k === "aprim" ? "aprim" : k]()); save(); desenhar(); const ins = el("rpgCorpo").querySelectorAll(".rpg-item .rpg-inp, .rpg-inv .rpg-inp"); if (k !== "aprim" && ins.length) { const l = [...el("rpgCorpo").querySelectorAll(`[data-f^="${b.dataset.add}."][data-f$=".nome"]`)].pop(); l && l.focus(); } return; }
-    if (b.dataset.del) { const [lst, i] = b.dataset.del.split(":"), [o, k] = caminho(f, lst); const item = o[k][+i]; if (item && (item.nome || item.desc) && !confirm(`Remover "${item.nome || item.desc}"?`)) return; o[k].splice(+i, 1); save(); desenhar(); return; }
-    if (b.dataset.mais) { const [k, d] = b.dataset.mais.split(":"); f[k].atual = Math.min(n(f[k].max) || Infinity, n(f[k].atual) + Number(d)); if (Number(d) < 0) f[k].atual = n(f[k].atual); const inp = el("rpgCorpo").querySelector(`[data-f="${k}.atual"]`); if (inp) inp.value = f[k].atual; calc(); salvaJa(); return; }
-    if (b.dataset.rolar) {
-      const [tipo, k] = b.dataset.rolar.split(":");
-      if (tipo === "atr") return teste(ATR.find(a => a[0] === k)[2], mod(f, k));
-      if (tipo === "per") { const d = PER.find(p => p[0] === k); return teste(d[1] + (d[3] && !per(f, k).treino ? " (só treinado!)" : ""), bonusPer(f, k)); }
-      const a = f.ataques[+k]; if (!a) return;
-      const danoExpr = d => { const ad = a.atrDano ?? "for", m = ad ? mod(f, ad) : 0; return (a.dano || "0") + (m ? (m > 0 ? "+" : "") + m : ""); };
-      if (tipo === "atk") {
-        const r = rolar("1d20" + sinal(bonusAtk(f, a)).replace("+0", "+0")); if (!r) return mostraErro();
-        const crit = r.d20 != null && r.d20 >= Math.min(20, n(a.margem) || 20);
-        const dano = rolar(danoExpr(), crit ? Math.max(2, n(a.mult) || 2) : 0);
-        return mostra(`${a.nome || "Ataque"} (${(a.pericia || "luta") === "luta" ? "Luta" : "Pontaria"})`, r, dano ? `${crit ? "💥 CRÍTICO! " : ""}Dano: <b>${dano.total}</b>${a.tipo ? " " + esc(a.tipo) : ""} (${esc(dano.detalhe)})` : "");
-      }
-      if (tipo === "dano") return mostra(`Dano: ${a.nome || "ataque"}`, rolar(danoExpr()));
-    }
-    if (b.dataset.lancar != null) {
-      const i = +b.dataset.lancar, m = f.magias[i]; if (!m) return;
-      const usados = [...el("rpgCorpo").querySelectorAll(`[data-uso^="${i}:"]`)].filter(c => c.checked).map(c => (m.aprim || [])[+c.dataset.uso.split(":")[1]]).filter(Boolean);
-      const custo = custoMagia(m) + usados.reduce((s, a) => s + n(a.pm), 0);
-      if (n(f.pm.atual) < custo && !confirm(`Você tem ${n(f.pm.atual)} PM e a magia custa ${custo}. Lançar mesmo assim?`)) return;
-      f.pm.atual = n(f.pm.atual) - custo; save(); calc();
-      const expr = [m.dano, ...usados.map(a => a.dano)].filter(x => String(x || "").trim()).join("+");
-      const r = expr ? rolar(expr) : { total: custo, detalhe: `−${custo} PM`, d20: null };
-      const extra = `${expr ? `Gastou ${custo} PM · ` : ""}CD ${cdMagia(f)}${m.resistencia ? " (" + esc(m.resistencia) + ")" : ""} · PM: ${n(f.pm.atual)}/${n(f.pm.max)}${usados.length ? "<br>+ " + usados.map(a => esc(a.desc || "aprimoramento")).join(", ") : ""}`;
-      mostra(`✨ ${m.nome || "Magia"}${expr ? "" : " lançada"}`, r, extra);
-      el("rpgCorpo").querySelectorAll(`[data-uso^="${i}:"]`).forEach(c => c.checked = false);
-      return;
-    }
-    if (b.dataset.usar != null) { const p = f.poderes[+b.dataset.usar]; if (!p) return; const c = n(p.pm); if (c) { if (n(f.pm.atual) < c && !confirm(`Você tem ${n(f.pm.atual)} PM e o poder custa ${c}. Usar mesmo assim?`)) return; f.pm.atual = n(f.pm.atual) - c; save(); } mostra(`🌟 ${p.nome || "Poder"}`, { total: c ? "−" + c : "✓", detalhe: c ? `Gastou ${c} PM · PM: ${n(f.pm.atual)}/${n(f.pm.max)}` : "Usado", d20: null }); }
-  });
-  // foto do personagem (reduzida para não pesar)
-  el("rpgCorpo").addEventListener("change", e => {
-    if (e.target.id !== "rpgFotoArq" || !e.target.files[0]) return;
-    const img = new Image(), rd = new FileReader();
-    rd.onload = () => { img.onload = () => { const c = document.createElement("canvas"), s = 256, k = Math.max(img.width, img.height) / s; c.width = Math.round(img.width / Math.max(1, k)); c.height = Math.round(img.height / Math.max(1, k)); c.getContext("2d").drawImage(img, 0, 0, c.width, c.height); ficha().foto = c.toDataURL("image/jpeg", .85); save(); desenhar(); }; img.src = rd.result; };
-    rd.readAsDataURL(e.target.files[0]);
-  });
-  // ---------- barra de cima ----------
-  el("rpgAbas").addEventListener("click", e => { const b = e.target.closest("[data-aba]"); if (!b) return; aba = b.dataset.aba; desenhar(); const box = document.querySelector("#rpgPag .rpg-box"); if (box) box.scrollTop = 0; });
-  el("rpgFicha").onchange = e => { R.ativa = e.target.value; save(); desenhar(); };
-  el("rpgNova").onclick = () => { const f = novaFicha(); R.fichas.push(f); R.ativa = f.id; aba = "ficha"; save(); desenhar(); const i = el("rpgCorpo").querySelector('[data-f="nome"]'); if (i) { i.focus(); i.select(); } };
-  el("rpgMaisBtn").onclick = () => { const m = el("rpgMais"); m.hidden = !m.hidden; el("rpgMaisBtn").setAttribute("aria-expanded", String(!m.hidden)); };
-  el("rpgModo").onchange = e => {
-    const novo = e.target.value; if (novo === R.modo) return;
-    // converte os números da ficha atual para o outro jeito de anotar
-    for (const f of R.fichas) for (const [k] of ATR) { const v = n(f.atrib[k]); f.atrib[k] = novo === "valor" ? 10 + v * 2 : Math.floor((v - 10) / 2); }
-    R.modo = novo; save(); desenhar();
-  };
-  el("rpgDuplicar").onclick = () => { const f = JSON.parse(JSON.stringify(ficha())); f.id = novaId(); f.nome = (f.nome || "Personagem") + " (cópia)"; R.fichas.push(f); R.ativa = f.id; save(); desenhar(); };
-  el("rpgApagar").onclick = () => { const f = ficha(); if (!confirm(`Apagar a ficha "${f.nome || "Sem nome"}"? Isso não pode ser desfeito.`)) return; R.fichas = R.fichas.filter(x => x.id !== f.id); if (!R.fichas.length) R.fichas.push(novaFicha("Meu personagem")); R.ativa = R.fichas[0].id; save(); desenhar(); };
-  el("rpgExportar").onclick = () => {
-    const f = ficha(), txt = JSON.stringify({ formato: "organizer-ficha-t20", modo: R.modo, ficha: f }, null, 1), nome = "ficha-" + (f.nome || "personagem").replace(/[^\wÀ-ſ -]/g, "").trim().replace(/\s+/g, "-") + ".json";
-    if (window.organizer && window.organizer.salvarArquivo) { window.organizer.salvarArquivo(nome, txt); return; }
-    const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([txt], { type: "application/json" })); a.download = nome; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500);
-  };
-  el("rpgImportarBtn").onclick = () => el("rpgImportar").click();
-  el("rpgImportar").onchange = e => {
-    const arq = e.target.files[0]; if (!arq) return; const rd = new FileReader();
-    rd.onload = () => { try { const d = JSON.parse(rd.result); if (d.formato !== "organizer-ficha-t20" || !d.ficha) throw 0; const f = Object.assign(novaFicha(), d.ficha, { id: novaId() });
-      if (d.modo && d.modo !== R.modo) for (const [k] of ATR) { const v = n(f.atrib[k]); f.atrib[k] = R.modo === "valor" ? 10 + v * 2 : Math.floor((v - 10) / 2); }
-      R.fichas.push(f); R.ativa = f.id; save(); desenhar(); } catch { alert("Esse arquivo não é uma ficha do Organizer."); } e.target.value = ""; };
-    rd.readAsText(arq);
-  };
-  // ---------- histórico e rolagem livre ----------
-  function desenhaLog() {
-    const l = log();
-    el("rpgLogLista").innerHTML = l.length ? l.map(x => `<div class="rpg-log-item ${x.nat || ""}"><span class="n">${esc(x.total)}</span><span><b>${esc(x.titulo)}</b><small>${esc(x.detalhe)}</small></span></div>`).join("") : '<p class="rpg-vazio">As rolagens aparecem aqui.</p>';
-  }
-  el("rpgRapidos").innerHTML = ["1d20", "1d12", "1d10", "1d8", "1d6", "1d4", "2d6", "1d100"].map(d => `<button type="button" data-d="${d}">${d}</button>`).join("");
-  el("rpgRapidos").onclick = e => { const b = e.target.closest("[data-d]"); if (b) mostra(b.dataset.d, rolar(b.dataset.d)); };
-  el("rpgLivre").onsubmit = e => { e.preventDefault(); const x = el("rpgLivreExpr").value.trim(); if (!x) return; mostra(x, rolar(x)); };
-  const abreLog = on => { el("rpgLog").hidden = !on; if (on) desenhaLog(); };
-  el("rpgDadosBtn").onclick = () => abreLog(el("rpgLog").hidden);
-  el("rpgLogFechar").onclick = () => abreLog(false);
-  el("rpgLogLimpar").onclick = () => { try { localStorage.removeItem(LOGK); } catch {} desenhaLog(); };
-  window.rpgFecharPainel = () => { if (!el("rpgLog").hidden) { abreLog(false); return true; } if (!el("rpgMais").hidden) { el("rpgMais").hidden = true; return true; } return false; };
-  // ---------- abrir / fechar a tela ----------
-  window.rpgPagina = on => {
-    document.body.classList.toggle("rpg-pagina", on !== false); el("rpgPag").hidden = on === false;
-    if (on === false) { abreLog(false); el("rpgRolagem").hidden = true; return; }
-    window.scrollTo(0, 0); desenhar();
-  };
-  el("wIrRpg").onclick = () => { fechaEscolha(); enter(); window.rpgPagina(true); };
-  el("rpgFuncoes").onclick = () => { window.rpgPagina(false); irFuncoes(); };
-  window.rpgTestes = { rolar, mod, bonusPer, defesa, cdMagia, treino, meioNivel };
+  let mudou = false;
+  if (store.rpg) { delete store.rpg; mudou = true; }
+  if (Array.isArray(store.funcoesOrdem) && store.funcoesOrdem.includes("wIrRpg")) { store.funcoesOrdem = store.funcoesOrdem.filter(x => x !== "wIrRpg"); mudou = true; }
+  try { localStorage.removeItem(KEY + "-rpg-rolagens"); if (localStorage.getItem(KEY + "-ultima") === "rpg") localStorage.removeItem(KEY + "-ultima"); } catch {}
+  if (mudou) save();
 })();
 // número da versão no canto: lido da própria página, então nunca fica desatualizado
 (() => { const v = (document.querySelector('meta[name="organizer-versao"]') || {}).content || ""; document.querySelectorAll(".versao-txt").forEach(e => e.textContent = v ? "v" + v : ""); })();
@@ -5391,17 +4997,17 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
   const ehApp = !!window.OrganizerAndroid, ehProg = !!(window.organizer && window.organizer.wifiLigar);
   const decide = () => { const cel = ehApp || (!ehProg && matchMedia("(max-width: 760px)").matches); B.classList.toggle("layout-cel", cel); B.classList.toggle("layout-pc", !cel); };
   decide(); addEventListener("resize", decide);
-  const DEST = { wIrPlan: "plan", wIrCal: "cal", wIrCalc: "calc", wIrSync: "sync", wIrNotas: "notas", wIrPerfil: "perfil", wIrTemas: "temas", wIrCfg: "cfg", wIrRpg: "rpg" };
-  const CLASSE = { cal: "cal-pagina", calc: "calc-pagina", sync: "sync-pagina", notas: "notas-pagina", perfil: "perfil-pagina", temas: "temas-pagina", cfg: "cfg-pagina", rpg: "rpg-pagina" };
+  const DEST = { wIrPlan: "plan", wIrCal: "cal", wIrCalc: "calc", wIrSync: "sync", wIrNotas: "notas", wIrPerfil: "perfil", wIrTemas: "temas", wIrCfg: "cfg" };
+  const CLASSE = { cal: "cal-pagina", calc: "calc-pagina", sync: "sync-pagina", notas: "notas-pagina", perfil: "perfil-pagina", temas: "temas-pagina", cfg: "cfg-pagina" };
   const vibra = () => { if (B.classList.contains("layout-cel") && navigator.vibrate) try { navigator.vibrate(8); } catch {} };
   function atual() { for (const [d, c] of Object.entries(CLASSE)) if (B.classList.contains(c)) return d; return "plan"; }
   function fechaTelas() {
-    const f = { cfg: "cfgPagina", temas: "temasPagina", perfil: "perfilPagina", sync: "syncPagina", notas: "notasPagina", calc: "calcPagina", rpg: "rpgPagina" };
+    const f = { cfg: "cfgPagina", temas: "temasPagina", perfil: "perfilPagina", sync: "syncPagina", notas: "notasPagina", calc: "calcPagina" };
     for (const [d, fn] of Object.entries(f)) if (B.classList.contains(CLASSE[d]) && window[fn]) window[fn](false);
     if (B.classList.contains("cal-pagina") && window.calFechar) window.calFechar();
     toggleSettings(false);
   }
-  const ALVO = { plan: ".wrap", cal: "#calendario .cal-box", calc: "#calculadora .calc-box", sync: "#sincronizar .sync-box", notas: "#notasPag .notas-box", perfil: "#perfilPag .sync-box", temas: "#temasPag .sync-box", cfg: "#configuracoes .sync-box", rpg: "#rpgPag .rpg-box" };
+  const ALVO = { plan: ".wrap", cal: "#calendario .cal-box", calc: "#calculadora .calc-box", sync: "#sincronizar .sync-box", notas: "#notasPag .notas-box", perfil: "#perfilPag .sync-box", temas: "#temasPag .sync-box", cfg: "#configuracoes .sync-box" };
   function anima(d) { const e = document.querySelector(ALVO[d]); if (!e) return; e.classList.remove("entra"); void e.offsetWidth; e.classList.add("entra"); }
   window.irPara = d => {
     vibra(); fechaMais();
@@ -5410,7 +5016,7 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
     if (inMenu()) { fechaEscolha(); enter(); }
     if (atual() === d && d !== "plan") return;
     fechaTelas();
-    ({ cal: () => window.calPagina(), calc: () => window.calcPagina(), sync: () => window.syncPagina(true), notas: () => window.notasPagina(true), perfil: () => window.perfilPagina(true), temas: () => window.temasPagina(true), cfg: () => window.cfgPagina(true), rpg: () => window.rpgPagina(true) }[d] || (() => {}))();
+    ({ cal: () => window.calPagina(), calc: () => window.calcPagina(), sync: () => window.syncPagina(true), notas: () => window.notasPagina(true), perfil: () => window.perfilPagina(true), temas: () => window.temasPagina(true), cfg: () => window.cfgPagina(true) }[d] || (() => {}))();
     window.scrollTo(0, 0); anima(d); marca();
   };
   // monta as barras a partir dos cartões do menu Funções (mesma ordem que o usuário escolheu)
@@ -5446,7 +5052,7 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
   // botão Voltar do Android (e gesto de deslizar da borda): fecha o que estiver aberto, senão volta ao menu
   window.organizerVoltar = () => {
     const vis = id => { const e = document.getElementById(id); return e && !e.hidden; };
-    if (!mais.hidden) { fechaMais(); return true; } if (window.novidadesFechar && window.novidadesFechar()) return true; if (window.rpgFecharPainel && document.body.classList.contains("rpg-pagina") && window.rpgFecharPainel()) return true; if (window.avisosFechar && window.avisosFechar()) return true;
+    if (!mais.hidden) { fechaMais(); return true; } if (window.novidadesFechar && window.novidadesFechar()) return true; if (window.avisosFechar && window.avisosFechar()) return true;
     if (vis("fotoModal")) { document.getElementById("fotoModal").hidden = true; return true; }
     if (vis("cropper")) { document.getElementById("cropCancel").click(); return true; }
     if (vis("wifiCamera")) { document.getElementById("wifiCameraFechar").click(); return true; }
