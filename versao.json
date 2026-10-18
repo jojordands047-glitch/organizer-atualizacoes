@@ -1,7 +1,7 @@
 {
   "conteudo": {
-    "versao": "1.4.0",
-    "novidades": "Menu Funções organizável: toque em Organizar e arraste os cartões para a ordem que quiser.",
+    "versao": "1.4.1",
+    "novidades": "Tema único para tudo; telas de Temas, Perfil e Sincronizar mais largas; botão grande de procurar atualização; seções do Perfil minimizáveis.",
     "arquivo": "organizer.html",
     "assinatura": "organizer.html.sig",
     "minimoPrograma": "1.3.0",

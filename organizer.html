@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <style>body{margin:0;font:14px system-ui,-apple-system,"Segoe UI",sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Organizer</title>
-<meta name="organizer-versao" content="1.4.0">
+<meta name="organizer-versao" content="1.4.1">
 <link rel="icon" id="favicon" href="data:,">
 <meta name="claude:viewport-fit-sides" content="cover">
 <style>
@@ -1214,6 +1214,10 @@ body.perfil-pagina .wrap, body.notas-pagina .wrap { display: none; }
 .chave-tempo div { background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 6px 2px; }
 .chave-tempo b { display: block; font: 700 1.2rem var(--mono); color: var(--accent); font-variant-numeric: tabular-nums; }
 .chave-tempo small { font-size: .66rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+#perfilPag .sync-card > .set-lbl:first-child { cursor: pointer; display: flex; align-items: center; justify-content: space-between; user-select: none; }
+#perfilPag .sync-card > .set-lbl:first-child::after { content: "▾"; font-size: 1rem; color: var(--muted); transition: transform .2s; }
+#perfilPag .sync-card.fechado > .set-lbl:first-child::after { transform: rotate(-90deg); }
+#perfilPag .sync-card.fechado > :not(:first-child) { display: none !important; }
 .per-topo { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 6px 0 2px; }
 .per-foto { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent); box-shadow: 0 0 22px color-mix(in srgb, var(--accent) 35%, transparent); }
 .per-vazia { display: grid; place-items: center; font-size: 2.6rem; background: var(--bg); box-sizing: border-box; }
@@ -1221,6 +1225,7 @@ body.perfil-pagina .wrap, body.notas-pagina .wrap { display: none; }
 /* a engrenagem saiu da tela de boas-vindas: configurações ficam no menu Funções */
 .w-cantos #wSetBtn { display: none !important; }
 body.temas-pagina .wrap { display: none; }
+.atu-grande { width: 100%; padding: 14px 16px; font-size: 1.05rem; font-weight: 700; border-radius: 12px; box-shadow: 0 0 18px color-mix(in srgb, var(--accent) 40%, transparent); }
 .avancado { border-top: 1px dashed var(--line); padding-top: 8px; }
 .avancado > summary { cursor: pointer; font-size: .82rem; color: var(--muted); list-style: none; }
 .avancado > summary::before { content: "▸ "; } .avancado[open] > summary::before { content: "▾ "; }
@@ -1234,6 +1239,9 @@ body.cfg-pagina .wrap { display: none; }
 #cfgBox .settings > .set-head, #cfgBox .settings > .beam { display: none; }
 body.em-funcoes .w-cantos #wSetBtn { display: none; }
 .sync-box { width: min(32rem, 100%); gap: 14px; }
+.sync-box.sync-larga { width: min(66rem, 100%); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(24rem, 100%), 1fr)); align-items: start; }
+.sync-larga > .cal-pag-top, .sync-larga > .beam, .sync-larga > .per-topo { grid-column: 1 / -1; }
+#temasPag .sync-larga > .sync-card:first-of-type, #temasPag .sync-larga > .custom-ed { grid-column: 1 / -1; }
 .sync-card { background: color-mix(in srgb, var(--bg) 55%, transparent); }
 /* relógios de Brasília e Manaus */
 .relogios { display: flex; justify-content: center; gap: 10px; font-variant-numeric: tabular-nums; }
@@ -1878,7 +1886,7 @@ html.troca-festa body, html.troca-festa .grid-box, html.troca-festa .calc, html.
   <div id="notaAviso" class="nota-aviso" hidden><span>Nota apagada.</span><button id="notaDesfazer" type="button" class="small">Desfazer</button></div>
 </section>
 <section id="perfilPag" class="sync-area per-area" aria-label="Perfil" hidden>
-  <div class="calc-box sync-box"><i class="beam" aria-hidden="true"></i>
+  <div class="calc-box sync-box sync-larga"><i class="beam" aria-hidden="true"></i>
     <div class="cal-pag-top"><button id="perFuncoes" class="small" aria-label="Voltar ao menu de funções"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg> Funções</button><strong>Perfil</strong><button id="perParaPlan" class="small">Planilhas →</button></div>
     <div class="per-topo"><img id="perFoto" class="per-foto" alt="" hidden><span id="perSemFoto" class="per-foto per-vazia" aria-hidden="true">👤</span><b id="perNome"></b><span id="perIdade" class="set-note"></span></div>
     <section class="org-area sync-card">
@@ -1916,9 +1924,8 @@ html.troca-festa body, html.troca-festa .grid-box, html.troca-festa .calc, html.
   </div>
 </section>
 <section id="temasPag" class="sync-area tem-area" aria-label="Temas" hidden>
-  <div class="calc-box sync-box"><i class="beam" aria-hidden="true"></i>
+  <div class="calc-box sync-box sync-larga"><i class="beam" aria-hidden="true"></i>
     <div class="cal-pag-top"><button id="temFuncoes" class="small" aria-label="Voltar ao menu de funções"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg> Funções</button><strong>Temas</strong><button id="temParaPlan" class="small">Planilhas →</button></div>
-    <div class="tem-alvo" role="radiogroup" aria-label="Onde aplicar o tema"><label><input type="radio" name="temAlvo" value="aba" checked> Esta aba</label><label><input type="radio" name="temAlvo" value="menu"> Tela inicial</label><label><input type="radio" name="temAlvo" value="tudo"> Tudo</label></div>
     <section class="org-area sync-card">
     <div class="set-row"><span class="set-lbl" id="themeLbl">Tema desta aba</span><button id="editThemes" class="small">Editar temas</button></div>
     <div class="so-musica"><span class="set-lbl">Cor do tema Música</span><div class="mu-cores" role="group" aria-label="Cor do tema Música"></div></div>
@@ -1965,7 +1972,7 @@ html.troca-festa body, html.troca-festa .grid-box, html.troca-festa .calc, html.
   </div>
 </section>
 <section id="sincronizar" class="sync-area" aria-label="Sincronizar" hidden>
-  <div class="calc-box sync-box"><i class="beam" aria-hidden="true"></i>
+  <div class="calc-box sync-box sync-larga"><i class="beam" aria-hidden="true"></i>
     <div class="cal-pag-top"><button id="syncFuncoes" class="small" aria-label="Voltar ao menu de funções"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg> Funções</button><strong>Sincronizar</strong><button id="syncParaPlan" class="small">Planilhas →</button></div>
     <section class="org-area sync-card" id="wifiArea" hidden>
       <span class="set-lbl">📶 Sincronizar pelo Wi-Fi</span>
@@ -2004,7 +2011,7 @@ html.troca-festa body, html.troca-festa .grid-box, html.troca-festa .calc, html.
       <p class="set-note">Versão em uso: <b id="syncVersao"></b></p>
       <div id="atuArea" hidden>
         <p class="set-note" id="atuStatus">O Organizer procura versões novas sozinho quando abre (com internet).</p>
-        <div class="set-field"><button id="atuProcurar" class="small">Procurar atualizações</button></div>
+        <button id="atuProcurar" class="primary atu-grande">🔄 Procurar atualizações</button>
       </div>
       <details class="avancado" id="syncAvancado" hidden><summary>Opções avançadas</summary>
       <div id="orgPrograma" hidden>
@@ -2440,7 +2447,7 @@ document.getElementById("closeTemas").onclick = () => toggleTemas(false);
 document.getElementById("temasRapidos").addEventListener("click", e => {
   const pc = e.target.closest("[data-pasta]"); if (pc) { alternaPasta(pc.dataset.pasta); return; }
   const b = e.target.closest("button[data-tt]"); if (!b) return;
-  if (store.unifiedTheme) store.globalTheme = b.dataset.tt; else tab().theme = b.dataset.tt;
+  store.globalTheme = b.dataset.tt; store.unifiedTheme = true;
   applyTheme(); renderTabs(); save();
 });
 document.getElementById("closeAbas").onclick = () => toggleAbas(false);
@@ -2548,8 +2555,11 @@ const nascDe = () => { const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec((store && stor
 const ehAniversario = (d = new Date()) => { const n = nascDe(); return !!n && d.getMonth() + 1 === n.mes && d.getDate() === n.dia; };
 const idadeEm = (d = new Date()) => { const n = nascDe(); if (!n) return 0; return d.getFullYear() - n.ano - ((d.getMonth() + 1 < n.mes || (d.getMonth() + 1 === n.mes && d.getDate() < n.dia)) ? 1 : 0); };
 let festaAtiva = false;
-const currentTheme = () => okTheme(store.unifiedTheme ? store.globalTheme : (tab().theme || "verde"));
-const menuTheme = () => okTheme(store.unifiedTheme ? store.globalTheme : (store.welcome && store.welcome.theme));
+// o tema vale para tudo (planilhas, menu e telas)
+if (!store.globalTheme) store.globalTheme = (store.tabs && store.tabs[store.active || 0] && store.tabs[store.active || 0].theme) || "verde";
+store.unifiedTheme = true;
+const currentTheme = () => okTheme(store.globalTheme || tab().theme || "verde");
+const menuTheme = () => okTheme(store.globalTheme || (store.welcome && store.welcome.theme));
 const shownTheme = () => (inMenu() || window.temaAlvo === "menu") ? menuTheme() : currentTheme();
 // pastas de temas: cada tema fica em no máximo uma pasta; os que não estão em nenhuma aparecem em "Sem pasta"
 store.themeFolders ||= [
@@ -2574,7 +2584,7 @@ function alternaPasta(id) {
 }
 function applyTheme() {
   const t = shownTheme();
-  document.getElementById("themeLbl").textContent = store.unifiedTheme ? "Tema de tudo (planilhas e menu)" : (inMenu() || window.temaAlvo === "menu") ? "Tema da tela inicial e do menu" : "Tema desta aba";
+  document.getElementById("themeLbl").textContent = "Tema";
   document.documentElement.dataset.tt = festaAtiva ? "aniver" : t;
   const dot = (a, b) => `<span class="dot" style="background: linear-gradient(135deg, ${a} 50%, ${b} 50%)"></span>`;
   const vis = visibleThemes();
@@ -2634,9 +2644,7 @@ themesEl.addEventListener("click", e => {
   }
   const b = e.target.closest("button[data-tt]"); if (!b) return;
   const id = b.dataset.tt;
-  if (store.unifiedTheme) store.globalTheme = id;
-  else if (inMenu() || window.temaAlvo === "menu") store.welcome.theme = id;
-  else tab().theme = id;
+  store.globalTheme = id; store.unifiedTheme = true;
   applyTheme(); save();
   if (inMenu()) welcomeTitle();
 });
@@ -2955,6 +2963,18 @@ window.perfilPagina = on => {
   }
   setInterval(conta, 1000); window.chaveConta = conta;
 })();
+// seções do Perfil que minimizam (lembra o que ficou fechado neste aparelho)
+(() => {
+  const K = KEY + "-perfil-fechados"; let fech = []; try { fech = JSON.parse(localStorage.getItem(K)) || []; } catch {}
+  document.querySelectorAll("#perfilPag .sync-card").forEach(card => {
+    const lbl = card.querySelector(":scope > .set-lbl:first-child"); if (!lbl) return;
+    const nome = lbl.textContent.trim(); lbl.setAttribute("role", "button"); lbl.tabIndex = 0;
+    const set = f => { card.classList.toggle("fechado", f); lbl.setAttribute("aria-expanded", String(!f)); };
+    set(fech.includes(nome));
+    const alterna = () => { set(!card.classList.contains("fechado")); fech = fech.filter(x => x !== nome); if (card.classList.contains("fechado")) fech.push(nome); try { localStorage.setItem(K, JSON.stringify(fech)); } catch {} };
+    lbl.addEventListener("click", alterna); lbl.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); alterna(); } });
+  });
+})();
 function perfilTopo() {
   if (window.chaveConta) window.chaveConta();
   const f = document.getElementById("perFoto"), av = store.welcome && store.welcome.photo;
@@ -2973,14 +2993,9 @@ document.getElementById("perParaPlan").onclick = () => window.perfilPagina(false
 document.getElementById("abrirPerfil").onclick = () => { if (document.body.classList.contains("cfg-pagina")) window.cfgPagina(false); toggleSettings(false); if (inMenu()) enter(); window.perfilPagina(true); };
 window.temasPagina = on => {
   document.body.classList.toggle("temas-pagina", on !== false); document.getElementById("temasPag").hidden = on === false;
-  window.temaAlvo = "aba"; const modo = store.unifiedTheme ? "tudo" : "aba"; document.querySelectorAll('input[name="temAlvo"]').forEach(r => r.checked = r.value === modo);
+  window.temaAlvo = "aba";
   applyTheme(); if (on !== false) window.scrollTo(0, 0);
 };
-document.querySelectorAll('input[name="temAlvo"]').forEach(r => r.addEventListener("change", () => {
-  if (r.value === "tudo") { if (!store.unifiedTheme) { store.globalTheme = currentTheme(); store.unifiedTheme = true; } window.temaAlvo = "aba"; }
-  else { if (store.unifiedTheme) { tab().theme = store.globalTheme; store.welcome.theme = store.globalTheme; } store.unifiedTheme = false; window.temaAlvo = r.value; }
-  applyTheme(); save();
-}));
 document.getElementById("wIrTemas").onclick = () => { fechaEscolha(); enter(); window.temasPagina(true); };
 document.getElementById("temFuncoes").onclick = () => { window.temasPagina(false); irFuncoes(); };
 document.getElementById("temParaPlan").onclick = () => window.temasPagina(false);
