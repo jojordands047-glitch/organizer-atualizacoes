@@ -2,6 +2,12 @@
 
 ➕ adicionado · 🔧 corrigido · 🔄 mudado · ➖ removido
 
+## 1.5.2 — 18/10/2026
+- 🔄 Barras de rolagem na cor do tema, finas e arredondadas.
+- ➕ Botão Boas-vindas na barra de baixo (PC) e na folha Mais (celular).
+- 🔧 Barra de rolagem saía da janela e passava por trás da barra de baixo.
+- 🔧 Brilho animado das bordas desalinhado em mais algumas caixas.
+
 ## 1.5.1 — 18/10/2026
 - 🔄 PC: todas as telas numa janela de tamanho fixo (mesma largura e altura); o conteúdo rola por dentro.
 - 🔄 PC: a barra de funções saiu da lateral e fica na parte de baixo da janela; só a logo e a versão ficam fora.

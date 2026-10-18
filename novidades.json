@@ -1,379 +1,401 @@
 {
-  "formato": "organizer-novidades",
-  "versoes": [
+ "formato": "organizer-novidades",
+ "versoes": [
+  {
+   "versao": "1.5.2",
+   "data": "2026-10-18",
+   "itens": [
     {
-      "versao": "1.5.1",
-      "data": "2026-10-18",
-      "itens": [
-        {
-          "tipo": "mudado",
-          "texto": "PC: todas as telas numa janela de tamanho fixo (mesma largura e altura); o conteúdo rola por dentro."
-        },
-        {
-          "tipo": "mudado",
-          "texto": "PC: a barra de funções saiu da lateral e fica na parte de baixo da janela; só a logo e a versão ficam fora."
-        },
-        {
-          "tipo": "mudado",
-          "texto": "Calculadora maior no PC: teclado grande à esquerda e histórico à direita."
-        },
-        {
-          "tipo": "mudado",
-          "texto": "Número da versão mais destacado, na cor do tema."
-        },
-        {
-          "tipo": "adicionado",
-          "texto": "F12 coloca em tela cheia; Esc sai."
-        },
-        {
-          "tipo": "corrigido",
-          "texto": "Brilho animado das bordas desalinhado em algumas janelas e nas caixas das planilhas."
-        },
-        {
-          "tipo": "corrigido",
-          "texto": "Relógios da calculadora apareciam sem a hora."
-        },
-        {
-          "tipo": "corrigido",
-          "texto": "Alinhamento vertical de vários itens (linhas de opções, topos das telas e barras)."
-        }
-      ]
+     "tipo": "mudado",
+     "texto": "Barras de rolagem na cor do tema, finas e arredondadas."
     },
     {
-      "versao": "1.5.0",
-      "data": "2026-10-18",
-      "itens": [
-        {
-          "tipo": "adicionado",
-          "texto": "Layout do PC: barra lateral com todas as funções (na ordem que você escolheu)."
-        },
-        {
-          "tipo": "adicionado",
-          "texto": "Layout do celular: barra de navegação embaixo (3 funções + \"Mais\") e folha \"Mais\" que sobe de baixo."
-        },
-        {
-          "tipo": "adicionado",
-          "texto": "Fotos de perfil recentes (como no Discord): as últimas 6 ficam salvas para usar de novo; aceita GIF animado."
-        },
-        {
-          "tipo": "adicionado",
-          "texto": "Celular: transições ao trocar de tela, deslizar da borda para voltar, deslizar no calendário para trocar de mês, vibração leve e volta para a última tela ao entrar."
-        },
-        {
-          "tipo": "adicionado",
-          "texto": "App Android: o botão Voltar volta para a tela anterior em vez de fechar o app (precisa do APK 1.5.0)."
-        },
-        {
-          "tipo": "mudado",
-          "texto": "Todas as telas alinhadas, com largura padrão; telas com pouca informação ficam num retângulo centralizado."
-        },
-        {
-          "tipo": "mudado",
-          "texto": "Impressão digital da chave fica oculta até tocar em \"Mostrar\" (como a chave da Twitch)."
-        },
-        {
-          "tipo": "mudado",
-          "texto": "Celular: animações de fundo pausam enquanto você rola a tela, para ficar mais leve."
-        }
-      ]
+     "tipo": "adicionado",
+     "texto": "Botão Boas-vindas na barra de baixo (PC) e na folha Mais (celular)."
     },
     {
-      "versao": "1.4.1",
-      "data": "2026-10-18",
-      "itens": [
-        {
-          "tipo": "mudado",
-          "texto": "O tema agora vale para tudo (planilhas, menu e telas); saiu a escolha por lugar."
-        },
-        {
-          "tipo": "mudado",
-          "texto": "Telas de Temas, Perfil e Sincronizar mais largas, com cartões lado a lado no computador."
-        },
-        {
-          "tipo": "mudado",
-          "texto": "Botão \"Procurar atualizações\" maior e em destaque."
-        },
-        {
-          "tipo": "adicionado",
-          "texto": "Seções do Perfil podem ser minimizadas (o aparelho lembra quais ficaram fechadas)."
-        }
-      ]
+     "tipo": "corrigido",
+     "texto": "Barra de rolagem saía da janela e passava por trás da barra de baixo."
     },
     {
-      "versao": "1.4.0",
-      "data": "2026-10-18",
-      "itens": [
-        {
-          "tipo": "adicionado",
-          "texto": "Menu Funções organizável: botão \"Organizar\", arrastar os cartões ou usar as setas ‹ ›."
-        }
-      ]
-    },
-    {
-      "versao": "1.3.9",
-      "data": "2026-10-18",
-      "itens": [
-        {
-          "tipo": "adicionado",
-          "texto": "Notas (estilo Google Keep): notas, listas de tarefas, 11 cores, fixar, busca e desfazer ao apagar."
-        }
-      ]
-    },
-    {
-      "versao": "1.3.8",
-      "data": "2026-10-18",
-      "itens": [
-        {
-          "tipo": "adicionado",
-          "texto": "Aba \"Chave de assinatura\" no Perfil, com cronômetro do certificado do app."
-        },
-        {
-          "tipo": "mudado",
-          "texto": "Senha e padrão de entrada removidos."
-        }
-      ]
-    },
-    {
-      "versao": "1.3.7",
-      "data": "2026-10-18",
-      "itens": [
-        {
-          "tipo": "mudado",
-          "texto": "Simplificação: casinha leva ao menu Funções; botões de tema e ⚙ abrem as telas próprias; um só \"Restaurar\"; excluir aba só pelo X; temas com \"Esta aba / Tela inicial / Tudo\"; opções avançadas escondidas."
-        },
-        {
-          "tipo": "removido",
-          "texto": "\"Novas funções em breve\", \"salvo neste aparelho\" e código antigo da nuvem."
-        }
-      ]
-    },
-    {
-      "versao": "1.3.6",
-      "data": "2026-10-18",
-      "itens": [
-        {
-          "tipo": "adicionado",
-          "texto": "Tela Perfil: foto, apelido e aniversário."
-        },
-        {
-          "tipo": "mudado",
-          "texto": "Engrenagem saiu da tela de boas-vindas."
-        }
-      ]
-    },
-    {
-      "versao": "1.3.5",
-      "data": "2026-10-18",
-      "itens": [
-        {
-          "tipo": "adicionado",
-          "texto": "Tela Temas, com todas as opções de tema."
-        }
-      ]
-    },
-    {
-      "versao": "1.3.4",
-      "data": "2026-10-18",
-      "itens": [
-        {
-          "tipo": "adicionado",
-          "texto": "Tela Configurações."
-        },
-        {
-          "tipo": "mudado",
-          "texto": "Engrenagem saiu do canto do menu Funções."
-        }
-      ]
-    },
-    {
-      "versao": "1.3.3",
-      "data": "2026-10-18",
-      "itens": [
-        {
-          "tipo": "corrigido",
-          "texto": "Número da versão no canto não acompanhava as atualizações."
-        }
-      ]
-    },
-    {
-      "versao": "1.3.2",
-      "data": "2026-10-18",
-      "itens": [
-        {
-          "tipo": "adicionado",
-          "texto": "Tela Sincronizar: Wi-Fi, atualizações e cópia dos dados."
-        }
-      ]
-    },
-    {
-      "versao": "1.3.1",
-      "data": "2026-10-18",
-      "itens": [
-        {
-          "tipo": "adicionado",
-          "texto": "Cronômetro de expiração do QR de pareamento."
-        },
-        {
-          "tipo": "adicionado",
-          "texto": "Campo \"Meu aniversário\"."
-        },
-        {
-          "tipo": "mudado",
-          "texto": "Data de nascimento saiu do código público."
-        }
-      ]
-    },
-    {
-      "versao": "1.3.0",
-      "data": "2026-10-18",
-      "itens": [
-        {
-          "tipo": "adicionado",
-          "texto": "Atualização automática pelo GitHub, com assinatura digital e \"Voltar versão anterior\"."
-        }
-      ]
-    },
-    {
-      "versao": "1.2.2",
-      "data": "2026-10-18",
-      "itens": [
-        {
-          "tipo": "corrigido",
-          "texto": "\"QR expirou\" ao parear: a diferença de relógio entre PC e celular era recusada."
-        },
-        {
-          "tipo": "mudado",
-          "texto": "Mensagens de erro do pareamento mais claras."
-        }
-      ]
-    },
-    {
-      "versao": "1.2.1",
-      "data": "2026-10-18",
-      "itens": [
-        {
-          "tipo": "adicionado",
-          "texto": "Botão Sincronizar no menu Funções (a opção estava difícil de achar no app)."
-        }
-      ]
-    },
-    {
-      "versao": "1.2.0",
-      "data": "2026-10-18",
-      "itens": [
-        {
-          "tipo": "adicionado",
-          "texto": "Sincronização pelo Wi-Fi com QR code e criptografia."
-        },
-        {
-          "tipo": "mudado",
-          "texto": "Substituiu a sincronização pela nuvem."
-        }
-      ]
-    },
-    {
-      "versao": "1.1.1",
-      "data": "2026-10-18",
-      "itens": [
-        {
-          "tipo": "corrigido",
-          "texto": "A sincronização na nuvem baixava tudo a cada 20 segundos; passou a checar só quando há mudança."
-        }
-      ]
-    },
-    {
-      "versao": "1.1.0",
-      "data": "2026-10-18",
-      "itens": [
-        {
-          "tipo": "adicionado",
-          "texto": "App Android."
-        },
-        {
-          "tipo": "adicionado",
-          "texto": "Sincronização pela nuvem (Supabase)."
-        },
-        {
-          "tipo": "adicionado",
-          "texto": "Número da versão no canto."
-        },
-        {
-          "tipo": "adicionado",
-          "texto": "Tema de aniversário com animação de parabéns e confetes no calendário."
-        },
-        {
-          "tipo": "adicionado",
-          "texto": "Menu Funções."
-        },
-        {
-          "tipo": "adicionado",
-          "texto": "Calculadora."
-        },
-        {
-          "tipo": "adicionado",
-          "texto": "Relógios de Brasília e Manaus."
-        }
-      ]
-    },
-    {
-      "versao": "1.0.3",
-      "data": "2026-10-18",
-      "itens": [
-        {
-          "tipo": "adicionado",
-          "texto": "Calendário: repetir marcações, aniversários 🎂, ícones nos dias e feriados de Brasil, Amazonas e Manaus."
-        },
-        {
-          "tipo": "adicionado",
-          "texto": "Calendário em tela própria."
-        },
-        {
-          "tipo": "adicionado",
-          "texto": "Escolha entre Planilhas e Calendário depois de entrar."
-        },
-        {
-          "tipo": "adicionado",
-          "texto": "Desbloqueio por padrão."
-        },
-        {
-          "tipo": "adicionado",
-          "texto": "Ícone do Organizer no canto e na aba do navegador."
-        }
-      ]
-    },
-    {
-      "versao": "1.0.2",
-      "data": "2026-10-18",
-      "itens": [
-        {
-          "tipo": "adicionado",
-          "texto": "Tema Música já incluído no programa, com escolha de cor."
-        },
-        {
-          "tipo": "mudado",
-          "texto": "Temas importados vão direto para a área de temas."
-        }
-      ]
-    },
-    {
-      "versao": "1.0.1",
-      "data": "2026-10-18",
-      "itens": [
-        {
-          "tipo": "mudado",
-          "texto": "Versão de teste do sistema de atualização por arquivo."
-        }
-      ]
-    },
-    {
-      "versao": "1.0.0",
-      "data": "2026-10-18",
-      "itens": [
-        {
-          "tipo": "adicionado",
-          "texto": "Primeira versão do programa do Windows: importar tema, exportar/importar dados e atualização por arquivo."
-        }
-      ]
+     "tipo": "corrigido",
+     "texto": "Brilho animado das bordas desalinhado em mais algumas caixas."
     }
-  ]
+   ]
+  },
+  {
+   "versao": "1.5.1",
+   "data": "2026-10-18",
+   "itens": [
+    {
+     "tipo": "mudado",
+     "texto": "PC: todas as telas numa janela de tamanho fixo (mesma largura e altura); o conteúdo rola por dentro."
+    },
+    {
+     "tipo": "mudado",
+     "texto": "PC: a barra de funções saiu da lateral e fica na parte de baixo da janela; só a logo e a versão ficam fora."
+    },
+    {
+     "tipo": "mudado",
+     "texto": "Calculadora maior no PC: teclado grande à esquerda e histórico à direita."
+    },
+    {
+     "tipo": "mudado",
+     "texto": "Número da versão mais destacado, na cor do tema."
+    },
+    {
+     "tipo": "adicionado",
+     "texto": "F12 coloca em tela cheia; Esc sai."
+    },
+    {
+     "tipo": "corrigido",
+     "texto": "Brilho animado das bordas desalinhado em algumas janelas e nas caixas das planilhas."
+    },
+    {
+     "tipo": "corrigido",
+     "texto": "Relógios da calculadora apareciam sem a hora."
+    },
+    {
+     "tipo": "corrigido",
+     "texto": "Alinhamento vertical de vários itens (linhas de opções, topos das telas e barras)."
+    }
+   ]
+  },
+  {
+   "versao": "1.5.0",
+   "data": "2026-10-18",
+   "itens": [
+    {
+     "tipo": "adicionado",
+     "texto": "Layout do PC: barra lateral com todas as funções (na ordem que você escolheu)."
+    },
+    {
+     "tipo": "adicionado",
+     "texto": "Layout do celular: barra de navegação embaixo (3 funções + \"Mais\") e folha \"Mais\" que sobe de baixo."
+    },
+    {
+     "tipo": "adicionado",
+     "texto": "Fotos de perfil recentes (como no Discord): as últimas 6 ficam salvas para usar de novo; aceita GIF animado."
+    },
+    {
+     "tipo": "adicionado",
+     "texto": "Celular: transições ao trocar de tela, deslizar da borda para voltar, deslizar no calendário para trocar de mês, vibração leve e volta para a última tela ao entrar."
+    },
+    {
+     "tipo": "adicionado",
+     "texto": "App Android: o botão Voltar volta para a tela anterior em vez de fechar o app (precisa do APK 1.5.0)."
+    },
+    {
+     "tipo": "mudado",
+     "texto": "Todas as telas alinhadas, com largura padrão; telas com pouca informação ficam num retângulo centralizado."
+    },
+    {
+     "tipo": "mudado",
+     "texto": "Impressão digital da chave fica oculta até tocar em \"Mostrar\" (como a chave da Twitch)."
+    },
+    {
+     "tipo": "mudado",
+     "texto": "Celular: animações de fundo pausam enquanto você rola a tela, para ficar mais leve."
+    }
+   ]
+  },
+  {
+   "versao": "1.4.1",
+   "data": "2026-10-18",
+   "itens": [
+    {
+     "tipo": "mudado",
+     "texto": "O tema agora vale para tudo (planilhas, menu e telas); saiu a escolha por lugar."
+    },
+    {
+     "tipo": "mudado",
+     "texto": "Telas de Temas, Perfil e Sincronizar mais largas, com cartões lado a lado no computador."
+    },
+    {
+     "tipo": "mudado",
+     "texto": "Botão \"Procurar atualizações\" maior e em destaque."
+    },
+    {
+     "tipo": "adicionado",
+     "texto": "Seções do Perfil podem ser minimizadas (o aparelho lembra quais ficaram fechadas)."
+    }
+   ]
+  },
+  {
+   "versao": "1.4.0",
+   "data": "2026-10-18",
+   "itens": [
+    {
+     "tipo": "adicionado",
+     "texto": "Menu Funções organizável: botão \"Organizar\", arrastar os cartões ou usar as setas ‹ ›."
+    }
+   ]
+  },
+  {
+   "versao": "1.3.9",
+   "data": "2026-10-18",
+   "itens": [
+    {
+     "tipo": "adicionado",
+     "texto": "Notas (estilo Google Keep): notas, listas de tarefas, 11 cores, fixar, busca e desfazer ao apagar."
+    }
+   ]
+  },
+  {
+   "versao": "1.3.8",
+   "data": "2026-10-18",
+   "itens": [
+    {
+     "tipo": "adicionado",
+     "texto": "Aba \"Chave de assinatura\" no Perfil, com cronômetro do certificado do app."
+    },
+    {
+     "tipo": "mudado",
+     "texto": "Senha e padrão de entrada removidos."
+    }
+   ]
+  },
+  {
+   "versao": "1.3.7",
+   "data": "2026-10-18",
+   "itens": [
+    {
+     "tipo": "mudado",
+     "texto": "Simplificação: casinha leva ao menu Funções; botões de tema e ⚙ abrem as telas próprias; um só \"Restaurar\"; excluir aba só pelo X; temas com \"Esta aba / Tela inicial / Tudo\"; opções avançadas escondidas."
+    },
+    {
+     "tipo": "removido",
+     "texto": "\"Novas funções em breve\", \"salvo neste aparelho\" e código antigo da nuvem."
+    }
+   ]
+  },
+  {
+   "versao": "1.3.6",
+   "data": "2026-10-18",
+   "itens": [
+    {
+     "tipo": "adicionado",
+     "texto": "Tela Perfil: foto, apelido e aniversário."
+    },
+    {
+     "tipo": "mudado",
+     "texto": "Engrenagem saiu da tela de boas-vindas."
+    }
+   ]
+  },
+  {
+   "versao": "1.3.5",
+   "data": "2026-10-18",
+   "itens": [
+    {
+     "tipo": "adicionado",
+     "texto": "Tela Temas, com todas as opções de tema."
+    }
+   ]
+  },
+  {
+   "versao": "1.3.4",
+   "data": "2026-10-18",
+   "itens": [
+    {
+     "tipo": "adicionado",
+     "texto": "Tela Configurações."
+    },
+    {
+     "tipo": "mudado",
+     "texto": "Engrenagem saiu do canto do menu Funções."
+    }
+   ]
+  },
+  {
+   "versao": "1.3.3",
+   "data": "2026-10-18",
+   "itens": [
+    {
+     "tipo": "corrigido",
+     "texto": "Número da versão no canto não acompanhava as atualizações."
+    }
+   ]
+  },
+  {
+   "versao": "1.3.2",
+   "data": "2026-10-18",
+   "itens": [
+    {
+     "tipo": "adicionado",
+     "texto": "Tela Sincronizar: Wi-Fi, atualizações e cópia dos dados."
+    }
+   ]
+  },
+  {
+   "versao": "1.3.1",
+   "data": "2026-10-18",
+   "itens": [
+    {
+     "tipo": "adicionado",
+     "texto": "Cronômetro de expiração do QR de pareamento."
+    },
+    {
+     "tipo": "adicionado",
+     "texto": "Campo \"Meu aniversário\"."
+    },
+    {
+     "tipo": "mudado",
+     "texto": "Data de nascimento saiu do código público."
+    }
+   ]
+  },
+  {
+   "versao": "1.3.0",
+   "data": "2026-10-18",
+   "itens": [
+    {
+     "tipo": "adicionado",
+     "texto": "Atualização automática pelo GitHub, com assinatura digital e \"Voltar versão anterior\"."
+    }
+   ]
+  },
+  {
+   "versao": "1.2.2",
+   "data": "2026-10-18",
+   "itens": [
+    {
+     "tipo": "corrigido",
+     "texto": "\"QR expirou\" ao parear: a diferença de relógio entre PC e celular era recusada."
+    },
+    {
+     "tipo": "mudado",
+     "texto": "Mensagens de erro do pareamento mais claras."
+    }
+   ]
+  },
+  {
+   "versao": "1.2.1",
+   "data": "2026-10-18",
+   "itens": [
+    {
+     "tipo": "adicionado",
+     "texto": "Botão Sincronizar no menu Funções (a opção estava difícil de achar no app)."
+    }
+   ]
+  },
+  {
+   "versao": "1.2.0",
+   "data": "2026-10-18",
+   "itens": [
+    {
+     "tipo": "adicionado",
+     "texto": "Sincronização pelo Wi-Fi com QR code e criptografia."
+    },
+    {
+     "tipo": "mudado",
+     "texto": "Substituiu a sincronização pela nuvem."
+    }
+   ]
+  },
+  {
+   "versao": "1.1.1",
+   "data": "2026-10-18",
+   "itens": [
+    {
+     "tipo": "corrigido",
+     "texto": "A sincronização na nuvem baixava tudo a cada 20 segundos; passou a checar só quando há mudança."
+    }
+   ]
+  },
+  {
+   "versao": "1.1.0",
+   "data": "2026-10-18",
+   "itens": [
+    {
+     "tipo": "adicionado",
+     "texto": "App Android."
+    },
+    {
+     "tipo": "adicionado",
+     "texto": "Sincronização pela nuvem (Supabase)."
+    },
+    {
+     "tipo": "adicionado",
+     "texto": "Número da versão no canto."
+    },
+    {
+     "tipo": "adicionado",
+     "texto": "Tema de aniversário com animação de parabéns e confetes no calendário."
+    },
+    {
+     "tipo": "adicionado",
+     "texto": "Menu Funções."
+    },
+    {
+     "tipo": "adicionado",
+     "texto": "Calculadora."
+    },
+    {
+     "tipo": "adicionado",
+     "texto": "Relógios de Brasília e Manaus."
+    }
+   ]
+  },
+  {
+   "versao": "1.0.3",
+   "data": "2026-10-18",
+   "itens": [
+    {
+     "tipo": "adicionado",
+     "texto": "Calendário: repetir marcações, aniversários 🎂, ícones nos dias e feriados de Brasil, Amazonas e Manaus."
+    },
+    {
+     "tipo": "adicionado",
+     "texto": "Calendário em tela própria."
+    },
+    {
+     "tipo": "adicionado",
+     "texto": "Escolha entre Planilhas e Calendário depois de entrar."
+    },
+    {
+     "tipo": "adicionado",
+     "texto": "Desbloqueio por padrão."
+    },
+    {
+     "tipo": "adicionado",
+     "texto": "Ícone do Organizer no canto e na aba do navegador."
+    }
+   ]
+  },
+  {
+   "versao": "1.0.2",
+   "data": "2026-10-18",
+   "itens": [
+    {
+     "tipo": "adicionado",
+     "texto": "Tema Música já incluído no programa, com escolha de cor."
+    },
+    {
+     "tipo": "mudado",
+     "texto": "Temas importados vão direto para a área de temas."
+    }
+   ]
+  },
+  {
+   "versao": "1.0.1",
+   "data": "2026-10-18",
+   "itens": [
+    {
+     "tipo": "mudado",
+     "texto": "Versão de teste do sistema de atualização por arquivo."
+    }
+   ]
+  },
+  {
+   "versao": "1.0.0",
+   "data": "2026-10-18",
+   "itens": [
+    {
+     "tipo": "adicionado",
+     "texto": "Primeira versão do programa do Windows: importar tema, exportar/importar dados e atualização por arquivo."
+    }
+   ]
+  }
+ ]
 }
