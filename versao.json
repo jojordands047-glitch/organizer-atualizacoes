@@ -1,7 +1,7 @@
 {
   "conteudo": {
-    "versao": "1.5.1",
-    "novidades": "PC: tudo numa janela de tamanho fixo com a barra de funções embaixo; calculadora maior; brilho das bordas corrigido; versão em destaque; F12 = tela cheia.",
+    "versao": "1.5.2",
+    "novidades": "Barras de rolagem na cor do tema, dentro da janela; botão Boas-vindas na barra de baixo; brilho das bordas alinhado.",
     "arquivo": "organizer.html",
     "assinatura": "organizer.html.sig",
     "minimoPrograma": "1.3.0",

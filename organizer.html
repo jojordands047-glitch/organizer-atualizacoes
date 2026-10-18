@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <style>body{margin:0;font:14px system-ui,-apple-system,"Segoe UI",sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Organizer</title>
-<meta name="organizer-versao" content="1.5.1">
+<meta name="organizer-versao" content="1.5.2">
 <link rel="icon" id="favicon" href="data:,">
 <meta name="claude:viewport-fit-sides" content="cover">
 <style>
@@ -1400,7 +1400,7 @@ body:not(.na-entrada) #welcome { display: none; }
 @property --ang { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
 .grid-box > .rolagem { flex: 1; min-height: 0; max-height: inherit; overflow: auto; }
 .calc, .formula, .settings, .abas-panel { position: relative; }
-.beam { position: absolute; inset: 0; z-index: 3; pointer-events: none; border-radius: inherit; padding: 1.5px;
+.beam { position: absolute; inset: -1px; z-index: 3; pointer-events: none; border-radius: inherit; padding: 1.5px;
   background: conic-gradient(from var(--ang), transparent 0 62%, color-mix(in srgb, var(--beam, var(--accent)) 40%, transparent) 74%, var(--beam, var(--accent)) 84%, var(--beam-ponta, #fff) 87%, var(--beam, var(--accent)) 90%, transparent 100%);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
   animation: beamGira 7s linear infinite; }
@@ -1841,6 +1841,19 @@ body.layout-pc #configuracoes .sync-box { width: var(--j-w) !important; }
 /* alinhamento vertical */
 .set-field, .chave-linha, .cal-pag-top, .tabhead, .tabtools, .fx-rodape, .calc-hist-cab, .relogios .rl, .nota-barra, .notas-criar { align-items: center; }
 .cal-pag-top > strong { line-height: 1.2; }
+
+/* barras de rolagem na cor do tema, sem sair dos cantos arredondados */
+@supports not selector(::-webkit-scrollbar) { * { scrollbar-width: thin; scrollbar-color: color-mix(in srgb, var(--accent) 55%, var(--line)) transparent; } }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; margin: 16px 0; }
+::-webkit-scrollbar-thumb { background: color-mix(in srgb, var(--accent) 50%, var(--line)); border-radius: 99px; border: 3px solid transparent; background-clip: padding-box; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); background-clip: padding-box; }
+::-webkit-scrollbar-corner { background: transparent; }
+::-webkit-scrollbar-button { display: none; width: 0; height: 0; }
+body.layout-pc:not(.na-entrada) .wrap::-webkit-scrollbar-track, body.layout-pc .sync-area:not([hidden]) > .sync-box::-webkit-scrollbar-track, body.layout-pc.notas-pagina #notasPag .notas-box::-webkit-scrollbar-track, body.layout-pc.cal-pagina #calendario .cal-box::-webkit-scrollbar-track, body.layout-pc.calc-pagina #calculadora .calc-box::-webkit-scrollbar-track { margin: 18px 0 calc(var(--dock-h) + 8px); }
+body.layout-pc:not(.na-entrada) .wrap, body.layout-pc .sync-area:not([hidden]) > .sync-box, body.layout-pc.notas-pagina #notasPag .notas-box, body.layout-pc.cal-pagina #calendario .cal-box, body.layout-pc.calc-pagina #calculadora .calc-box { scrollbar-gutter: stable; }
+/* botão de voltar à tela de boas-vindas na barra de baixo */
+.nav-lateral .nav-inicio { margin-left: 10px; padding-left: 14px !important; border-left: 1px solid var(--line) !important; border-radius: 0 10px 10px 0 !important; }
 </style>
 <style id="temasExtrasCss"></style>
 
@@ -4632,13 +4645,14 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
   function itens() { return [...document.querySelectorAll("#wEscolha .w-esc-op > button")].filter(b => DEST[b.id] && !b.hidden).map(b => ({ d: DEST[b.id], svg: b.querySelector("svg").outerHTML, nome: b.querySelector("b").textContent })); }
   const MENU = '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg>';
   const SAIR = '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M10 17l5-5-5-5M15 12H4"/></svg>';
+  const CASA = '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9.5"/></svg>';
   const MAIS = '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>';
   const bt = (i, cls) => `<button type="button" class="${cls || ""}" data-ir="${i.d}" title="${i.nome}">${i.svg}<span>${i.nome}</span></button>`;
   window.navMontar = () => {
     const l = itens();
-    lateral.querySelector(".nav-itens").innerHTML = l.map(i => bt(i)).join("");
+    lateral.querySelector(".nav-itens").innerHTML = l.map(i => bt(i)).join("") + bt({ d: "sair", svg: CASA, nome: "Boas-vindas" }, "nav-inicio");
     baixo.innerHTML = l.slice(0, 3).map(i => bt(i)).join("") + `<button type="button" data-mais title="Mais">${MAIS}<span>Mais</span></button>`;
-    mais.querySelector(".nav-mais-itens").innerHTML = l.slice(3).map(i => bt(i)).join("") + bt({ d: "funcoes", svg: MENU, nome: "Menu" }) + bt({ d: "sair", svg: SAIR, nome: "Sair" });
+    mais.querySelector(".nav-mais-itens").innerHTML = l.slice(3).map(i => bt(i)).join("") + bt({ d: "funcoes", svg: MENU, nome: "Menu" }) + bt({ d: "sair", svg: CASA, nome: "Boas-vindas" });
     marca();
   };
   function marca() {
