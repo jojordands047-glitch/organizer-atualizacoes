@@ -2,6 +2,24 @@
  "formato": "organizer-novidades",
  "versoes": [
   {
+   "versao": "1.6.1",
+   "data": "2026-10-18",
+   "itens": [
+    {
+     "tipo": "mudado",
+     "texto": "Sininho de notificações maior, no canto superior direito (não fica mais em cima da versão)."
+    },
+    {
+     "tipo": "corrigido",
+     "texto": "Sininho deformado em alguns temas."
+    },
+    {
+     "tipo": "mudado",
+     "texto": "Configurações → Notificações reorganizada: cada tipo numa linha com chave liga/desliga, explicação curta e opções do aniversário agrupadas."
+    }
+   ]
+  },
+  {
    "versao": "1.6.0",
    "data": "2026-10-18",
    "itens": [

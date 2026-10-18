@@ -2,6 +2,11 @@
 
 ➕ adicionado · 🔧 corrigido · 🔄 mudado · ➖ removido
 
+## 1.6.1 — 18/10/2026
+- 🔄 Sininho de notificações maior, no canto superior direito (não fica mais em cima da versão).
+- 🔧 Sininho deformado em alguns temas.
+- 🔄 Configurações → Notificações reorganizada: cada tipo numa linha com chave liga/desliga, explicação curta e opções do aniversário agrupadas.
+
 ## 1.6.0 — 18/10/2026
 - ➕ Avisos: aniversários do calendário no dia (e um dia antes, se quiser), no horário escolhido.
 - ➕ Lembrete nas notas: botão ⏰ Lembrete no editor, com dia e hora; o cartão mostra quando vai avisar.
