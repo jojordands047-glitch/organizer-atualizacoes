@@ -2,6 +2,44 @@
   "formato": "organizer-novidades",
   "versoes": [
     {
+      "versao": "1.5.1",
+      "data": "2026-10-18",
+      "itens": [
+        {
+          "tipo": "mudado",
+          "texto": "PC: todas as telas numa janela de tamanho fixo (mesma largura e altura); o conteúdo rola por dentro."
+        },
+        {
+          "tipo": "mudado",
+          "texto": "PC: a barra de funções saiu da lateral e fica na parte de baixo da janela; só a logo e a versão ficam fora."
+        },
+        {
+          "tipo": "mudado",
+          "texto": "Calculadora maior no PC: teclado grande à esquerda e histórico à direita."
+        },
+        {
+          "tipo": "mudado",
+          "texto": "Número da versão mais destacado, na cor do tema."
+        },
+        {
+          "tipo": "adicionado",
+          "texto": "F12 coloca em tela cheia; Esc sai."
+        },
+        {
+          "tipo": "corrigido",
+          "texto": "Brilho animado das bordas desalinhado em algumas janelas e nas caixas das planilhas."
+        },
+        {
+          "tipo": "corrigido",
+          "texto": "Relógios da calculadora apareciam sem a hora."
+        },
+        {
+          "tipo": "corrigido",
+          "texto": "Alinhamento vertical de vários itens (linhas de opções, topos das telas e barras)."
+        }
+      ]
+    },
+    {
       "versao": "1.5.0",
       "data": "2026-10-18",
       "itens": [

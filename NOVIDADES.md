@@ -2,6 +2,16 @@
 
 ➕ adicionado · 🔧 corrigido · 🔄 mudado · ➖ removido
 
+## 1.5.1 — 18/10/2026
+- 🔄 PC: todas as telas numa janela de tamanho fixo (mesma largura e altura); o conteúdo rola por dentro.
+- 🔄 PC: a barra de funções saiu da lateral e fica na parte de baixo da janela; só a logo e a versão ficam fora.
+- 🔄 Calculadora maior no PC: teclado grande à esquerda e histórico à direita.
+- 🔄 Número da versão mais destacado, na cor do tema.
+- ➕ F12 coloca em tela cheia; Esc sai.
+- 🔧 Brilho animado das bordas desalinhado em algumas janelas e nas caixas das planilhas.
+- 🔧 Relógios da calculadora apareciam sem a hora.
+- 🔧 Alinhamento vertical de vários itens (linhas de opções, topos das telas e barras).
+
 ## 1.5.0 — 18/10/2026
 - ➕ Layout do PC: barra lateral com todas as funções (na ordem que você escolheu).
 - ➕ Layout do celular: barra de navegação embaixo (3 funções + "Mais") e folha "Mais" que sobe de baixo.
