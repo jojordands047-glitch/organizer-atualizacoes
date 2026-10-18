@@ -2,6 +2,24 @@
  "formato": "organizer-novidades",
  "versoes": [
   {
+   "versao": "1.8.3",
+   "data": "2026-10-18",
+   "itens": [
+    {
+     "tipo": "adicionado",
+     "texto": "Natal: guirlandas de pisca-pisca de volta no fundo, no topo da tela."
+    },
+    {
+     "tipo": "corrigido",
+     "texto": "Natal: luzes do fundo apareciam cortadas em quadrado."
+    },
+    {
+     "tipo": "mudado",
+     "texto": "Natal: luzes em volta das janelas piscam de forma suave."
+    }
+   ]
+  },
+  {
    "versao": "1.8.2",
    "data": "2026-10-18",
    "itens": [

@@ -2,6 +2,11 @@
 
 ➕ adicionado · 🔧 corrigido · 🔄 mudado · ➖ removido
 
+## 1.8.3 — 18/10/2026
+- ➕ Natal: guirlandas de pisca-pisca de volta no fundo, no topo da tela.
+- 🔧 Natal: luzes do fundo apareciam cortadas em quadrado.
+- 🔄 Natal: luzes em volta das janelas piscam de forma suave.
+
 ## 1.8.2 — 18/10/2026
 - 🔄 Natal: volta o fundo verde de antes, agora cheio de luzes desfocadas que piscam.
 - ➕ Natal: pisca-pisca nos 4 lados de todas as janelas, com uma lâmpada dourada em cada canto.
