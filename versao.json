@@ -1,7 +1,7 @@
 {
   "conteudo": {
-    "versao": "1.6.2",
-    "novidades": "Sininho abre a lista de notificações e aparece em todas as telas.",
+    "versao": "1.6.3",
+    "novidades": "Procura atualizações com mais frequência.",
     "arquivo": "organizer.html",
     "assinatura": "organizer.html.sig",
     "minimoPrograma": "1.3.0",

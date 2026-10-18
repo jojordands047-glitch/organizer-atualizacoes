@@ -2,6 +2,16 @@
  "formato": "organizer-novidades",
  "versoes": [
   {
+   "versao": "1.6.3",
+   "data": "2026-10-18",
+   "itens": [
+    {
+     "tipo": "mudado",
+     "texto": "Procura atualizações a cada 30 minutos e quando você volta para a janela (antes era só ao abrir e a cada 6 horas)."
+    }
+   ]
+  },
+  {
    "versao": "1.6.2",
    "data": "2026-10-18",
    "itens": [

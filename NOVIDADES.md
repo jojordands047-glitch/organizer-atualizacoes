@@ -2,6 +2,9 @@
 
 ➕ adicionado · 🔧 corrigido · 🔄 mudado · ➖ removido
 
+## 1.6.3 — 18/10/2026
+- 🔄 Procura atualizações a cada 30 minutos e quando você volta para a janela (antes era só ao abrir e a cada 6 horas).
+
 ## 1.6.2 — 18/10/2026
 - 🔧 O sininho não abria a lista de notificações (as telas ficavam por cima dele).
 - 🔄 Sininho aparece em todas as telas, inclusive boas-vindas e menu Funções.
