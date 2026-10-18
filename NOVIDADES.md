@@ -2,6 +2,16 @@
 
 ➕ adicionado · 🔧 corrigido · 🔄 mudado · ➖ removido
 
+## 1.5.0 — 18/10/2026
+- ➕ Layout do PC: barra lateral com todas as funções (na ordem que você escolheu).
+- ➕ Layout do celular: barra de navegação embaixo (3 funções + "Mais") e folha "Mais" que sobe de baixo.
+- ➕ Fotos de perfil recentes (como no Discord): as últimas 6 ficam salvas para usar de novo; aceita GIF animado.
+- ➕ Celular: transições ao trocar de tela, deslizar da borda para voltar, deslizar no calendário para trocar de mês, vibração leve e volta para a última tela ao entrar.
+- ➕ App Android: o botão Voltar volta para a tela anterior em vez de fechar o app (precisa do APK 1.5.0).
+- 🔄 Todas as telas alinhadas, com largura padrão; telas com pouca informação ficam num retângulo centralizado.
+- 🔄 Impressão digital da chave fica oculta até tocar em "Mostrar" (como a chave da Twitch).
+- 🔄 Celular: animações de fundo pausam enquanto você rola a tela, para ficar mais leve.
+
 ## 1.4.1 — 18/10/2026
 - 🔄 O tema agora vale para tudo (planilhas, menu e telas); saiu a escolha por lugar.
 - 🔄 Telas de Temas, Perfil e Sincronizar mais largas, com cartões lado a lado no computador.
