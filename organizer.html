@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <style>body{margin:0;font:14px system-ui,-apple-system,"Segoe UI",sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Organizer</title>
-<meta name="organizer-versao" content="1.4.1">
+<meta name="organizer-versao" content="1.5.0">
 <link rel="icon" id="favicon" href="data:,">
 <meta name="claude:viewport-fit-sides" content="cover">
 <style>
@@ -1206,9 +1206,22 @@ body.perfil-pagina .wrap, body.notas-pagina .wrap { display: none; }
 .nota-aviso { position: fixed; z-index: 75; left: 50%; bottom: 20px; translate: -50% 0; display: flex; gap: 12px; align-items: center; padding: 10px 14px; border-radius: 10px; background: var(--surface); border: 1px solid var(--line); box-shadow: 0 8px 24px rgba(0,0,0,.4); }
 .nota-aviso[hidden] { display: none; }
 .sync-area.per-area:not([hidden]) { display: grid; }
+.foto-box { width: min(26rem, 100%); gap: 12px; }
+.foto-cab { display: flex; align-items: center; justify-content: space-between; } .foto-cab strong { font-size: 1.1rem; }
+.foto-x { background: transparent; border: 0; font-size: 1.2rem; color: var(--muted); min-height: 0; padding: 4px 8px; }
+.foto-enviar { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 26px 12px; border-radius: 12px; background: var(--bg); border: 1px dashed var(--line); cursor: pointer; }
+.foto-enviar:hover { border-color: var(--accent); } .foto-enviar span { font-size: 1.8rem; } .foto-enviar small { color: var(--muted); font-size: .76rem; }
+.foto-enviar input { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.foto-recentes { display: flex; flex-wrap: wrap; gap: 12px; }
+.foto-rec { position: relative; width: 58px; height: 58px; }
+.foto-rec button.usa { width: 100%; height: 100%; min-height: 0; padding: 0; border-radius: 50%; border: 2px solid var(--line); background: center / cover no-repeat; transition: transform .15s, border-color .15s; }
+.foto-rec button.usa:hover { transform: scale(1.06); border-color: var(--accent); }
+.foto-rec button.tira { position: absolute; top: -4px; right: -4px; width: 20px; height: 20px; min-height: 0; padding: 0; border-radius: 50%; font-size: .7rem; line-height: 1; background: var(--surface); border: 1px solid var(--line); color: var(--fg); }
 .chave-linha { display: flex; justify-content: space-between; gap: 12px; font-size: .88rem; border-bottom: 1px solid var(--line); padding: 4px 0; }
 .chave-linha span { color: var(--muted); } .chave-linha b { text-align: right; }
 .chave-ok { color: var(--accent); }
+.chave-dig { align-items: center; flex-wrap: wrap; } .chave-dig b { flex: 1; }
+.chave-mono.oculta { filter: blur(0.5px); letter-spacing: .12em; color: var(--muted); user-select: none; }
 .chave-mono { font: 600 .78rem var(--mono); letter-spacing: .02em; overflow-wrap: anywhere; }
 .chave-tempo { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; text-align: center; }
 .chave-tempo div { background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 6px 2px; }
@@ -1719,6 +1732,68 @@ html.troca-festa body, html.troca-festa .grid-box, html.troca-festa .calc, html.
   border-radius: 99px; background: rgba(23,28,69,.95); border: 1px solid #ff5fa2; color: #fff6e8; font-size: .82rem; box-shadow: 0 6px 20px rgba(0,0,0,.4); white-space: nowrap; }
 .festa-teste button { min-height: 0; padding: 4px 12px; border-radius: 99px; font-size: .8rem; }
 .festa-dica { margin-top: 14px; font-size: .8rem; color: rgba(255,246,232,.7); }
+
+/* ===== layout: largura padrão, telas alinhadas e navegação de PC e celular ===== */
+:root { --larg-padrao: 60rem; --larg-compacta: 30rem; --nav-lat: 220px; }
+.calc-area, .sync-area { min-height: 100vh; min-height: 100dvh; }
+.calc-area, #configuracoes { place-items: center !important; }
+.calc-box, #configuracoes .sync-box { width: min(var(--larg-compacta), 100%) !important; }
+.sync-box.sync-larga, .notas-box, body.cal-pagina .cal-box { width: min(var(--larg-padrao), 100%) !important; }
+.entra { animation: telaEntra .24s cubic-bezier(.2,.8,.3,1) both; }
+@keyframes telaEntra { from { opacity: 0; transform: translateX(16px); } }
+body.layout-cel .entra { animation-name: telaEntraCel; }
+@keyframes telaEntraCel { from { opacity: 0; transform: translateX(28px); } }
+@media (prefers-reduced-motion: reduce) { .entra { animation: none; } }
+.nav-lateral, .nav-baixo { display: none; }
+body.na-entrada .nav-lateral, body.na-entrada .nav-baixo, body.na-entrada .nav-mais { display: none !important; }
+/* PC: barra lateral */
+body.layout-pc:not(.na-entrada) { padding-left: var(--nav-lat); }
+body.layout-pc:not(.na-entrada) .nav-lateral { display: flex; }
+.nav-lateral { position: fixed; z-index: 60; left: 0; top: 0; bottom: 0; width: var(--nav-lat); box-sizing: border-box; flex-direction: column; gap: 4px; padding: 14px 10px;
+  background: color-mix(in srgb, var(--surface) 92%, transparent); border-right: 1px solid var(--line); backdrop-filter: blur(6px); overflow-y: auto; }
+.nav-marca { display: flex; align-items: center; gap: 10px; padding: 6px 8px 14px; font-size: 1.05rem; }
+.nav-logo { width: 28px; height: 28px; display: inline-block; }
+.nav-logo svg { width: 100%; height: 100%; display: block; }
+.nav-logo .r { fill: var(--surface); stroke: color-mix(in srgb, var(--accent) 45%, var(--line)); stroke-width: 1.5; }
+.nav-logo .f { fill: var(--accent); stroke: var(--accent); stroke-width: .3; }
+.nav-logo .g { fill: none; stroke: var(--surface); stroke-width: .9; stroke-linecap: round; }
+.nav-itens { display: flex; flex-direction: column; gap: 4px; }
+.nav-lateral button { display: flex; align-items: center; gap: 12px; width: 100%; justify-content: flex-start; padding: 10px 12px; min-height: 0; border-radius: 10px; background: transparent; border: 1px solid transparent; color: var(--muted); font-weight: 600; text-align: left; }
+.nav-lateral button svg { width: 22px; height: 22px; flex: none; }
+.nav-lateral button:hover { color: var(--fg); background: color-mix(in srgb, var(--accent) 8%, transparent); }
+.nav-lateral button.ativo { color: var(--fg); background: color-mix(in srgb, var(--accent) 16%, transparent); border-color: color-mix(in srgb, var(--accent) 45%, transparent); }
+.nav-lateral button.ativo svg { color: var(--accent); }
+@media (max-width: 900px) { :root { --nav-lat: 64px; } .nav-lateral button span, .nav-marca b { display: none; } .nav-lateral button { justify-content: center; padding: 10px 0; } .nav-marca { justify-content: center; padding: 6px 0 14px; } }
+body.layout-pc:not(.na-entrada) .cal-modal { left: var(--nav-lat); }
+body.layout-pc:not(.na-entrada) .marca-logo { display: none; }
+/* nas telas, a barra já faz a navegação: os botões do topo somem */
+body:not(.na-entrada) .cal-pag-top > button { visibility: hidden; }
+body:not(.na-entrada) #menuBtn { display: none; }
+/* celular: barra de baixo + folha "Mais" */
+body.layout-cel:not(.na-entrada) .nav-baixo { display: grid; }
+body.layout-cel:not(.na-entrada) { padding-bottom: calc(70px + env(safe-area-inset-bottom, 0px)); }
+.nav-baixo { position: fixed; z-index: 66; left: 0; right: 0; bottom: 0; grid-template-columns: repeat(4, 1fr); padding: 6px 6px calc(6px + env(safe-area-inset-bottom, 0px));
+  background: color-mix(in srgb, var(--surface) 94%, transparent); border-top: 1px solid var(--line); backdrop-filter: blur(8px); }
+.nav-baixo button { display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 6px 2px; min-height: 52px; background: transparent; border: 0; color: var(--muted); font-size: .7rem; font-weight: 600; border-radius: 12px; }
+.nav-baixo button svg { width: 24px; height: 24px; transition: transform .15s; }
+.nav-baixo button.ativo { color: var(--accent); } .nav-baixo button.ativo svg { transform: translateY(-1px) scale(1.08); }
+.nav-baixo button:active { background: color-mix(in srgb, var(--accent) 12%, transparent); }
+.nav-mais { position: fixed; inset: 0; z-index: 65; background: rgba(0,0,0,0); transition: background .2s; }
+.nav-mais.aberto { background: rgba(0,0,0,.45); }
+.nav-mais[hidden] { display: none; }
+.nav-mais-folha { position: absolute; left: 0; right: 0; bottom: 0; padding: 8px 14px calc(84px + env(safe-area-inset-bottom, 0px)); background: var(--surface); border-radius: 18px 18px 0 0; border-top: 1px solid var(--line);
+  transform: translateY(100%); transition: transform .22s cubic-bezier(.2,.8,.3,1); }
+.nav-mais.aberto .nav-mais-folha { transform: none; }
+.nav-mais-alca { width: 40px; height: 4px; border-radius: 4px; background: var(--line); margin: 4px auto 12px; }
+.nav-mais-itens { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.nav-mais-itens button { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 14px 4px; min-height: 0; border-radius: 14px; background: var(--bg); border: 1px solid var(--line); color: var(--fg); font-size: .8rem; font-weight: 600; }
+.nav-mais-itens button svg { width: 26px; height: 26px; color: var(--accent); }
+.nav-mais-itens button.ativo { border-color: var(--accent); }
+body.layout-cel:not(.na-entrada) .nota-aviso { bottom: 84px; }
+body.layout-cel:not(.na-entrada) .versao-canto { display: none; }
+/* celular: toques maiores e menos animação enquanto rola */
+body.layout-cel button { -webkit-tap-highlight-color: transparent; }
+body.layout-cel.rolando *, body.layout-cel.rolando *::before, body.layout-cel.rolando *::after { animation-play-state: paused !important; }
 </style>
 <style id="temasExtrasCss"></style>
 
@@ -1839,6 +1914,15 @@ html.troca-festa body, html.troca-festa .grid-box, html.troca-festa .calc, html.
   <div class="sheets" id="sheets"></div>
 </div>
 
+<div id="fotoModal" class="crop-modal foto-modal" role="dialog" aria-modal="true" aria-labelledby="fotoTit" hidden>
+  <div class="crop-box foto-box">
+    <div class="foto-cab"><strong id="fotoTit">Selecione uma imagem</strong><button type="button" id="fotoFechar" class="foto-x" aria-label="Fechar">✕</button></div>
+    <label class="foto-enviar" for="avFile"><span aria-hidden="true">🖼️＋</span><b>Enviar imagem</b><small>JPG, PNG ou GIF animado</small><input id="avFile" type="file" accept="image/*"></label>
+    <span class="set-lbl">Fotos recentes</span>
+    <p class="set-note" id="fotoDica">Suas últimas 6 fotos de perfil ficam aqui para usar de novo.</p>
+    <div class="foto-recentes" id="fotoRecentes"></div>
+  </div>
+</div>
 <div id="cropper" class="crop-modal" role="dialog" aria-modal="true" aria-labelledby="cropTitle" hidden>
   <div class="crop-box">
     <strong id="cropTitle">Ajustar foto</strong>
@@ -1893,7 +1977,7 @@ html.troca-festa body, html.troca-festa .grid-box, html.troca-festa .calc, html.
       <span class="set-lbl">📷 Foto de perfil</span>
     <div class="set-field">
       <span class="avatar-prev" id="avPrev" aria-hidden="true"></span>
-      <label class="file-btn small" for="avFile">Escolher foto de perfil<input id="avFile" type="file" accept="image/*"></label>
+      <button type="button" id="avEscolher" class="small">Escolher foto de perfil</button>
       <button id="avDel" class="small danger" hidden>Remover foto</button>
     </div>
     <p class="set-note" id="avMsg" hidden></p>
@@ -1907,7 +1991,7 @@ html.troca-festa body, html.troca-festa .grid-box, html.troca-festa .calc, html.
       <span class="set-lbl">🔑 Chave de assinatura</span>
       <p class="set-note">É a chave que garante que as atualizações vieram de verdade do Claude. O Organizer só instala atualizações assinadas por ela.</p>
       <div class="chave-linha"><span>Situação</span><b class="chave-ok">✓ Ativa</b></div>
-      <div class="chave-linha"><span>Impressão digital</span><b class="chave-mono">31B8 3E03 CE70 5759 293E EEFA A54F 7B94</b></div>
+      <div class="chave-linha chave-dig"><span>Impressão digital</span><b class="chave-mono oculta" id="chaveDigital">•••• •••• •••• •••• •••• •••• •••• ••••</b><button type="button" class="small" id="chaveMostrar" aria-pressed="false">👁 Mostrar</button></div>
       <div class="chave-linha"><span>Criada em</span><b>18/10/2026</b></div>
       <div class="chave-linha"><span>Validade da chave</span><b>Não vence</b></div>
       <p class="set-note">Ela só precisa ser trocada se for perdida ou se alguém tiver acesso a ela. Por isso guarde-a nas configurações do Claude (variável <b>ORGANIZER_CHAVE_ASSINATURA</b>).</p>
@@ -2092,6 +2176,9 @@ html.troca-festa body, html.troca-festa .grid-box, html.troca-festa .calc, html.
 </div>
 <style id="customCss"></style>
 <div id="fundo" aria-hidden="true"></div>
+<nav id="navLateral" class="nav-lateral" aria-label="Funções"><div class="nav-marca"><span class="nav-logo" id="navLogo" aria-hidden="true"></span><b>Organizer</b></div><div class="nav-itens"></div></nav>
+<nav id="navBaixo" class="nav-baixo" aria-label="Funções"></nav>
+<div id="navMais" class="nav-mais" hidden><div class="nav-mais-folha"><div class="nav-mais-alca" aria-hidden="true"></div><div class="nav-mais-itens"></div></div></div>
 <div id="atuAviso" class="atu-aviso" role="status" hidden><div class="atu-txt"><b id="atuTit"></b><span id="atuTxt"></span></div><div class="atu-bts"><button id="atuSim" class="small primary">Atualizar</button><button id="atuNao" class="small">Depois</button></div></div>
 <div id="wifiCamera" class="wifi-camera" hidden><video id="wifiVideo" playsinline muted></video><div class="mira"></div><p>Aponte para o QR code na tela do computador</p><button id="wifiCameraFechar" class="small">Cancelar</button></div>
 <div class="versao-canto" aria-label="Versão do Organizer"><span id="nuvemIcone" class="nuvem-ic" data-estado="off"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8.8a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16.1a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1" fill="currentColor"/></svg></span><span class="versao-txt"></span></div>
@@ -2799,8 +2886,8 @@ const crop = (() => {
   function apply() {
     const out = 256, s = scale(), cv = document.createElement("canvas"); cv.width = cv.height = out;
     cv.getContext("2d").drawImage(img, -x / s, -y / s, S / s, S / s, 0, 0, out, out);
-    store.welcome.photo = cv.toDataURL("image/jpeg", 0.88);
-    close(); renderAvatar(); saveNow();
+    definirFoto(cv.toDataURL("image/jpeg", 0.88));
+    close();
   }
   const local = e => { const r = stage.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; };
   stage.addEventListener("pointerdown", e => { stage.setPointerCapture(e.pointerId); pts.set(e.pointerId, local(e)); stage.classList.add("arrastando");
@@ -2822,14 +2909,40 @@ const crop = (() => {
   document.addEventListener("keydown", e => { if (!modal.hidden && e.key === "Escape") close(); });
   return { open };
 })();
+// foto de perfil: a anterior vai para "Fotos recentes" (até 6), como no Discord
+function definirFoto(url) {
+  const h = (store.welcome.photoHist || []).filter(x => x !== url);
+  if (store.welcome.photo && store.welcome.photo !== url) h.unshift(store.welcome.photo);
+  store.welcome.photoHist = h.slice(0, 6);
+  if (url) store.welcome.photo = url; else delete store.welcome.photo;
+  renderAvatar(); desenhaRecentes(); saveNow();
+  document.getElementById("fotoModal").hidden = true;
+}
+function desenhaRecentes() {
+  const h = store.welcome.photoHist || [], el = document.getElementById("fotoRecentes");
+  document.getElementById("fotoDica").textContent = h.length ? "Toque numa foto para usar de novo." : "Suas últimas 6 fotos de perfil ficam aqui para usar de novo.";
+  el.innerHTML = h.map((u, i) => `<div class="foto-rec"><button type="button" class="usa" data-usa="${i}" aria-label="Usar esta foto" style="background-image:url('${u}')"></button><button type="button" class="tira" data-tira="${i}" aria-label="Tirar da lista">✕</button></div>`).join("");
+}
+document.getElementById("fotoRecentes").addEventListener("click", e => {
+  const h = store.welcome.photoHist || [];
+  const u = e.target.closest("[data-usa]"); if (u) { definirFoto(h[+u.dataset.usa]); return; }
+  const t = e.target.closest("[data-tira]"); if (t) { h.splice(+t.dataset.tira, 1); store.welcome.photoHist = h; desenhaRecentes(); save(); }
+});
+document.getElementById("avEscolher").onclick = () => { desenhaRecentes(); document.getElementById("fotoModal").hidden = false; };
+document.getElementById("fotoFechar").onclick = () => { document.getElementById("fotoModal").hidden = true; };
+document.getElementById("fotoModal").addEventListener("click", e => { if (e.target.id === "fotoModal") e.target.hidden = true; });
 document.getElementById("avFile").addEventListener("change", e => {
   const file = e.target.files && e.target.files[0]; e.target.value = "";
   const msg = document.getElementById("avMsg");
   if (!file) return;
-  if (!file.type.startsWith("image/")) { msg.hidden = false; msg.textContent = "Escolha um arquivo de imagem (JPG, PNG…)."; return; }
-  msg.hidden = true; crop.open(file);
+  if (!file.type.startsWith("image/")) { msg.hidden = false; msg.textContent = "Escolha um arquivo de imagem (JPG, PNG ou GIF)."; return; }
+  if (file.type === "image/gif") { // GIF animado entra sem recorte, para não perder a animação
+    if (file.size > 2.5e6) { msg.hidden = false; msg.textContent = "Esse GIF é grande demais (máximo 2,5 MB)."; document.getElementById("fotoModal").hidden = true; return; }
+    const r = new FileReader(); r.onload = () => { msg.hidden = true; definirFoto(r.result); }; r.readAsDataURL(file); return;
+  }
+  msg.hidden = true; document.getElementById("fotoModal").hidden = true; crop.open(file);
 });
-document.getElementById("avDel").onclick = () => { delete store.welcome.photo; renderAvatar(); save(); };
+document.getElementById("avDel").onclick = () => definirFoto(null);
 function welcomeTitle() {
   if (emFuncoes) { W.title.textContent = "Funções"; return; }
   const nick = (store.welcome.nick || "").trim();
@@ -2928,6 +3041,7 @@ function abreEscolha() {
 function irFuncoes() { saveNow(); showWelcome(); abreEscolha(); }
 W.form.addEventListener("submit", e => {
   e.preventDefault();
+  setTimeout(() => { if (document.body.classList.contains("layout-cel") && window.navUltima && window.navUltima() && window.irPara) window.irPara(window.navUltima()); }, 0);
   if (store.pass.on && W.pass.value.trim() !== String(store.pass.code)) {
     W.err.textContent = W.pass.value ? "Senha incorreta. Tente de novo." : "Digite a senha para entrar.";
     W.form.classList.remove("erro"); void W.form.offsetWidth; W.form.classList.add("erro");
@@ -2942,7 +3056,7 @@ document.getElementById("wIrPlan").onclick = () => { fechaEscolha(); enter(); };
 document.getElementById("wIrCal").onclick = () => { fechaEscolha(); enter(); window.calPagina && window.calPagina(); };
 document.getElementById("wIrNotas").onclick = () => { fechaEscolha(); enter(); window.notasPagina(true); };
 window.perfilPagina = on => {
-  document.body.classList.toggle("perfil-pagina", on !== false); document.getElementById("perfilPag").hidden = on === false;
+  document.body.classList.toggle("perfil-pagina", on !== false); document.getElementById("perfilPag").hidden = on === false; chaveOcultar(true);
   if (on !== false) { window.scrollTo(0, 0); perfilTopo(); }
 };
 // contagem até o fim do certificado do app (05/03/2054 09:21 UTC)
@@ -2975,6 +3089,13 @@ window.perfilPagina = on => {
     lbl.addEventListener("click", alterna); lbl.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); alterna(); } });
   });
 })();
+const chaveReal = "31B8 3E03 CE70 5759 293E EEFA A54F 7B94";
+function chaveOcultar(on) {
+  const b = document.getElementById("chaveDigital"), bt = document.getElementById("chaveMostrar");
+  b.textContent = on ? "•••• •••• •••• •••• •••• •••• •••• ••••" : chaveReal; b.classList.toggle("oculta", on);
+  bt.textContent = on ? "👁 Mostrar" : "🙈 Ocultar"; bt.setAttribute("aria-pressed", String(!on));
+}
+document.getElementById("chaveMostrar").onclick = () => chaveOcultar(!document.getElementById("chaveDigital").classList.contains("oculta"));
 function perfilTopo() {
   if (window.chaveConta) window.chaveConta();
   const f = document.getElementById("perFoto"), av = store.welcome && store.welcome.photo;
@@ -3022,7 +3143,7 @@ window.syncPagina = on => {
     const ordem = store.funcoesOrdem || [];
     [...ordem].reverse().forEach(id => { const b = document.getElementById(id); if (b && b.parentNode === grade) grade.prepend(b); });
   };
-  const salvar = () => { store.funcoesOrdem = cartoes().map(b => b.id); save(); };
+  const salvar = () => { store.funcoesOrdem = cartoes().map(b => b.id); save(); if (window.navMontar) window.navMontar(); };
   cartoes().forEach(b => b.insertAdjacentHTML("beforeend", '<span class="fx-mover esq" data-mover="-1" aria-label="Mover para trás">‹</span><span class="fx-mover dir" data-mover="1" aria-label="Mover para frente">›</span>'));
   const alterna = on => {
     org = on; grade.classList.toggle("organizando", on); btOrg.textContent = on ? "Concluir" : "Organizar";
@@ -3589,6 +3710,10 @@ document.getElementById("menuBtn").onclick = () => irFuncoes();
   anoIn.onchange = () => { ano = Math.min(3000, Math.max(2000, parseInt(anoIn.value) || ano)); desenhar(); };
   document.getElementById("calHoje").onclick = () => { ano = Math.min(3000, Math.max(2000, hoje.getFullYear())); mes = hoje.getMonth(); desenhar(); };
   document.getElementById("calEditFechar").onclick = () => { edit.hidden = true; alvo = null; desenhar(); };
+  window.calFechar = () => abrir(false);
+  let sx = null, sy = 0;
+  grade.addEventListener("touchstart", e => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
+  grade.addEventListener("touchend", e => { if (sx == null) return; const t = e.changedTouches[0], dx = t.clientX - sx; if (Math.abs(dx) > 60 && Math.abs(t.clientY - sy) < 50) { mudar(dx < 0 ? 1 : -1); grade.classList.remove("entra"); void grade.offsetWidth; grade.classList.add("entra"); } sx = null; }, { passive: true });
   const abrir = (on, pagina) => { document.body.classList.toggle("cal-pagina", !!(on && pagina)); if (on && pagina) window.scrollTo(0, 0); modal.hidden = !on; btn.setAttribute("aria-expanded", String(on)); if (on) { edit.hidden = true; listaEl.hidden = true; listaBtn.setAttribute("aria-expanded", "false"); alvo = null; desenhar(); } };
   btn.onclick = () => abrir(modal.hidden || document.body.classList.contains("cal-pagina"));
   window.calPagina = () => abrir(true, true);
@@ -4162,7 +4287,7 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
     store = Object.assign(novo, { musicaTocando: store.musicaTocando, active: Math.min(store.active || 0, (novo.tabs || [1]).length - 1) });
     try { localStorage.setItem(KEY, JSON.stringify(store)); } catch {}
     const y = scrollY;
-    try { applyTheme(); renderWelcomeSettings(); renderAvatar(); if (window.atualizaMeuAniver) window.atualizaMeuAniver(); if (window.notasRedesenhar) window.notasRedesenhar(); if (window.funcoesOrdem) window.funcoesOrdem(); if (unlocked) { mountTab(); renderTabs(); } else if (inMenu()) welcomeTitle(); } catch (e) { console.warn(e); }
+    try { applyTheme(); renderWelcomeSettings(); renderAvatar(); if (window.atualizaMeuAniver) window.atualizaMeuAniver(); if (window.notasRedesenhar) window.notasRedesenhar(); if (window.funcoesOrdem) window.funcoesOrdem(); if (window.navMontar) window.navMontar(); if (unlocked) { mountTab(); renderTabs(); } else if (inMenu()) welcomeTitle(); } catch (e) { console.warn(e); }
     scrollTo(0, y);
     if (!el("calendario").hidden) el("calHoje").click();
   }
@@ -4425,5 +4550,87 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
   setTimeout(() => { const v = id => { const e = el(id); return e && !e.hidden; }; el("syncAvancado").hidden = !(v("orgPrograma") || v("atuVoltar")); }, 800);
   setTimeout(() => procurar(false), 4000);
   setInterval(() => { if (!document.hidden) procurar(false); }, 6 * 36e5);
+})();
+// Navegação: barra lateral no PC, barra de baixo no celular, transições, gestos e botão Voltar
+(() => {
+  const B = document.body;
+  const ehApp = !!window.OrganizerAndroid, ehProg = !!(window.organizer && window.organizer.wifiLigar);
+  const decide = () => { const cel = ehApp || (!ehProg && matchMedia("(max-width: 760px)").matches); B.classList.toggle("layout-cel", cel); B.classList.toggle("layout-pc", !cel); };
+  decide(); addEventListener("resize", decide);
+  const DEST = { wIrPlan: "plan", wIrCal: "cal", wIrCalc: "calc", wIrSync: "sync", wIrNotas: "notas", wIrPerfil: "perfil", wIrTemas: "temas", wIrCfg: "cfg" };
+  const CLASSE = { cal: "cal-pagina", calc: "calc-pagina", sync: "sync-pagina", notas: "notas-pagina", perfil: "perfil-pagina", temas: "temas-pagina", cfg: "cfg-pagina" };
+  const vibra = () => { if (B.classList.contains("layout-cel") && navigator.vibrate) try { navigator.vibrate(8); } catch {} };
+  function atual() { for (const [d, c] of Object.entries(CLASSE)) if (B.classList.contains(c)) return d; return "plan"; }
+  function fechaTelas() {
+    const f = { cfg: "cfgPagina", temas: "temasPagina", perfil: "perfilPagina", sync: "syncPagina", notas: "notasPagina", calc: "calcPagina" };
+    for (const [d, fn] of Object.entries(f)) if (B.classList.contains(CLASSE[d]) && window[fn]) window[fn](false);
+    if (B.classList.contains("cal-pagina") && window.calFechar) window.calFechar();
+    toggleSettings(false);
+  }
+  const ALVO = { plan: ".wrap", cal: "#calendario .cal-box", calc: "#calculadora .calc-box", sync: "#sincronizar .sync-box", notas: "#notasPag .notas-box", perfil: "#perfilPag .sync-box", temas: "#temasPag .sync-box", cfg: "#configuracoes .sync-box" };
+  function anima(d) { const e = document.querySelector(ALVO[d]); if (!e) return; e.classList.remove("entra"); void e.offsetWidth; e.classList.add("entra"); }
+  window.irPara = d => {
+    vibra(); fechaMais();
+    if (d === "funcoes") { irFuncoes(); return; }
+    if (d === "sair") { saveNow(); showWelcome(); return; }
+    if (inMenu()) { fechaEscolha(); enter(); }
+    if (atual() === d && d !== "plan") return;
+    fechaTelas();
+    ({ cal: () => window.calPagina(), calc: () => window.calcPagina(), sync: () => window.syncPagina(true), notas: () => window.notasPagina(true), perfil: () => window.perfilPagina(true), temas: () => window.temasPagina(true), cfg: () => window.cfgPagina(true) }[d] || (() => {}))();
+    window.scrollTo(0, 0); anima(d); marca();
+  };
+  // monta as barras a partir dos cartões do menu Funções (mesma ordem que o usuário escolheu)
+  const lateral = document.getElementById("navLateral"), baixo = document.getElementById("navBaixo"), mais = document.getElementById("navMais");
+  function itens() { return [...document.querySelectorAll("#wEscolha .w-esc-op > button")].filter(b => DEST[b.id] && !b.hidden).map(b => ({ d: DEST[b.id], svg: b.querySelector("svg").outerHTML, nome: b.querySelector("b").textContent })); }
+  const MENU = '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg>';
+  const SAIR = '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M10 17l5-5-5-5M15 12H4"/></svg>';
+  const MAIS = '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>';
+  const bt = (i, cls) => `<button type="button" class="${cls || ""}" data-ir="${i.d}" title="${i.nome}">${i.svg}<span>${i.nome}</span></button>`;
+  window.navMontar = () => {
+    const l = itens();
+    lateral.querySelector(".nav-itens").innerHTML = l.map(i => bt(i)).join("");
+    baixo.innerHTML = l.slice(0, 3).map(i => bt(i)).join("") + `<button type="button" data-mais title="Mais">${MAIS}<span>Mais</span></button>`;
+    mais.querySelector(".nav-mais-itens").innerHTML = l.slice(3).map(i => bt(i)).join("") + bt({ d: "funcoes", svg: MENU, nome: "Menu" }) + bt({ d: "sair", svg: SAIR, nome: "Sair" });
+    marca();
+  };
+  function marca() {
+    const d = inMenu() ? "" : atual();
+    document.querySelectorAll("[data-ir]").forEach(b => { b.classList.toggle("ativo", b.dataset.ir === d); b.setAttribute("aria-current", b.dataset.ir === d ? "page" : "false"); });
+    const naBarra = [...baixo.querySelectorAll("[data-ir]")].some(b => b.dataset.ir === d);
+    const bm = baixo.querySelector("[data-mais]"); if (bm) bm.classList.toggle("ativo", !!d && !naBarra);
+    if (d) try { localStorage.setItem(KEY + "-ultima", d); } catch {}
+  }
+  new MutationObserver(marca).observe(B, { attributes: true, attributeFilter: ["class"] });
+  document.addEventListener("click", e => {
+    const b = e.target.closest("#navLateral [data-ir], #navBaixo [data-ir], #navMais [data-ir]"); if (b) { irPara(b.dataset.ir); return; }
+    if (e.target.closest("#navBaixo [data-mais]")) { vibra(); mais.hidden ? abreMais() : fechaMais(); return; }
+    if (e.target === mais) fechaMais();
+  });
+  function abreMais() { mais.hidden = false; requestAnimationFrame(() => mais.classList.add("aberto")); }
+  function fechaMais() { if (mais.hidden) return; mais.classList.remove("aberto"); setTimeout(() => { mais.hidden = true; }, 200); }
+  // botão Voltar do Android (e gesto de deslizar da borda): fecha o que estiver aberto, senão volta ao menu
+  window.organizerVoltar = () => {
+    const vis = id => { const e = document.getElementById(id); return e && !e.hidden; };
+    if (!mais.hidden) { fechaMais(); return true; }
+    if (vis("fotoModal")) { document.getElementById("fotoModal").hidden = true; return true; }
+    if (vis("cropper")) { document.getElementById("cropCancel").click(); return true; }
+    if (vis("wifiCamera")) { document.getElementById("wifiCameraFechar").click(); return true; }
+    if (vis("notaEditor")) { document.getElementById("notaFechar").click(); return true; }
+    if (document.querySelector(".festa")) { document.querySelector(".festa").click(); return true; }
+    if (vis("calEdit") && B.classList.contains("cal-pagina")) { document.getElementById("calEditFechar").click(); return true; }
+    if (!document.getElementById("calendario").hidden) { window.calFechar && window.calFechar(); marca(); return true; }
+    if (!inMenu()) { irFuncoes(); return true; }
+    return false;
+  };
+  // gesto: deslizar da borda esquerda para voltar (celular)
+  let gx = null, gy = 0;
+  addEventListener("touchstart", e => { const t = e.touches[0]; gx = B.classList.contains("layout-cel") && t.clientX < 22 ? t.clientX : null; gy = t.clientY; }, { passive: true });
+  addEventListener("touchend", e => { if (gx == null) return; const t = e.changedTouches[0]; if (t.clientX - gx > 70 && Math.abs(t.clientY - gy) < 60) { vibra(); window.organizerVoltar(); } gx = null; }, { passive: true });
+  // enquanto rola a tela no celular, as animações de fundo pausam (mais leve e sem engasgos)
+  let rolTimer = null;
+  addEventListener("scroll", () => { if (!B.classList.contains("layout-cel")) return; B.classList.add("rolando"); clearTimeout(rolTimer); rolTimer = setTimeout(() => B.classList.remove("rolando"), 250); }, { passive: true });
+  window.navUltima = () => { try { return localStorage.getItem(KEY + "-ultima") || ""; } catch { return ""; } };
+  const lg = document.querySelector("#marcaLogo svg"); if (lg) document.getElementById("navLogo").appendChild(lg.cloneNode(true));
+  window.navMontar();
 })();
 </script>
