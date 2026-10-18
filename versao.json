@@ -1,7 +1,7 @@
 {
   "conteudo": {
-    "versao": "1.5.0",
-    "novidades": "Layout novo: barra lateral no PC e barra de baixo no celular; telas alinhadas e com largura padrão; fotos de perfil recentes (e GIF); impressão digital oculta; navegação mais fluida.",
+    "versao": "1.5.1",
+    "novidades": "PC: tudo numa janela de tamanho fixo com a barra de funções embaixo; calculadora maior; brilho das bordas corrigido; versão em destaque; F12 = tela cheia.",
     "arquivo": "organizer.html",
     "assinatura": "organizer.html.sig",
     "minimoPrograma": "1.3.0",

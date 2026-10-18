@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <style>body{margin:0;font:14px system-ui,-apple-system,"Segoe UI",sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Organizer</title>
-<meta name="organizer-versao" content="1.5.0">
+<meta name="organizer-versao" content="1.5.1">
 <link rel="icon" id="favicon" href="data:,">
 <meta name="claude:viewport-fit-sides" content="cover">
 <style>
@@ -1252,8 +1252,8 @@ body.cfg-pagina .wrap { display: none; }
 #cfgBox .settings > .set-head, #cfgBox .settings > .beam { display: none; }
 body.em-funcoes .w-cantos #wSetBtn { display: none; }
 .sync-box { width: min(32rem, 100%); gap: 14px; }
-.sync-box.sync-larga { width: min(66rem, 100%); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(24rem, 100%), 1fr)); align-items: start; }
-.sync-larga > .cal-pag-top, .sync-larga > .beam, .sync-larga > .per-topo { grid-column: 1 / -1; }
+.sync-box.sync-larga { width: min(66rem, 100%); display: grid; align-content: start; grid-template-columns: repeat(auto-fit, minmax(min(24rem, 100%), 1fr)); align-items: start; }
+.sync-larga > .cal-pag-top, .sync-larga > .per-topo { grid-column: 1 / -1; }
 #temasPag .sync-larga > .sync-card:first-of-type, #temasPag .sync-larga > .custom-ed { grid-column: 1 / -1; }
 .sync-card { background: color-mix(in srgb, var(--bg) 55%, transparent); }
 /* relógios de Brasília e Manaus */
@@ -1404,6 +1404,7 @@ body:not(.na-entrada) #welcome { display: none; }
   background: conic-gradient(from var(--ang), transparent 0 62%, color-mix(in srgb, var(--beam, var(--accent)) 40%, transparent) 74%, var(--beam, var(--accent)) 84%, var(--beam-ponta, #fff) 87%, var(--beam, var(--accent)) 90%, transparent 100%);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
   animation: beamGira 7s linear infinite; }
+.calc, .formula, .w-card, .settings { position: relative; }
 .calc > .beam { animation-delay: -2.3s; } .formula > .beam { animation-delay: -4.6s; animation-duration: 9s; }
 .w-card > .beam { padding: 2px; animation-duration: 8s; }
 @keyframes beamGira { to { --ang: 360deg; } }
@@ -1794,6 +1795,52 @@ body.layout-cel:not(.na-entrada) .versao-canto { display: none; }
 /* celular: toques maiores e menos animação enquanto rola */
 body.layout-cel button { -webkit-tap-highlight-color: transparent; }
 body.layout-cel.rolando *, body.layout-cel.rolando *::before, body.layout-cel.rolando *::after { animation-play-state: paused !important; }
+
+/* ===== PC: tudo numa janela de tamanho fixo, com a barra de funções embaixo ===== */
+:root { --j-gap: 22px; --dock-h: 66px; --j-w: min(var(--larg-padrao), calc(100vw - 2 * var(--j-gap))); --j-h: calc(100vh - 2 * var(--j-gap)); }
+.janela-frame { display: none; }
+body.layout-pc:not(.na-entrada) { padding-left: 0 !important; overflow: hidden; }
+body.layout-pc:not(.na-entrada) .janela-frame { display: block; box-sizing: border-box; position: fixed; z-index: 4; top: var(--j-gap); left: calc(50% - var(--j-w) / 2); width: var(--j-w); height: var(--j-h);
+  border-radius: 14px; background: color-mix(in srgb, var(--surface) 88%, transparent); border: 1px solid var(--line); box-shadow: 0 20px 60px -20px rgba(0,0,0,.6); backdrop-filter: blur(4px); pointer-events: none; }
+body.layout-pc:not(.na-entrada) .janela-frame > .beam { border-radius: 14px; }
+body.layout-pc:not(.na-entrada) .wrap,
+body.layout-pc.cal-pagina #calendario .cal-box,
+body.layout-pc.calc-pagina #calculadora .calc-box,
+body.layout-pc .sync-area:not([hidden]) > .sync-box,
+body.layout-pc.notas-pagina #notasPag .notas-box {
+  position: fixed !important; z-index: 5; top: var(--j-gap) !important; left: calc(50% - var(--j-w) / 2) !important; width: var(--j-w) !important; height: var(--j-h) !important; max-width: none !important; min-height: 0 !important;
+  margin: 0 !important; box-sizing: border-box; overflow-y: auto; overflow-x: hidden; padding: 20px 24px calc(var(--dock-h) + 18px) !important; background: transparent !important; border: 0 !important; box-shadow: none !important; border-radius: 14px; }
+body.layout-pc:not(.na-entrada) .wrap > .beam, body.layout-pc .cal-box > .beam, body.layout-pc .calc-box > .beam, body.layout-pc .sync-box > .beam, body.layout-pc .notas-box > .beam { display: none; }
+body.layout-pc.cal-pagina .cal-modal { left: 0 !important; overflow: hidden; }
+body.layout-pc:not(.na-entrada) .marca-logo { display: block !important; }
+/* barra de funções dentro da janela, embaixo */
+body.layout-pc:not(.na-entrada) .nav-lateral { display: flex; position: fixed; z-index: 60; top: auto; left: calc(50% - var(--j-w) / 2); width: var(--j-w); bottom: var(--j-gap); height: var(--dock-h);
+  flex-direction: row; align-items: center; justify-content: center; gap: 4px; padding: 6px 12px; overflow-x: auto; overflow-y: hidden;
+  background: color-mix(in srgb, var(--surface) 96%, transparent); border: 0; border-top: 1px solid var(--line); border-radius: 0 0 14px 14px; backdrop-filter: none; }
+body.layout-pc:not(.na-entrada) .nav-lateral .nav-marca { display: none; }
+body.layout-pc:not(.na-entrada) .nav-lateral .nav-itens { flex-direction: row; gap: 4px; }
+body.layout-pc:not(.na-entrada) .nav-lateral button { flex-direction: column; justify-content: center; gap: 3px; width: auto; min-width: 84px; padding: 6px 10px; font-size: .74rem; text-align: center; }
+body.layout-pc:not(.na-entrada) .nav-lateral button span { display: block !important; white-space: nowrap; }
+body.layout-pc:not(.na-entrada) .nav-lateral button svg { width: 22px; height: 22px; }
+@media (max-width: 900px) { body.layout-pc:not(.na-entrada) .nav-lateral button { min-width: 56px; } body.layout-pc:not(.na-entrada) .nav-lateral button span { display: none !important; } }
+/* calculadora do tamanho da janela: teclado à esquerda, histórico à direita */
+body.layout-pc.calc-pagina #calculadora .calc-box { display: grid !important; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); grid-template-rows: auto auto auto 1fr; gap: 14px 20px; align-content: stretch; }
+body.layout-pc.calc-pagina #calculadora .cal-pag-top, body.layout-pc.calc-pagina #calculadora .relogios { grid-column: 1 / -1; }
+body.layout-pc.calc-pagina #calculadora .calc-tela { grid-column: 1; grid-row: 3; padding: 16px 18px; }
+body.layout-pc.calc-pagina #calculadora .calc-teclas { grid-column: 1; grid-row: 4; grid-auto-rows: minmax(56px, 1fr); gap: 10px; }
+body.layout-pc.calc-pagina #calculadora .calc-teclas button { height: auto; font-size: 1.6rem; }
+body.layout-pc.calc-pagina #calculadora .calc-visor { font-size: 3.4rem; }
+body.layout-pc.calc-pagina #calculadora .calc-conta { font-size: 1.1rem; }
+body.layout-pc.calc-pagina #calculadora .calc-hist-cab { grid-column: 2; grid-row: 3; align-self: end; }
+body.layout-pc.calc-pagina #calculadora .calc-hist { grid-column: 2; grid-row: 4; max-height: none; align-self: stretch; overflow-y: auto; border: 1px solid var(--line); border-radius: 10px; padding: 4px 10px; background: color-mix(in srgb, var(--bg) 55%, transparent); }
+/* configurações na janela padrão */
+body.layout-pc #configuracoes .sync-box { width: var(--j-w) !important; }
+/* número da versão em destaque */
+.versao-canto { font: 700 .82rem var(--mono) !important; color: var(--accent) !important; opacity: 1 !important; padding: 5px 10px; border-radius: 99px;
+  background: color-mix(in srgb, var(--surface) 85%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--line)); box-shadow: 0 0 14px color-mix(in srgb, var(--accent) 30%, transparent); }
+/* alinhamento vertical */
+.set-field, .chave-linha, .cal-pag-top, .tabhead, .tabtools, .fx-rodape, .calc-hist-cab, .relogios .rl, .nota-barra, .notas-criar { align-items: center; }
+.cal-pag-top > strong { line-height: 1.2; }
 </style>
 <style id="temasExtrasCss"></style>
 
@@ -2176,6 +2223,7 @@ body.layout-cel.rolando *, body.layout-cel.rolando *::before, body.layout-cel.ro
 </div>
 <style id="customCss"></style>
 <div id="fundo" aria-hidden="true"></div>
+<div id="janelaFrame" class="janela-frame" aria-hidden="true"><i class="beam"></i></div>
 <nav id="navLateral" class="nav-lateral" aria-label="Funções"><div class="nav-marca"><span class="nav-logo" id="navLogo" aria-hidden="true"></span><b>Organizer</b></div><div class="nav-itens"></div></nav>
 <nav id="navBaixo" class="nav-baixo" aria-label="Funções"></nav>
 <div id="navMais" class="nav-mais" hidden><div class="nav-mais-folha"><div class="nav-mais-alca" aria-hidden="true"></div><div class="nav-mais-itens"></div></div></div>
@@ -4228,7 +4276,7 @@ function soltaConfete(canvas, ms) {
     const agora = new Date(), dt = dataTexto(agora);
     els.forEach(el => { const s = el.querySelector(".rl-data"); if (s && s.textContent !== dt) s.textContent = dt; });
     const hs = fmts.map(f => { const [h, m, s] = f.format(agora).split(":"); return `${h}:${m}<small>:${s}</small>`; });
-    els.forEach(el => { if (el.offsetParent === null) return; el.querySelectorAll("[data-rl]").forEach(b => { const v = hs[+b.dataset.rl]; if (b.innerHTML !== v) b.innerHTML = v; }); });
+    els.forEach(el => { if (!el.getClientRects().length) return; el.querySelectorAll("[data-rl]").forEach(b => { const v = hs[+b.dataset.rl]; if (b.innerHTML !== v) b.innerHTML = v; }); });
   }
   tique(); setInterval(tique, 1000);
   setInterval(() => els.forEach(monta), 36e5); // atualiza a diferença de horas se mudar algum dia
@@ -4633,4 +4681,10 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
   const lg = document.querySelector("#marcaLogo svg"); if (lg) document.getElementById("navLogo").appendChild(lg.cloneNode(true));
   window.navMontar();
 })();
+
+// F12 coloca em tela cheia; Esc sai
+document.addEventListener("keydown", e => {
+  if (e.key === "F12") { e.preventDefault(); if (document.fullscreenElement) document.exitFullscreen().catch(() => {}); else document.documentElement.requestFullscreen().catch(() => {}); }
+  else if (e.key === "Escape" && document.fullscreenElement) document.exitFullscreen().catch(() => {});
+});
 </script>
