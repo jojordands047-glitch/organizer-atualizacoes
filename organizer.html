@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <style>body{margin:0;font:14px system-ui,-apple-system,"Segoe UI",sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Organizer</title>
-<meta name="organizer-versao" content="1.3.5">
+<meta name="organizer-versao" content="1.3.6">
 <link rel="icon" id="favicon" href="data:,">
 <meta name="claude:viewport-fit-sides" content="cover">
 <style>
@@ -1150,7 +1150,15 @@ button.gear[aria-expanded="true"] { color: var(--accent); border-color: var(--ac
 /* calendário como área própria (fora das planilhas) */
 body.cal-pagina .wrap, body.calc-pagina .wrap, body.sync-pagina .wrap { display: none; }
 .sync-area { position: relative; z-index: 5; display: grid; place-items: start center; min-height: 100vh; box-sizing: border-box; padding: 16px max(16px, env(safe-area-inset-right, 0px)) 16px max(16px, env(safe-area-inset-left, 0px)); }
-.sync-area[hidden], body:not(.sync-pagina) .sync-area:not(.cfg-area):not(.tem-area), body:not(.cfg-pagina) .cfg-area, body:not(.temas-pagina) .tem-area { display: none; }
+.sync-area[hidden], body:not(.sync-pagina) .sync-area:not(.cfg-area):not(.tem-area):not(.per-area), body:not(.cfg-pagina) .cfg-area, body:not(.temas-pagina) .tem-area, body:not(.perfil-pagina) .per-area { display: none; }
+body.perfil-pagina .wrap { display: none; }
+.sync-area.per-area:not([hidden]) { display: grid; }
+.per-topo { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 6px 0 2px; }
+.per-foto { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent); box-shadow: 0 0 22px color-mix(in srgb, var(--accent) 35%, transparent); }
+.per-vazia { display: grid; place-items: center; font-size: 2.6rem; background: var(--bg); box-sizing: border-box; }
+.per-topo b { font-size: 1.15rem; }
+/* a engrenagem saiu da tela de boas-vindas: configurações ficam no menu Funções */
+.w-cantos #wSetBtn { display: none !important; }
 body.temas-pagina .wrap { display: none; }
 .tem-alvo { display: flex; gap: 6px; padding: 4px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); }
 .tem-alvo label { flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 8px; border-radius: 8px; cursor: pointer; font-size: .88rem; }
@@ -1666,8 +1674,9 @@ html.troca-festa body, html.troca-festa .grid-box, html.troca-festa .calc, html.
         <button id="wIrCal" type="button"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><b>Calendário</b><small>Datas, notas e feriados</small></button>
         <button id="wIrCalc" type="button"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2.5" width="14" height="19" rx="2.5"/><rect x="8" y="5.5" width="8" height="4" rx="1"/><path d="M8.5 13h.01M12 13h.01M15.5 13h.01M8.5 16.5h.01M12 16.5h.01M15.5 16.5h.01"/></svg><b>Calculadora</b><small>Contas rápidas</small></button>
         <button id="wIrSync" type="button"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8.8a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16.1a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1" fill="currentColor"/></svg><b>Sincronizar</b><small>Celular ⇄ computador</small></button>
+        <button id="wIrPerfil" type="button"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><b>Perfil</b><small>Foto, apelido e aniversário</small></button>
         <button id="wIrTemas" type="button"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 0 18c1.2 0 1.8-.8 1.8-1.7 0-.5-.2-.9-.5-1.2-.3-.3-.5-.7-.5-1.2 0-1 .8-1.7 1.8-1.7H17a4 4 0 0 0 4-4C21 6.6 17 3 12 3z"/><circle cx="7.5" cy="11" r="1.2" fill="currentColor"/><circle cx="10" cy="7" r="1.2" fill="currentColor"/><circle cx="14.5" cy="7" r="1.2" fill="currentColor"/><circle cx="17" cy="11" r="1.2" fill="currentColor"/></svg><b>Temas</b><small>Cores, editor e extras</small></button>
-        <button id="wIrCfg" type="button"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><b>Configurações</b><small>Senha, perfil e mais</small></button>
+        <button id="wIrCfg" type="button"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><b>Configurações</b><small>Senha, segurança e mais</small></button>
         <div class="fx-breve" aria-hidden="true"><b>＋</b><small>Novas funções em breve</small></div>
       </div>
       <button id="wSairEsc" class="w-esc-sair" type="button">Sair</button>
@@ -1732,14 +1741,6 @@ html.troca-festa body, html.troca-festa .grid-box, html.troca-festa .calc, html.
     <div class="set-head"><strong>Configurações</strong><button id="closeSet">Fechar</button></div>
     <span class="set-lbl">Planilhas</span>
     <label class="set-field" for="rowColorsOn"><input id="rowColorsOn" type="checkbox"> Mostrar a opção de cor das linhas</label>
-    <span class="set-lbl">Tela de boas-vindas</span>
-    <div class="set-field">
-      <span class="avatar-prev" id="avPrev" aria-hidden="true"></span>
-      <label class="file-btn small" for="avFile">Escolher foto de perfil<input id="avFile" type="file" accept="image/*"></label>
-      <button id="avDel" class="small danger" hidden>Remover foto</button>
-    </div>
-    <p class="set-note" id="avMsg" hidden></p>
-    <label class="set-field" for="wNick">Apelido <input id="wNick" type="text" class="nick" maxlength="30" autocomplete="off" placeholder="Seu apelido"></label>
     <p class="set-note so-menu">Entre com a senha para alterá-la ou excluir abas.</p>
     <div class="set-field so-dentro">
       <label class="set-field" for="wPassOn"><input id="wPassOn" type="checkbox"> Pedir bloqueio ao entrar</label>
@@ -1751,6 +1752,7 @@ html.troca-festa body, html.troca-festa .grid-box, html.troca-festa .calc, html.
         <div id="padraoNovo" class="padrao" hidden><p class="padrao-dica" id="padraoNovoDica"></p><div id="padraoNovoPad" class="padrao-pad"></div><button id="padraoCancelar" class="small" type="button">Cancelar</button></div>
       </div>
     </div>
+    <button id="abrirPerfil" class="small so-dentro">👤 Perfil: foto, apelido e aniversário →</button>
     <button id="abrirTemas" class="small so-dentro">🎨 Temas: cores, editor, temas extras e aniversário →</button>
     <button id="abrirSync" class="small so-dentro">📶 Sincronizar, atualizações e cópia dos dados →</button>
     <section class="cripto-area" id="criptoArea">
@@ -1799,6 +1801,31 @@ html.troca-festa body, html.troca-festa .grid-box, html.troca-festa .calc, html.
   <p class="set-note">Toca em repetição enquanto o tema Limbus estiver aberto. Fica guardada só neste aparelho.</p>
   <audio id="musica" loop preload="auto"></audio>
 </section>
+<section id="perfilPag" class="sync-area per-area" aria-label="Perfil" hidden>
+  <div class="calc-box sync-box"><i class="beam" aria-hidden="true"></i>
+    <div class="cal-pag-top"><button id="perFuncoes" class="small" aria-label="Voltar ao menu de funções"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg> Funções</button><strong>Perfil</strong><button id="perParaPlan" class="small">Planilhas →</button></div>
+    <div class="per-topo"><img id="perFoto" class="per-foto" alt="" hidden><span id="perSemFoto" class="per-foto per-vazia" aria-hidden="true">👤</span><b id="perNome"></b><span id="perIdade" class="set-note"></span></div>
+    <section class="org-area sync-card">
+      <span class="set-lbl">📷 Foto de perfil</span>
+    <div class="set-field">
+      <span class="avatar-prev" id="avPrev" aria-hidden="true"></span>
+      <label class="file-btn small" for="avFile">Escolher foto de perfil<input id="avFile" type="file" accept="image/*"></label>
+      <button id="avDel" class="small danger" hidden>Remover foto</button>
+    </div>
+    <p class="set-note" id="avMsg" hidden></p>
+    </section>
+    <section class="org-area sync-card">
+      <span class="set-lbl">✏️ Apelido</span>
+    <label class="set-field" for="wNick">Apelido <input id="wNick" type="text" class="nick" maxlength="30" autocomplete="off" placeholder="Seu apelido"></label>
+      <p class="set-note">Aparece na tela de boas-vindas. Nos títulos dos temas, use {apelido} para incluir.</p>
+    </section>
+    <section class="org-area sync-card">
+      <span class="set-lbl">🎂 Aniversário</span>
+    <label class="set-field" for="meuAniver">🎂 Meu aniversário <input id="meuAniver" type="date" min="1900-01-01" max="2100-12-31"></label>
+    <p class="set-note">No dia, o Organizer entra no tema especial de aniversário. A data fica só nos seus aparelhos.</p>
+    </section>
+  </div>
+</section>
 <section id="temasPag" class="sync-area tem-area" aria-label="Temas" hidden>
   <div class="calc-box sync-box"><i class="beam" aria-hidden="true"></i>
     <div class="cal-pag-top"><button id="temFuncoes" class="small" aria-label="Voltar ao menu de funções"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg> Funções</button><strong>Temas</strong><button id="temParaPlan" class="small">Planilhas →</button></div>
@@ -1835,9 +1862,8 @@ html.troca-festa body, html.troca-festa .grid-box, html.troca-festa .calc, html.
     </section>
     <section class="org-area sync-card">
       <span class="set-lbl">🎂 Tema de aniversário</span>
-    <label class="set-field" for="meuAniver">🎂 Meu aniversário <input id="meuAniver" type="date" min="1900-01-01" max="2100-12-31"></label>
-    <p class="set-note">No dia, o Organizer entra no tema especial de aniversário. A data fica só nos seus aparelhos.</p>
-    <div><button id="aniverTeste" class="small">🎂 Testar aniversário</button></div>
+    <p class="set-note">A data do seu aniversário fica em <b>Perfil</b>.</p>
+<div><button id="aniverTeste" class="small">🎂 Testar aniversário</button></div>
     </section>
     <section class="org-area sync-card" id="orgArea">
       <span class="set-lbl">Temas extras</span>
@@ -2721,7 +2747,7 @@ function welcomeTitle() {
 }
 function showWelcome() {
   unlocked = false;
-  if (document.body.classList.contains("cfg-pagina") && window.cfgPagina) window.cfgPagina(false); window.temaAlvo = "aba"; const tp = document.getElementById("temasPag"); if (tp) tp.hidden = true; document.body.classList.remove("cal-pagina", "calc-pagina", "sync-pagina", "cfg-pagina", "temas-pagina", "em-funcoes"); const sp = document.getElementById("sincronizar"); if (sp) sp.hidden = true; const ca = document.getElementById("calculadora"); if (ca) ca.hidden = true; const cm = document.getElementById("calendario"); if (cm) cm.hidden = true;
+  if (document.body.classList.contains("cfg-pagina") && window.cfgPagina) window.cfgPagina(false); window.temaAlvo = "aba"; const tp = document.getElementById("temasPag"); if (tp) tp.hidden = true; const pp = document.getElementById("perfilPag"); if (pp) pp.hidden = true; document.body.classList.remove("cal-pagina", "calc-pagina", "sync-pagina", "cfg-pagina", "temas-pagina", "perfil-pagina", "em-funcoes"); const sp = document.getElementById("sincronizar"); if (sp) sp.hidden = true; const ca = document.getElementById("calculadora"); if (ca) ca.hidden = true; const cm = document.getElementById("calendario"); if (cm) cm.hidden = true;
   const we = document.getElementById("wEscolha"); if (we) { we.hidden = true; W.form.hidden = false; }
   try { emFuncoes = false; } catch {} document.querySelector("#welcome .w-card").classList.remove("funcoes");
   if (padEntrada) padEntrada.limpa();
@@ -2819,6 +2845,25 @@ const fechaEscolha = () => { document.body.classList.remove("em-funcoes"); emFun
 document.getElementById("funcBtn").onclick = () => irFuncoes();
 document.getElementById("wIrPlan").onclick = () => { fechaEscolha(); enter(); };
 document.getElementById("wIrCal").onclick = () => { fechaEscolha(); enter(); window.calPagina && window.calPagina(); };
+window.perfilPagina = on => {
+  document.body.classList.toggle("perfil-pagina", on !== false); document.getElementById("perfilPag").hidden = on === false;
+  if (on !== false) { window.scrollTo(0, 0); perfilTopo(); }
+};
+function perfilTopo() {
+  const f = document.getElementById("perFoto"), av = store.welcome && store.welcome.photo;
+  f.hidden = !av; if (av) f.src = av; document.getElementById("perSemFoto").hidden = !!av;
+  const nick = (store.welcome && store.welcome.nick || "").trim();
+  document.getElementById("perNome").textContent = nick || "Sem apelido";
+  const id = typeof nascDe === "function" && nascDe() ? idadeEm() : null;
+  document.getElementById("perIdade").textContent = id != null ? `${id} anos` : "";
+}
+["wNick", "meuAniver"].forEach(i => document.getElementById(i).addEventListener("input", () => setTimeout(perfilTopo, 0)));
+document.getElementById("meuAniver").addEventListener("change", () => setTimeout(perfilTopo, 0));
+new MutationObserver(() => { if (document.body.classList.contains("perfil-pagina")) perfilTopo(); }).observe(document.getElementById("avPrev"), { attributes: true, childList: true, subtree: true });
+document.getElementById("wIrPerfil").onclick = () => { fechaEscolha(); enter(); window.perfilPagina(true); };
+document.getElementById("perFuncoes").onclick = () => { window.perfilPagina(false); irFuncoes(); };
+document.getElementById("perParaPlan").onclick = () => window.perfilPagina(false);
+document.getElementById("abrirPerfil").onclick = () => { if (document.body.classList.contains("cfg-pagina")) window.cfgPagina(false); toggleSettings(false); if (inMenu()) enter(); window.perfilPagina(true); };
 window.temasPagina = on => {
   document.body.classList.toggle("temas-pagina", on !== false); document.getElementById("temasPag").hidden = on === false;
   window.temaAlvo = "aba"; document.querySelectorAll('input[name="temAlvo"]').forEach(r => r.checked = r.value === "aba");

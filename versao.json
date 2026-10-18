@@ -1,7 +1,7 @@
 {
   "conteudo": {
-    "versao": "1.3.5",
-    "novidades": "Nova tela Temas no menu Funções: tudo de temas num lugar só (escolha para a aba ou para a tela inicial).",
+    "versao": "1.3.6",
+    "novidades": "Nova tela Perfil (foto, apelido e aniversário) e a engrenagem saiu da tela de boas-vindas.",
     "arquivo": "organizer.html",
     "assinatura": "organizer.html.sig",
     "minimoPrograma": "1.3.0",
