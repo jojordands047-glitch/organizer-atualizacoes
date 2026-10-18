@@ -2,6 +2,12 @@
 
 ➕ adicionado · 🔧 corrigido · 🔄 mudado · ➖ removido
 
+## 1.4.1 — 18/10/2026
+- 🔄 O tema agora vale para tudo (planilhas, menu e telas); saiu a escolha por lugar.
+- 🔄 Telas de Temas, Perfil e Sincronizar mais largas, com cartões lado a lado no computador.
+- 🔄 Botão "Procurar atualizações" maior e em destaque.
+- ➕ Seções do Perfil podem ser minimizadas (o aparelho lembra quais ficaram fechadas).
+
 ## 1.4.0 — 18/10/2026
 - ➕ Menu Funções organizável: botão "Organizar", arrastar os cartões ou usar as setas ‹ ›.
 

@@ -2,6 +2,28 @@
   "formato": "organizer-novidades",
   "versoes": [
     {
+      "versao": "1.4.1",
+      "data": "2026-10-18",
+      "itens": [
+        {
+          "tipo": "mudado",
+          "texto": "O tema agora vale para tudo (planilhas, menu e telas); saiu a escolha por lugar."
+        },
+        {
+          "tipo": "mudado",
+          "texto": "Telas de Temas, Perfil e Sincronizar mais largas, com cartões lado a lado no computador."
+        },
+        {
+          "tipo": "mudado",
+          "texto": "Botão \"Procurar atualizações\" maior e em destaque."
+        },
+        {
+          "tipo": "adicionado",
+          "texto": "Seções do Perfil podem ser minimizadas (o aparelho lembra quais ficaram fechadas)."
+        }
+      ]
+    },
+    {
       "versao": "1.4.0",
       "data": "2026-10-18",
       "itens": [
