@@ -2,6 +2,32 @@
  "formato": "organizer-novidades",
  "versoes": [
   {
+   "versao": "1.8.1",
+   "data": "2026-10-18",
+   "itens": [
+    {
+     "tipo": "mudado",
+     "texto": "Natal mais bonito: cenário de fundo com lua iluminando um campo nevado, casa com chaminé soltando fumaça, pinheiros com luzes e bonecos de neve."
+    },
+    {
+     "tipo": "mudado",
+     "texto": "Natal: neve caindo o tempo todo, guirlandas de pisca-pisca no topo da tela e luzes em volta da janela."
+    },
+    {
+     "tipo": "adicionado",
+     "texto": "Natal: relógio regressivo (dias, horas, minutos e segundos) numa janelinha no canto de cima."
+    },
+    {
+     "tipo": "mudado",
+     "texto": "Natal: gorro de Papai Noel na logo."
+    },
+    {
+     "tipo": "removido",
+     "texto": "Natal: animação grande de \"Feliz Natal\" com o trenó."
+    }
+   ]
+  },
+  {
    "versao": "1.8.0",
    "data": "2026-10-18",
    "itens": [

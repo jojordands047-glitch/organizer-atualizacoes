@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <style>body{margin:0;font:14px system-ui,-apple-system,"Segoe UI",sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Organizer</title>
-<meta name="organizer-versao" content="1.6.3">
+<meta name="organizer-versao" content="1.8.1">
 <link rel="icon" id="favicon" href="data:,">
 <meta name="claude:viewport-fit-sides" content="cover">
 <style>
@@ -1966,6 +1966,167 @@ body.layout-cel .aviso-toast { bottom: calc(76px + env(safe-area-inset-bottom, 0
 #notaEditor.notas-claro .nota-lembrete input { color-scheme: light; }
 .nota-chip { display: inline-flex; align-items: center; gap: 4px; margin-top: 8px; padding: 3px 8px; border-radius: 99px; font-size: .72rem; border: 1px solid var(--nota-borda); color: var(--nota-sub); }
 .nota-chip.passou { text-decoration: line-through; opacity: .7; }
+/* ===== Temas sazonais: Natal, Ano Novo, Carnaval, Halloween, 1º de abril e Arraial ===== */
+html:root[data-tt="natal"] { --bg: #0b1a12; --surface: #13261b; --fg: #fbf3e4; --muted: #b9c8b4; --line: #2a4a33; --head: #183022; --accent: #e8343f; --accent-soft: #3d1517;
+  --total: #102218; --danger: #ff8a8a; --grand-bg: #f2c14e; --grand-fg: #1a1205; --beam: #f2c14e;
+  --p-alta: #ffd0d0; --p-alta-bg: #5a1a1d; --p-media: #ffe9b0; --p-media-bg: #4a3812; --p-baixa: #d3f5dc; --p-baixa-bg: #1b4a2a;
+  --row-amarelo: #3a3214; --row-verde: #173a22; --row-azul: #172a44; --row-rosa: #3c1a22; --row-roxo: #2a2148; --row-laranja: #3e2614; color-scheme: dark; }
+html:root[data-tt="natal"] #fundo { background: radial-gradient(circle at 20% 10%, rgba(232,52,63,.18), transparent 45%), radial-gradient(circle at 80% 85%, rgba(242,193,78,.14), transparent 45%), linear-gradient(180deg, #0e2117, #07120c) fixed; }
+html:root[data-tt="anonovo"] { --bg: #07070a; --surface: #111116; --fg: #fff8e6; --muted: #b8b3a3; --line: #2c2a24; --head: #17161b; --accent: #f5c542; --accent-soft: #3a2f10;
+  --total: #121216; --danger: #ff8a8a; --grand-bg: #f5c542; --grand-fg: #14100a; --beam: #e8e8f0;
+  --p-alta: #ffe0a8; --p-alta-bg: #4a3410; --p-media: #e8e8f0; --p-media-bg: #34343c; --p-baixa: #cfe3ff; --p-baixa-bg: #1d2a40;
+  --row-amarelo: #3a3214; --row-verde: #17331f; --row-azul: #172a44; --row-rosa: #3c1a2c; --row-roxo: #2a2148; --row-laranja: #3e2614; color-scheme: dark; }
+html:root[data-tt="anonovo"] #fundo { background: radial-gradient(ellipse at 50% 0%, rgba(245,197,66,.16), transparent 55%), radial-gradient(circle at 15% 80%, rgba(200,200,220,.08), transparent 40%), linear-gradient(180deg, #0c0c12, #040406) fixed; }
+html:root[data-tt="carnaval"] { --bg: #170a26; --surface: #221238; --fg: #fff4fb; --muted: #c9b3dc; --line: #43286a; --head: #2a1745; --accent: #ffd400; --accent-soft: #3d3300;
+  --total: #1d0f30; --danger: #ff6b9a; --grand-bg: #00d084; --grand-fg: #06150e; --beam: #ff3ea5;
+  --p-alta: #ffd1e6; --p-alta-bg: #6a1442; --p-media: #fff1a8; --p-media-bg: #4d3d00; --p-baixa: #c4ffe6; --p-baixa-bg: #0e4a33;
+  --row-amarelo: #3d3410; --row-verde: #10392a; --row-azul: #172a50; --row-rosa: #4a1636; --row-roxo: #331c5a; --row-laranja: #48280f; color-scheme: dark; }
+html:root[data-tt="carnaval"] #fundo { background: radial-gradient(circle at 10% 20%, rgba(255,62,165,.25), transparent 40%), radial-gradient(circle at 90% 15%, rgba(255,212,0,.18), transparent 40%), radial-gradient(circle at 50% 95%, rgba(0,208,132,.2), transparent 45%), linear-gradient(160deg, #1f0d36, #10061c) fixed; }
+html:root[data-tt="halloween"] { --bg: #0d0710; --surface: #170d1c; --fg: #f6ead8; --muted: #b59fb8; --line: #36203d; --head: #1d1124; --accent: #ff7a1a; --accent-soft: #3d1f08;
+  --total: #140a18; --danger: #ff5c5c; --grand-bg: #ff7a1a; --grand-fg: #160800; --beam: #b45cff;
+  --p-alta: #ffd0b0; --p-alta-bg: #5a2408; --p-media: #e8d0ff; --p-media-bg: #3a1f55; --p-baixa: #d8f5c8; --p-baixa-bg: #24401a;
+  --row-amarelo: #3a2a10; --row-verde: #1d3318; --row-azul: #1a2440; --row-rosa: #3c1a2a; --row-roxo: #2e1a48; --row-laranja: #44220c; color-scheme: dark; }
+html:root[data-tt="halloween"] #fundo { background: radial-gradient(circle at 82% 14%, rgba(255,236,190,.16) 0 7%, transparent 8%), radial-gradient(circle at 20% 90%, rgba(255,122,26,.16), transparent 45%), radial-gradient(circle at 70% 70%, rgba(180,92,255,.12), transparent 45%), linear-gradient(180deg, #120a18, #070409) fixed; }
+html:root[data-tt="junina"] { --bg: #1c0f08; --surface: #2a170c; --fg: #fff3df; --muted: #d4b896; --line: #4d3018; --head: #331d0f; --accent: #ff8c1a; --accent-soft: #432508;
+  --total: #24140a; --danger: #ff6b5c; --grand-bg: #e63946; --grand-fg: #fff3df; --beam: #ffd23f;
+  --p-alta: #ffd0c8; --p-alta-bg: #5c1a14; --p-media: #ffeaa8; --p-media-bg: #4d3a0a; --p-baixa: #d6f0c4; --p-baixa-bg: #2c4a18;
+  --row-amarelo: #3d3010; --row-verde: #24391a; --row-azul: #1d2c44; --row-rosa: #42201c; --row-roxo: #33244a; --row-laranja: #4a2a0e; color-scheme: dark; }
+html:root[data-tt="junina"] #fundo { background: radial-gradient(circle at 8% 100%, rgba(255,140,26,.32), transparent 35%), repeating-linear-gradient(0deg, rgba(230,57,70,.05) 0 22px, transparent 22px 44px), repeating-linear-gradient(90deg, rgba(230,57,70,.05) 0 22px, transparent 22px 44px), linear-gradient(180deg, #24130a, #140a05) fixed; }
+/* títulos */
+html:root[data-tt="natal"] .welcome h1.w-title, html:root[data-tt="natal"] .sheet h2 { color: #fbf3e4; text-shadow: 0 0 18px rgba(232,52,63,.55); }
+html:root[data-tt="anonovo"] .welcome h1.w-title, html:root[data-tt="anonovo"] .sheet h2 { background: linear-gradient(90deg, #f5c542, #fff6d0 45%, #c9c9d6 60%, #f5c542); background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent; animation: aniverBrilho 5s linear infinite; }
+html:root[data-tt="carnaval"] .welcome h1.w-title, html:root[data-tt="carnaval"] .sheet h2 { background: linear-gradient(90deg, #ff3ea5, #ffd400 30%, #00d084 60%, #7b4dff 85%, #ff3ea5); background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent; animation: aniverBrilho 4s linear infinite; }
+html:root[data-tt="halloween"] .welcome h1.w-title, html:root[data-tt="halloween"] .sheet h2 { color: #ff7a1a; text-shadow: 0 0 14px rgba(255,122,26,.6), 0 0 34px rgba(180,92,255,.35); animation: sazTremula 4s infinite; }
+html:root[data-tt="junina"] .welcome h1.w-title, html:root[data-tt="junina"] .sheet h2 { color: #ffd23f; text-shadow: 2px 2px 0 #e63946; }
+@keyframes sazTremula { 0%, 92%, 100% { opacity: 1; } 93% { opacity: .4; } 95% { opacity: 1; } 97% { opacity: .6; } }
+/* camada dos efeitos (atrás do conteúdo, em cima do fundo da janela) */
+#sazFx { position: fixed; inset: 0; z-index: 4; pointer-events: none; width: 100vw; height: 100vh; }
+body.rolando #sazFx { visibility: hidden; }
+/* enfeites */
+.saz-enfeite { position: fixed; pointer-events: none; z-index: 6; }
+.saz-enfeite[hidden] { display: none !important; }
+#sazTopo { left: 0; right: 0; top: 0; height: 26px; }
+body.layout-pc:not(.na-entrada) #sazTopo { top: calc(var(--j-gap) - 9px); left: calc(50% - var(--j-w) / 2 + 14px); right: auto; width: calc(var(--j-w) - 28px); }
+.saz-luzes { background: radial-gradient(circle at 50% 70%, var(--c1) 0 4px, transparent 5px) 0 0 / 44px 26px repeat-x, radial-gradient(circle at 50% 70%, var(--c2) 0 4px, transparent 5px) 22px 0 / 44px 26px repeat-x;
+  --c1: #ff3b3b; --c2: #ffd23f; animation: sazPisca 1.2s steps(1) infinite; }
+.saz-luzes::before { content: ""; position: absolute; inset: 0 0 auto; height: 14px; border-bottom: 1.5px solid rgba(40,90,50,.9); border-radius: 0 0 50% 50% / 0 0 100% 100%; }
+@keyframes sazPisca { 0% { --c1: #ff3b3b; --c2: #ffd23f; filter: drop-shadow(0 0 4px #ff3b3b); } 33% { --c1: #3bff7a; --c2: #3b9bff; filter: drop-shadow(0 0 4px #3bff7a); } 66% { --c1: #ffd23f; --c2: #ff3bd2; filter: drop-shadow(0 0 4px #ffd23f); } }
+@property --c1 { syntax: "<color>"; inherits: true; initial-value: #ff3b3b; }
+@property --c2 { syntax: "<color>"; inherits: true; initial-value: #ffd23f; }
+.saz-bandeiras { height: 34px !important; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='34'%3E%3Cpath d='M0 3 Q75 12 150 3' stroke='%23d9b98a' stroke-width='1.5' fill='none'/%3E%3Cpath d='M8 4 l14 1 -1 20 -6 -6 -7 5z' fill='%23e63946'/%3E%3Cpath d='M38 7 l14 1 -1 20 -6 -6 -7 5z' fill='%23ffd23f'/%3E%3Cpath d='M68 8 l14 0 0 20 -7 -6 -7 6z' fill='%233a86ff'/%3E%3Cpath d='M98 7 l14 -1 1 20 -7 -5 -6 6z' fill='%2306d6a0'/%3E%3Cpath d='M128 4 l14 -1 1 20 -7 -5 -6 6z' fill='%23ff6bcb'/%3E%3C/svg%3E") 0 0 / 150px 34px repeat-x;
+  transform-origin: 50% 0; animation: sazBalanca 3.2s ease-in-out infinite; }
+@keyframes sazBalanca { 0%, 100% { transform: skewX(-2deg) rotate(-.4deg); } 50% { transform: skewX(2deg) rotate(.4deg); } }
+.saz-teia { width: 120px; height: 120px; opacity: .55; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none' stroke='%23d8c8e0' stroke-width='.8'%3E%3Cpath d='M0 0L100 30M0 0L70 70M0 0L30 100M0 0L100 0M0 0L0 100'/%3E%3Cpath d='M0 22Q12 14 22 0M0 44Q26 30 44 0M0 66Q40 46 66 0M0 88Q55 62 88 0'/%3E%3C/svg%3E") 0 0 / contain no-repeat; }
+#sazTeia1 { top: 0; left: 0; }
+#sazTeia2 { top: 0; right: 0; transform: scaleX(-1); }
+body.layout-pc:not(.na-entrada) #sazTeia1 { top: var(--j-gap); left: calc(50% - var(--j-w) / 2); }
+body.layout-pc:not(.na-entrada) #sazTeia2 { top: var(--j-gap); right: calc(50% - var(--j-w) / 2); }
+.saz-aranha { position: absolute; left: 58px; top: 0; width: 1px; height: 60px; background: rgba(216,200,224,.6); animation: sazDesce 6s ease-in-out infinite; transform-origin: top; }
+.saz-aranha::after { content: "🕷️"; position: absolute; bottom: -12px; left: -9px; font-size: 18px; }
+@keyframes sazDesce { 0%, 100% { height: 30px; } 50% { height: 90px; } }
+#sazNevoa { inset: auto 0 0 0; height: 40vh; z-index: 3; background: radial-gradient(ellipse at 30% 100%, rgba(200,190,220,.13), transparent 60%), radial-gradient(ellipse at 75% 100%, rgba(200,190,220,.1), transparent 55%); background-size: 200% 100%; animation: sazNevoa 26s linear infinite alternate; }
+@keyframes sazNevoa { from { background-position: 0 0; } to { background-position: 100% 0; } }
+#sazCanto { left: max(12px, env(safe-area-inset-left, 0px)); bottom: 52px; width: 56px; height: 56px; z-index: 6; }
+body.layout-cel #sazCanto, body.layout-cel #sazNevoa { display: none !important; }
+@media (max-width: 1079px) { #sazCanto { display: none !important; } }
+.saz-abobora { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 14c-3-6 2-10 6-9-4 1-5 4-4 9z' fill='%234a7a2a'/%3E%3Cellipse cx='20' cy='38' rx='14' ry='19' fill='%23e8620f'/%3E%3Cellipse cx='44' cy='38' rx='14' ry='19' fill='%23e8620f'/%3E%3Cellipse cx='32' cy='38' rx='15' ry='21' fill='%23ff7a1a'/%3E%3C/svg%3E") center / contain no-repeat; }
+.saz-abobora::before, .saz-abobora::after { content: ""; position: absolute; top: 30px; width: 9px; height: 8px; background: #ffe680; clip-path: polygon(50% 0, 100% 100%, 0 100%); box-shadow: 0 0 8px #ffd23f; animation: sazOlho 3.5s infinite; }
+.saz-abobora::before { left: 15px; } .saz-abobora::after { right: 15px; }
+@keyframes sazOlho { 0%, 90%, 100% { transform: scaleY(1); opacity: 1; } 94% { transform: scaleY(.1); } }
+.saz-fogueira::before { content: "🔥"; position: absolute; inset: 0; font-size: 44px; line-height: 56px; text-align: center; animation: sazFogo .5s ease-in-out infinite alternate; transform-origin: 50% 100%; filter: drop-shadow(0 0 12px rgba(255,140,26,.8)); }
+@keyframes sazFogo { from { transform: scale(1, 1); } to { transform: scale(1.06, .92); } }
+/* gorro / máscara na logo */
+body.saz-enfeite-logo .marca-logo::after { content: var(--saz-logo); position: absolute; top: -16px; right: -10px; font-size: 22px; transform: rotate(18deg); filter: drop-shadow(0 2px 3px rgba(0,0,0,.5)); }
+.marca-logo { overflow: visible !important; }
+/* carnaval: bordas pulsando no ritmo */
+html:root[data-tt="carnaval"] body.layout-pc:not(.na-entrada) .janela-frame, html:root[data-tt="carnaval"] .w-card { animation: sazSamba .55s ease-in-out infinite alternate; }
+@keyframes sazSamba { from { box-shadow: 0 0 0 1px rgba(255,62,165,.5), 0 0 18px rgba(255,62,165,.25); } to { box-shadow: 0 0 0 2px rgba(255,212,0,.7), 0 0 30px rgba(0,208,132,.35); } }
+/* selo no canto de cima (contagem e saudação) */
+#sazSelo { position: fixed; z-index: 66; top: 14px; left: max(14px, env(safe-area-inset-left, 0px)); max-width: calc(50vw - 40px); display: flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 99px; pointer-events: auto;
+  background: color-mix(in srgb, var(--surface) 88%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 50%, var(--line)); color: var(--fg); font: 600 .8rem var(--sans); box-shadow: 0 0 16px color-mix(in srgb, var(--accent) 28%, transparent); }
+#sazSelo b { font-family: var(--mono); color: var(--accent); font-variant-numeric: tabular-nums; }
+#sazSelo[hidden] { display: none; }
+body.layout-cel #sazSelo { top: auto; bottom: calc(76px + env(safe-area-inset-bottom, 0px)); left: 50%; transform: translateX(-50%); max-width: calc(100vw - 32px); }
+body.layout-cel:not(.saz-contagem) #sazSelo { display: none; }
+@media (max-width: 1079px) { body.layout-pc #sazSelo { display: none; } }
+.saz-saudacao { margin: -4px 0 8px; font: 700 1rem var(--sans); color: var(--accent); text-align: center; animation: sazPula 1.6s ease-in-out infinite; }
+.saz-saudacao[hidden] { display: none; }
+@keyframes sazPula { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+/* telas de evento (contagem grande, fogos, trenó, fantasma, pegadinhas) */
+.saz-palco { position: fixed; inset: 0; z-index: 90; pointer-events: none; display: grid; place-items: center; }
+.saz-palco canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.saz-numero { position: relative; font: 900 min(34vw, 260px) var(--mono); color: #fff; text-shadow: 0 0 30px var(--accent), 0 0 80px var(--accent); animation: sazNum 1s ease-out; }
+@keyframes sazNum { from { transform: scale(1.6); opacity: 0; } 30% { opacity: 1; } to { transform: scale(.9); opacity: .85; } }
+.saz-msg { position: relative; text-align: center; font: 900 clamp(1.8rem, 7vw, 4rem) var(--sans); color: #fff; text-shadow: 0 0 20px var(--accent), 0 4px 0 rgba(0,0,0,.4); padding: 0 16px; animation: sazMsg 4.5s ease forwards; }
+.saz-msg small { display: block; font-size: .45em; font-weight: 700; color: var(--accent); margin-top: 6px; }
+@keyframes sazMsg { 0% { transform: scale(.4); opacity: 0; } 12% { transform: scale(1.08); opacity: 1; } 20% { transform: scale(1); } 85% { opacity: 1; } 100% { opacity: 0; } }
+.saz-voa { position: absolute; left: -30vw; top: 22vh; font-size: clamp(48px, 9vw, 96px); white-space: nowrap; animation: sazVoa 6s linear forwards; filter: drop-shadow(0 6px 10px rgba(0,0,0,.5)); }
+@keyframes sazVoa { from { transform: translate(0, 0); } 50% { transform: translate(65vw, -6vh); } to { transform: translate(140vw, 4vh); } }
+.saz-fantasma { position: absolute; left: -20vw; top: 35vh; font-size: clamp(70px, 14vw, 150px); opacity: .9; animation: sazFantasma 3.6s ease-in-out forwards; }
+.saz-fantasma::after { content: "Buu!"; position: absolute; left: 70%; top: -10%; font: 900 .3em var(--sans); color: #fff; text-shadow: 0 0 10px #b45cff; }
+@keyframes sazFantasma { 0% { transform: translate(0, 0) scale(.8); } 30% { transform: translate(55vw, -4vh) scale(1.2); } 45% { transform: translate(60vw, 2vh) scale(1.5); } 100% { transform: translate(130vw, -10vh) scale(1); } }
+/* 1º de abril */
+.abril-caixa { pointer-events: auto; position: relative; width: min(420px, calc(100vw - 32px)); box-sizing: border-box; padding: 22px; border-radius: 16px; background: var(--surface); color: var(--fg); border: 2px solid var(--accent); box-shadow: 0 20px 60px rgba(0,0,0,.6); text-align: center; display: flex; flex-direction: column; gap: 12px; }
+.abril-caixa.win98 { font-family: Tahoma, "MS Sans Serif", Verdana, sans-serif !important; background: #c0c0c0; color: #000; border: 2px outset #fff; border-radius: 0; text-align: left; padding: 0; gap: 0; }
+.win98 .w98-tit { background: linear-gradient(90deg, #000080, #1084d0); color: #fff; font-weight: 700; padding: 4px 8px; font-size: .85rem; }
+.win98 .w98-corpo { padding: 14px; display: flex; flex-direction: column; gap: 10px; font-size: .85rem; }
+.win98 .w98-barra { height: 20px; border: 2px inset #fff; background: #fff; padding: 2px; }
+.win98 .w98-barra i { display: block; height: 100%; background: repeating-linear-gradient(90deg, #000080 0 10px, transparent 10px 12px); transition: width .5s; }
+.abril-caixa h3 { margin: 0; font-size: 1.5rem; }
+.abril-caixa .abril-bts { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+.abril-milhao { position: absolute; z-index: 30; display: grid; place-items: center; border-radius: 8px; background: var(--grand-bg, var(--accent)); color: var(--grand-fg, #000); font: 800 1rem var(--mono); animation: sazPula .5s ease-in-out infinite; pointer-events: none; }
+body.abril-comic, body.abril-comic * { font-family: "Comic Sans MS", "Comic Neue", "Chalkboard SE", cursive !important; }
+body.abril-comic, body.abril-comic * { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ctext y='26' font-size='26'%3E🦆%3C/text%3E%3C/svg%3E") 4 4, auto !important; }
+#wEnter.abril-foge { transition: transform .18s cubic-bezier(.3,1.6,.5,1); }
+@media (prefers-reduced-motion: reduce) { .saz-luzes, .saz-bandeiras, #sazNevoa, .saz-aranha, .saz-abobora::before, .saz-abobora::after, .saz-fogueira::before, .saz-saudacao, html:root[data-tt="carnaval"] .janela-frame, html:root[data-tt="carnaval"] .w-card { animation: none !important; } }
+
+/* Natal: cenário (lua, campo nevado, casa, pinheiros e bonecos de neve), guirlanda e relógio regressivo */
+#sazCena { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
+#sazCena svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+#sazCena .n-estrelas { animation: nEstrela 3s ease-in-out infinite alternate; }
+#sazCena .n-estrelas2 { animation-delay: -1.5s; }
+@keyframes nEstrela { from { opacity: .35; } to { opacity: 1; } }
+#sazCena .n-fumaca circle { animation: nFumaca 6s linear infinite; opacity: 0; transform-box: fill-box; transform-origin: center; }
+#sazCena .n-fumaca circle:nth-child(2) { animation-delay: -2s; } #sazCena .n-fumaca circle:nth-child(3) { animation-delay: -4s; }
+@keyframes nFumaca { 0% { transform: translate(0, 0) scale(.6); opacity: 0; } 15% { opacity: .4; } 100% { transform: translate(40px, -150px) scale(2.4); opacity: 0; } }
+#sazCena .n-janela { animation: nJanela 4s ease-in-out infinite alternate; }
+@keyframes nJanela { from { opacity: .85; } to { opacity: 1; filter: brightness(1.15); } }
+#sazCena .n-luzinhas circle, #sazCena .n-arvore-luzes circle { animation: nPisca 1.4s steps(1) infinite; }
+#sazCena .n-luzinhas circle:nth-child(2n), #sazCena .n-arvore-luzes circle:nth-child(2n) { animation-delay: -.7s; }
+#sazCena .n-arvore-luzes circle:nth-child(3n) { animation-delay: -.35s; }
+@keyframes nPisca { 0% { opacity: 1; } 50% { opacity: .2; } }
+#sazCena .n-estrela-topo { animation: nEstrela 1.6s ease-in-out infinite alternate; }
+html:root[data-tt="natal"] #fundo { background: radial-gradient(ellipse at 81% 20%, rgba(255,246,208,.16), transparent 40%), linear-gradient(180deg, #071029 0%, #0d1f45 55%, #1b3560 100%) fixed !important; }
+#sazGuirlanda { left: 0; top: 0; width: 100%; height: 90px; z-index: 3; }
+#sazGuirlanda svg { width: 100%; height: 100%; overflow: visible; }
+#sazGuirlanda .g-fio { fill: none; stroke: #1d4a2c; stroke-width: 2.2; }
+#sazGuirlanda .g-luz { animation: nPisca 1.2s steps(1) infinite; }
+#sazGuirlanda .g-luz.d1 { animation-delay: -.3s; } #sazGuirlanda .g-luz.d2 { animation-delay: -.6s; } #sazGuirlanda .g-luz.d3 { animation-delay: -.9s; }
+#sazGuirlanda .g-halo { opacity: .35; }
+body.layout-pc:not(.na-entrada) .saz-luz-lado { position: fixed; top: calc(var(--j-gap) + 20px); height: calc(var(--j-h) - 40px); width: 26px; z-index: 6; pointer-events: none;
+  background: radial-gradient(circle at 70% 50%, var(--c1) 0 4px, transparent 5px) 0 0 / 26px 44px repeat-y, radial-gradient(circle at 70% 50%, var(--c2) 0 4px, transparent 5px) 0 22px / 26px 44px repeat-y; animation: sazPisca 1.2s steps(1) infinite; }
+body:not(.layout-pc) .saz-luz-lado, body.na-entrada .saz-luz-lado { display: none; }
+#sazLuzEsq { left: calc(50% - var(--j-w) / 2 - 16px); }
+#sazLuzDir { left: calc(50% + var(--j-w) / 2 - 10px); transform: scaleX(-1); animation-delay: -.6s !important; }
+#sazTopo.saz-luzes { background-size: 30px 26px, 30px 26px !important; background-position: 0 0, 15px 0 !important; }
+#sazTimer { position: fixed; z-index: 66; top: 14px; left: max(14px, env(safe-area-inset-left, 0px)); width: 136px; box-sizing: border-box; padding: 10px 10px 12px; border-radius: 14px; text-align: center; pointer-events: none;
+  background: color-mix(in srgb, var(--surface) 90%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 55%, var(--line)); box-shadow: 0 0 22px rgba(232,52,63,.3), inset 0 0 0 1px rgba(242,193,78,.15); color: var(--fg); }
+#sazTimer[hidden] { display: none; }
+#sazTimer .t-tit { font: 700 .66rem var(--sans); letter-spacing: .1em; text-transform: uppercase; color: #f2c14e; }
+#sazTimer .t-dias { font: 800 2.1rem/1.05 var(--mono); color: #fff; text-shadow: 0 0 12px rgba(232,52,63,.7); margin-top: 4px; }
+#sazTimer .t-dias small { display: block; font: 600 .62rem var(--sans); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); text-shadow: none; }
+#sazTimer .t-hms { display: flex; justify-content: center; gap: 4px; margin-top: 8px; }
+#sazTimer .t-hms span { min-width: 30px; padding: 4px 2px 2px; border-radius: 7px; background: rgba(232,52,63,.16); border: 1px solid rgba(232,52,63,.35); font: 700 .95rem var(--mono); color: #fff; }
+#sazTimer .t-hms span small { display: block; font: 600 .5rem var(--sans); color: var(--muted); letter-spacing: .05em; }
+@media (max-width: 1079px) { body.layout-pc:not(.na-entrada) #sazTimer { display: none; } }
+body.layout-cel:not(.na-entrada) #sazTimer { display: none; }
+body.layout-cel.na-entrada #sazTimer { top: calc(52px + env(safe-area-inset-top, 0px)); left: 50%; transform: translateX(-50%); width: auto; display: flex; gap: 10px; align-items: center; padding: 8px 12px; }
+body.layout-cel.na-entrada #sazTimer .t-dias { font-size: 1.4rem; margin: 0; } body.layout-cel.na-entrada #sazTimer .t-hms { margin: 0; }
+html:root[data-tt="natal"] #sazSelo { display: none !important; }
+body.saz-gorro .marca-logo::after { content: "" !important; position: absolute; top: -17px; right: -12px; width: 30px; height: 26px; transform: rotate(22deg);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 52'%3E%3Cpath d='M8 40C10 20 24 6 40 8c8 1 13 8 12 18-4-6-9-8-13-6-6 3-6 12-4 20z' fill='%23d6232f'/%3E%3Cpath d='M40 8c8 1 13 8 12 18-4-6-9-8-13-6' fill='%23a5141e'/%3E%3Crect x='3' y='36' width='38' height='13' rx='6.5' fill='%23fbfbfb'/%3E%3Ccircle cx='52' cy='28' r='6.5' fill='%23fbfbfb'/%3E%3C/svg%3E") center / contain no-repeat; filter: drop-shadow(0 2px 2px rgba(0,0,0,.45)); }
+@media (prefers-reduced-motion: reduce) { #sazCena *, #sazGuirlanda *, .saz-luz-lado { animation: none !important; } }
+.saz-testes { display: flex; flex-wrap: wrap; gap: 6px; }
 </style>
 <style id="temasExtrasCss"></style>
 
@@ -2230,6 +2391,12 @@ body.layout-cel .aviso-toast { bottom: calc(76px + env(safe-area-inset-bottom, 0
     <p class="set-note">A data do seu aniversário fica em <b>Perfil</b>.</p>
 <details class="avancado"><summary>Opções avançadas</summary><div><button id="aniverTeste" class="small">🎂 Testar aniversário</button></div></details>
     </section>
+    <section class="org-area sync-card" id="sazArea">
+      <span class="set-lbl">🗓️ Temas sazonais</span>
+      <label class="set-field" for="sazLigado"><input id="sazLigado" type="checkbox"> Trocar o tema sozinho nas datas especiais</label>
+      <p class="set-note">🎄 Natal (1 a 26/12) · 🎆 Ano Novo (27/12 a 1/1, com contagem de Brasília e Manaus) · 🎭 Carnaval (sexta até a Quarta de Cinzas) · 🎃 Halloween (25 a 31/10) · 🃏 1º de abril · 🌽 Arraial (junho). No seu aniversário, o tema de aniversário ganha.</p>
+      <div class="saz-testes" id="sazTestes"></div>
+    </section>
     <section class="org-area sync-card" id="orgArea">
       <span class="set-lbl">Temas extras</span>
       <div class="set-field"><label class="file-btn small" for="temaArq">Importar tema<input id="temaArq" type="file" accept=".json,.organizer-tema,application/json"></label></div>
@@ -2384,7 +2551,7 @@ body.layout-cel .aviso-toast { bottom: calc(76px + env(safe-area-inset-bottom, 0
     <div class="nov-lista" id="novLista"></div>
   </div>
 </div>
-<script type="application/json" id="novidadesDados">{"formato":"organizer-novidades","versoes":[{"versao":"1.6.3","data":"2026-10-18","itens":[{"tipo":"mudado","texto":"Procura atualizações a cada 30 minutos e quando você volta para a janela (antes era só ao abrir e a cada 6 horas)."}]},{"versao":"1.6.2","data":"2026-10-18","itens":[{"tipo":"corrigido","texto":"O sininho não abria a lista de notificações (as telas ficavam por cima dele)."},{"tipo":"mudado","texto":"Sininho aparece em todas as telas, inclusive boas-vindas e menu Funções."}]},{"versao":"1.6.1","data":"2026-10-18","itens":[{"tipo":"mudado","texto":"Sininho de notificações maior, no canto superior direito (não fica mais em cima da versão)."},{"tipo":"corrigido","texto":"Sininho deformado em alguns temas."},{"tipo":"mudado","texto":"Configurações → Notificações reorganizada: cada tipo numa linha com chave liga/desliga, explicação curta e opções do aniversário agrupadas."}]},{"versao":"1.6.0","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Avisos: aniversários do calendário no dia (e um dia antes, se quiser), no horário escolhido."},{"tipo":"adicionado","texto":"Lembrete nas notas: botão ⏰ Lembrete no editor, com dia e hora; o cartão mostra quando vai avisar."},{"tipo":"adicionado","texto":"Aviso de versão nova e, depois de atualizar, aviso com as novidades."},{"tipo":"adicionado","texto":"Sininho com a lista de avisos e os próximos (PC: ao lado da versão; celular: Mais → Avisos)."},{"tipo":"adicionado","texto":"PC: notificação no canto da tela enquanto o Organizer estiver aberto, mesmo minimizado."},{"tipo":"adicionado","texto":"App Android 1.6.0: avisa no horário mesmo com o app fechado e depois de reiniciar o celular."},{"tipo":"adicionado","texto":"Configurações → Avisos: ligar ou desligar cada tipo, horário e Testar aviso."}]},{"versao":"1.5.3","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Novidades: clique no número da versão (canto inferior direito) para ver a lista de todas as versões e o que mudou em cada uma."},{"tipo":"adicionado","texto":"Filtros na lista de novidades: Adicionado, Corrigido, Mudado e Removido."},{"tipo":"adicionado","texto":"Link \"ver novidades\" em Sincronizar, ao lado da versão em uso (funciona também no celular)."}]},{"versao":"1.5.2","data":"2026-10-18","itens":[{"tipo":"mudado","texto":"Barras de rolagem na cor do tema, finas e arredondadas."},{"tipo":"adicionado","texto":"Botão Boas-vindas na barra de baixo (PC) e na folha Mais (celular)."},{"tipo":"corrigido","texto":"Barra de rolagem saía da janela e passava por trás da barra de baixo."},{"tipo":"corrigido","texto":"Brilho animado das bordas desalinhado em mais algumas caixas."}]},{"versao":"1.5.1","data":"2026-10-18","itens":[{"tipo":"mudado","texto":"PC: todas as telas numa janela de tamanho fixo (mesma largura e altura); o conteúdo rola por dentro."},{"tipo":"mudado","texto":"PC: a barra de funções saiu da lateral e fica na parte de baixo da janela; só a logo e a versão ficam fora."},{"tipo":"mudado","texto":"Calculadora maior no PC: teclado grande à esquerda e histórico à direita."},{"tipo":"mudado","texto":"Número da versão mais destacado, na cor do tema."},{"tipo":"adicionado","texto":"F12 coloca em tela cheia; Esc sai."},{"tipo":"corrigido","texto":"Brilho animado das bordas desalinhado em algumas janelas e nas caixas das planilhas."},{"tipo":"corrigido","texto":"Relógios da calculadora apareciam sem a hora."},{"tipo":"corrigido","texto":"Alinhamento vertical de vários itens (linhas de opções, topos das telas e barras)."}]},{"versao":"1.5.0","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Layout do PC: barra lateral com todas as funções (na ordem que você escolheu)."},{"tipo":"adicionado","texto":"Layout do celular: barra de navegação embaixo (3 funções + \"Mais\") e folha \"Mais\" que sobe de baixo."},{"tipo":"adicionado","texto":"Fotos de perfil recentes (como no Discord): as últimas 6 ficam salvas para usar de novo; aceita GIF animado."},{"tipo":"adicionado","texto":"Celular: transições ao trocar de tela, deslizar da borda para voltar, deslizar no calendário para trocar de mês, vibração leve e volta para a última tela ao entrar."},{"tipo":"adicionado","texto":"App Android: o botão Voltar volta para a tela anterior em vez de fechar o app (precisa do APK 1.5.0)."},{"tipo":"mudado","texto":"Todas as telas alinhadas, com largura padrão; telas com pouca informação ficam num retângulo centralizado."},{"tipo":"mudado","texto":"Impressão digital da chave fica oculta até tocar em \"Mostrar\" (como a chave da Twitch)."},{"tipo":"mudado","texto":"Celular: animações de fundo pausam enquanto você rola a tela, para ficar mais leve."}]},{"versao":"1.4.1","data":"2026-10-18","itens":[{"tipo":"mudado","texto":"O tema agora vale para tudo (planilhas, menu e telas); saiu a escolha por lugar."},{"tipo":"mudado","texto":"Telas de Temas, Perfil e Sincronizar mais largas, com cartões lado a lado no computador."},{"tipo":"mudado","texto":"Botão \"Procurar atualizações\" maior e em destaque."},{"tipo":"adicionado","texto":"Seções do Perfil podem ser minimizadas (o aparelho lembra quais ficaram fechadas)."}]},{"versao":"1.4.0","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Menu Funções organizável: botão \"Organizar\", arrastar os cartões ou usar as setas ‹ ›."}]},{"versao":"1.3.9","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Notas (estilo Google Keep): notas, listas de tarefas, 11 cores, fixar, busca e desfazer ao apagar."}]},{"versao":"1.3.8","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Aba \"Chave de assinatura\" no Perfil, com cronômetro do certificado do app."},{"tipo":"mudado","texto":"Senha e padrão de entrada removidos."}]},{"versao":"1.3.7","data":"2026-10-18","itens":[{"tipo":"mudado","texto":"Simplificação: casinha leva ao menu Funções; botões de tema e ⚙ abrem as telas próprias; um só \"Restaurar\"; excluir aba só pelo X; temas com \"Esta aba / Tela inicial / Tudo\"; opções avançadas escondidas."},{"tipo":"removido","texto":"\"Novas funções em breve\", \"salvo neste aparelho\" e código antigo da nuvem."}]},{"versao":"1.3.6","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Tela Perfil: foto, apelido e aniversário."},{"tipo":"mudado","texto":"Engrenagem saiu da tela de boas-vindas."}]},{"versao":"1.3.5","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Tela Temas, com todas as opções de tema."}]},{"versao":"1.3.4","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Tela Configurações."},{"tipo":"mudado","texto":"Engrenagem saiu do canto do menu Funções."}]},{"versao":"1.3.3","data":"2026-10-18","itens":[{"tipo":"corrigido","texto":"Número da versão no canto não acompanhava as atualizações."}]},{"versao":"1.3.2","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Tela Sincronizar: Wi-Fi, atualizações e cópia dos dados."}]},{"versao":"1.3.1","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Cronômetro de expiração do QR de pareamento."},{"tipo":"adicionado","texto":"Campo \"Meu aniversário\"."},{"tipo":"mudado","texto":"Data de nascimento saiu do código público."}]},{"versao":"1.3.0","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Atualização automática pelo GitHub, com assinatura digital e \"Voltar versão anterior\"."}]},{"versao":"1.2.2","data":"2026-10-18","itens":[{"tipo":"corrigido","texto":"\"QR expirou\" ao parear: a diferença de relógio entre PC e celular era recusada."},{"tipo":"mudado","texto":"Mensagens de erro do pareamento mais claras."}]},{"versao":"1.2.1","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Botão Sincronizar no menu Funções (a opção estava difícil de achar no app)."}]},{"versao":"1.2.0","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Sincronização pelo Wi-Fi com QR code e criptografia."},{"tipo":"mudado","texto":"Substituiu a sincronização pela nuvem."}]},{"versao":"1.1.1","data":"2026-10-18","itens":[{"tipo":"corrigido","texto":"A sincronização na nuvem baixava tudo a cada 20 segundos; passou a checar só quando há mudança."}]},{"versao":"1.1.0","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"App Android."},{"tipo":"adicionado","texto":"Sincronização pela nuvem (Supabase)."},{"tipo":"adicionado","texto":"Número da versão no canto."},{"tipo":"adicionado","texto":"Tema de aniversário com animação de parabéns e confetes no calendário."},{"tipo":"adicionado","texto":"Menu Funções."},{"tipo":"adicionado","texto":"Calculadora."},{"tipo":"adicionado","texto":"Relógios de Brasília e Manaus."}]},{"versao":"1.0.3","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Calendário: repetir marcações, aniversários 🎂, ícones nos dias e feriados de Brasil, Amazonas e Manaus."},{"tipo":"adicionado","texto":"Calendário em tela própria."},{"tipo":"adicionado","texto":"Escolha entre Planilhas e Calendário depois de entrar."},{"tipo":"adicionado","texto":"Desbloqueio por padrão."},{"tipo":"adicionado","texto":"Ícone do Organizer no canto e na aba do navegador."}]},{"versao":"1.0.2","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Tema Música já incluído no programa, com escolha de cor."},{"tipo":"mudado","texto":"Temas importados vão direto para a área de temas."}]},{"versao":"1.0.1","data":"2026-10-18","itens":[{"tipo":"mudado","texto":"Versão de teste do sistema de atualização por arquivo."}]},{"versao":"1.0.0","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Primeira versão do programa do Windows: importar tema, exportar/importar dados e atualização por arquivo."}]}]}</script>
+<script type="application/json" id="novidadesDados">{"formato":"organizer-novidades","versoes":[{"versao":"1.8.1","data":"2026-10-18","itens":[{"tipo":"mudado","texto":"Natal mais bonito: cenário de fundo com lua iluminando um campo nevado, casa com chaminé soltando fumaça, pinheiros com luzes e bonecos de neve."},{"tipo":"mudado","texto":"Natal: neve caindo o tempo todo, guirlandas de pisca-pisca no topo da tela e luzes em volta da janela."},{"tipo":"adicionado","texto":"Natal: relógio regressivo (dias, horas, minutos e segundos) numa janelinha no canto de cima."},{"tipo":"mudado","texto":"Natal: gorro de Papai Noel na logo."},{"tipo":"removido","texto":"Natal: animação grande de \"Feliz Natal\" com o trenó."}]},{"versao":"1.8.0","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Temas sazonais que entram sozinhos nas datas, com efeitos animados (Temas → Temas sazonais: ligar/desligar e Testar cada um)."},{"tipo":"adicionado","texto":"🎄 Natal (1 a 26/12): neve, pisca-pisca, gorro na logo, contagem de dias e trenó no dia 25."},{"tipo":"adicionado","texto":"🎆 Ano Novo (27/12 a 1/1): brilhos dourados e contagem dupla — fogos à meia-noite de Brasília e de novo à meia-noite de Manaus."},{"tipo":"adicionado","texto":"🎭 Carnaval (sexta até a Quarta de Cinzas, calculado todo ano): confete, serpentina e bordas no ritmo do samba."},{"tipo":"adicionado","texto":"🎃 Halloween (25 a 31/10): morcegos, teias com aranha, neblina, abóbora que pisca e um fantasma no dia 31."},{"tipo":"adicionado","texto":"🃏 1º de abril: pegadinhas inofensivas (botão que foge, atualização falsa, saldo milionário, calculadora que erra, cobrança falsa, Comic Sans e relógio pra trás)."},{"tipo":"adicionado","texto":"🌽 Arraial (junho): bandeirinhas balançando, fogueira com faíscas e balões."}]},{"versao":"1.7.1","data":"2026-10-18","itens":[{"tipo":"removido","texto":"Função de teste retirada do menu Funções, junto com os dados dela."}]},{"versao":"1.6.3","data":"2026-10-18","itens":[{"tipo":"mudado","texto":"Procura atualizações a cada 30 minutos e quando você volta para a janela (antes era só ao abrir e a cada 6 horas)."}]},{"versao":"1.6.2","data":"2026-10-18","itens":[{"tipo":"corrigido","texto":"O sininho não abria a lista de notificações (as telas ficavam por cima dele)."},{"tipo":"mudado","texto":"Sininho aparece em todas as telas, inclusive boas-vindas e menu Funções."}]},{"versao":"1.6.1","data":"2026-10-18","itens":[{"tipo":"mudado","texto":"Sininho de notificações maior, no canto superior direito (não fica mais em cima da versão)."},{"tipo":"corrigido","texto":"Sininho deformado em alguns temas."},{"tipo":"mudado","texto":"Configurações → Notificações reorganizada: cada tipo numa linha com chave liga/desliga, explicação curta e opções do aniversário agrupadas."}]},{"versao":"1.6.0","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Avisos: aniversários do calendário no dia (e um dia antes, se quiser), no horário escolhido."},{"tipo":"adicionado","texto":"Lembrete nas notas: botão ⏰ Lembrete no editor, com dia e hora; o cartão mostra quando vai avisar."},{"tipo":"adicionado","texto":"Aviso de versão nova e, depois de atualizar, aviso com as novidades."},{"tipo":"adicionado","texto":"Sininho com a lista de avisos e os próximos (PC: ao lado da versão; celular: Mais → Avisos)."},{"tipo":"adicionado","texto":"PC: notificação no canto da tela enquanto o Organizer estiver aberto, mesmo minimizado."},{"tipo":"adicionado","texto":"App Android 1.6.0: avisa no horário mesmo com o app fechado e depois de reiniciar o celular."},{"tipo":"adicionado","texto":"Configurações → Avisos: ligar ou desligar cada tipo, horário e Testar aviso."}]},{"versao":"1.5.3","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Novidades: clique no número da versão (canto inferior direito) para ver a lista de todas as versões e o que mudou em cada uma."},{"tipo":"adicionado","texto":"Filtros na lista de novidades: Adicionado, Corrigido, Mudado e Removido."},{"tipo":"adicionado","texto":"Link \"ver novidades\" em Sincronizar, ao lado da versão em uso (funciona também no celular)."}]},{"versao":"1.5.2","data":"2026-10-18","itens":[{"tipo":"mudado","texto":"Barras de rolagem na cor do tema, finas e arredondadas."},{"tipo":"adicionado","texto":"Botão Boas-vindas na barra de baixo (PC) e na folha Mais (celular)."},{"tipo":"corrigido","texto":"Barra de rolagem saía da janela e passava por trás da barra de baixo."},{"tipo":"corrigido","texto":"Brilho animado das bordas desalinhado em mais algumas caixas."}]},{"versao":"1.5.1","data":"2026-10-18","itens":[{"tipo":"mudado","texto":"PC: todas as telas numa janela de tamanho fixo (mesma largura e altura); o conteúdo rola por dentro."},{"tipo":"mudado","texto":"PC: a barra de funções saiu da lateral e fica na parte de baixo da janela; só a logo e a versão ficam fora."},{"tipo":"mudado","texto":"Calculadora maior no PC: teclado grande à esquerda e histórico à direita."},{"tipo":"mudado","texto":"Número da versão mais destacado, na cor do tema."},{"tipo":"adicionado","texto":"F12 coloca em tela cheia; Esc sai."},{"tipo":"corrigido","texto":"Brilho animado das bordas desalinhado em algumas janelas e nas caixas das planilhas."},{"tipo":"corrigido","texto":"Relógios da calculadora apareciam sem a hora."},{"tipo":"corrigido","texto":"Alinhamento vertical de vários itens (linhas de opções, topos das telas e barras)."}]},{"versao":"1.5.0","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Layout do PC: barra lateral com todas as funções (na ordem que você escolheu)."},{"tipo":"adicionado","texto":"Layout do celular: barra de navegação embaixo (3 funções + \"Mais\") e folha \"Mais\" que sobe de baixo."},{"tipo":"adicionado","texto":"Fotos de perfil recentes (como no Discord): as últimas 6 ficam salvas para usar de novo; aceita GIF animado."},{"tipo":"adicionado","texto":"Celular: transições ao trocar de tela, deslizar da borda para voltar, deslizar no calendário para trocar de mês, vibração leve e volta para a última tela ao entrar."},{"tipo":"adicionado","texto":"App Android: o botão Voltar volta para a tela anterior em vez de fechar o app (precisa do APK 1.5.0)."},{"tipo":"mudado","texto":"Todas as telas alinhadas, com largura padrão; telas com pouca informação ficam num retângulo centralizado."},{"tipo":"mudado","texto":"Impressão digital da chave fica oculta até tocar em \"Mostrar\" (como a chave da Twitch)."},{"tipo":"mudado","texto":"Celular: animações de fundo pausam enquanto você rola a tela, para ficar mais leve."}]},{"versao":"1.4.1","data":"2026-10-18","itens":[{"tipo":"mudado","texto":"O tema agora vale para tudo (planilhas, menu e telas); saiu a escolha por lugar."},{"tipo":"mudado","texto":"Telas de Temas, Perfil e Sincronizar mais largas, com cartões lado a lado no computador."},{"tipo":"mudado","texto":"Botão \"Procurar atualizações\" maior e em destaque."},{"tipo":"adicionado","texto":"Seções do Perfil podem ser minimizadas (o aparelho lembra quais ficaram fechadas)."}]},{"versao":"1.4.0","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Menu Funções organizável: botão \"Organizar\", arrastar os cartões ou usar as setas ‹ ›."}]},{"versao":"1.3.9","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Notas (estilo Google Keep): notas, listas de tarefas, 11 cores, fixar, busca e desfazer ao apagar."}]},{"versao":"1.3.8","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Aba \"Chave de assinatura\" no Perfil, com cronômetro do certificado do app."},{"tipo":"mudado","texto":"Senha e padrão de entrada removidos."}]},{"versao":"1.3.7","data":"2026-10-18","itens":[{"tipo":"mudado","texto":"Simplificação: casinha leva ao menu Funções; botões de tema e ⚙ abrem as telas próprias; um só \"Restaurar\"; excluir aba só pelo X; temas com \"Esta aba / Tela inicial / Tudo\"; opções avançadas escondidas."},{"tipo":"removido","texto":"\"Novas funções em breve\", \"salvo neste aparelho\" e código antigo da nuvem."}]},{"versao":"1.3.6","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Tela Perfil: foto, apelido e aniversário."},{"tipo":"mudado","texto":"Engrenagem saiu da tela de boas-vindas."}]},{"versao":"1.3.5","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Tela Temas, com todas as opções de tema."}]},{"versao":"1.3.4","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Tela Configurações."},{"tipo":"mudado","texto":"Engrenagem saiu do canto do menu Funções."}]},{"versao":"1.3.3","data":"2026-10-18","itens":[{"tipo":"corrigido","texto":"Número da versão no canto não acompanhava as atualizações."}]},{"versao":"1.3.2","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Tela Sincronizar: Wi-Fi, atualizações e cópia dos dados."}]},{"versao":"1.3.1","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Cronômetro de expiração do QR de pareamento."},{"tipo":"adicionado","texto":"Campo \"Meu aniversário\"."},{"tipo":"mudado","texto":"Data de nascimento saiu do código público."}]},{"versao":"1.3.0","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Atualização automática pelo GitHub, com assinatura digital e \"Voltar versão anterior\"."}]},{"versao":"1.2.2","data":"2026-10-18","itens":[{"tipo":"corrigido","texto":"\"QR expirou\" ao parear: a diferença de relógio entre PC e celular era recusada."},{"tipo":"mudado","texto":"Mensagens de erro do pareamento mais claras."}]},{"versao":"1.2.1","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Botão Sincronizar no menu Funções (a opção estava difícil de achar no app)."}]},{"versao":"1.2.0","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Sincronização pelo Wi-Fi com QR code e criptografia."},{"tipo":"mudado","texto":"Substituiu a sincronização pela nuvem."}]},{"versao":"1.1.1","data":"2026-10-18","itens":[{"tipo":"corrigido","texto":"A sincronização na nuvem baixava tudo a cada 20 segundos; passou a checar só quando há mudança."}]},{"versao":"1.1.0","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"App Android."},{"tipo":"adicionado","texto":"Sincronização pela nuvem (Supabase)."},{"tipo":"adicionado","texto":"Número da versão no canto."},{"tipo":"adicionado","texto":"Tema de aniversário com animação de parabéns e confetes no calendário."},{"tipo":"adicionado","texto":"Menu Funções."},{"tipo":"adicionado","texto":"Calculadora."},{"tipo":"adicionado","texto":"Relógios de Brasília e Manaus."}]},{"versao":"1.0.3","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Calendário: repetir marcações, aniversários 🎂, ícones nos dias e feriados de Brasil, Amazonas e Manaus."},{"tipo":"adicionado","texto":"Calendário em tela própria."},{"tipo":"adicionado","texto":"Escolha entre Planilhas e Calendário depois de entrar."},{"tipo":"adicionado","texto":"Desbloqueio por padrão."},{"tipo":"adicionado","texto":"Ícone do Organizer no canto e na aba do navegador."}]},{"versao":"1.0.2","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Tema Música já incluído no programa, com escolha de cor."},{"tipo":"mudado","texto":"Temas importados vão direto para a área de temas."}]},{"versao":"1.0.1","data":"2026-10-18","itens":[{"tipo":"mudado","texto":"Versão de teste do sistema de atualização por arquivo."}]},{"versao":"1.0.0","data":"2026-10-18","itens":[{"tipo":"adicionado","texto":"Primeira versão do programa do Windows: importar tema, exportar/importar dados e atualização por arquivo."}]}]}</script>
 <div class="versao-canto" aria-label="Versão do Organizer"><span id="nuvemIcone" class="nuvem-ic" data-estado="off"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8.8a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16.1a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1" fill="currentColor"/></svg></span><span class="versao-txt"></span></div>
 <div id="marcaLogo" class="marca-logo" aria-hidden="true"><svg viewBox="0 0 64 64"><rect class="r" x="1" y="1" width="62" height="62" rx="15"/><path class="f" d="M30.4 46.6L31.9 46.7 31.1 40.8 30.4 41.0z"/><path class="g" d="M30.4 46.6L31.9 46.7M30.4 41.0L31.1 40.8"/><path class="f" d="M29.0 46.4L30.4 46.6 30.4 41.0 29.8 41.2z"/><path class="g" d="M29.0 46.4L30.4 46.6M29.8 41.2L30.4 41.0"/><path class="f" d="M31.9 46.7L33.3 46.8 31.8 40.6 31.1 40.8z"/><path class="g" d="M31.9 46.7L33.3 46.8M31.1 40.8L31.8 40.6"/><path class="f" d="M27.7 46.1L29.0 46.4 29.8 41.2 29.1 41.3z"/><path class="g" d="M27.7 46.1L29.0 46.4M29.1 41.3L29.8 41.2"/><path class="f" d="M33.3 46.8L34.7 46.8 32.4 40.3 31.8 40.6z"/><path class="g" d="M33.3 46.8L34.7 46.8M31.8 40.6L32.4 40.3"/><path class="f" d="M26.3 45.7L27.7 46.1 29.1 41.3 28.4 41.4z"/><path class="g" d="M26.3 45.7L27.7 46.1M28.4 41.4L29.1 41.3"/><path class="f" d="M34.7 46.8L36.1 46.7 33.1 40.1 32.4 40.3z"/><path class="g" d="M34.7 46.8L36.1 46.7M32.4 40.3L33.1 40.1"/><path class="f" d="M25.0 45.3L26.3 45.7 28.4 41.4 27.7 41.4z"/><path class="g" d="M25.0 45.3L26.3 45.7M27.7 41.4L28.4 41.4"/><path class="f" d="M23.7 44.8L25.0 45.3 27.7 41.4 27.0 41.5z"/><path class="g" d="M23.7 44.8L25.0 45.3M27.0 41.5L27.7 41.4"/><path class="f" d="M36.1 46.7L37.5 46.5 33.7 39.8 33.1 40.1z"/><path class="g" d="M36.1 46.7L37.5 46.5M33.1 40.1L33.7 39.8"/><path class="f" d="M22.4 44.3L23.7 44.8 27.0 41.5 26.3 41.5z"/><path class="g" d="M22.4 44.3L23.7 44.8M26.3 41.5L27.0 41.5"/><path class="f" d="M37.5 46.5L38.8 46.3 34.3 39.4 33.7 39.8z"/><path class="g" d="M37.5 46.5L38.8 46.3M33.7 39.8L34.3 39.4"/><path class="f" d="M21.2 43.7L22.4 44.3 26.3 41.5 25.6 41.4z"/><path class="g" d="M21.2 43.7L22.4 44.3M25.6 41.4L26.3 41.5"/><path class="f" d="M38.8 46.3L40.1 46.0 34.9 39.1 34.3 39.4z"/><path class="g" d="M38.8 46.3L40.1 46.0M34.3 39.4L34.9 39.1"/><path class="f" d="M40.1 46.0L41.4 45.6 35.4 38.7 34.9 39.1z"/><path class="g" d="M40.1 46.0L41.4 45.6M34.9 39.1L35.4 38.7"/><path class="f" d="M20.1 43.0L21.2 43.7 25.6 41.4 24.9 41.3z"/><path class="g" d="M20.1 43.0L21.2 43.7M24.9 41.3L25.6 41.4"/><path class="f" d="M41.4 45.6L42.6 45.2 36.0 38.3 35.4 38.7z"/><path class="g" d="M41.4 45.6L42.6 45.2M35.4 38.7L36.0 38.3"/><path class="f" d="M19.0 42.3L20.1 43.0 24.9 41.3 24.2 41.2z"/><path class="g" d="M19.0 42.3L20.1 43.0M24.2 41.2L24.9 41.3"/><path class="f" d="M42.6 45.2L43.8 44.7 36.5 37.9 36.0 38.3z"/><path class="g" d="M42.6 45.2L43.8 44.7M36.0 38.3L36.5 37.9"/><path class="f" d="M18.0 41.5L19.0 42.3 24.2 41.2 23.5 41.1z"/><path class="g" d="M18.0 41.5L19.0 42.3M23.5 41.1L24.2 41.2"/><path class="f" d="M43.8 44.7L44.9 44.1 37.0 37.4 36.5 37.9z"/><path class="g" d="M43.8 44.7L44.9 44.1M36.5 37.9L37.0 37.4"/><path class="f" d="M17.0 40.7L18.0 41.5 23.5 41.1 22.9 40.9z"/><path class="g" d="M17.0 40.7L18.0 41.5M22.9 40.9L23.5 41.1"/><path class="f" d="M44.9 44.1L46.0 43.5 37.4 36.9 37.0 37.4z"/><path class="g" d="M44.9 44.1L46.0 43.5M37.0 37.4L37.4 36.9"/><path class="f" d="M16.2 39.8L17.0 40.7 22.9 40.9 22.2 40.7z"/><path class="g" d="M16.2 39.8L17.0 40.7M22.2 40.7L22.9 40.9"/><path class="f" d="M15.4 38.9L16.2 39.8 22.2 40.7 21.6 40.4z"/><path class="g" d="M15.4 38.9L16.2 39.8M21.6 40.4L22.2 40.7"/><path class="f" d="M37.4 36.9L37.9 36.5 47.0 42.8 46.0 43.5z"/><path class="g" d="M37.4 36.9L37.9 36.5M46.0 43.5L47.0 42.8"/><path class="f" d="M14.6 38.0L15.4 38.9 21.6 40.4 21.0 40.1z"/><path class="g" d="M14.6 38.0L15.4 38.9M21.0 40.1L21.6 40.4"/><path class="f" d="M37.9 36.5L38.3 36.0 47.9 42.1 47.0 42.8z"/><path class="g" d="M37.9 36.5L38.3 36.0M47.0 42.8L47.9 42.1"/><path class="f" d="M38.3 36.0L38.7 35.4 48.7 41.3 47.9 42.1z"/><path class="g" d="M38.3 36.0L38.7 35.4M47.9 42.1L48.7 41.3"/><path class="f" d="M14.0 37.0L14.6 38.0 21.0 40.1 20.4 39.7z"/><path class="g" d="M14.0 37.0L14.6 38.0M20.4 39.7L21.0 40.1"/><path class="f" d="M13.5 36.0L14.0 37.0 20.4 39.7 19.8 39.4z"/><path class="g" d="M13.5 36.0L14.0 37.0M19.8 39.4L20.4 39.7"/><path class="f" d="M38.7 35.4L39.0 34.9 49.4 40.5 48.7 41.3z"/><path class="g" d="M38.7 35.4L39.0 34.9M48.7 41.3L49.4 40.5"/><path class="f" d="M13.0 35.0L13.5 36.0 19.8 39.4 19.3 39.0z"/><path class="g" d="M13.0 35.0L13.5 36.0M19.3 39.0L19.8 39.4"/><path class="f" d="M39.0 34.9L39.4 34.3 50.1 39.6 49.4 40.5z"/><path class="g" d="M39.0 34.9L39.4 34.3M49.4 40.5L50.1 39.6"/><path class="f" d="M12.6 34.0L13.0 35.0 19.3 39.0 18.8 38.5z"/><path class="g" d="M12.6 34.0L13.0 35.0M18.8 38.5L19.3 39.0"/><path class="f" d="M39.4 34.3L39.7 33.8 50.7 38.8 50.1 39.6z"/><path class="g" d="M39.4 34.3L39.7 33.8M50.1 39.6L50.7 38.8"/><path class="f" d="M12.3 33.0L12.6 34.0 18.8 38.5 18.4 38.0z"/><path class="g" d="M12.3 33.0L12.6 34.0M18.4 38.0L18.8 38.5"/><path class="f" d="M39.7 33.8L40.0 33.2 51.1 37.9 50.7 38.8z"/><path class="g" d="M39.7 33.8L40.0 33.2M50.7 38.8L51.1 37.9"/><path class="f" d="M40.0 33.2L40.2 32.6 51.5 36.9 51.1 37.9z"/><path class="g" d="M40.0 33.2L40.2 32.6M51.1 37.9L51.5 36.9"/><path class="f" d="M12.1 32.0L12.3 33.0 18.4 38.0 18.0 37.5z"/><path class="g" d="M12.1 32.0L12.3 33.0M18.0 37.5L18.4 38.0"/><path class="f" d="M40.2 32.6L40.4 32.0 51.8 36.0 51.5 36.9z"/><path class="g" d="M40.2 32.6L40.4 32.0M51.5 36.9L51.8 36.0"/><path class="f" d="M12.0 31.0L12.1 32.0 18.0 37.5 17.6 37.0z"/><path class="g" d="M12.0 31.0L12.1 32.0M17.6 37.0L18.0 37.5"/><path class="f" d="M12.0 30.0L12.0 31.0 17.6 37.0 17.3 36.4z"/><path class="g" d="M12.0 30.0L12.0 31.0M17.3 36.4L17.6 37.0"/><path class="f" d="M40.4 32.0L40.6 31.4 51.9 35.0 51.8 36.0z"/><path class="g" d="M40.4 32.0L40.6 31.4M51.8 36.0L51.9 35.0"/><path class="f" d="M40.6 31.4L40.7 30.7 52.0 34.0 51.9 35.0z"/><path class="g" d="M40.6 31.4L40.7 30.7M51.9 35.0L52.0 34.0"/><path class="f" d="M12.1 29.0L12.0 30.0 17.3 36.4 17.0 35.8z"/><path class="g" d="M12.1 29.0L12.0 30.0M17.0 35.8L17.3 36.4"/><path class="f" d="M40.7 30.7L40.8 30.1 52.0 33.1 52.0 34.0z"/><path class="g" d="M40.7 30.7L40.8 30.1M52.0 34.0L52.0 33.1"/><path class="f" d="M12.2 28.0L12.1 29.0 17.0 35.8 16.8 35.2z"/><path class="g" d="M12.2 28.0L12.1 29.0M16.8 35.2L17.0 35.8"/><path class="f" d="M40.8 30.1L40.8 29.5 51.8 32.1 52.0 33.1z"/><path class="g" d="M40.8 30.1L40.8 29.5M52.0 33.1L51.8 32.1"/><path class="f" d="M12.4 27.0L12.2 28.0 16.8 35.2 16.7 34.5z"/><path class="g" d="M12.4 27.0L12.2 28.0M16.7 34.5L16.8 35.2"/><path class="f" d="M12.7 26.1L12.4 27.0 16.7 34.5 16.6 33.9z"/><path class="g" d="M12.7 26.1L12.4 27.0M16.6 33.9L16.7 34.5"/><path class="f" d="M40.8 29.5L40.9 28.8 51.6 31.2 51.8 32.1z"/><path class="g" d="M40.8 29.5L40.9 28.8M51.8 32.1L51.6 31.2"/><path class="f" d="M40.9 28.8L40.8 28.2 51.3 30.2 51.6 31.2z"/><path class="g" d="M40.9 28.8L40.8 28.2M51.6 31.2L51.3 30.2"/><path class="f" d="M13.1 25.2L12.7 26.1 16.6 33.9 16.5 33.2z"/><path class="g" d="M13.1 25.2L12.7 26.1M16.5 33.2L16.6 33.9"/><path class="f" d="M40.8 28.2L40.8 27.5 50.9 29.3 51.3 30.2z"/><path class="g" d="M40.8 28.2L40.8 27.5M51.3 30.2L50.9 29.3"/><path class="f" d="M13.5 24.4L13.1 25.2 16.5 33.2 16.6 32.5z"/><path class="g" d="M13.5 24.4L13.1 25.2M16.6 32.5L16.5 33.2"/><path class="f" d="M14.1 23.5L13.5 24.4 16.6 32.5 16.7 31.8z"/><path class="g" d="M14.1 23.5L13.5 24.4M16.7 31.8L16.6 32.5"/><path class="f" d="M40.8 27.5L40.7 26.9 50.4 28.5 50.9 29.3z"/><path class="g" d="M40.8 27.5L40.7 26.9M50.9 29.3L50.4 28.5"/><path class="f" d="M14.6 22.8L14.1 23.5 16.7 31.8 16.8 31.1z"/><path class="g" d="M14.6 22.8L14.1 23.5M16.8 31.1L16.7 31.8"/><path class="f" d="M40.7 26.9L40.5 26.2 49.8 27.6 50.4 28.5z"/><path class="g" d="M40.7 26.9L40.5 26.2M50.4 28.5L49.8 27.6"/><path class="f" d="M15.3 22.0L14.6 22.8 16.8 31.1 17.0 30.4z"/><path class="g" d="M15.3 22.0L14.6 22.8M17.0 30.4L16.8 31.1"/><path class="f" d="M40.5 26.2L40.3 25.6 49.2 26.8 49.8 27.6z"/><path class="g" d="M40.5 26.2L40.3 25.6M49.8 27.6L49.2 26.8"/><path class="f" d="M16.0 21.3L15.3 22.0 17.0 30.4 17.3 29.7z"/><path class="g" d="M16.0 21.3L15.3 22.0M17.3 29.7L17.0 30.4"/><path class="f" d="M40.3 25.6L40.1 25.0 48.4 26.0 49.2 26.8z"/><path class="g" d="M40.3 25.6L40.1 25.0M49.2 26.8L48.4 26.0"/><path class="f" d="M40.1 25.0L39.8 24.3 47.6 25.3 48.4 26.0z"/><path class="g" d="M40.1 25.0L39.8 24.3M48.4 26.0L47.6 25.3"/><path class="f" d="M16.7 20.7L16.0 21.3 17.3 29.7 17.7 28.9z"/><path class="g" d="M16.7 20.7L16.0 21.3M17.7 28.9L17.3 29.7"/><path class="f" d="M39.8 24.3L39.5 23.7 46.7 24.6 47.6 25.3z"/><path class="g" d="M39.8 24.3L39.5 23.7M47.6 25.3L46.7 24.6"/><path class="f" d="M17.5 20.1L16.7 20.7 17.7 28.9 18.1 28.2z"/><path class="g" d="M17.5 20.1L16.7 20.7M18.1 28.2L17.7 28.9"/><path class="f" d="M18.3 19.6L17.5 20.1 18.1 28.2 18.6 27.5z"/><path class="g" d="M18.3 19.6L17.5 20.1M18.6 27.5L18.1 28.2"/><path class="f" d="M39.5 23.7L39.1 23.1 45.7 24.0 46.7 24.6z"/><path class="g" d="M39.5 23.7L39.1 23.1M46.7 24.6L45.7 24.0"/><path class="f" d="M39.1 23.1L38.7 22.5 44.7 23.4 45.7 24.0z"/><path class="g" d="M39.1 23.1L38.7 22.5M45.7 24.0L44.7 23.4"/><path class="f" d="M19.2 19.1L18.3 19.6 18.6 27.5 19.2 26.9z"/><path class="g" d="M19.2 19.1L18.3 19.6M19.2 26.9L18.6 27.5"/><path class="f" d="M38.7 22.5L38.2 22.0 43.7 22.9 44.7 23.4z"/><path class="g" d="M38.7 22.5L38.2 22.0M44.7 23.4L43.7 22.9"/><path class="f" d="M20.1 18.6L19.2 19.1 19.2 26.9 19.8 26.2z"/><path class="g" d="M20.1 18.6L19.2 19.1M19.8 26.2L19.2 26.9"/><path class="f" d="M21.0 18.3L20.1 18.6 19.8 26.2 20.5 25.6z"/><path class="g" d="M21.0 18.3L20.1 18.6M20.5 25.6L19.8 26.2"/><path class="f" d="M38.2 22.0L37.7 21.4 42.6 22.4 43.7 22.9z"/><path class="g" d="M38.2 22.0L37.7 21.4M43.7 22.9L42.6 22.4"/><path class="f" d="M37.7 21.4L37.2 20.9 41.4 22.0 42.6 22.4z"/><path class="g" d="M37.7 21.4L37.2 20.9M42.6 22.4L41.4 22.0"/><path class="f" d="M21.9 18.0L21.0 18.3 20.5 25.6 21.3 24.9z"/><path class="g" d="M21.9 18.0L21.0 18.3M21.3 24.9L20.5 25.6"/><path class="f" d="M22.9 17.7L21.9 18.0 21.3 24.9 22.1 24.4z"/><path class="g" d="M22.9 17.7L21.9 18.0M22.1 24.4L21.3 24.9"/><path class="f" d="M37.2 20.9L36.6 20.4 40.3 21.7 41.4 22.0z"/><path class="g" d="M37.2 20.9L36.6 20.4M41.4 22.0L40.3 21.7"/><path class="f" d="M36.6 20.4L35.9 19.9 39.1 21.4 40.3 21.7z"/><path class="g" d="M36.6 20.4L35.9 19.9M40.3 21.7L39.1 21.4"/><path class="f" d="M23.8 17.5L22.9 17.7 22.1 24.4 23.0 23.8z"/><path class="g" d="M23.8 17.5L22.9 17.7M23.0 23.8L22.1 24.4"/><path class="f" d="M35.9 19.9L35.3 19.5 37.8 21.2 39.1 21.4z"/><path class="g" d="M35.9 19.9L35.3 19.5M39.1 21.4L37.8 21.2"/><path class="f" d="M24.8 17.3L23.8 17.5 23.0 23.8 23.9 23.3z"/><path class="g" d="M24.8 17.3L23.8 17.5M23.9 23.3L23.0 23.8"/><path class="f" d="M35.3 19.5L34.5 19.1 36.6 21.0 37.8 21.2z"/><path class="g" d="M35.3 19.5L34.5 19.1M37.8 21.2L36.6 21.0"/><path class="f" d="M25.8 17.2L24.8 17.3 23.9 23.3 24.9 22.8z"/><path class="g" d="M25.8 17.2L24.8 17.3M24.9 22.8L23.9 23.3"/><path class="f" d="M34.5 19.1L33.8 18.7 35.4 20.9 36.6 21.0z"/><path class="g" d="M34.5 19.1L33.8 18.7M36.6 21.0L35.4 20.9"/><path class="f" d="M26.7 17.2L25.8 17.2 24.9 22.8 25.9 22.4z"/><path class="g" d="M26.7 17.2L25.8 17.2M25.9 22.4L24.9 22.8"/><path class="f" d="M27.7 17.2L26.7 17.2 25.9 22.4 27.0 22.0z"/><path class="g" d="M27.7 17.2L26.7 17.2M27.0 22.0L25.9 22.4"/><path class="f" d="M33.8 18.7L33.0 18.3 34.1 20.9 35.4 20.9z"/><path class="g" d="M33.8 18.7L33.0 18.3M35.4 20.9L34.1 20.9"/><path class="f" d="M33.0 18.3L32.2 18.0 32.9 20.9 34.1 20.9z"/><path class="g" d="M33.0 18.3L32.2 18.0M34.1 20.9L32.9 20.9"/><path class="f" d="M28.6 17.3L27.7 17.2 27.0 22.0 28.1 21.7z"/><path class="g" d="M28.6 17.3L27.7 17.2M28.1 21.7L27.0 22.0"/><path class="f" d="M32.2 18.0L31.3 17.8 31.7 21.0 32.9 20.9z"/><path class="g" d="M32.2 18.0L31.3 17.8M32.9 20.9L31.7 21.0"/><path class="f" d="M29.5 17.4L28.6 17.3 28.1 21.7 29.3 21.4z"/><path class="g" d="M29.5 17.4L28.6 17.3M29.3 21.4L28.1 21.7"/><path class="f" d="M31.3 17.8L30.4 17.6 30.4 21.2 31.7 21.0z"/><path class="g" d="M31.3 17.8L30.4 17.6M31.7 21.0L30.4 21.2"/><path class="f" d="M30.4 17.6L29.5 17.4 29.3 21.4 30.4 21.2z"/><path class="g" d="M30.4 17.6L29.5 17.4M30.4 21.2L29.3 21.4"/></svg></div>
 <div id="eclipseArte" aria-hidden="true"><div class="estrelas"></div><div class="eclipse"><div class="corona"></div><div class="halo"></div><div class="disco"></div></div></div>
@@ -2876,7 +3043,7 @@ function alternaPasta(id) {
 function applyTheme() {
   const t = shownTheme();
   document.getElementById("themeLbl").textContent = "Tema";
-  document.documentElement.dataset.tt = festaAtiva ? "aniver" : t;
+  document.documentElement.dataset.tt = festaAtiva ? "aniver" : (window.sazTema && window.sazTema()) || t;
   const dot = (a, b) => `<span class="dot" style="background: linear-gradient(135deg, ${a} 50%, ${b} 50%)"></span>`;
   const vis = visibleThemes();
   const botao = ([id, , a, b]) => `<button data-tt="${id}" class="${id === t ? "on" : ""}" aria-pressed="${id === t}">${dot(a, b)}${esc(themeName(id))}</button>`;
@@ -3167,7 +3334,7 @@ function showWelcome() {
   toggleSettings(false);
   document.getElementById("wSlot").appendChild(settingsEl);
   document.body.classList.add("na-entrada");
-  document.documentElement.dataset.tt = festaAtiva ? "aniver" : welcomeTheme();
+  document.documentElement.dataset.tt = festaAtiva ? "aniver" : (window.sazTema && window.sazTema()) || welcomeTheme();
   welcomeTitle();
   const hoje = new Date().toLocaleDateString("pt-BR", { weekday: "long", day: "numeric", month: "long" });
   document.getElementById("wDate").textContent = hoje.replace(/(^|\s)(\p{Ll})(?=\p{L}{3,})/gu, (m, a, b) => a + b.toUpperCase()).replace(/ De /g, " de ");
@@ -4191,7 +4358,7 @@ showWelcome();
       const r = fmt(v);
       if (isFinite(v) && /[+−×÷%]/.test(expr.replace(/^-/, ""))) { store.calcHist.unshift({ e: expr, r }); store.calcHist = store.calcHist.slice(0, 20); save(); desenhaHist(); }
       expr = isFinite(v) ? String(Math.round(v * 1e10) / 1e10).replace(".", ",") : ""; justo = true;
-      mostra(); visor.textContent = r; visor.classList.remove("prev"); visor.classList.add("pulo"); setTimeout(() => visor.classList.remove("pulo"), 300); return;
+      mostra(); visor.textContent = r; if (window.abrilCalc) window.abrilCalc(visor, v, fmt); visor.classList.remove("prev"); visor.classList.add("pulo"); setTimeout(() => visor.classList.remove("pulo"), 300); return;
     }
     mostra();
   }
@@ -4403,6 +4570,304 @@ function soltaConfete(canvas, ms) {
   }, 60000);
 })();
 
+// Temas sazonais: entram sozinhos nas datas (Natal, Ano Novo, Carnaval, Halloween, 1º de abril e Arraial)
+(() => {
+  const el = id => document.getElementById(id), B = document.body;
+  const LS = (k, v) => { try { if (v === undefined) return JSON.parse(localStorage.getItem(KEY + "-saz-" + k)); localStorage.setItem(KEY + "-saz-" + k, JSON.stringify(v)); } catch { return null; } };
+  const NOMES = { natal: "🎄 Natal", anonovo: "🎆 Ano Novo", carnaval: "🎭 Carnaval", halloween: "🎃 Halloween", abril: "🃏 1º de abril", junina: "🌽 Arraial" };
+  function pascoa(y) { const a = y % 19, b = Math.floor(y / 100), c = y % 100, d = Math.floor(b / 4), e = b % 4, f = Math.floor((b + 8) / 25), g = Math.floor((b - f + 1) / 3), h = (19 * a + b - d - g + 15) % 30, i = Math.floor(c / 4), k = c % 4, l = (32 + 2 * e + 2 * i - h - k) % 7, m = Math.floor((a + 11 * h + 22 * l) / 451); const mes = Math.floor((h + l - 7 * m + 114) / 31), dia = ((h + l - 7 * m + 114) % 31) + 1; return new Date(y, mes - 1, dia); }
+  const carnavalDe = y => { const t = pascoa(y); t.setDate(t.getDate() - 47); const ini = new Date(t); ini.setDate(t.getDate() - 4); const fim = new Date(t); fim.setDate(t.getDate() + 1); return { ini, fim, terca: t }; };
+  function sazonalDe(d = new Date()) {
+    const m = d.getMonth() + 1, dia = d.getDate(), y = d.getFullYear(), hoje = new Date(y, m - 1, dia);
+    if (m === 4 && dia === 1) return "abril";
+    if ((m === 12 && dia >= 27) || (m === 1 && dia === 1)) return "anonovo";
+    if (m === 12) return "natal";
+    if (m === 10 && dia >= 25) return "halloween";
+    if (m === 6) return "junina";
+    const c = carnavalDe(y); if (hoje >= c.ini && hoje <= c.fim) return "carnaval";
+    return null;
+  }
+  let teste = null, testeDesloc = 0;
+  const agora = () => Date.now() + testeDesloc;
+  const ligado = () => store.sazonais !== false;
+  const atual = () => teste || (ligado() ? sazonalDe(new Date(agora())) : null);
+  window.sazTema = () => { const s = atual(); return s && s !== "abril" ? s : null; };
+  const hojeK = () => { const d = new Date(agora()); return d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(); };
+  const sessao = new Set();
+  const umaVez = nome => { const k = "feito-" + nome + "-" + hojeK(); if (sessao.has(k)) return false; sessao.add(k); if (teste) return true; if (LS(k)) return false; LS(k, 1); return true; };
+  // ---------- camada de efeitos (partículas) ----------
+  const cv = document.createElement("canvas"); cv.id = "sazFx"; cv.setAttribute("aria-hidden", "true"); cv.hidden = true; document.body.appendChild(cv);
+  const ctx = cv.getContext("2d"); let W = 0, H = 0, dpr = 1, modo = null, parts = [], raf = 0, ultimo = 0;
+  const reduz = matchMedia("(prefers-reduced-motion: reduce)");
+  function tamanho() { dpr = Math.min(2, devicePixelRatio || 1); W = innerWidth; H = innerHeight; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); }
+  addEventListener("resize", tamanho);
+  const rnd = (a, b) => a + Math.random() * (b - a), pick = a => a[Math.floor(Math.random() * a.length)];
+  const CONF = ["#ff3ea5", "#ffd400", "#00d084", "#3a86ff", "#7b4dff", "#ff8c1a"];
+  const QUANTOS = () => Math.round((B.classList.contains("layout-cel") ? .55 : 1) * ({ natal: 150, anonovo: 46, carnaval: 60, halloween: 9, junina: 26 }[modo] || 0));
+  function nova(inicio) {
+    const y0 = inicio ? rnd(0, H) : -20;
+    if (modo === "natal") return { x: rnd(0, W), y: y0, r: rnd(1, 3.2), vy: rnd(.35, 1.1), vx: rnd(-.3, .3), f: rnd(0, 6) };
+    if (modo === "anonovo") return { x: rnd(0, W), y: inicio ? rnd(0, H) : H + 10, r: rnd(.6, 2), vy: -rnd(.15, .55), vx: rnd(-.1, .1), f: rnd(0, 6), c: pick(["#f5c542", "#fff6d0", "#d8d8e6"]) };
+    if (modo === "carnaval") return Math.random() < .14 ? { s: 1, x: rnd(0, W), y: y0, vy: rnd(.8, 1.6), f: rnd(0, 6), c: pick(CONF), len: rnd(30, 60) } : { x: rnd(0, W), y: y0, w: rnd(5, 9), h: rnd(3, 5), vy: rnd(.7, 1.8), vx: rnd(-.5, .5), a: rnd(0, 6), va: rnd(-.12, .12), c: pick(CONF) };
+    if (modo === "halloween") { const esq = Math.random() < .5; return { x: inicio ? rnd(0, W) : (esq ? -40 : W + 40), y: rnd(H * .05, H * .6), vx: (esq ? 1 : -1) * rnd(.8, 1.8), f: rnd(0, 6), t: rnd(12, 22), amp: rnd(10, 30) }; }
+    if (modo === "junina") return Math.random() < .3 ? { b: 1, x: rnd(W * .15, W), y: inicio ? rnd(0, H) : H + 30, vy: -rnd(.25, .55), vx: rnd(-.15, .15), f: rnd(0, 6), c: pick(["#e63946", "#ffd23f", "#3a86ff", "#06d6a0", "#ff6bcb"]) } : { fa: 1, x: rnd(24, 70), y: H - rnd(40, 70), vy: -rnd(.8, 2), vx: rnd(-.2, .9), vida: rnd(50, 110), t: 0 };
+  }
+  function morcego(p, t) {
+    const bat = Math.sin(t / 90 + p.f) * .8; ctx.save(); ctx.translate(p.x, p.y + Math.sin(t / 400 + p.f) * p.amp); ctx.scale(p.vx > 0 ? 1 : -1, 1); ctx.fillStyle = "rgba(10,4,14,.85)";
+    const s = p.t / 20; ctx.scale(s, s); ctx.beginPath(); ctx.ellipse(0, 0, 4, 6, 0, 0, 7); ctx.fill();
+    for (const lado of [-1, 1]) { ctx.beginPath(); ctx.moveTo(0, -2); ctx.quadraticCurveTo(lado * 12, -12 * bat - 6, lado * 22, -4 * bat); ctx.quadraticCurveTo(lado * 16, 2, lado * 12, 0); ctx.quadraticCurveTo(lado * 8, 4, lado * 4, 2); ctx.closePath(); ctx.fill(); }
+    ctx.restore();
+  }
+  function quadro(t) {
+    raf = requestAnimationFrame(quadro);
+    if (document.hidden || B.classList.contains("rolando")) return;
+    if (t - ultimo < 30) return; ultimo = t;
+    ctx.clearRect(0, 0, W, H);
+    const alvo = QUANTOS(); while (parts.length < alvo) parts.push(nova(parts.length < alvo * .8 && t < 2000));
+    for (let i = parts.length - 1; i >= 0; i--) {
+      const p = parts[i]; let fora = false;
+      if (modo === "natal") { p.f += .02; p.y += p.vy; p.x += p.vx + Math.sin(p.f) * .35; ctx.fillStyle = `rgba(255,255,255,${.35 + p.r / 6})`; ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 7); ctx.fill(); fora = p.y > H + 10; }
+      else if (modo === "anonovo") { p.f += .06; p.y += p.vy; p.x += p.vx; ctx.globalAlpha = .35 + Math.abs(Math.sin(p.f)) * .65; ctx.fillStyle = p.c; ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 7); ctx.fill(); ctx.globalAlpha = 1; fora = p.y < -10; }
+      else if (modo === "carnaval") {
+        if (p.s) { p.y += p.vy; p.f += .05; ctx.strokeStyle = p.c; ctx.lineWidth = 2; ctx.beginPath(); for (let k = 0; k <= p.len; k += 4) { const yy = p.y - k, xx = p.x + Math.sin(p.f + k / 8) * 6; k ? ctx.lineTo(xx, yy) : ctx.moveTo(xx, yy); } ctx.stroke(); fora = p.y - p.len > H; }
+        else { p.y += p.vy; p.x += p.vx + Math.sin(p.a) * .4; p.a += p.va; ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.a); ctx.scale(1, Math.cos(p.a * 2)); ctx.fillStyle = p.c; ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h); ctx.restore(); fora = p.y > H + 10; }
+      }
+      else if (modo === "halloween") { p.x += p.vx; morcego(p, t); fora = p.x < -60 || p.x > W + 60; }
+      else if (modo === "junina") {
+        if (p.b) { p.y += p.vy; p.f += .02; p.x += p.vx + Math.sin(p.f) * .2; ctx.save(); ctx.translate(p.x, p.y); ctx.fillStyle = p.c; ctx.globalAlpha = .8; ctx.beginPath(); ctx.moveTo(-7, -9); ctx.lineTo(7, -9); ctx.lineTo(5, 6); ctx.lineTo(-5, 6); ctx.closePath(); ctx.fill(); ctx.fillStyle = `rgba(255,200,80,${.6 + Math.sin(p.f * 8) * .3})`; ctx.beginPath(); ctx.arc(0, 9, 2.2, 0, 7); ctx.fill(); ctx.restore(); ctx.globalAlpha = 1; fora = p.y < -30; }
+        else { p.t++; p.y += p.vy; p.x += p.vx; const a = 1 - p.t / p.vida; ctx.fillStyle = `rgba(255,${120 + Math.random() * 100 | 0},40,${Math.max(0, a)})`; ctx.beginPath(); ctx.arc(p.x, p.y, 1.6, 0, 7); ctx.fill(); fora = p.t > p.vida; }
+      }
+      if (fora) parts.splice(i, 1);
+    }
+  }
+  function efeitos(m) {
+    modo = m; parts = []; cancelAnimationFrame(raf); ctx.clearRect(0, 0, W, H);
+    cv.hidden = !m || reduz.matches; if (cv.hidden) return; tamanho(); raf = requestAnimationFrame(quadro);
+  }
+  // ---------- enfeites ----------
+  const ENF = { natal: ["luzes"], anonovo: [], carnaval: [], halloween: ["teias", "nevoa", "abobora"], junina: ["bandeiras", "fogueira"] };
+  const LOGO = { natal: "🎅", anonovo: "🥂", carnaval: "🎭", halloween: "🦇", junina: "🌽", abril: "🤡" };
+  const SAUDA = { natal: "Feliz Natal! 🎄", anonovo: "Feliz Ano Novo! 🎆", carnaval: "Bora pro bloco! 🎭", halloween: "Gostosuras ou travessuras? 🎃", junina: "Anarriê! 🌽", abril: "Hoje é um dia normal. Confia. 😇" };
+  function limpaEnfeites() { document.querySelectorAll(".saz-enfeite").forEach(e => e.remove()); B.classList.remove("saz-enfeite-logo", "saz-gorro"); }
+  function enfeite(id, cls, html) { const d = document.createElement("div"); d.id = id; d.className = "saz-enfeite " + cls; d.setAttribute("aria-hidden", "true"); if (html) d.innerHTML = html; document.body.appendChild(d); return d; }
+  function enfeitar(s) {
+    limpaEnfeites();
+    if (!s) return;
+    const e = ENF[s] || [];
+    if (e.includes("luzes")) enfeite("sazTopo", "saz-luzes");
+    if (s === "natal") {
+      enfeite("sazCena", "", `<svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="nLua" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#fffbe8"/><stop offset=".7" stop-color="#f6eecb"/><stop offset="1" stop-color="#e9dfb4"/></radialGradient><radialGradient id="nBrilho" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#fff6d0" stop-opacity=".55"/><stop offset=".35" stop-color="#cfe0ff" stop-opacity=".18"/><stop offset="1" stop-color="#cfe0ff" stop-opacity="0"/></radialGradient><radialGradient id="nLuzCampo" cx="78%" cy="0%" r="80%"><stop offset="0" stop-color="#fffbe8" stop-opacity=".35"/><stop offset="1" stop-color="#fffbe8" stop-opacity="0"/></radialGradient><linearGradient id="nNeve1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b9c9e6"/><stop offset="1" stop-color="#8ea3c8"/></linearGradient><linearGradient id="nNeve2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef4ff"/><stop offset="1" stop-color="#c3d2ec"/></linearGradient><radialGradient id="nJanela" cx="50%" cy="50%" r="60%"><stop offset="0" stop-color="#ffe9a8"/><stop offset="1" stop-color="#ffb347"/></radialGradient><g id="nPinheiro"><rect x="-6" y="-8" width="12" height="22" fill="#4a2e1c"/><path d="M0-150L-40-80h18L-55-30h20L-70 10h140L35-30h20L22-80h18z" fill="#0f3a28"/><path d="M0-150L-22-110q22 8 44 0zM-40-80q22 10 40 2q18 8 40-2l-6-8q-18 6-34 0q-16 6-34 0zM-55-30q30 12 55 2q25 10 55-2l-8-9q-24 8-47 0q-23 8-47 0zM-70 10q35 12 70 2q35 10 70-2l-10-10q-30 8-60 0q-30 8-60 0z" fill="#eef4ff" opacity=".9"/></g><g id="nBoneco"><ellipse cx="0" cy="30" rx="44" ry="10" fill="#9fb2d3" opacity=".5"/><circle cx="0" cy="0" r="38" fill="#f4f8ff"/><circle cx="0" cy="-56" r="28" fill="#f7faff"/><circle cx="0" cy="-100" r="20" fill="#fbfdff"/><rect x="-18" y="-128" width="36" height="8" rx="2" fill="#1b1b22"/><rect x="-12" y="-152" width="24" height="26" rx="3" fill="#1b1b22"/><rect x="-12" y="-134" width="24" height="5" fill="#c62f3a"/><circle cx="-7" cy="-104" r="2.6" fill="#1b1b22"/><circle cx="7" cy="-104" r="2.6" fill="#1b1b22"/><path d="M0-98l20 5-20 3z" fill="#ff8a1a"/><path d="M-24-80q24 12 48 0v8q-24 10-48 0z" fill="#c62f3a"/><path d="M14-76l8 26h-10z" fill="#c62f3a"/><circle cx="0" cy="-62" r="3" fill="#1b1b22"/><circle cx="0" cy="-48" r="3" fill="#1b1b22"/><circle cx="0" cy="-10" r="3" fill="#1b1b22"/><path d="M-26-60l-34-22M-48-75l-6-12M26-60l36-26M50-80l2-12" stroke="#5a3a24" stroke-width="4" stroke-linecap="round" fill="none"/></g></defs><g class="n-estrelas" fill="#fff"><circle cx="90" cy="80" r="1.6"/><circle cx="240" cy="160" r="1.2"/><circle cx="380" cy="60" r="1.8"/><circle cx="520" cy="140" r="1.1"/><circle cx="660" cy="50" r="1.5"/><circle cx="800" cy="120" r="1.3"/><circle cx="930" cy="70" r="1.7"/><circle cx="1060" cy="150" r="1.2"/><circle cx="1180" cy="40" r="1.4"/><circle cx="1480" cy="90" r="1.6"/><circle cx="1560" cy="200" r="1.1"/><circle cx="160" cy="260" r="1.1"/><circle cx="450" cy="250" r="1.3"/><circle cx="1000" cy="260" r="1.1"/><circle cx="1420" cy="320" r="1.2"/></g><g class="n-estrelas n-estrelas2" fill="#fff"><circle cx="140" cy="140" r="1.3"/><circle cx="310" cy="100" r="1.6"/><circle cx="600" cy="200" r="1.2"/><circle cx="720" cy="90" r="1.1"/><circle cx="880" cy="200" r="1.5"/><circle cx="1110" cy="90" r="1.6"/><circle cx="1540" cy="40" r="1.4"/><circle cx="60" cy="330" r="1.2"/><circle cx="1240" cy="330" r="1.1"/></g><circle cx="1300" cy="180" r="230" fill="url(#nBrilho)"/><circle cx="1300" cy="180" r="72" fill="url(#nLua)"/><circle cx="1278" cy="160" r="11" fill="#e2d6a6" opacity=".55"/><circle cx="1322" cy="200" r="15" fill="#e2d6a6" opacity=".45"/><circle cx="1312" cy="150" r="6" fill="#e2d6a6" opacity=".5"/><path d="M0 640Q260 560 520 610T1050 590T1600 560V900H0z" fill="url(#nNeve1)"/><use href="#nPinheiro" transform="translate(470 612) scale(.7)"/><use href="#nPinheiro" transform="translate(560 606) scale(.85)"/><use href="#nPinheiro" transform="translate(1000 594) scale(.75)"/><use href="#nPinheiro" transform="translate(1530 568) scale(.8)"/><g transform="translate(150 650)"><path d="M-90 0V-120L0-190 90-120V0z" fill="#6b3a2a"/><path d="M-90-120h180V0h-180z" fill="#7a4330"/><path d="M-110-112L0-205 110-112" fill="none" stroke="#f4f8ff" stroke-width="22" stroke-linejoin="round"/><rect x="38" y="-200" width="26" height="54" fill="#5a2f22"/><rect x="34" y="-208" width="34" height="12" rx="4" fill="#f4f8ff"/><g class="n-fumaca" fill="#dfe6f2" style="filter:blur(3px)"><circle cx="51" cy="-218" r="9"/><circle cx="51" cy="-218" r="11"/><circle cx="51" cy="-218" r="13"/></g><rect x="-64" y="-92" width="38" height="34" rx="3" fill="url(#nJanela)" class="n-janela"/><path d="M-45-92v34M-64-75h38" stroke="#6b3a2a" stroke-width="3"/><rect x="24" y="-92" width="38" height="34" rx="3" fill="url(#nJanela)" class="n-janela"/><path d="M43-92v34M24-75h38" stroke="#6b3a2a" stroke-width="3"/><rect x="-14" y="-62" width="30" height="62" rx="3" fill="#3d1f16"/><circle cx="10" cy="-30" r="2.5" fill="#f2c14e"/><circle cx="1" cy="-80" r="10" fill="none" stroke="#1e6b3a" stroke-width="5"/><circle cx="1" cy="-70" r="3" fill="#c62f3a"/><path d="M-90-120q15 10 30 0t30 0 30 0 30 0 30 0 30 0" fill="none" stroke="#2c1a12" stroke-width="1.5"/><g class="n-luzinhas"><circle cx="-80" cy="-116" r="4" fill="#ff3b3b"/><circle cx="-50" cy="-116" r="4" fill="#ffd23f"/><circle cx="-20" cy="-116" r="4" fill="#3bd1ff"/><circle cx="10" cy="-116" r="4" fill="#3bff7a"/><circle cx="40" cy="-116" r="4" fill="#ff3bd2"/><circle cx="70" cy="-116" r="4" fill="#ff3b3b"/></g><path d="M-140 0h290" stroke="#eef4ff" stroke-width="14" stroke-linecap="round"/></g><path d="M0 760Q300 690 640 735T1200 720T1600 700V900H0z" fill="url(#nNeve2)"/><path d="M0 760Q300 690 640 735T1200 720T1600 700V900H0z" fill="url(#nLuzCampo)"/><use href="#nPinheiro" transform="translate(40 770) scale(1.05)"/><use href="#nPinheiro" transform="translate(330 740) scale(.9)"/><use href="#nPinheiro" transform="translate(1180 735) scale(1)"/><use href="#nPinheiro" transform="translate(1580 712) scale(1.15)"/><g class="n-arvore-luzes"><circle cx="1166" cy="672" r="3.5" fill="#ff3b3b"/><circle cx="1196" cy="650" r="3.5" fill="#ffd23f"/><circle cx="1160" cy="712" r="3.5" fill="#3bd1ff"/><circle cx="1205" cy="700" r="3.5" fill="#3bff7a"/><circle cx="1180" cy="620" r="3.5" fill="#ff3bd2"/><circle cx="20" cy="700" r="3.5" fill="#ffd23f"/><circle cx="60" cy="680" r="3.5" fill="#ff3b3b"/><circle cx="34" cy="740" r="3.5" fill="#3bff7a"/><circle cx="1560" cy="650" r="3.5" fill="#3bd1ff"/><circle cx="1600" cy="670" r="3.5" fill="#ff3b3b"/><circle cx="1575" cy="610" r="3.5" fill="#ffd23f"/></g><path d="M1180 600l4 10 10 1-8 6 3 10-9-6-9 6 3-10-8-6 10-1z" fill="#ffd23f" class="n-estrela-topo" transform="translate(0 -24)"/><use href="#nBoneco" transform="translate(1390 800) scale(.95)"/><use href="#nBoneco" transform="translate(470 818) scale(.7)"/><path d="M0 860Q400 820 800 850T1600 830V900H0z" fill="#f6f9ff"/></svg>`);
+      enfeite("sazGuirlanda", ""); guirlanda();
+      enfeite("sazLuzEsq", "saz-luz-lado"); enfeite("sazLuzDir", "saz-luz-lado");
+      const t = enfeite("sazTimer", ""); t.removeAttribute("aria-hidden"); t.setAttribute("aria-label", "Tempo até o Natal");
+    }
+    if (e.includes("bandeiras")) enfeite("sazTopo", "saz-bandeiras");
+    if (e.includes("teias")) { enfeite("sazTeia1", "saz-teia", '<span class="saz-aranha"></span>'); enfeite("sazTeia2", "saz-teia"); }
+    if (e.includes("nevoa")) enfeite("sazNevoa", "");
+    if (e.includes("abobora")) enfeite("sazCanto", "saz-abobora");
+    if (e.includes("fogueira")) enfeite("sazCanto", "saz-fogueira");
+    if (s === "natal") B.classList.add("saz-gorro"); else if (LOGO[s]) { B.classList.add("saz-enfeite-logo"); document.documentElement.style.setProperty("--saz-logo", `"${LOGO[s]}"`); }
+  }
+  // guirlanda de luzes no topo da tela (refeita quando a janela muda de tamanho)
+  function guirlanda() {
+    const g = document.getElementById("sazGuirlanda"); if (!g) return;
+    const w = innerWidth, CORES = ["#ff3b3b", "#ffd23f", "#3bd1ff", "#3bff7a", "#ff3bd2", "#ff8c1a"];
+    let svg = `<svg viewBox="0 0 ${w} 90" preserveAspectRatio="none">`, k = 0;
+    for (const [y0, flecha, seg] of [[-4, 46, Math.max(2, Math.round(w / 420))], [-4, 74, Math.max(1, Math.round(w / 700))]]) {
+      const lg = w / seg;
+      for (let i = 0; i < seg; i++) {
+        const x0 = i * lg, x1 = x0 + lg; svg += `<path class="g-fio" d="M${x0} ${y0} Q${x0 + lg / 2} ${y0 + flecha * 2} ${x1} ${y0}"/>`;
+        const n = Math.max(5, Math.round(lg / 34));
+        for (let j = 1; j < n; j++) { const t = j / n, x = (1 - t) * (1 - t) * x0 + 2 * (1 - t) * t * (x0 + lg / 2) + t * t * x1, y = (1 - t) * (1 - t) * y0 + 2 * (1 - t) * t * (y0 + flecha * 2) + t * t * y0, c = CORES[k % CORES.length];
+          svg += `<g class="g-luz d${k % 4}"><circle class="g-halo" cx="${x}" cy="${y + 6}" r="9" fill="${c}"/><rect x="${x - 2}" y="${y - 1}" width="4" height="4" fill="#2a3a2a"/><ellipse cx="${x}" cy="${y + 6}" rx="3.6" ry="5" fill="${c}"/></g>`; k++; }
+      }
+    }
+    g.innerHTML = svg + "</svg>";
+  }
+  addEventListener("resize", () => { if (aplicado === "natal") guirlanda(); });
+  // saudação na tela de boas-vindas
+  const sauda = document.createElement("p"); sauda.className = "saz-saudacao"; sauda.hidden = true;
+  const wt = el("wTitle"); if (wt) wt.after(sauda);
+  // selo do canto (contagens)
+  const selo = document.createElement("div"); selo.id = "sazSelo"; selo.hidden = true; selo.setAttribute("aria-live", "polite"); document.body.appendChild(selo);
+  const dd = (a, b) => Math.ceil((new Date(b.getFullYear(), b.getMonth(), b.getDate()) - new Date(a.getFullYear(), a.getMonth(), a.getDate())) / 864e5);
+  const hms = ms => { const s = Math.max(0, Math.ceil(ms / 1000)), h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), x = s % 60; return (h ? String(h).padStart(2, "0") + ":" : "") + String(m).padStart(2, "0") + ":" + String(x).padStart(2, "0"); };
+  // ---------- palco: números grandes, fogos e animações ----------
+  let palco = null;
+  function abrePalco() { if (palco) return palco; palco = document.createElement("div"); palco.className = "saz-palco"; document.body.appendChild(palco); return palco; }
+  function fechaPalco() { if (palco) { palco.remove(); palco = null; } }
+  function numeroGrande(n) { const p = abrePalco(); let d = p.querySelector(".saz-numero"); if (!d) { d = document.createElement("div"); d.className = "saz-numero"; p.appendChild(d); } if (d.textContent !== String(n)) { d.textContent = n; d.style.animation = "none"; void d.offsetWidth; d.style.animation = ""; } }
+  function tiraNumero() { if (palco) { const d = palco.querySelector(".saz-numero"); if (d) d.remove(); if (!palco.children.length) fechaPalco(); } }
+  function mensagem(txt, sub, ms = 4600) { const p = abrePalco(); const m = document.createElement("div"); m.className = "saz-msg"; m.innerHTML = txt + (sub ? `<small>${sub}</small>` : ""); p.appendChild(m); setTimeout(() => { m.remove(); if (palco && !palco.children.length) fechaPalco(); }, ms); }
+  function fogos(ms = 8000) {
+    if (reduz.matches) return;
+    const p = abrePalco(), c = document.createElement("canvas"); p.appendChild(c);
+    const g = c.getContext("2d"), r = Math.min(2, devicePixelRatio || 1); let w = innerWidth, h = innerHeight; c.width = w * r; c.height = h * r; g.setTransform(r, 0, 0, r, 0, 0);
+    const fog = [], fim = performance.now() + ms; let prox = 0, id = 0;
+    const CORES = ["#f5c542", "#ff3b6b", "#3bd1ff", "#7dff6a", "#ff8c1a", "#d26bff", "#ffffff"];
+    function estoura(x, y) { const cor = pick(CORES), n = 60 + Math.random() * 40 | 0; for (let i = 0; i < n; i++) { const a = Math.PI * 2 * i / n, v = rnd(1.5, 5); fog.push({ x, y, vx: Math.cos(a) * v, vy: Math.sin(a) * v, vida: rnd(50, 80), t: 0, c: Math.random() < .2 ? "#fff" : cor }); } }
+    function passo(t) {
+      if (t > fim && !fog.length) { c.remove(); if (palco && !palco.children.length) fechaPalco(); return; }
+      id = requestAnimationFrame(passo);
+      g.fillStyle = "rgba(0,0,0,.18)"; g.globalCompositeOperation = "destination-out"; g.fillRect(0, 0, w, h); g.globalCompositeOperation = "lighter";
+      if (t < fim && t > prox) { prox = t + rnd(180, 520); fog.push({ fo: 1, x: rnd(w * .15, w * .85), y: h, vx: rnd(-1, 1), vy: -rnd(9, 13), alvo: rnd(h * .12, h * .45), t: 0, vida: 999, c: "#fff6d0" }); }
+      for (let i = fog.length - 1; i >= 0; i--) {
+        const f = fog[i]; f.t++;
+        if (f.fo) { f.x += f.vx; f.y += f.vy; f.vy += .12; g.fillStyle = f.c; g.beginPath(); g.arc(f.x, f.y, 2.2, 0, 7); g.fill(); if (f.y <= f.alvo || f.vy >= 0) { estoura(f.x, f.y); fog.splice(i, 1); } continue; }
+        f.x += f.vx; f.y += f.vy; f.vx *= .975; f.vy = f.vy * .975 + .05; const a = 1 - f.t / f.vida;
+        if (a <= 0) { fog.splice(i, 1); continue; }
+        g.globalAlpha = a; g.fillStyle = f.c; g.beginPath(); g.arc(f.x, f.y, 2, 0, 7); g.fill(); g.globalAlpha = 1;
+      }
+    }
+    requestAnimationFrame(passo);
+  }
+  function voa(txt, cls = "saz-voa", ms = 6200) { const p = abrePalco(), d = document.createElement("div"); d.className = cls; d.textContent = txt; p.appendChild(d); setTimeout(() => { d.remove(); if (palco && !palco.children.length) fechaPalco(); }, ms); }
+  // ---------- Ano Novo: duas contagens (Brasília e depois Manaus, uma hora a mais) ----------
+  let anoFeito = {};
+  function anoNovo() {
+    const n = agora(), d = new Date(n), ano = d.getUTCMonth() === 11 ? d.getUTCFullYear() + 1 : d.getUTCFullYear();
+    const br = Date.UTC(ano, 0, 1, 3), mao = Date.UTC(ano, 0, 1, 4);
+    let txt = "", contagem = false;
+    if (n < br) {
+      if (br - n <= 864e5) { txt = `🎆 Brasília: <b>${hms(br - n)}</b>`; contagem = true; if (br - n <= 60000) numeroGrande(Math.ceil((br - n) / 1000)); }
+      else txt = `🎆 Faltam <b>${dd(new Date(n), new Date(ano, 0, 1))}</b> dias para ${ano}`;
+    } else if (n < mao) {
+      if (!anoFeito.br && n - br < 3600e3) { anoFeito.br = 1; tiraNumero(); fogos(9000); mensagem(`Feliz ${ano}, Brasília! 🎉`, "Agora falta Manaus…", 6000); }
+      txt = `🎆 Manaus: <b>${hms(mao - n)}</b>`; contagem = true; if (mao - n <= 60000 && !(palco && palco.querySelector(".saz-msg"))) numeroGrande(Math.ceil((mao - n) / 1000));
+    } else {
+      if (!anoFeito.mao && n - mao < 3600e3) { anoFeito.mao = 1; anoFeito.br = 1; tiraNumero(); fogos(9000); mensagem(`Feliz ${ano}, Manaus! 🎉`, "Agora é oficial em todo lugar!", 6000); }
+      else if (!anoFeito.mao && umaVez("anonovo")) { anoFeito.mao = 1; fogos(6000); mensagem(`Feliz ${ano}! 🎆`, "", 4800); }
+      anoFeito.mao = 1; txt = `🎆 Feliz <b>${ano}</b>!`;
+    }
+    B.classList.toggle("saz-contagem", contagem);
+    return txt;
+  }
+  // ---------- texto do selo e eventos de cada tema ----------
+  function tique() {
+    const s = atual(); if (!s || s === "abril") { selo.hidden = true; B.classList.remove("saz-contagem"); return; }
+    const d = new Date(agora()), y = d.getFullYear(); let txt = "";
+    if (s === "natal") {
+      const alvo = new Date(y, 11, 25), falta = alvo - d, t = document.getElementById("sazTimer");
+      if (t) {
+        let h;
+        if (falta > 0) { const sec = Math.floor(falta / 1000), D = Math.floor(sec / 86400), H = Math.floor(sec % 86400 / 3600), M = Math.floor(sec % 3600 / 60), S = sec % 60, p = v => String(v).padStart(2, "0");
+          h = `<div class="t-tit">🎄 Natal em</div><div class="t-dias">${D}<small>dia${D === 1 ? "" : "s"}</small></div><div class="t-hms"><span>${p(H)}<small>h</small></span><span>${p(M)}<small>min</small></span><span>${p(S)}<small>s</small></span></div>`; }
+        else h = d.getDate() === 25 ? '<div class="t-tit">🎄 Hoje é</div><div class="t-dias" style="font-size:1.35rem">Natal!</div>' : '<div class="t-tit">🎁 Até o próximo</div><div class="t-dias" style="font-size:1.35rem">Natal</div>';
+        if (t.innerHTML !== h) t.innerHTML = h;
+      }
+    }
+    else if (s === "anonovo") txt = anoNovo();
+    else if (s === "carnaval") { const c = carnavalDe(y); txt = d.toDateString() === c.fim.toDateString() ? "🎭 Quarta de Cinzas: até o ano que vem!" : `🎭 Carnaval! Folia até <b>${c.fim.toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit" })}</b>`; }
+    else if (s === "halloween") { const f = dd(d, new Date(y, 9, 31)); txt = f > 0 ? `🎃 Faltam <b>${f}</b> dia${f > 1 ? "s" : ""} para o Halloween` : "🎃 <b>Feliz Halloween!</b>"; if (f === 0 && umaVez("fantasma")) setTimeout(() => voa("👻", "saz-fantasma", 3800), 1200); }
+    else if (s === "junina") txt = d.getDate() === 24 ? "🔥 <b>Dia de São João!</b>" : "🌽 <b>Arraiá do Organizer</b>";
+    if (selo.innerHTML !== txt) selo.innerHTML = txt; selo.hidden = !txt;
+  }
+  // ---------- aplicar ----------
+  let aplicado;
+  function aplicar(forca) {
+    const s = atual(), festa = typeof festaAtiva !== "undefined" && festaAtiva, vis = festa ? null : s;
+    if (!forca && vis === aplicado) { tique(); return; }
+    aplicado = vis; anoFeito = {};
+    efeitos(vis && vis !== "abril" ? vis : null); enfeitar(vis);
+    sauda.textContent = vis ? SAUDA[vis] : ""; sauda.hidden = !vis;
+    abril(vis === "abril");
+    if (typeof applyTheme === "function") applyTheme();
+    tique();
+  }
+  setInterval(() => aplicar(), 1000);
+  // ---------- 1º de abril: pegadinhas inofensivas (nenhum dado é alterado) ----------
+  let abrilOn = false, ab = {};
+  const abSalva = () => { if (!teste) LS("abril-" + new Date(agora()).getFullYear(), ab); };
+  function abril(on) {
+    abrilOn = on; B.classList.remove("abril-comic");
+    if (!on) return;
+    ab = (teste ? null : LS("abril-" + new Date(agora()).getFullYear())) || { entrar: 0 };
+    if (!ab.normal) B.classList.add("abril-comic");
+    if (!B.classList.contains("na-entrada")) { ab._entrou = 1; setTimeout(depoisDeEntrar, 900); }
+  }
+  const vale = k => abrilOn && !ab.normal && !ab[k];
+  // 1. o botão Entrar foge
+  const wEnter = el("wEnter");
+  if (wEnter) {
+    const foge = e => {
+      if (!abrilOn || ab.normal || (ab.entrar || 0) >= 3) return false;
+      ab.entrar = (ab.entrar || 0) + 1; abSalva(); wEnter.classList.add("abril-foge");
+      const dx = (Math.random() < .5 ? -1 : 1) * rnd(70, 140), dy = (Math.random() < .5 ? -1 : 1) * rnd(30, 70);
+      wEnter.style.transform = ab.entrar >= 3 ? "" : `translate(${dx}px, ${dy}px) rotate(${rnd(-12, 12)}deg)`;
+      if (e) { e.preventDefault(); e.stopImmediatePropagation(); }
+      return true;
+    };
+    wEnter.addEventListener("pointerenter", e => { if (e.pointerType === "mouse") foge(null); });
+    wEnter.addEventListener("click", e => { foge(e); }, true);
+    el("wForm") && el("wForm").addEventListener("submit", e => { if (abrilOn && !ab.normal && (ab.entrar || 0) < 3) foge(e); }, true);
+  }
+  // 2. atualização falsa + aviso de 1º de abril
+  function depoisDeEntrar() {
+    if (!abrilOn || ab.normal) return;
+    if (vale("update")) { ab.update = 1; abSalva(); setTimeout(updateFalso, 700); }
+    if (vale("notif") && !ab.notifAg) ab.notifAg = 1, setTimeout(() => { if (!vale("notif")) return; ab.notif = 1; abSalva(); window.avisoDisparar && window.avisoDisparar({ id: "abril-cobra-" + Date.now(), ic: "💸", titulo: "O Organizer agora custa R$ 999/mês", texto: "Primeira cobrança amanhã. Toque para cancelar…" }, true); setTimeout(() => window.avisoDisparar && window.avisoDisparar({ id: "abril-mentira-" + Date.now(), ic: "😂", titulo: "Mentira!", texto: "Feliz 1º de abril! Continua de graça." }, true), 5500); }, teste ? 12000 : 45000);
+    if (vale("relogio") && !ab.relAg) ab.relAg = 1, setTimeout(relogioPraTras, teste ? 20000 : 90000);
+  }
+  new MutationObserver(() => { if (abrilOn && !B.classList.contains("na-entrada") && !ab._entrou) { ab._entrou = 1; depoisDeEntrar(); } }).observe(B, { attributes: true, attributeFilter: ["class"] });
+  function updateFalso() {
+    const p = abrePalco(), cx = document.createElement("div"); cx.className = "abril-caixa win98";
+    cx.innerHTML = '<div class="w98-tit">Organizer — Atualização obrigatória</div><div class="w98-corpo"><b id="abTxt">Instalando Windows 98…</b><div class="w98-barra"><i id="abBarra" style="width:8%"></i></div><small id="abSub">Não desligue o computador.</small></div>';
+    p.appendChild(cx);
+    const passos = [[900, 34, "Instalando Windows 98…", "Não desligue o computador."], [1900, 61, "Baixando mais memória RAM…", "Isso pode demorar uns 84 anos."], [2900, 47, "Desinstalando a internet…", "Hmm…"], [3800, 22, "Voltando no tempo…", "A barra está andando pra trás 🤔"], [4700, 3, "Quase lá…", "Ou não."]];
+    passos.forEach(([t, w, a, b]) => setTimeout(() => { const i = cx.querySelector("#abBarra"); if (!i) return; i.style.width = w + "%"; cx.querySelector("#abTxt").textContent = a; cx.querySelector("#abSub").textContent = b; }, t));
+    setTimeout(() => {
+      cx.className = "abril-caixa"; cx.innerHTML = '<h3>🤡 1º de abril!</h3><p>Nada foi instalado e seus dados estão salvos.<br>Mas hoje ainda tem surpresas por aí… 😏</p><div class="abril-bts"><button type="button" class="small" data-ab="normal">Voltar ao normal</button><button type="button" class="small primary" data-ab="ok">Pode vir!</button></div>';
+      cx.addEventListener("click", e => { const b = e.target.closest("[data-ab]"); if (!b) return; if (b.dataset.ab === "normal") { ab.normal = 1; abSalva(); B.classList.remove("abril-comic"); } cx.remove(); if (palco && !palco.children.length) fechaPalco(); });
+    }, 5900);
+  }
+  // 3. saldo milionário (só uma camada por cima, por 3 segundos)
+  setInterval(() => {
+    if (!vale("saldo") || B.classList.contains("na-entrada") || /-pagina/.test(B.className) || document.querySelector(".abril-caixa") || (vale("update"))) return;
+    const alvo = [...document.querySelectorAll("[data-cres]")].find(e => { const r = e.getBoundingClientRect(); return r.width && r.top > 0 && r.bottom < innerHeight; });
+    if (!alvo) return; ab.saldo = 1; abSalva();
+    const r = alvo.getBoundingClientRect(), d = document.createElement("div"); d.className = "abril-milhao"; d.textContent = "R$ 1.000.000,00";
+    Object.assign(d.style, { position: "fixed", left: r.left - 6 + "px", top: r.top - 4 + "px", width: Math.max(r.width + 12, 170) + "px", height: r.height + 8 + "px", zIndex: 70 });
+    document.body.appendChild(d); setTimeout(() => { d.textContent = "😏 Quem dera…"; }, 3000); setTimeout(() => d.remove(), 4300);
+  }, 1500);
+  // 4. a calculadora erra de propósito na primeira conta
+  window.abrilCalc = (visor, v, fmt) => {
+    if (!vale("calc") || !isFinite(v)) return; ab.calc = 1; abSalva();
+    const certo = visor.textContent; visor.textContent = fmt(v === 4 ? 5 : v + 1);
+    setTimeout(() => { visor.textContent = "😅 ops…"; }, 1400); setTimeout(() => { visor.textContent = certo; }, 2400);
+  };
+  // 7. relógio de Manaus anda pra trás por alguns segundos
+  function relogioPraTras() {
+    if (!vale("relogio")) return; ab.relogio = 1; abSalva();
+    let s = 0; const t0 = Date.now() - 3600e3;
+    const iv = setInterval(() => { s += 1; const d = new Date(t0 - s * 1000 * 7); const txt = `${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}<small>:${String(d.getSeconds()).padStart(2, "0")}</small>`; document.querySelectorAll('[data-rl="1"]').forEach(b => b.innerHTML = txt); }, 110);
+    setTimeout(() => clearInterval(iv), 6500);
+  }
+  // ---------- tela de Temas: ligar/desligar e testar ----------
+  const chk = el("sazLigado");
+  if (chk) { chk.checked = ligado(); chk.onchange = () => { store.sazonais = chk.checked; save(); aplicar(true); }; }
+  const testes = el("sazTestes");
+  if (testes) {
+    testes.innerHTML = Object.entries(NOMES).map(([k, n]) => `<button type="button" class="small" data-saz="${k}">Testar ${n}</button>`).join("");
+    testes.addEventListener("click", e => { const b = e.target.closest("[data-saz]"); if (b) testar(b.dataset.saz); });
+  }
+  function testar(s) {
+    sairTeste(true); teste = s; testeDesloc = 0;
+    if (s === "anonovo") { const ano = new Date().getFullYear() + 1; testeDesloc = Date.UTC(ano, 0, 1, 3) - 12000 - Date.now(); }
+    if (s === "natal") testeDesloc = 0;
+    if (s === "halloween") testeDesloc = new Date(new Date().getFullYear(), 9, 31, 20).getTime() - Date.now();
+    toggleSettings && toggleSettings(false);
+    aplicar(true);
+    const chip = document.createElement("div"); chip.className = "festa-teste saz-teste";
+    chip.innerHTML = `<span>Teste: ${NOMES[s]}</span><button type="button">Sair do teste</button>`;
+    document.body.appendChild(chip); chip.querySelector("button").onclick = () => sairTeste();
+    if (s === "anonovo") { // depois da virada de Brasília, pula para 12 s antes de Manaus
+      const pulo = setInterval(() => { if (teste !== "anonovo") return clearInterval(pulo); if (anoFeito.br && !anoFeito.pulou && agora() > Date.UTC(new Date(agora()).getUTCFullYear(), 0, 1, 3) + 8000) { anoFeito.pulou = 1; testeDesloc += (Date.UTC(new Date(agora()).getUTCFullYear(), 0, 1, 4) - 12000) - agora(); clearInterval(pulo); } }, 500);
+    }
+  }
+  function sairTeste(silencioso) { teste = null; testeDesloc = 0; sessao.clear(); document.querySelectorAll(".saz-teste").forEach(c => c.remove()); fechaPalco(); B.classList.remove("saz-contagem"); if (!silencioso) aplicar(true); }
+  window.sazTestar = testar; window.sazSairTeste = sairTeste; window.sazonalDe = sazonalDe;
+  tamanho(); aplicar(true);
+})();
 // Novidades: lista de todas as versões (abre ao clicar no número da versão)
 (() => {
   const el = id => document.getElementById(id);
@@ -4612,6 +5077,14 @@ function soltaConfete(canvas, ms) {
     poe(); new MutationObserver(poe).observe(mais, { childList: true });
     mais.addEventListener("click", e => { if (e.target.closest("[data-avisos]")) { const m = el("navMais"); m.classList.remove("aberto"); setTimeout(() => { m.hidden = true; }, 200); window.avisosAbrir(); } });
   }
+})();
+// limpeza: remove os dados da ficha de RPG (função de teste que foi retirada)
+(() => {
+  let mudou = false;
+  if (store.rpg) { delete store.rpg; mudou = true; }
+  if (Array.isArray(store.funcoesOrdem) && store.funcoesOrdem.includes("wIrRpg")) { store.funcoesOrdem = store.funcoesOrdem.filter(x => x !== "wIrRpg"); mudou = true; }
+  try { localStorage.removeItem(KEY + "-rpg-rolagens"); if (localStorage.getItem(KEY + "-ultima") === "rpg") localStorage.removeItem(KEY + "-ultima"); } catch {}
+  if (mudou) save();
 })();
 // número da versão no canto: lido da própria página, então nunca fica desatualizado
 (() => { const v = (document.querySelector('meta[name="organizer-versao"]') || {}).content || ""; document.querySelectorAll(".versao-txt").forEach(e => e.textContent = v ? "v" + v : ""); })();

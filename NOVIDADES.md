@@ -2,6 +2,13 @@
 
 ➕ adicionado · 🔧 corrigido · 🔄 mudado · ➖ removido
 
+## 1.8.1 — 18/10/2026
+- 🔄 Natal mais bonito: cenário de fundo com lua iluminando um campo nevado, casa com chaminé soltando fumaça, pinheiros com luzes e bonecos de neve.
+- 🔄 Natal: neve caindo o tempo todo, guirlandas de pisca-pisca no topo da tela e luzes em volta da janela.
+- ➕ Natal: relógio regressivo (dias, horas, minutos e segundos) numa janelinha no canto de cima.
+- 🔄 Natal: gorro de Papai Noel na logo.
+- ➖ Natal: animação grande de "Feliz Natal" com o trenó.
+
 ## 1.8.0 — 18/10/2026
 - ➕ Temas sazonais que entram sozinhos nas datas, com efeitos animados (Temas → Temas sazonais: ligar/desligar e Testar cada um).
 - ➕ 🎄 Natal (1 a 26/12): neve, pisca-pisca, gorro na logo, contagem de dias e trenó no dia 25.
