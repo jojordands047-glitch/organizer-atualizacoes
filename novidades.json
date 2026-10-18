@@ -1,0 +1,281 @@
+{
+  "formato": "organizer-novidades",
+  "versoes": [
+    {
+      "versao": "1.4.0",
+      "data": "2026-10-18",
+      "itens": [
+        {
+          "tipo": "adicionado",
+          "texto": "Menu Funções organizável: botão \"Organizar\", arrastar os cartões ou usar as setas ‹ ›."
+        }
+      ]
+    },
+    {
+      "versao": "1.3.9",
+      "data": "2026-10-18",
+      "itens": [
+        {
+          "tipo": "adicionado",
+          "texto": "Notas (estilo Google Keep): notas, listas de tarefas, 11 cores, fixar, busca e desfazer ao apagar."
+        }
+      ]
+    },
+    {
+      "versao": "1.3.8",
+      "data": "2026-10-18",
+      "itens": [
+        {
+          "tipo": "adicionado",
+          "texto": "Aba \"Chave de assinatura\" no Perfil, com cronômetro do certificado do app."
+        },
+        {
+          "tipo": "mudado",
+          "texto": "Senha e padrão de entrada removidos."
+        }
+      ]
+    },
+    {
+      "versao": "1.3.7",
+      "data": "2026-10-18",
+      "itens": [
+        {
+          "tipo": "mudado",
+          "texto": "Simplificação: casinha leva ao menu Funções; botões de tema e ⚙ abrem as telas próprias; um só \"Restaurar\"; excluir aba só pelo X; temas com \"Esta aba / Tela inicial / Tudo\"; opções avançadas escondidas."
+        },
+        {
+          "tipo": "removido",
+          "texto": "\"Novas funções em breve\", \"salvo neste aparelho\" e código antigo da nuvem."
+        }
+      ]
+    },
+    {
+      "versao": "1.3.6",
+      "data": "2026-10-18",
+      "itens": [
+        {
+          "tipo": "adicionado",
+          "texto": "Tela Perfil: foto, apelido e aniversário."
+        },
+        {
+          "tipo": "mudado",
+          "texto": "Engrenagem saiu da tela de boas-vindas."
+        }
+      ]
+    },
+    {
+      "versao": "1.3.5",
+      "data": "2026-10-18",
+      "itens": [
+        {
+          "tipo": "adicionado",
+          "texto": "Tela Temas, com todas as opções de tema."
+        }
+      ]
+    },
+    {
+      "versao": "1.3.4",
+      "data": "2026-10-18",
+      "itens": [
+        {
+          "tipo": "adicionado",
+          "texto": "Tela Configurações."
+        },
+        {
+          "tipo": "mudado",
+          "texto": "Engrenagem saiu do canto do menu Funções."
+        }
+      ]
+    },
+    {
+      "versao": "1.3.3",
+      "data": "2026-10-18",
+      "itens": [
+        {
+          "tipo": "corrigido",
+          "texto": "Número da versão no canto não acompanhava as atualizações."
+        }
+      ]
+    },
+    {
+      "versao": "1.3.2",
+      "data": "2026-10-18",
+      "itens": [
+        {
+          "tipo": "adicionado",
+          "texto": "Tela Sincronizar: Wi-Fi, atualizações e cópia dos dados."
+        }
+      ]
+    },
+    {
+      "versao": "1.3.1",
+      "data": "2026-10-18",
+      "itens": [
+        {
+          "tipo": "adicionado",
+          "texto": "Cronômetro de expiração do QR de pareamento."
+        },
+        {
+          "tipo": "adicionado",
+          "texto": "Campo \"Meu aniversário\"."
+        },
+        {
+          "tipo": "mudado",
+          "texto": "Data de nascimento saiu do código público."
+        }
+      ]
+    },
+    {
+      "versao": "1.3.0",
+      "data": "2026-10-18",
+      "itens": [
+        {
+          "tipo": "adicionado",
+          "texto": "Atualização automática pelo GitHub, com assinatura digital e \"Voltar versão anterior\"."
+        }
+      ]
+    },
+    {
+      "versao": "1.2.2",
+      "data": "2026-10-18",
+      "itens": [
+        {
+          "tipo": "corrigido",
+          "texto": "\"QR expirou\" ao parear: a diferença de relógio entre PC e celular era recusada."
+        },
+        {
+          "tipo": "mudado",
+          "texto": "Mensagens de erro do pareamento mais claras."
+        }
+      ]
+    },
+    {
+      "versao": "1.2.1",
+      "data": "2026-10-18",
+      "itens": [
+        {
+          "tipo": "adicionado",
+          "texto": "Botão Sincronizar no menu Funções (a opção estava difícil de achar no app)."
+        }
+      ]
+    },
+    {
+      "versao": "1.2.0",
+      "data": "2026-10-18",
+      "itens": [
+        {
+          "tipo": "adicionado",
+          "texto": "Sincronização pelo Wi-Fi com QR code e criptografia."
+        },
+        {
+          "tipo": "mudado",
+          "texto": "Substituiu a sincronização pela nuvem."
+        }
+      ]
+    },
+    {
+      "versao": "1.1.1",
+      "data": "2026-10-18",
+      "itens": [
+        {
+          "tipo": "corrigido",
+          "texto": "A sincronização na nuvem baixava tudo a cada 20 segundos; passou a checar só quando há mudança."
+        }
+      ]
+    },
+    {
+      "versao": "1.1.0",
+      "data": "2026-10-18",
+      "itens": [
+        {
+          "tipo": "adicionado",
+          "texto": "App Android."
+        },
+        {
+          "tipo": "adicionado",
+          "texto": "Sincronização pela nuvem (Supabase)."
+        },
+        {
+          "tipo": "adicionado",
+          "texto": "Número da versão no canto."
+        },
+        {
+          "tipo": "adicionado",
+          "texto": "Tema de aniversário com animação de parabéns e confetes no calendário."
+        },
+        {
+          "tipo": "adicionado",
+          "texto": "Menu Funções."
+        },
+        {
+          "tipo": "adicionado",
+          "texto": "Calculadora."
+        },
+        {
+          "tipo": "adicionado",
+          "texto": "Relógios de Brasília e Manaus."
+        }
+      ]
+    },
+    {
+      "versao": "1.0.3",
+      "data": "2026-10-18",
+      "itens": [
+        {
+          "tipo": "adicionado",
+          "texto": "Calendário: repetir marcações, aniversários 🎂, ícones nos dias e feriados de Brasil, Amazonas e Manaus."
+        },
+        {
+          "tipo": "adicionado",
+          "texto": "Calendário em tela própria."
+        },
+        {
+          "tipo": "adicionado",
+          "texto": "Escolha entre Planilhas e Calendário depois de entrar."
+        },
+        {
+          "tipo": "adicionado",
+          "texto": "Desbloqueio por padrão."
+        },
+        {
+          "tipo": "adicionado",
+          "texto": "Ícone do Organizer no canto e na aba do navegador."
+        }
+      ]
+    },
+    {
+      "versao": "1.0.2",
+      "data": "2026-10-18",
+      "itens": [
+        {
+          "tipo": "adicionado",
+          "texto": "Tema Música já incluído no programa, com escolha de cor."
+        },
+        {
+          "tipo": "mudado",
+          "texto": "Temas importados vão direto para a área de temas."
+        }
+      ]
+    },
+    {
+      "versao": "1.0.1",
+      "data": "2026-10-18",
+      "itens": [
+        {
+          "tipo": "mudado",
+          "texto": "Versão de teste do sistema de atualização por arquivo."
+        }
+      ]
+    },
+    {
+      "versao": "1.0.0",
+      "data": "2026-10-18",
+      "itens": [
+        {
+          "tipo": "adicionado",
+          "texto": "Primeira versão do programa do Windows: importar tema, exportar/importar dados e atualização por arquivo."
+        }
+      ]
+    }
+  ]
+}
