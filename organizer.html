@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <style>body{margin:0;font:14px system-ui,-apple-system,"Segoe UI",sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Organizer</title>
-<meta name="organizer-versao" content="1.3.8">
+<meta name="organizer-versao" content="1.3.9">
 <link rel="icon" id="favicon" href="data:,">
 <meta name="claude:viewport-fit-sides" content="cover">
 <style>
@@ -1149,8 +1149,50 @@ button.gear[aria-expanded="true"] { color: var(--accent); border-color: var(--ac
 /* calendário como área própria (fora das planilhas) */
 body.cal-pagina .wrap, body.calc-pagina .wrap, body.sync-pagina .wrap { display: none; }
 .sync-area { position: relative; z-index: 5; display: grid; place-items: start center; min-height: 100vh; box-sizing: border-box; padding: 16px max(16px, env(safe-area-inset-right, 0px)) 16px max(16px, env(safe-area-inset-left, 0px)); }
-.sync-area[hidden], body:not(.sync-pagina) .sync-area:not(.cfg-area):not(.tem-area):not(.per-area), body:not(.cfg-pagina) .cfg-area, body:not(.temas-pagina) .tem-area, body:not(.perfil-pagina) .per-area { display: none; }
-body.perfil-pagina .wrap { display: none; }
+.sync-area[hidden], body:not(.sync-pagina) .sync-area:not(.cfg-area):not(.tem-area):not(.per-area):not(.not-area), body:not(.notas-pagina) .not-area, body:not(.cfg-pagina) .cfg-area, body:not(.temas-pagina) .tem-area, body:not(.perfil-pagina) .per-area { display: none; }
+body.perfil-pagina .wrap, body.notas-pagina .wrap { display: none; }
+/* Notas: a área de escrita é neutra (escura com texto branco ou branca com texto escuro, conforme o tema) */
+.notas-box { width: min(60rem, 100%); }
+#notasPag, .nota-editor { --nota-bg: #1e1e22; --nota-fg: #f2f2f2; --nota-sub: #a8a8b0; --nota-borda: #3a3a42; }
+#notasPag.notas-claro, .nota-editor.notas-claro { --nota-bg: #ffffff; --nota-fg: #1f1f1f; --nota-sub: #5f6368; --nota-borda: #dadce0; }
+.notas-busca { width: 100%; box-sizing: border-box; font: 500 .95rem var(--sans); color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; }
+.notas-criar { display: flex; gap: 8px; align-items: stretch; max-width: 36rem; width: 100%; margin: 0 auto; }
+.notas-criar-txt { flex: 1; text-align: left; justify-content: flex-start; font: 500 .95rem var(--sans); color: var(--nota-sub); background: var(--nota-bg); border: 1px solid var(--nota-borda); border-radius: 10px; padding: 12px 14px; box-shadow: 0 1px 4px rgba(0,0,0,.25); }
+.notas-sec { margin: 8px 2px 4px; font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.notas-col { column-width: 200px; column-gap: 10px; }
+.nota { break-inside: avoid; margin: 0 0 10px; position: relative; padding: 12px 12px 8px; border-radius: 10px; background: var(--nota-bg); color: var(--nota-fg); border: 1px solid var(--nota-borda);
+  border-top: 5px solid var(--nc, transparent); cursor: pointer; transition: box-shadow .15s, transform .15s; }
+.nota:hover, .nota:focus-visible { box-shadow: 0 4px 14px rgba(0,0,0,.3); }
+.nota h3 { margin: 0 0 6px; font-size: .98rem; overflow-wrap: anywhere; }
+.nota-texto { margin: 0; font-size: .88rem; white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.4; }
+.nota-lista { list-style: none; margin: 0; padding: 0; font-size: .86rem; display: flex; flex-direction: column; gap: 2px; }
+.nota-lista li { display: flex; gap: 6px; overflow-wrap: anywhere; } .nota-lista li.ok { text-decoration: line-through; color: var(--nota-sub); }
+.nota-acoes { display: flex; justify-content: flex-end; opacity: 0; transition: opacity .15s; }
+.nota:hover .nota-acoes, .nota:focus-within .nota-acoes { opacity: 1; }
+@media (hover: none) { .nota-acoes { opacity: .7; } }
+.nota-acoes button { background: transparent; border: 0; min-height: 0; padding: 2px 6px; font-size: 1rem; }
+.notas-vazio { text-align: center; color: var(--muted); padding: 30px 0; }
+.nota-editor { position: fixed; inset: 0; z-index: 70; display: grid; place-items: center; padding: 16px; background: rgba(0,0,0,.55); overflow-y: auto; }
+.nota-editor[hidden] { display: none; }
+.nota-folha { width: min(38rem, 100%); box-sizing: border-box; display: flex; flex-direction: column; gap: 8px; padding: 14px; border-radius: 12px; background: var(--nota-bg); color: var(--nota-fg);
+  border: 1px solid var(--nota-borda); border-top: 6px solid var(--nc, transparent); box-shadow: 0 16px 40px rgba(0,0,0,.45); }
+.nota-tit, .nota-txt, .nota-item input[type=text] { font-family: var(--sans) !important; background: transparent; color: var(--nota-fg); border: 0; outline: none; width: 100%; box-sizing: border-box; }
+.nota-tit { font-size: 1.15rem; font-weight: 600; padding: 4px 2px; }
+.nota-txt { font-size: .98rem; line-height: 1.5; resize: none; min-height: 160px; padding: 4px 2px; }
+.nota-tit::placeholder, .nota-txt::placeholder, .nota-item input::placeholder { color: var(--nota-sub); }
+.nota-itens { display: flex; flex-direction: column; gap: 2px; }
+.nota-item { display: flex; align-items: center; gap: 8px; } .nota-item.ok input[type=text] { text-decoration: line-through; color: var(--nota-sub); }
+.nota-item input[type=checkbox] { width: 18px; height: 18px; accent-color: var(--accent); flex: none; }
+.nota-item button { background: transparent; border: 0; color: var(--nota-sub); min-height: 0; padding: 2px 8px; font-size: 1.1rem; }
+.nota-add { align-self: flex-start; background: transparent !important; color: var(--nota-sub) !important; border: 0 !important; }
+.nota-quando { margin: 0; font-size: .74rem; color: var(--nota-sub); text-align: right; }
+.nota-cores { display: flex; flex-wrap: wrap; gap: 6px; }
+.nota-cores button { width: 24px; height: 24px; min-height: 0; padding: 0; border-radius: 50%; background: var(--c); border: 2px solid var(--nota-borda); }
+.nota-cores button[data-cor=""] { background: var(--nota-bg); border-style: dashed; }
+.nota-cores button.on { border-color: var(--nota-fg); box-shadow: 0 0 0 2px var(--accent); }
+.nota-barra { display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; }
+.nota-aviso { position: fixed; z-index: 75; left: 50%; bottom: 20px; translate: -50% 0; display: flex; gap: 12px; align-items: center; padding: 10px 14px; border-radius: 10px; background: var(--surface); border: 1px solid var(--line); box-shadow: 0 8px 24px rgba(0,0,0,.4); }
+.nota-aviso[hidden] { display: none; }
 .sync-area.per-area:not([hidden]) { display: grid; }
 .chave-linha { display: flex; justify-content: space-between; gap: 12px; font-size: .88rem; border-bottom: 1px solid var(--line); padding: 4px 0; }
 .chave-linha span { color: var(--muted); } .chave-linha b { text-align: right; }
@@ -1680,6 +1722,7 @@ html.troca-festa body, html.troca-festa .grid-box, html.troca-festa .calc, html.
         <button id="wIrCal" type="button"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><b>Calendário</b><small>Datas, notas e feriados</small></button>
         <button id="wIrCalc" type="button"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2.5" width="14" height="19" rx="2.5"/><rect x="8" y="5.5" width="8" height="4" rx="1"/><path d="M8.5 13h.01M12 13h.01M15.5 13h.01M8.5 16.5h.01M12 16.5h.01M15.5 16.5h.01"/></svg><b>Calculadora</b><small>Contas rápidas</small></button>
         <button id="wIrSync" type="button"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8.8a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16.1a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1" fill="currentColor"/></svg><b>Sincronizar</b><small>Celular ⇄ computador</small></button>
+        <button id="wIrNotas" type="button"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg><b>Notas</b><small>Lembretes e listas</small></button>
         <button id="wIrPerfil" type="button"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><b>Perfil</b><small>Foto, apelido e aniversário</small></button>
         <button id="wIrTemas" type="button"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 0 18c1.2 0 1.8-.8 1.8-1.7 0-.5-.2-.9-.5-1.2-.3-.3-.5-.7-.5-1.2 0-1 .8-1.7 1.8-1.7H17a4 4 0 0 0 4-4C21 6.6 17 3 12 3z"/><circle cx="7.5" cy="11" r="1.2" fill="currentColor"/><circle cx="10" cy="7" r="1.2" fill="currentColor"/><circle cx="14.5" cy="7" r="1.2" fill="currentColor"/><circle cx="17" cy="11" r="1.2" fill="currentColor"/></svg><b>Temas</b><small>Cores, editor e extras</small></button>
         <button id="wIrCfg" type="button"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><b>Configurações</b><small>Senha, segurança e mais</small></button>
@@ -1801,6 +1844,25 @@ html.troca-festa body, html.troca-festa .grid-box, html.troca-festa .calc, html.
   </div>
   <p class="set-note">Toca em repetição enquanto o tema Limbus estiver aberto. Fica guardada só neste aparelho.</p>
   <audio id="musica" loop preload="auto"></audio>
+</section>
+<section id="notasPag" class="sync-area not-area" aria-label="Notas" hidden>
+  <div class="calc-box sync-box notas-box"><i class="beam" aria-hidden="true"></i>
+    <div class="cal-pag-top"><button id="notFuncoes" class="small" aria-label="Voltar ao menu de funções"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg> Funções</button><strong>Notas</strong><button id="notParaPlan" class="small">Planilhas →</button></div>
+    <input id="notasBusca" class="notas-busca" type="search" placeholder="🔍 Pesquisar notas" autocomplete="off">
+    <div class="notas-criar"><button id="notaNova" type="button" class="notas-criar-txt">Criar uma nota…</button><button id="notaNovaLista" type="button" class="small" title="Nova lista" aria-label="Nova lista de tarefas">☑ Lista</button></div>
+    <div id="notasGrade"></div>
+  </div>
+  <div id="notaEditor" class="nota-editor" role="dialog" aria-label="Editar nota" hidden>
+    <div class="nota-folha">
+      <input id="notaTit" class="nota-tit" type="text" placeholder="Título" maxlength="120" autocomplete="off">
+      <textarea id="notaTxt" class="nota-txt" placeholder="Criar uma nota…"></textarea>
+      <div id="notaItens" class="nota-itens" hidden></div>
+      <p id="notaQuando" class="nota-quando"></p>
+      <div id="notaCores" class="nota-cores" role="group" aria-label="Cor da nota"></div>
+      <div class="nota-barra"><button id="notaFixar" type="button" class="small">📍 Fixar</button><button id="notaModo" type="button" class="small">Lista</button><button id="notaApagar" type="button" class="small danger">Apagar</button><button id="notaFechar" type="button" class="small primary">Fechar</button></div>
+    </div>
+  </div>
+  <div id="notaAviso" class="nota-aviso" hidden><span>Nota apagada.</span><button id="notaDesfazer" type="button" class="small">Desfazer</button></div>
 </section>
 <section id="perfilPag" class="sync-area per-area" aria-label="Perfil" hidden>
   <div class="calc-box sync-box"><i class="beam" aria-hidden="true"></i>
@@ -2760,7 +2822,7 @@ function welcomeTitle() {
 }
 function showWelcome() {
   unlocked = false;
-  if (document.body.classList.contains("cfg-pagina") && window.cfgPagina) window.cfgPagina(false); window.temaAlvo = "aba"; const tp = document.getElementById("temasPag"); if (tp) tp.hidden = true; const pp = document.getElementById("perfilPag"); if (pp) pp.hidden = true; document.body.classList.remove("cal-pagina", "calc-pagina", "sync-pagina", "cfg-pagina", "temas-pagina", "perfil-pagina", "em-funcoes"); const sp = document.getElementById("sincronizar"); if (sp) sp.hidden = true; const ca = document.getElementById("calculadora"); if (ca) ca.hidden = true; const cm = document.getElementById("calendario"); if (cm) cm.hidden = true;
+  if (document.body.classList.contains("cfg-pagina") && window.cfgPagina) window.cfgPagina(false); window.temaAlvo = "aba"; const tp = document.getElementById("temasPag"); if (tp) tp.hidden = true; const pp = document.getElementById("perfilPag"); if (pp) pp.hidden = true; const np = document.getElementById("notasPag"); if (np && !np.hidden && window.notasPagina) window.notasPagina(false); document.body.classList.remove("cal-pagina", "calc-pagina", "sync-pagina", "cfg-pagina", "temas-pagina", "perfil-pagina", "notas-pagina", "em-funcoes"); const sp = document.getElementById("sincronizar"); if (sp) sp.hidden = true; const ca = document.getElementById("calculadora"); if (ca) ca.hidden = true; const cm = document.getElementById("calendario"); if (cm) cm.hidden = true;
   const we = document.getElementById("wEscolha"); if (we) { we.hidden = true; W.form.hidden = false; }
   try { emFuncoes = false; } catch {} document.querySelector("#welcome .w-card").classList.remove("funcoes");
   if (padEntrada) padEntrada.limpa();
@@ -2857,6 +2919,7 @@ const wEscolha = document.getElementById("wEscolha");
 const fechaEscolha = () => { document.body.classList.remove("em-funcoes"); emFuncoes = false; document.querySelector("#welcome .w-card").classList.remove("funcoes"); wEscolha.hidden = true; mostraBloqueio(); };
 document.getElementById("wIrPlan").onclick = () => { fechaEscolha(); enter(); };
 document.getElementById("wIrCal").onclick = () => { fechaEscolha(); enter(); window.calPagina && window.calPagina(); };
+document.getElementById("wIrNotas").onclick = () => { fechaEscolha(); enter(); window.notasPagina(true); };
 window.perfilPagina = on => {
   document.body.classList.toggle("perfil-pagina", on !== false); document.getElementById("perfilPag").hidden = on === false;
   if (on !== false) { window.scrollTo(0, 0); perfilTopo(); }
@@ -3748,6 +3811,118 @@ showWelcome();
   document.getElementById("calcParaPlan").onclick = () => window.calcPagina(false);
 })();
 
+// Notas (inspirado no Google Keep): cartões, fixar, cores, listas de tarefas e busca
+(() => {
+  store.notas ||= [];
+  const el = id => document.getElementById(id);
+  const pag = el("notasPag"), grade = el("notasGrade"), busca = el("notasBusca");
+  const CORES = [["", "Sem cor"], ["#f28b82", "Coral"], ["#fbbc04", "Pêssego"], ["#fff475", "Areia"], ["#ccff90", "Menta"], ["#a7ffeb", "Sálvia"], ["#cbf0f8", "Névoa"], ["#aecbfa", "Tempestade"], ["#d7aefb", "Lavanda"], ["#fdcfe8", "Flor"], ["#e6c9a8", "Argila"]];
+  const novaId = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+  let aberta = null; // id da nota no editor
+  // fundo da escrita: escuro com texto branco ou branco com texto escuro, conforme o tema
+  function contraste() {
+    const s = document.createElement("i"); s.style.color = "var(--surface)"; document.body.appendChild(s);
+    const m = getComputedStyle(s).color.match(/\d+(\.\d+)?/g) || [0, 0, 0]; s.remove();
+    const [r, g, b] = m.map(Number), lum = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
+    pag.classList.toggle("notas-claro", lum > 0.5); el("notaEditor").classList.toggle("notas-claro", lum > 0.5);
+  }
+  new MutationObserver(contraste).observe(document.documentElement, { attributes: true, attributeFilter: ["data-tt", "data-ec", "style"] });
+  const quando = t => { const d = new Date(t), hoje = new Date(); return d.toDateString() === hoje.toDateString() ? "Editada às " + d.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" }) : "Editada em " + d.toLocaleDateString("pt-BR", { day: "2-digit", month: "short" }); };
+  const vazia = n => !n.titulo.trim() && !n.texto.trim() && !(n.itens || []).some(i => i.t.trim());
+  function cartao(n) {
+    const corpo = n.itens ? `<ul class="nota-lista">${n.itens.filter(i => i.t.trim()).slice(0, 8).map(i => `<li class="${i.ok ? "ok" : ""}"><span>${i.ok ? "☑" : "☐"}</span>${esc(i.t)}</li>`).join("")}</ul>`
+      : `<p class="nota-texto">${esc(n.texto.length > 500 ? n.texto.slice(0, 500) + "…" : n.texto)}</p>`;
+    return `<article class="nota" data-nota="${n.id}" tabindex="0" style="--nc:${n.cor || "transparent"}">${n.titulo ? `<h3>${esc(n.titulo)}</h3>` : ""}${corpo}
+      <div class="nota-acoes"><button class="small" data-fixar="${n.id}" title="${n.fixada ? "Desafixar" : "Fixar"}" aria-label="${n.fixada ? "Desafixar" : "Fixar"}">${n.fixada ? "📌" : "📍"}</button></div></article>`;
+  }
+  function desenhar() {
+    const q = busca.value.trim().toLowerCase();
+    const lista = store.notas.filter(n => !q || (n.titulo + " " + n.texto + " " + (n.itens || []).map(i => i.t).join(" ")).toLowerCase().includes(q))
+      .sort((a, b) => b.editada - a.editada);
+    const fix = lista.filter(n => n.fixada), out = lista.filter(n => !n.fixada);
+    grade.innerHTML = (fix.length ? `<h4 class="notas-sec">Fixadas</h4><div class="notas-col">${fix.map(cartao).join("")}</div>` : "")
+      + (out.length ? (fix.length ? `<h4 class="notas-sec">Outras</h4>` : "") + `<div class="notas-col">${out.map(cartao).join("")}</div>` : "")
+      + (!lista.length ? `<p class="notas-vazio">${q ? "Nenhuma nota encontrada." : "💡 Suas notas aparecem aqui."}</p>` : "");
+  }
+  // ---------- editor ----------
+  const ed = el("notaEditor"), edTit = el("notaTit"), edTxt = el("notaTxt"), edLista = el("notaItens");
+  function abrir(id) {
+    const n = store.notas.find(x => x.id === id); if (!n) return;
+    aberta = id; ed.hidden = false; contraste();
+    edTit.value = n.titulo; edTxt.value = n.texto;
+    edTxt.hidden = !!n.itens; edLista.hidden = !n.itens; if (n.itens) desenhaItens(n);
+    el("notaModo").textContent = n.itens ? "Texto" : "Lista";
+    el("notaFixar").textContent = n.fixada ? "📌 Fixada" : "📍 Fixar";
+    el("notaCores").innerHTML = CORES.map(([c, nome]) => `<button type="button" data-cor="${c}" title="${nome}" aria-label="${nome}" class="${(n.cor || "") === c ? "on" : ""}" style="--c:${c || "transparent"}"></button>`).join("");
+    el("notaQuando").textContent = quando(n.editada);
+    ed.style.setProperty("--nc", n.cor || "transparent");
+    requestAnimationFrame(() => { cresce(); (n.titulo || n.texto || n.itens ? (n.itens ? null : edTxt) : edTit)?.focus(); });
+  }
+  function fechar() {
+    if (!aberta) return; const n = store.notas.find(x => x.id === aberta);
+    if (n && vazia(n)) store.notas = store.notas.filter(x => x.id !== n.id);
+    aberta = null; ed.hidden = true; save(); desenhar();
+  }
+  const atual = () => store.notas.find(x => x.id === aberta);
+  const mudou = () => { const n = atual(); if (!n) return; n.editada = Date.now(); el("notaQuando").textContent = quando(n.editada); save(); };
+  const cresce = () => { edTxt.style.height = "auto"; edTxt.style.height = Math.max(160, edTxt.scrollHeight) + "px"; };
+  edTit.addEventListener("input", () => { atual().titulo = edTit.value; mudou(); });
+  edTxt.addEventListener("input", () => { atual().texto = edTxt.value; cresce(); mudou(); });
+  function desenhaItens(n) {
+    edLista.innerHTML = n.itens.map((i, k) => `<div class="nota-item${i.ok ? " ok" : ""}"><input type="checkbox" data-ok="${k}" ${i.ok ? "checked" : ""} aria-label="Feito"><input type="text" data-t="${k}" value="${esc(i.t)}" placeholder="Item"><button type="button" class="small" data-rem="${k}" aria-label="Remover item">×</button></div>`).join("")
+      + `<button type="button" class="small nota-add" data-add>+ Item</button>`;
+  }
+  edLista.addEventListener("input", e => { const k = e.target.dataset.t; if (k == null) return; atual().itens[+k].t = e.target.value; mudou(); });
+  edLista.addEventListener("change", e => { const k = e.target.dataset.ok; if (k == null) return; const n = atual(); n.itens[+k].ok = e.target.checked; e.target.parentNode.classList.toggle("ok", e.target.checked); mudou(); });
+  edLista.addEventListener("keydown", e => { if (e.key === "Enter" && e.target.dataset.t != null) { e.preventDefault(); const n = atual(); n.itens.splice(+e.target.dataset.t + 1, 0, { t: "", ok: false }); desenhaItens(n); mudou(); edLista.querySelector(`[data-t="${+e.target.dataset.t + 1}"]`).focus(); } });
+  edLista.addEventListener("click", e => {
+    const n = atual();
+    if (e.target.closest("[data-add]")) { n.itens.push({ t: "", ok: false }); desenhaItens(n); mudou(); edLista.querySelector(`[data-t="${n.itens.length - 1}"]`).focus(); return; }
+    const r = e.target.closest("[data-rem]"); if (r) { n.itens.splice(+r.dataset.rem, 1); if (!n.itens.length) n.itens.push({ t: "", ok: false }); desenhaItens(n); mudou(); }
+  });
+  el("notaModo").onclick = () => {
+    const n = atual();
+    if (n.itens) { n.texto = n.itens.map(i => (i.ok ? "[x] " : "") + i.t).filter(Boolean).join("\n"); delete n.itens; }
+    else { n.itens = n.texto.split("\n").map(t => ({ t: t.replace(/^\[x\] /, ""), ok: /^\[x\] /.test(t) })).filter(i => i.t.trim()); if (!n.itens.length) n.itens.push({ t: "", ok: false }); n.texto = ""; }
+    mudou(); abrir(n.id);
+  };
+  el("notaFixar").onclick = () => { const n = atual(); n.fixada = !n.fixada; el("notaFixar").textContent = n.fixada ? "📌 Fixada" : "📍 Fixar"; mudou(); };
+  el("notaCores").addEventListener("click", e => { const b = e.target.closest("[data-cor]"); if (!b) return; atual().cor = b.dataset.cor; ed.style.setProperty("--nc", b.dataset.cor || "transparent"); el("notaCores").querySelectorAll("button").forEach(x => x.classList.toggle("on", x === b)); mudou(); });
+  let desfazer = null;
+  el("notaApagar").onclick = () => {
+    const n = atual(); if (!n) return; const pos = store.notas.indexOf(n);
+    store.notas.splice(pos, 1); aberta = null; ed.hidden = true; save(); desenhar();
+    if (!vazia(n)) { desfazer = { n, pos }; el("notaAviso").hidden = false; clearTimeout(desfazer.t); desfazer.t = setTimeout(() => { el("notaAviso").hidden = true; desfazer = null; }, 6000); }
+  };
+  el("notaDesfazer").onclick = () => { if (!desfazer) return; store.notas.splice(desfazer.pos, 0, desfazer.n); save(); desenhar(); el("notaAviso").hidden = true; desfazer = null; };
+  el("notaFechar").onclick = fechar;
+  ed.addEventListener("click", e => { if (e.target === ed) fechar(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && !ed.hidden) fechar(); });
+  // ---------- criar e abrir ----------
+  function criar(lista) {
+    const n = { id: novaId(), titulo: "", texto: "", cor: "", fixada: false, criada: Date.now(), editada: Date.now() };
+    if (lista) n.itens = [{ t: "", ok: false }];
+    store.notas.unshift(n); abrir(n.id);
+    if (lista) setTimeout(() => edLista.querySelector('[data-t="0"]').focus(), 30);
+  }
+  el("notaNova").onclick = () => criar(false);
+  el("notaNovaLista").onclick = () => criar(true);
+  grade.addEventListener("click", e => {
+    const f = e.target.closest("[data-fixar]");
+    if (f) { const n = store.notas.find(x => x.id === f.dataset.fixar); n.fixada = !n.fixada; save(); desenhar(); return; }
+    const c = e.target.closest("[data-nota]"); if (c) abrir(c.dataset.nota);
+  });
+  grade.addEventListener("keydown", e => { if (e.key === "Enter" && e.target.dataset.nota) abrir(e.target.dataset.nota); });
+  busca.addEventListener("input", desenhar);
+  window.notasPagina = on => {
+    document.body.classList.toggle("notas-pagina", on !== false); pag.hidden = on === false;
+    if (on !== false) { window.scrollTo(0, 0); contraste(); desenhar(); } else fechar();
+  };
+  window.notasRedesenhar = () => { if (!pag.hidden) { if (aberta && !store.notas.some(n => n.id === aberta)) { aberta = null; ed.hidden = true; } if (!aberta) desenhar(); } };
+  el("notFuncoes").onclick = () => { window.notasPagina(false); irFuncoes(); };
+  el("notParaPlan").onclick = () => window.notasPagina(false);
+})();
+
 // Parabéns: no dia do aniversário, confetes caem, a idade vira e o tema especial entra
 function soltaConfete(canvas, ms) {
   const ctx = canvas.getContext("2d"), dpr = Math.min(2, window.devicePixelRatio || 1);
@@ -3917,7 +4092,7 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
     store = Object.assign(novo, { musicaTocando: store.musicaTocando, active: Math.min(store.active || 0, (novo.tabs || [1]).length - 1) });
     try { localStorage.setItem(KEY, JSON.stringify(store)); } catch {}
     const y = scrollY;
-    try { applyTheme(); renderWelcomeSettings(); renderAvatar(); if (window.atualizaMeuAniver) window.atualizaMeuAniver(); if (unlocked) { mountTab(); renderTabs(); } else if (inMenu()) welcomeTitle(); } catch (e) { console.warn(e); }
+    try { applyTheme(); renderWelcomeSettings(); renderAvatar(); if (window.atualizaMeuAniver) window.atualizaMeuAniver(); if (window.notasRedesenhar) window.notasRedesenhar(); if (unlocked) { mountTab(); renderTabs(); } else if (inMenu()) welcomeTitle(); } catch (e) { console.warn(e); }
     scrollTo(0, y);
     if (!el("calendario").hidden) el("calHoje").click();
   }

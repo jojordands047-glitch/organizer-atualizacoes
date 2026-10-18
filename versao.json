@@ -1,7 +1,7 @@
 {
   "conteudo": {
-    "versao": "1.3.8",
-    "novidades": "Senha e padrão de entrada removidos; nova aba Chave de assinatura no Perfil, com contagem da validade do certificado do app.",
+    "versao": "1.3.9",
+    "novidades": "Nova função Notas no menu Funções (estilo Google Keep): notas, listas de tarefas, cores, fixar e busca.",
     "arquivo": "organizer.html",
     "assinatura": "organizer.html.sig",
     "minimoPrograma": "1.3.0",
