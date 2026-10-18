@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <style>body{margin:0;font:14px system-ui,-apple-system,"Segoe UI",sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Organizer</title>
-<meta name="organizer-versao" content="1.3.4">
+<meta name="organizer-versao" content="1.3.5">
 <link rel="icon" id="favicon" href="data:,">
 <meta name="claude:viewport-fit-sides" content="cover">
 <style>
@@ -1150,7 +1150,12 @@ button.gear[aria-expanded="true"] { color: var(--accent); border-color: var(--ac
 /* calendário como área própria (fora das planilhas) */
 body.cal-pagina .wrap, body.calc-pagina .wrap, body.sync-pagina .wrap { display: none; }
 .sync-area { position: relative; z-index: 5; display: grid; place-items: start center; min-height: 100vh; box-sizing: border-box; padding: 16px max(16px, env(safe-area-inset-right, 0px)) 16px max(16px, env(safe-area-inset-left, 0px)); }
-.sync-area[hidden], body:not(.sync-pagina) .sync-area:not(.cfg-area), body:not(.cfg-pagina) .cfg-area { display: none; }
+.sync-area[hidden], body:not(.sync-pagina) .sync-area:not(.cfg-area):not(.tem-area), body:not(.cfg-pagina) .cfg-area, body:not(.temas-pagina) .tem-area { display: none; }
+body.temas-pagina .wrap { display: none; }
+.tem-alvo { display: flex; gap: 6px; padding: 4px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); }
+.tem-alvo label { flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 8px; border-radius: 8px; cursor: pointer; font-size: .88rem; }
+.tem-alvo input { position: absolute; opacity: 0; pointer-events: none; }
+.tem-alvo label:has(input:checked) { background: var(--accent); color: var(--surface); font-weight: 600; }
 body.cfg-pagina .wrap { display: none; }
 #cfgBox .settings { position: static; width: 100%; max-height: none; box-shadow: none; border: 0; padding: 0; background: transparent; margin: 0; }
 #cfgBox .settings > .set-head, #cfgBox .settings > .beam { display: none; }
@@ -1661,7 +1666,8 @@ html.troca-festa body, html.troca-festa .grid-box, html.troca-festa .calc, html.
         <button id="wIrCal" type="button"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><b>Calendário</b><small>Datas, notas e feriados</small></button>
         <button id="wIrCalc" type="button"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2.5" width="14" height="19" rx="2.5"/><rect x="8" y="5.5" width="8" height="4" rx="1"/><path d="M8.5 13h.01M12 13h.01M15.5 13h.01M8.5 16.5h.01M12 16.5h.01M15.5 16.5h.01"/></svg><b>Calculadora</b><small>Contas rápidas</small></button>
         <button id="wIrSync" type="button"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8.8a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16.1a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1" fill="currentColor"/></svg><b>Sincronizar</b><small>Celular ⇄ computador</small></button>
-        <button id="wIrCfg" type="button"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><b>Configurações</b><small>Temas, senha e mais</small></button>
+        <button id="wIrTemas" type="button"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 0 18c1.2 0 1.8-.8 1.8-1.7 0-.5-.2-.9-.5-1.2-.3-.3-.5-.7-.5-1.2 0-1 .8-1.7 1.8-1.7H17a4 4 0 0 0 4-4C21 6.6 17 3 12 3z"/><circle cx="7.5" cy="11" r="1.2" fill="currentColor"/><circle cx="10" cy="7" r="1.2" fill="currentColor"/><circle cx="14.5" cy="7" r="1.2" fill="currentColor"/><circle cx="17" cy="11" r="1.2" fill="currentColor"/></svg><b>Temas</b><small>Cores, editor e extras</small></button>
+        <button id="wIrCfg" type="button"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><b>Configurações</b><small>Senha, perfil e mais</small></button>
         <div class="fx-breve" aria-hidden="true"><b>＋</b><small>Novas funções em breve</small></div>
       </div>
       <button id="wSairEsc" class="w-esc-sair" type="button">Sair</button>
@@ -1724,34 +1730,6 @@ html.troca-festa body, html.troca-festa .grid-box, html.troca-festa .calc, html.
 
   <section class="settings" id="settings" aria-label="Configurações" hidden><i class="beam" aria-hidden="true"></i>
     <div class="set-head"><strong>Configurações</strong><button id="closeSet">Fechar</button></div>
-    <section class="custom-ed" id="customEd" hidden>
-      <div class="set-row"><span class="set-lbl">Tema personalizado: suas cores</span><button id="customReset" class="small">Restaurar</button></div>
-      <div class="cp" data-v="--bg" aria-hidden="true">
-        <div class="cp-top"><b class="cp-title" data-v="--accent">Salário 1</b><span class="cp-btn" data-v="--accent">+ Linha</span><span class="cp-soft" data-v="--accent-soft">aba</span></div>
-        <div class="cp-box" data-v="--surface --line --beam"><i class="cp-beam" data-v="--beam"></i>
-          <div class="cp-r cp-head" data-v="--head"><span class="cp-muted" data-v="--muted">Gasto</span><span class="cp-muted" data-v="--muted">Valor</span><span class="cp-tot" data-v="--total">Total</span></div>
-          <div class="cp-r"><span class="cp-txt" data-v="--fg"><i class="cp-chip alta" data-v="--p-alta-bg --p-alta">ALTA</i>Aluguel</span><span class="cp-txt" data-v="--fg">1.200</span><span class="cp-tot" data-v="--total">1.200</span></div>
-          <div class="cp-r"><span class="cp-txt" data-v="--fg"><i class="cp-chip media" data-v="--p-media-bg --p-media">MÉDIA</i>Mercado</span><span class="cp-txt" data-v="--fg">650</span><span class="cp-tot" data-v="--total">650</span></div>
-          <div class="cp-r"><span class="cp-txt" data-v="--fg"><i class="cp-chip baixa" data-v="--p-baixa-bg --p-baixa">BAIXA</i>Internet</span><span class="cp-txt" data-v="--fg">99</span><span class="cp-tot" data-v="--total">99</span></div>
-          <div class="cp-cores"><i data-v="--row-amarelo" style="background:var(--row-amarelo)"></i><i data-v="--row-verde" style="background:var(--row-verde)"></i><i data-v="--row-azul" style="background:var(--row-azul)"></i><i data-v="--row-rosa" style="background:var(--row-rosa)"></i><i data-v="--row-roxo" style="background:var(--row-roxo)"></i><i data-v="--row-laranja" style="background:var(--row-laranja)"></i></div>
-          <div class="cp-r cp-foot"><span class="cp-neg" data-v="--danger">Faltam 52,00</span><span></span><span class="cp-grand" data-v="--grand-bg --grand-fg">1.949</span></div>
-        </div>
-      </div>
-      <div class="custom-grid" id="customGrid"></div>
-      <p class="custom-aviso" id="customAviso" hidden></p>
-      <p class="set-note">Toque em qualquer cor para escolher a que quiser. Muda na hora e fica salvo. Este quadro sempre fica legível, para você nunca perder o controle das cores.</p>
-    </section>
-    <div class="set-row"><span class="set-lbl" id="themeLbl">Tema desta aba</span><button id="editThemes" class="small">Editar temas</button></div>
-    <div class="so-musica"><span class="set-lbl">Cor do tema Música</span><div class="mu-cores" role="group" aria-label="Cor do tema Música"></div></div>
-    <div class="themes" id="themes" role="group" aria-label="Tema da aba"></div>
-    <label class="set-field" for="unifyOn"><input id="unifyOn" type="checkbox"> Usar um único tema em todas as planilhas e no menu</label>
-    <div><button id="restoreThemes" class="small" hidden>Restaurar temas excluídos</button></div>
-    <div class="tm-box">
-      <span class="set-lbl">Menu do tema <b id="tmName"></b></span>
-      <label class="tm-field" for="tmTitle">Título<input id="tmTitle" type="text" maxlength="60" autocomplete="off"></label>
-      <label class="tm-field" for="tmText">Mensagem<textarea id="tmText" rows="2" maxlength="240"></textarea></label>
-      <p class="set-note">Cada tema guarda o seu. Em branco, usa o padrão. Escreva {apelido} para incluir seu apelido.</p>
-    </div>
     <span class="set-lbl">Planilhas</span>
     <label class="set-field" for="rowColorsOn"><input id="rowColorsOn" type="checkbox"> Mostrar a opção de cor das linhas</label>
     <span class="set-lbl">Tela de boas-vindas</span>
@@ -1773,12 +1751,8 @@ html.troca-festa body, html.troca-festa .grid-box, html.troca-festa .calc, html.
         <div id="padraoNovo" class="padrao" hidden><p class="padrao-dica" id="padraoNovoDica"></p><div id="padraoNovoPad" class="padrao-pad"></div><button id="padraoCancelar" class="small" type="button">Cancelar</button></div>
       </div>
     </div>
+    <button id="abrirTemas" class="small so-dentro">🎨 Temas: cores, editor, temas extras e aniversário →</button>
     <button id="abrirSync" class="small so-dentro">📶 Sincronizar, atualizações e cópia dos dados →</button>
-    <section class="org-area" id="orgArea">
-      <span class="set-lbl">Temas extras</span>
-      <div class="set-field"><label class="file-btn small" for="temaArq">Importar tema<input id="temaArq" type="file" accept=".json,.organizer-tema,application/json"></label></div>
-      <div id="temasExtrasLista" class="org-lista" hidden></div>
-    </section>
     <section class="cripto-area" id="criptoArea">
       <span class="set-lbl">Criptografar textos</span>
       <p class="set-note" id="criptoInfo">Troca a fonte de tudo pelos sigilos, em todos os temas. Para voltar, é preciso a mesma senha.</p>
@@ -1788,11 +1762,7 @@ html.troca-festa body, html.troca-festa .grid-box, html.troca-festa .calc, html.
       </div>
       <p class="cripto-erro" id="criptoErro" role="alert"></p>
     </section>
-    <div><button id="customResetGeral" class="small">Restaurar cores do tema Personalizado</button></div>
     <div class="so-dentro"><button id="wLock" class="small">Voltar para a tela de boas-vindas</button></div>
-    <label class="set-field" for="meuAniver">🎂 Meu aniversário <input id="meuAniver" type="date" min="1900-01-01" max="2100-12-31"></label>
-    <p class="set-note">No dia, o Organizer entra no tema especial de aniversário. A data fica só nos seus aparelhos.</p>
-    <div><button id="aniverTeste" class="small">🎂 Testar aniversário</button></div>
     <span class="set-lbl so-dentro">Aba</span>
     <div class="confirm so-dentro">
       <button id="delTabBtn" class="danger">Excluir esta aba</button>
@@ -1828,6 +1798,54 @@ html.troca-festa body, html.troca-festa .grid-box, html.troca-festa .calc, html.
   </div>
   <p class="set-note">Toca em repetição enquanto o tema Limbus estiver aberto. Fica guardada só neste aparelho.</p>
   <audio id="musica" loop preload="auto"></audio>
+</section>
+<section id="temasPag" class="sync-area tem-area" aria-label="Temas" hidden>
+  <div class="calc-box sync-box"><i class="beam" aria-hidden="true"></i>
+    <div class="cal-pag-top"><button id="temFuncoes" class="small" aria-label="Voltar ao menu de funções"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg> Funções</button><strong>Temas</strong><button id="temParaPlan" class="small">Planilhas →</button></div>
+    <div class="tem-alvo" role="radiogroup" aria-label="Onde aplicar o tema"><label><input type="radio" name="temAlvo" value="aba" checked> Esta aba</label><label><input type="radio" name="temAlvo" value="menu"> Tela inicial e menu</label></div>
+    <section class="org-area sync-card">
+    <div class="set-row"><span class="set-lbl" id="themeLbl">Tema desta aba</span><button id="editThemes" class="small">Editar temas</button></div>
+    <div class="so-musica"><span class="set-lbl">Cor do tema Música</span><div class="mu-cores" role="group" aria-label="Cor do tema Música"></div></div>
+    <div class="themes" id="themes" role="group" aria-label="Tema da aba"></div>
+    <label class="set-field" for="unifyOn"><input id="unifyOn" type="checkbox"> Usar um único tema em todas as planilhas e no menu</label>
+    <div><button id="restoreThemes" class="small" hidden>Restaurar temas excluídos</button></div>
+    <div class="tm-box">
+      <span class="set-lbl">Menu do tema <b id="tmName"></b></span>
+      <label class="tm-field" for="tmTitle">Título<input id="tmTitle" type="text" maxlength="60" autocomplete="off"></label>
+      <label class="tm-field" for="tmText">Mensagem<textarea id="tmText" rows="2" maxlength="240"></textarea></label>
+      <p class="set-note">Cada tema guarda o seu. Em branco, usa o padrão. Escreva {apelido} para incluir seu apelido.</p>
+    </div>
+    </section>
+    <section class="custom-ed" id="customEd" hidden>
+      <div class="set-row"><span class="set-lbl">Tema personalizado: suas cores</span><button id="customReset" class="small">Restaurar</button></div>
+      <div class="cp" data-v="--bg" aria-hidden="true">
+        <div class="cp-top"><b class="cp-title" data-v="--accent">Salário 1</b><span class="cp-btn" data-v="--accent">+ Linha</span><span class="cp-soft" data-v="--accent-soft">aba</span></div>
+        <div class="cp-box" data-v="--surface --line --beam"><i class="cp-beam" data-v="--beam"></i>
+          <div class="cp-r cp-head" data-v="--head"><span class="cp-muted" data-v="--muted">Gasto</span><span class="cp-muted" data-v="--muted">Valor</span><span class="cp-tot" data-v="--total">Total</span></div>
+          <div class="cp-r"><span class="cp-txt" data-v="--fg"><i class="cp-chip alta" data-v="--p-alta-bg --p-alta">ALTA</i>Aluguel</span><span class="cp-txt" data-v="--fg">1.200</span><span class="cp-tot" data-v="--total">1.200</span></div>
+          <div class="cp-r"><span class="cp-txt" data-v="--fg"><i class="cp-chip media" data-v="--p-media-bg --p-media">MÉDIA</i>Mercado</span><span class="cp-txt" data-v="--fg">650</span><span class="cp-tot" data-v="--total">650</span></div>
+          <div class="cp-r"><span class="cp-txt" data-v="--fg"><i class="cp-chip baixa" data-v="--p-baixa-bg --p-baixa">BAIXA</i>Internet</span><span class="cp-txt" data-v="--fg">99</span><span class="cp-tot" data-v="--total">99</span></div>
+          <div class="cp-cores"><i data-v="--row-amarelo" style="background:var(--row-amarelo)"></i><i data-v="--row-verde" style="background:var(--row-verde)"></i><i data-v="--row-azul" style="background:var(--row-azul)"></i><i data-v="--row-rosa" style="background:var(--row-rosa)"></i><i data-v="--row-roxo" style="background:var(--row-roxo)"></i><i data-v="--row-laranja" style="background:var(--row-laranja)"></i></div>
+          <div class="cp-r cp-foot"><span class="cp-neg" data-v="--danger">Faltam 52,00</span><span></span><span class="cp-grand" data-v="--grand-bg --grand-fg">1.949</span></div>
+        </div>
+      </div>
+      <div class="custom-grid" id="customGrid"></div>
+      <p class="custom-aviso" id="customAviso" hidden></p>
+      <p class="set-note">Toque em qualquer cor para escolher a que quiser. Muda na hora e fica salvo. Este quadro sempre fica legível, para você nunca perder o controle das cores.</p>
+    </section>
+    <section class="org-area sync-card">
+      <span class="set-lbl">🎂 Tema de aniversário</span>
+    <label class="set-field" for="meuAniver">🎂 Meu aniversário <input id="meuAniver" type="date" min="1900-01-01" max="2100-12-31"></label>
+    <p class="set-note">No dia, o Organizer entra no tema especial de aniversário. A data fica só nos seus aparelhos.</p>
+    <div><button id="aniverTeste" class="small">🎂 Testar aniversário</button></div>
+    </section>
+    <section class="org-area sync-card" id="orgArea">
+      <span class="set-lbl">Temas extras</span>
+      <div class="set-field"><label class="file-btn small" for="temaArq">Importar tema<input id="temaArq" type="file" accept=".json,.organizer-tema,application/json"></label></div>
+      <div id="temasExtrasLista" class="org-lista" hidden></div>
+    </section>
+    <div><button id="customResetGeral" class="small">Restaurar cores do tema Personalizado</button></div>
+  </div>
 </section>
 <section id="configuracoes" class="sync-area cfg-area" aria-label="Configurações" hidden>
   <div class="calc-box sync-box" id="cfgBox"><i class="beam" aria-hidden="true"></i>
@@ -2418,7 +2436,7 @@ const idadeEm = (d = new Date()) => { const n = nascDe(); if (!n) return 0; retu
 let festaAtiva = false;
 const currentTheme = () => okTheme(store.unifiedTheme ? store.globalTheme : (tab().theme || "verde"));
 const menuTheme = () => okTheme(store.unifiedTheme ? store.globalTheme : (store.welcome && store.welcome.theme));
-const shownTheme = () => inMenu() ? menuTheme() : currentTheme();
+const shownTheme = () => (inMenu() || window.temaAlvo === "menu") ? menuTheme() : currentTheme();
 // pastas de temas: cada tema fica em no máximo uma pasta; os que não estão em nenhuma aparecem em "Sem pasta"
 store.themeFolders ||= [
   { id: "p1", nome: "Ordem Paranormal", aberta: true, temas: ["verde", "energia", "conhecimento", "morte", "sangue"] },
@@ -2442,7 +2460,7 @@ function alternaPasta(id) {
 }
 function applyTheme() {
   const t = shownTheme();
-  document.getElementById("themeLbl").textContent = store.unifiedTheme ? "Tema de tudo (planilhas e menu)" : inMenu() ? "Tema do menu" : "Tema desta aba";
+  document.getElementById("themeLbl").textContent = store.unifiedTheme ? "Tema de tudo (planilhas e menu)" : (inMenu() || window.temaAlvo === "menu") ? "Tema da tela inicial e do menu" : "Tema desta aba";
   document.documentElement.dataset.tt = festaAtiva ? "aniver" : t;
   const dot = (a, b) => `<span class="dot" style="background: linear-gradient(135deg, ${a} 50%, ${b} 50%)"></span>`;
   const vis = visibleThemes();
@@ -2503,7 +2521,7 @@ themesEl.addEventListener("click", e => {
   const b = e.target.closest("button[data-tt]"); if (!b) return;
   const id = b.dataset.tt;
   if (store.unifiedTheme) store.globalTheme = id;
-  else if (inMenu()) store.welcome.theme = id;
+  else if (inMenu() || window.temaAlvo === "menu") store.welcome.theme = id;
   else tab().theme = id;
   applyTheme(); save();
   if (inMenu()) welcomeTitle();
@@ -2703,7 +2721,7 @@ function welcomeTitle() {
 }
 function showWelcome() {
   unlocked = false;
-  if (document.body.classList.contains("cfg-pagina") && window.cfgPagina) window.cfgPagina(false); document.body.classList.remove("cal-pagina", "calc-pagina", "sync-pagina", "cfg-pagina", "em-funcoes"); const sp = document.getElementById("sincronizar"); if (sp) sp.hidden = true; const ca = document.getElementById("calculadora"); if (ca) ca.hidden = true; const cm = document.getElementById("calendario"); if (cm) cm.hidden = true;
+  if (document.body.classList.contains("cfg-pagina") && window.cfgPagina) window.cfgPagina(false); window.temaAlvo = "aba"; const tp = document.getElementById("temasPag"); if (tp) tp.hidden = true; document.body.classList.remove("cal-pagina", "calc-pagina", "sync-pagina", "cfg-pagina", "temas-pagina", "em-funcoes"); const sp = document.getElementById("sincronizar"); if (sp) sp.hidden = true; const ca = document.getElementById("calculadora"); if (ca) ca.hidden = true; const cm = document.getElementById("calendario"); if (cm) cm.hidden = true;
   const we = document.getElementById("wEscolha"); if (we) { we.hidden = true; W.form.hidden = false; }
   try { emFuncoes = false; } catch {} document.querySelector("#welcome .w-card").classList.remove("funcoes");
   if (padEntrada) padEntrada.limpa();
@@ -2801,6 +2819,16 @@ const fechaEscolha = () => { document.body.classList.remove("em-funcoes"); emFun
 document.getElementById("funcBtn").onclick = () => irFuncoes();
 document.getElementById("wIrPlan").onclick = () => { fechaEscolha(); enter(); };
 document.getElementById("wIrCal").onclick = () => { fechaEscolha(); enter(); window.calPagina && window.calPagina(); };
+window.temasPagina = on => {
+  document.body.classList.toggle("temas-pagina", on !== false); document.getElementById("temasPag").hidden = on === false;
+  window.temaAlvo = "aba"; document.querySelectorAll('input[name="temAlvo"]').forEach(r => r.checked = r.value === "aba");
+  applyTheme(); if (on !== false) window.scrollTo(0, 0);
+};
+document.querySelectorAll('input[name="temAlvo"]').forEach(r => r.addEventListener("change", () => { window.temaAlvo = r.value; applyTheme(); }));
+document.getElementById("wIrTemas").onclick = () => { fechaEscolha(); enter(); window.temasPagina(true); };
+document.getElementById("temFuncoes").onclick = () => { window.temasPagina(false); irFuncoes(); };
+document.getElementById("temParaPlan").onclick = () => window.temasPagina(false);
+document.getElementById("abrirTemas").onclick = () => { if (document.body.classList.contains("cfg-pagina")) window.cfgPagina(false); toggleSettings(false); if (inMenu()) enter(); window.temasPagina(true); };
 window.cfgPagina = on => {
   const sec = document.getElementById("configuracoes");
   document.body.classList.toggle("cfg-pagina", on !== false); sec.hidden = on === false;
