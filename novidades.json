@@ -2,6 +2,24 @@
  "formato": "organizer-novidades",
  "versoes": [
   {
+   "versao": "1.5.3",
+   "data": "2026-10-18",
+   "itens": [
+    {
+     "tipo": "adicionado",
+     "texto": "Novidades: clique no número da versão (canto inferior direito) para ver a lista de todas as versões e o que mudou em cada uma."
+    },
+    {
+     "tipo": "adicionado",
+     "texto": "Filtros na lista de novidades: Adicionado, Corrigido, Mudado e Removido."
+    },
+    {
+     "tipo": "adicionado",
+     "texto": "Link \"ver novidades\" em Sincronizar, ao lado da versão em uso (funciona também no celular)."
+    }
+   ]
+  },
+  {
    "versao": "1.5.2",
    "data": "2026-10-18",
    "itens": [

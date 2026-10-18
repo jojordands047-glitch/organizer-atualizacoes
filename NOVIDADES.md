@@ -2,6 +2,11 @@
 
 ➕ adicionado · 🔧 corrigido · 🔄 mudado · ➖ removido
 
+## 1.5.3 — 18/10/2026
+- ➕ Novidades: clique no número da versão (canto inferior direito) para ver a lista de todas as versões e o que mudou em cada uma.
+- ➕ Filtros na lista de novidades: Adicionado, Corrigido, Mudado e Removido.
+- ➕ Link "ver novidades" em Sincronizar, ao lado da versão em uso (funciona também no celular).
+
 ## 1.5.2 — 18/10/2026
 - 🔄 Barras de rolagem na cor do tema, finas e arredondadas.
 - ➕ Botão Boas-vindas na barra de baixo (PC) e na folha Mais (celular).

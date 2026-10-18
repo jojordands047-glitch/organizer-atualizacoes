@@ -1,7 +1,7 @@
 {
   "conteudo": {
-    "versao": "1.5.2",
-    "novidades": "Barras de rolagem na cor do tema, dentro da janela; botão Boas-vindas na barra de baixo; brilho das bordas alinhado.",
+    "versao": "1.5.3",
+    "novidades": "Novidades: clique no número da versão para ver a lista de todas as atualizações.",
     "arquivo": "organizer.html",
     "assinatura": "organizer.html.sig",
     "minimoPrograma": "1.3.0",
