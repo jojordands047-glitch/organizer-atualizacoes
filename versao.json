@@ -8,9 +8,9 @@
     "minimoApp": "1.3.0"
   },
   "app": {
-    "versao": "1.6.0",
-    "url": "https://raw.githubusercontent.com/jojordands047-glitch/organizer-atualizacoes/main/Organizer.apk",
-    "novidades": "Avisos: aniversários, notas com lembrete e versões novas."
+    "versao": "1.6.2",
+    "url": "https://raw.githubusercontent.com/jojordands047-glitch/organizer-atualizacoes/main/Organizer-1.6.2.apk",
+    "novidades": "App com tudo da versão 1.6.3: layout do celular, notificações (avisam com o app fechado), Novidades e correções."
   },
   "programa": {
     "versao": "1.3.0",
