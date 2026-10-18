@@ -1,0 +1,20 @@
+{
+  "conteudo": {
+    "versao": "1.3.0",
+    "novidades": "Atualização automática: o Organizer agora se atualiza sozinho.",
+    "arquivo": "organizer.html",
+    "assinatura": "organizer.html.sig",
+    "minimoPrograma": "1.3.0",
+    "minimoApp": "1.3.0"
+  },
+  "app": {
+    "versao": "1.3.0",
+    "url": "https://raw.githubusercontent.com/jojordands047-glitch/organizer-atualizacoes/main/Organizer.apk",
+    "novidades": "Atualização automática: o Organizer agora se atualiza sozinho."
+  },
+  "programa": {
+    "versao": "1.3.0",
+    "url": null,
+    "novidades": "Atualização automática: o Organizer agora se atualiza sozinho."
+  }
+}
