@@ -2,6 +2,32 @@
  "formato": "organizer-novidades",
  "versoes": [
   {
+   "versao": "1.8.2",
+   "data": "2026-10-18",
+   "itens": [
+    {
+     "tipo": "mudado",
+     "texto": "Natal: volta o fundo verde de antes, agora cheio de luzes desfocadas que piscam."
+    },
+    {
+     "tipo": "adicionado",
+     "texto": "Natal: pisca-pisca nos 4 lados de todas as janelas, com uma lâmpada dourada em cada canto."
+    },
+    {
+     "tipo": "mudado",
+     "texto": "Natal: contador centralizado acima da janela de entrar."
+    },
+    {
+     "tipo": "removido",
+     "texto": "Natal: cenário com lua, casa e bonecos de neve, e as guirlandas do topo."
+    },
+    {
+     "tipo": "mudado",
+     "texto": "Natal mais leve: menos flocos de neve e efeitos que animam só a transparência."
+    }
+   ]
+  },
+  {
    "versao": "1.8.1",
    "data": "2026-10-18",
    "itens": [

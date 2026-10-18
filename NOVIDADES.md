@@ -2,6 +2,13 @@
 
 ➕ adicionado · 🔧 corrigido · 🔄 mudado · ➖ removido
 
+## 1.8.2 — 18/10/2026
+- 🔄 Natal: volta o fundo verde de antes, agora cheio de luzes desfocadas que piscam.
+- ➕ Natal: pisca-pisca nos 4 lados de todas as janelas, com uma lâmpada dourada em cada canto.
+- 🔄 Natal: contador centralizado acima da janela de entrar.
+- ➖ Natal: cenário com lua, casa e bonecos de neve, e as guirlandas do topo.
+- 🔄 Natal mais leve: menos flocos de neve e efeitos que animam só a transparência.
+
 ## 1.8.1 — 18/10/2026
 - 🔄 Natal mais bonito: cenário de fundo com lua iluminando um campo nevado, casa com chaminé soltando fumaça, pinheiros com luzes e bonecos de neve.
 - 🔄 Natal: neve caindo o tempo todo, guirlandas de pisca-pisca no topo da tela e luzes em volta da janela.

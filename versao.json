@@ -1,9 +1,9 @@
 {
   "conteudo": {
-    "versao": "1.8.1",
-    "novidades": "Natal com cenário noturno, mais luzes, gorro e relógio regressivo.",
-    "arquivo": "organizer-1.8.1.html",
-    "assinatura": "organizer-1.8.1.html.sig",
+    "versao": "1.8.2",
+    "novidades": "Natal: fundo com luzes, pisca-pisca em todas as janelas e contador acima da entrada.",
+    "arquivo": "organizer-1.8.2.html",
+    "assinatura": "organizer-1.8.2.html.sig",
     "minimoPrograma": "1.3.0",
     "minimoApp": "1.3.0"
   },
