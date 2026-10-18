@@ -1,6 +1,6 @@
 # Ideias guardadas para depois
 
-## 1. Área de versões ("Novidades")
+## 1. Área de versões ("Novidades") — ✅ feito na 1.5.3 (clique no número da versão)
 - Lista de todas as versões com o que foi adicionado, corrigido, mudado e removido.
 - O histórico já está pronto em `novidades.json` (e legível em `NOVIDADES.md`).
 - Lugar sugerido: Sincronizar → Atualizações → "Novidades", ou uma função própria no menu.
