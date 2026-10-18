@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <style>body{margin:0;font:14px system-ui,-apple-system,"Segoe UI",sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Organizer</title>
-<meta name="organizer-versao" content="1.3.3">
+<meta name="organizer-versao" content="1.3.4">
 <link rel="icon" id="favicon" href="data:,">
 <meta name="claude:viewport-fit-sides" content="cover">
 <style>
@@ -1150,7 +1150,11 @@ button.gear[aria-expanded="true"] { color: var(--accent); border-color: var(--ac
 /* calendário como área própria (fora das planilhas) */
 body.cal-pagina .wrap, body.calc-pagina .wrap, body.sync-pagina .wrap { display: none; }
 .sync-area { position: relative; z-index: 5; display: grid; place-items: start center; min-height: 100vh; box-sizing: border-box; padding: 16px max(16px, env(safe-area-inset-right, 0px)) 16px max(16px, env(safe-area-inset-left, 0px)); }
-.sync-area[hidden], body:not(.sync-pagina) .sync-area { display: none; }
+.sync-area[hidden], body:not(.sync-pagina) .sync-area:not(.cfg-area), body:not(.cfg-pagina) .cfg-area { display: none; }
+body.cfg-pagina .wrap { display: none; }
+#cfgBox .settings { position: static; width: 100%; max-height: none; box-shadow: none; border: 0; padding: 0; background: transparent; margin: 0; }
+#cfgBox .settings > .set-head, #cfgBox .settings > .beam { display: none; }
+body.em-funcoes .w-cantos #wSetBtn { display: none; }
 .sync-box { width: min(32rem, 100%); gap: 14px; }
 .sync-card { background: color-mix(in srgb, var(--bg) 55%, transparent); }
 /* relógios de Brasília e Manaus */
@@ -1657,6 +1661,7 @@ html.troca-festa body, html.troca-festa .grid-box, html.troca-festa .calc, html.
         <button id="wIrCal" type="button"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><b>Calendário</b><small>Datas, notas e feriados</small></button>
         <button id="wIrCalc" type="button"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2.5" width="14" height="19" rx="2.5"/><rect x="8" y="5.5" width="8" height="4" rx="1"/><path d="M8.5 13h.01M12 13h.01M15.5 13h.01M8.5 16.5h.01M12 16.5h.01M15.5 16.5h.01"/></svg><b>Calculadora</b><small>Contas rápidas</small></button>
         <button id="wIrSync" type="button"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8.8a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16.1a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1" fill="currentColor"/></svg><b>Sincronizar</b><small>Celular ⇄ computador</small></button>
+        <button id="wIrCfg" type="button"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg><b>Configurações</b><small>Temas, senha e mais</small></button>
         <div class="fx-breve" aria-hidden="true"><b>＋</b><small>Novas funções em breve</small></div>
       </div>
       <button id="wSairEsc" class="w-esc-sair" type="button">Sair</button>
@@ -1823,6 +1828,11 @@ html.troca-festa body, html.troca-festa .grid-box, html.troca-festa .calc, html.
   </div>
   <p class="set-note">Toca em repetição enquanto o tema Limbus estiver aberto. Fica guardada só neste aparelho.</p>
   <audio id="musica" loop preload="auto"></audio>
+</section>
+<section id="configuracoes" class="sync-area cfg-area" aria-label="Configurações" hidden>
+  <div class="calc-box sync-box" id="cfgBox"><i class="beam" aria-hidden="true"></i>
+    <div class="cal-pag-top"><button id="cfgFuncoes" class="small" aria-label="Voltar ao menu de funções"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg> Funções</button><strong>Configurações</strong><button id="cfgParaPlan" class="small">Planilhas →</button></div>
+  </div>
 </section>
 <section id="sincronizar" class="sync-area" aria-label="Sincronizar" hidden>
   <div class="calc-box sync-box"><i class="beam" aria-hidden="true"></i>
@@ -2467,7 +2477,7 @@ function toggleSettings(open) {
   if (open && !temasPanel.hidden) { temasPanel.hidden = true; temasBtn.setAttribute("aria-expanded", "false"); }
   settingsEl.hidden = !open; themeBtn.setAttribute("aria-expanded", String(open));
   const ws = document.getElementById("wSetBtn"); if (ws) ws.setAttribute("aria-expanded", String(open)); if (!open && editingThemes) { editingThemes = false; applyTheme(); } }
-themeBtn.onclick = () => toggleSettings(settingsEl.hidden);
+themeBtn.onclick = () => { if (document.body.classList.contains("cfg-pagina")) { window.cfgPagina(false); return; } toggleSettings(settingsEl.hidden); };
 document.getElementById("closeSet").onclick = () => toggleSettings(false);
 themesEl.addEventListener("click", e => {
   const pc = e.target.closest("[data-pasta]"); if (pc) { alternaPasta(pc.dataset.pasta); return; }
@@ -2693,7 +2703,7 @@ function welcomeTitle() {
 }
 function showWelcome() {
   unlocked = false;
-  document.body.classList.remove("cal-pagina", "calc-pagina", "sync-pagina"); const sp = document.getElementById("sincronizar"); if (sp) sp.hidden = true; const ca = document.getElementById("calculadora"); if (ca) ca.hidden = true; const cm = document.getElementById("calendario"); if (cm) cm.hidden = true;
+  if (document.body.classList.contains("cfg-pagina") && window.cfgPagina) window.cfgPagina(false); document.body.classList.remove("cal-pagina", "calc-pagina", "sync-pagina", "cfg-pagina", "em-funcoes"); const sp = document.getElementById("sincronizar"); if (sp) sp.hidden = true; const ca = document.getElementById("calculadora"); if (ca) ca.hidden = true; const cm = document.getElementById("calendario"); if (cm) cm.hidden = true;
   const we = document.getElementById("wEscolha"); if (we) { we.hidden = true; W.form.hidden = false; }
   try { emFuncoes = false; } catch {} document.querySelector("#welcome .w-card").classList.remove("funcoes");
   if (padEntrada) padEntrada.limpa();
@@ -2768,7 +2778,7 @@ var padEntrada = criaPadrao(document.getElementById("wPadraoPad"), s => {
 // menu "Funções": aparece depois da senha (Planilhas, Calendário e as próximas funções)
 var emFuncoes = false;
 function abreEscolha() {
-  emFuncoes = true; document.querySelector("#welcome .w-card").classList.add("funcoes");
+  emFuncoes = true; document.querySelector("#welcome .w-card").classList.add("funcoes"); document.body.classList.add("em-funcoes"); toggleSettings(false);
   W.form.hidden = true; document.getElementById("wPadrao").hidden = true; W.err.textContent = ""; wEscolha.hidden = false;
   const nick = (store.welcome.nick || "").trim();
   W.title.textContent = "Funções";
@@ -2787,16 +2797,25 @@ W.form.addEventListener("submit", e => {
   abreEscolha();
 });
 const wEscolha = document.getElementById("wEscolha");
-const fechaEscolha = () => { emFuncoes = false; document.querySelector("#welcome .w-card").classList.remove("funcoes"); wEscolha.hidden = true; mostraBloqueio(); };
+const fechaEscolha = () => { document.body.classList.remove("em-funcoes"); emFuncoes = false; document.querySelector("#welcome .w-card").classList.remove("funcoes"); wEscolha.hidden = true; mostraBloqueio(); };
 document.getElementById("funcBtn").onclick = () => irFuncoes();
 document.getElementById("wIrPlan").onclick = () => { fechaEscolha(); enter(); };
 document.getElementById("wIrCal").onclick = () => { fechaEscolha(); enter(); window.calPagina && window.calPagina(); };
+window.cfgPagina = on => {
+  const sec = document.getElementById("configuracoes");
+  document.body.classList.toggle("cfg-pagina", on !== false); sec.hidden = on === false;
+  if (on !== false) { document.getElementById("cfgBox").appendChild(settingsEl); applyTheme(); settingsEl.hidden = false; window.scrollTo(0, 0); }
+  else if (sec.contains(settingsEl)) { settingsEl.hidden = true; settingsHome.after(settingsEl); }
+};
+document.getElementById("wIrCfg").onclick = () => { fechaEscolha(); enter(); window.cfgPagina(true); };
+document.getElementById("cfgFuncoes").onclick = () => { window.cfgPagina(false); irFuncoes(); };
+document.getElementById("cfgParaPlan").onclick = () => window.cfgPagina(false);
 window.syncPagina = on => {
   document.body.classList.toggle("sync-pagina", on !== false); document.getElementById("sincronizar").hidden = on === false;
   if (on !== false) { toggleSettings(false); window.scrollTo(0, 0); document.getElementById("syncVersao").textContent = "v" + ((document.querySelector('meta[name="organizer-versao"]') || {}).content || ""); }
 };
 document.getElementById("wIrSync").onclick = () => { fechaEscolha(); enter(); window.syncPagina(true); };
-document.getElementById("abrirSync").onclick = () => { if (inMenu()) { enter(); } window.syncPagina(true); };
+document.getElementById("abrirSync").onclick = () => { if (document.body.classList.contains("cfg-pagina")) window.cfgPagina(false); if (inMenu()) { enter(); } window.syncPagina(true); };
 document.getElementById("syncFuncoes").onclick = () => irFuncoes();
 document.getElementById("syncParaPlan").onclick = () => window.syncPagina(false);
 document.getElementById("wIrCalc").onclick = () => { fechaEscolha(); enter(); window.calcPagina && window.calcPagina(); };

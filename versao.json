@@ -1,7 +1,7 @@
 {
   "conteudo": {
-    "versao": "1.3.3",
-    "novidades": "Correção: o número da versão no canto agora sempre mostra a versão certa.",
+    "versao": "1.3.4",
+    "novidades": "Nova tela Configurações no menu Funções (a engrenagem saiu do canto do menu).",
     "arquivo": "organizer.html",
     "assinatura": "organizer.html.sig",
     "minimoPrograma": "1.3.0",
