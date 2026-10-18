@@ -1,7 +1,7 @@
 {
   "conteudo": {
-    "versao": "1.6.1",
-    "novidades": "Sininho maior no canto superior direito; Notificações mais organizadas nas Configurações.",
+    "versao": "1.6.2",
+    "novidades": "Sininho abre a lista de notificações e aparece em todas as telas.",
     "arquivo": "organizer.html",
     "assinatura": "organizer.html.sig",
     "minimoPrograma": "1.3.0",

@@ -2,6 +2,10 @@
 
 ➕ adicionado · 🔧 corrigido · 🔄 mudado · ➖ removido
 
+## 1.6.2 — 18/10/2026
+- 🔧 O sininho não abria a lista de notificações (as telas ficavam por cima dele).
+- 🔄 Sininho aparece em todas as telas, inclusive boas-vindas e menu Funções.
+
 ## 1.6.1 — 18/10/2026
 - 🔄 Sininho de notificações maior, no canto superior direito (não fica mais em cima da versão).
 - 🔧 Sininho deformado em alguns temas.

@@ -2,6 +2,20 @@
  "formato": "organizer-novidades",
  "versoes": [
   {
+   "versao": "1.6.2",
+   "data": "2026-10-18",
+   "itens": [
+    {
+     "tipo": "corrigido",
+     "texto": "O sininho não abria a lista de notificações (as telas ficavam por cima dele)."
+    },
+    {
+     "tipo": "mudado",
+     "texto": "Sininho aparece em todas as telas, inclusive boas-vindas e menu Funções."
+    }
+   ]
+  },
+  {
    "versao": "1.6.1",
    "data": "2026-10-18",
    "itens": [
