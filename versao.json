@@ -1,7 +1,7 @@
 {
   "conteudo": {
-    "versao": "1.3.6",
-    "novidades": "Nova tela Perfil (foto, apelido e aniversário) e a engrenagem saiu da tela de boas-vindas.",
+    "versao": "1.3.7",
+    "novidades": "Simplificação: menos botões repetidos (sair, temas, configurações, excluir aba), opção Tudo nos temas e opções avançadas escondidas.",
     "arquivo": "organizer.html",
     "assinatura": "organizer.html.sig",
     "minimoPrograma": "1.3.0",
