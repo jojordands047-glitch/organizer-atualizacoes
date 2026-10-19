@@ -2,6 +2,18 @@
 
 ➕ adicionado · 🔧 corrigido · 🔄 mudado · ➖ removido
 
+## 1.8.6 — 19/10/2026
+- ➕ Temas de Orgulho: 8 bandeiras (Orgulho, Trans, Pan, Não-binário, Bi, Ace, Lésbica e Gay) na pasta Orgulho, com faixas animadas.
+- ➕ Tema Minha foto: escolha uma imagem de fundo, ajuste a área que aparece (no PC e no celular) e as cores do tema combinam com a foto sozinhas. Os 6 últimos fundos ficam salvos, com um X para apagar.
+- 🔄 Temas sazonais aparecem nos 7 dias até o dia da festa e somem depois (1º de abril só no dia). Arraial de 18 a 24/06 e Orgulho de 25 a 28/06.
+- ➕ 1º de abril: mais de 20 pegadinhas, uma de cada vez — senhor Caracol atravessando a tela (às vezes com a família), botões fugindo, "não sou um robô", "tem certeza?", chuva de palhaços, tudo caindo ou flutuando, anúncios falsos e mais. Cores de circo.
+- 🔄 Carnaval refeito com desenhos: confete caindo, holofotes e luzes se mexendo, estrelas piscando, leque de penas nos cantos, penas caindo, desfile de máscaras e selo "Feliz Carnaval!" acima do Bem-vindo.
+- 🔄 Arraial refeito com desenhos: cabana de bandeirinhas, balões pendurados, barraquinhas (pescaria, quentão, pamonha, correio), cerca, fogueira, girassóis, cactos, violão, milho, maçãs do amor, chapéu de palha na logo e fonte Rye.
+- 🔄 Tela de Temas no celular mais organizada: temas em 2 colunas e menos caixas dentro de caixas.
+- 🔄 Temas sazonais em lista, com datas e botão Testar para cada um.
+- 🔄 Mais leve: o brilho das bordas não redesenha mais a tela (bem menos uso do processador), animações do Natal, Halloween e Carnaval otimizadas e arquivo 0,5 MB menor.
+- 🔧 Leque de penas do Carnaval não aparecia no programa e no app.
+
 ## 1.8.4 — 19/10/2026
 - 🔄 Natal: luzes do fundo sem cortes, ficam só nas áreas livres e não se mexem ao rolar a tela.
 - ➕ Natal: ícones de Natal (presentes, meias, gorros, sinos…) aparecem e somem no fundo.
