@@ -2,6 +2,17 @@
 
 ➕ adicionado · 🔧 corrigido · 🔄 mudado · ➖ removido
 
+## 1.8.4 — 19/10/2026
+- 🔄 Natal: luzes do fundo sem cortes, ficam só nas áreas livres e não se mexem ao rolar a tela.
+- ➕ Natal: ícones de Natal (presentes, meias, gorros, sinos…) aparecem e somem no fundo.
+- 🔧 Natal: pisca-pisca das janelas sem cortes, com lâmpadas inteiras e cores trocando suavemente.
+- 🔄 Natal: novo contador estilo placar (dias, horas, min, seg), só na tela de boas-vindas.
+- 🔄 Halloween refeito com desenhos: castelo, cemitério com túmulos, árvores mortas, céu com estrelas, teias brancas com aranhas, morcegos, fantasmas, vassoura, folhas e doces caindo.
+- 🔄 Halloween: selo de contagem acima do Bem-vindo e fonte Creepster nos títulos.
+- 🔄 Ano Novo em preto e dourado: céu de estrelas douradas, contador acima do Bem-vindo e fonte Playfair Display.
+- ➕ Ano Novo: na meia-noite de Brasília, alguns fogos no fundo; na meia-noite de Manaus, contagem final cada vez mais brilhante, fundo escuro e desfocado, chuva de fogos e "Feliz Ano Novo!".
+- 🔄 Temas sazonais mais leves: animações que não redesenham a tela, fogos em resolução menor e efeitos pausados ao rolar ou com o programa minimizado.
+
 ## 1.8.3 — 18/10/2026
 - ➕ Natal: guirlandas de pisca-pisca de volta no fundo, no topo da tela.
 - 🔧 Natal: luzes do fundo apareciam cortadas em quadrado.

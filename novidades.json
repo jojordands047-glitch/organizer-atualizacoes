@@ -2,6 +2,48 @@
  "formato": "organizer-novidades",
  "versoes": [
   {
+   "versao": "1.8.4",
+   "data": "2026-10-19",
+   "itens": [
+    {
+     "tipo": "mudado",
+     "texto": "Natal: luzes do fundo sem cortes, ficam só nas áreas livres e não se mexem ao rolar a tela."
+    },
+    {
+     "tipo": "adicionado",
+     "texto": "Natal: ícones de Natal (presentes, meias, gorros, sinos…) aparecem e somem no fundo."
+    },
+    {
+     "tipo": "corrigido",
+     "texto": "Natal: pisca-pisca das janelas sem cortes, com lâmpadas inteiras e cores trocando suavemente."
+    },
+    {
+     "tipo": "mudado",
+     "texto": "Natal: novo contador estilo placar (dias, horas, min, seg), só na tela de boas-vindas."
+    },
+    {
+     "tipo": "mudado",
+     "texto": "Halloween refeito com desenhos: castelo, cemitério com túmulos, árvores mortas, céu com estrelas, teias brancas com aranhas, morcegos, fantasmas, vassoura, folhas e doces caindo."
+    },
+    {
+     "tipo": "mudado",
+     "texto": "Halloween: selo de contagem acima do Bem-vindo e fonte Creepster nos títulos."
+    },
+    {
+     "tipo": "mudado",
+     "texto": "Ano Novo em preto e dourado: céu de estrelas douradas, contador acima do Bem-vindo e fonte Playfair Display."
+    },
+    {
+     "tipo": "adicionado",
+     "texto": "Ano Novo: na meia-noite de Brasília, alguns fogos no fundo; na meia-noite de Manaus, contagem final cada vez mais brilhante, fundo escuro e desfocado, chuva de fogos e \"Feliz Ano Novo!\"."
+    },
+    {
+     "tipo": "mudado",
+     "texto": "Temas sazonais mais leves: animações que não redesenham a tela, fogos em resolução menor e efeitos pausados ao rolar ou com o programa minimizado."
+    }
+   ]
+  },
+  {
    "versao": "1.8.3",
    "data": "2026-10-18",
    "itens": [
