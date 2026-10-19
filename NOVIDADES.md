@@ -2,6 +2,9 @@
 
 ➕ adicionado · 🔧 corrigido · 🔄 mudado · ➖ removido
 
+## 1.8.7 — 19/10/2026
+- ➕ Importar abas de planilhas: um arquivo só com planilhas é adicionado sem apagar notas, calendário, perfil e temas. Abas vazias com o mesmo nome são preenchidas; se já tiverem dados, a importada entra como uma aba nova.
+
 ## 1.8.6 — 19/10/2026
 - ➕ Temas de Orgulho: 8 bandeiras (Orgulho, Trans, Pan, Não-binário, Bi, Ace, Lésbica e Gay) na pasta Orgulho, com faixas animadas.
 - ➕ Tema Minha foto: escolha uma imagem de fundo, ajuste a área que aparece (no PC e no celular) e as cores do tema combinam com a foto sozinhas. Os 6 últimos fundos ficam salvos, com um X para apagar.

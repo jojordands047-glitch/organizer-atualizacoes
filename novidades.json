@@ -2,6 +2,16 @@
  "formato": "organizer-novidades",
  "versoes": [
   {
+   "versao": "1.8.7",
+   "data": "2026-10-19",
+   "itens": [
+    {
+     "tipo": "adicionado",
+     "texto": "Importar abas de planilhas: um arquivo só com planilhas é adicionado sem apagar notas, calendário, perfil e temas. Abas vazias com o mesmo nome são preenchidas; se já tiverem dados, a importada entra como uma aba nova."
+    }
+   ]
+  },
+  {
    "versao": "1.8.6",
    "data": "2026-10-19",
    "itens": [
